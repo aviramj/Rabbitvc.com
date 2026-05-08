@@ -172,7 +172,7 @@ button { font: inherit; cursor: pointer; }
 @media (max-width: 900px) {
   .nav-links { display: none; }
   .menu-btn { display: inline-grid; }
-  .nav-actions .btn-primary { display: none; }
+  .nav-actions > .btn { display: none; }
 }
 
 /* =================== HERO =================== */
