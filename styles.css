@@ -450,15 +450,15 @@ button { font: inherit; cursor: pointer; }
 }
 
 .pf-logo {
-  height: 28px;
-  max-width: 60%;
-  margin-bottom: 18px;
+  height: 42px;
+  max-width: 75%;
+  margin-bottom: 16px;
   background: #ffffff;
-  border-radius: 6px;
+  border-radius: 8px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 3px 10px;
+  padding: 5px 12px;
   align-self: flex-start;
   overflow: hidden;
   border: none;
@@ -498,12 +498,12 @@ button { font: inherit; cursor: pointer; }
 .pf-name-row .pf-name {
   margin: 0;
 }
-.pf-logo.pf-wordmark { padding: 3px 10px; }
+.pf-logo.pf-wordmark { padding: 5px 14px; }
 .pf-wm {
   font-family: 'Montserrat', system-ui, sans-serif;
   font-weight: 800;
-  font-size: 15px;
-  letter-spacing: -.3px;
+  font-size: 22px;
+  letter-spacing: -.4px;
   color: #1f2937;
   line-height: 1;
 }
