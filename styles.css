@@ -508,6 +508,7 @@ button { font: inherit; cursor: pointer; }
   display: block;
   transform: scale(var(--logo-zoom, 1));
   transform-origin: var(--logo-origin, center);
+  filter: var(--logo-filter, none);
 }
 
 /* logo + name on the same line (used for Guide AI) */
