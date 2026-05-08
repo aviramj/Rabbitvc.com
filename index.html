@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<title>Rabbit Ventures &mdash; Helping Korean Startups Leap to Global Success</title>
+<meta name="description" content="Rabbit Ventures is a Seoul-based micro-VC backing Korean founders building global products from Day One. $50K&ndash;$200K checks, hands-on go-to-market support, and a path into the US market." />
+<meta name="theme-color" content="#0b0b10" />
+<meta property="og:title" content="Rabbit Ventures" />
+<meta property="og:description" content="Helping Korean Startups Leap to Global Success." />
+<meta property="og:type" content="website" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%90%87%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600;9..144,800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<canvas id="bgfx" aria-hidden="true"></canvas>
+
+<header class="nav" id="nav">
+  <a class="brand" href="#top" aria-label="Rabbit Ventures home">
+    <span class="brand-mark" aria-hidden="true">
+      <svg viewBox="0 0 40 40" width="28" height="28">
+        <defs>
+          <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
+            <stop offset="0" stop-color="#ff7ab6"/>
+            <stop offset="1" stop-color="#7c5cff"/>
+          </linearGradient>
+        </defs>
+        <path fill="url(#g1)" d="M13 4c1.6 0 3 1.4 3 3v7h8V7c0-1.6 1.4-3 3-3s3 1.4 3 3v9.5c3.5 1.6 6 5.2 6 9.5 0 5.8-5.2 11-12 11s-12-5.2-12-11c0-4.3 2.5-7.9 6-9.5V7c0-1.6 1.4-3 3-3z"/>
+        <circle cx="16" cy="27" r="1.6" fill="#0b0b10"/>
+        <circle cx="24" cy="27" r="1.6" fill="#0b0b10"/>
+        <path d="M18.5 31.5c.6 1 2.4 1 3 0" stroke="#0b0b10" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+      </svg>
+    </span>
+    <span class="brand-name">Rabbit <em>Ventures</em></span>
+  </a>
+
+  <nav class="nav-links" aria-label="Primary">
+    <a href="#approach">Approach</a>
+    <a href="#team">Team</a>
+    <a href="#podcast">Podcast</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <div class="nav-actions">
+    <button id="theme-toggle" class="icon-btn" type="button" aria-label="Toggle color theme" title="Toggle theme">
+      <svg class="i-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      <svg class="i-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    </button>
+    <a class="btn btn-primary" href="#contact">Pitch us</a>
+    <button class="icon-btn menu-btn" id="menu-btn" type="button" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobile-menu" hidden>
+  <a href="#approach">Approach</a>
+  <a href="#team">Team</a>
+  <a href="#podcast">Podcast</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<main id="main">
+
+  <!-- ============== HERO ============== -->
+  <section class="hero" id="top">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow"><span class="dot"></span> Seoul &middot; Pre-seed &middot; B2B SaaS</span>
+        <h1 class="display">
+          Helping Korean startups
+          <span class="grad">leap</span>
+          to global success.
+        </h1>
+        <p class="lede">
+          Rabbit Ventures is a micro-VC backing aspiring Korean founders building
+          global products from Day One. We write $50K&ndash;$200K checks and roll up
+          our sleeves on go-to-market &mdash; especially the path into the US.
+        </p>
+        <div class="cta-row">
+          <a class="btn btn-primary lg" href="#contact">
+            Pitch us
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+          <a class="btn btn-ghost lg" href="#podcast">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11a9 9 0 0 1 18 0v6a3 3 0 0 1-3 3h-1v-7h4M3 11v6a3 3 0 0 0 3 3h1v-7H3"/></svg>
+            Listen to the podcast
+          </a>
+        </div>
+
+        <dl class="hero-stats">
+          <div><dt>Check size</dt><dd>$50K &ndash; $200K</dd></div>
+          <div><dt>Stage</dt><dd>Pre-seed &middot; Seed</dd></div>
+          <div><dt>Geography</dt><dd>Korea &harr; US &middot; Israel</dd></div>
+        </dl>
+      </div>
+
+      <div class="hero-art" aria-hidden="true">
+        <div class="orb orb-a"></div>
+        <div class="orb orb-b"></div>
+        <div class="orb orb-c"></div>
+        <div class="card-stack">
+          <div class="card glass tilt" data-depth="0.6">
+            <div class="ct">
+              <span class="kicker">Day One</span>
+              <strong>Built for global.</strong>
+              <p>Korean talent. Worldwide ambition.</p>
+            </div>
+          </div>
+          <div class="card glass tilt" data-depth="1.2">
+            <div class="ct">
+              <span class="kicker">Hands-on</span>
+              <strong>Operator&ndash;investors.</strong>
+              <p>We&rsquo;ve built and exited companies. We help you do the same.</p>
+            </div>
+          </div>
+          <div class="card glass tilt" data-depth="1.8">
+            <div class="ct flag-row">
+              <span class="flag">&#127472;&#127479;</span>
+              <span class="flag">&#127482;&#127480;</span>
+              <span class="flag">&#127470;&#127473;</span>
+              <strong>Seoul &middot; SF &middot; Tel Aviv</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="track">
+        <span>Pre-Seed</span><span>&bull;</span><span>B2B SaaS</span><span>&bull;</span><span>Cybersecurity</span><span>&bull;</span><span>Go-to-Market</span><span>&bull;</span><span>Korea &rarr; Global</span><span>&bull;</span>
+        <span>Pre-Seed</span><span>&bull;</span><span>B2B SaaS</span><span>&bull;</span><span>Cybersecurity</span><span>&bull;</span><span>Go-to-Market</span><span>&bull;</span><span>Korea &rarr; Global</span><span>&bull;</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== APPROACH ============== -->
+  <section class="section" id="approach">
+    <header class="sec-head reveal">
+      <span class="eyebrow">What we do</span>
+      <h2 class="h-display">Capital is the easy part.</h2>
+      <p class="sec-sub">
+        We prioritize hands-on involvement and mentorship over sheer capital.
+        Our job is to help Korean founders refine their go-to-market, expand
+        internationally, and build category-defining global products.
+      </p>
+    </header>
+
+    <div class="cards three">
+      <article class="feature reveal">
+        <div class="ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="9"/></svg></div>
+        <h3>Global from Day One</h3>
+        <p>We back Korean founders building products with worldwide ambition &mdash; not just local champions.</p>
+      </article>
+      <article class="feature reveal">
+        <div class="ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M3 12l9 4 9-4"/><path d="M3 17l9 4 9-4"/></svg></div>
+        <h3>Operator-led capital</h3>
+        <p>Our partners have founded, scaled and exited companies. You get a co-conspirator, not a board observer.</p>
+      </article>
+      <article class="feature reveal">
+        <div class="ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3-9 4 18 3-9h4"/></svg></div>
+        <h3>Go-to-market muscle</h3>
+        <p>From positioning to first US customers, we help you turn product into revenue and revenue into a category.</p>
+      </article>
+    </div>
+
+    <div class="metrics reveal">
+      <div class="metric"><div class="num" data-count="40">0</div><div class="lab">Portfolio companies (and counting)</div></div>
+      <div class="metric"><div class="num" data-count="3">0</div><div class="lab">Continents we operate across</div></div>
+      <div class="metric"><div class="num" data-count="200" data-suffix="K">0</div><div class="lab">Max initial check (USD)</div></div>
+      <div class="metric"><div class="num" data-count="1">0</div><div class="lab">Mission &mdash; help you go global</div></div>
+    </div>
+  </section>
+
+  <!-- ============== THESIS ============== -->
+  <section class="section thesis" id="thesis">
+    <div class="thesis-grid">
+      <div class="reveal">
+        <span class="eyebrow">Our thesis</span>
+        <h2 class="h-display">Korean talent. <br/>Global products.</h2>
+      </div>
+      <div class="thesis-body reveal">
+        <p>
+          Korea has world-class engineering, design, and product talent. What it
+          doesn&rsquo;t always have is a clear playbook for selling globally from
+          Day One. That&rsquo;s where we come in.
+        </p>
+        <p>
+          We focus on <strong>B2B SaaS</strong>, <strong>cybersecurity</strong>,
+          and adjacent infrastructure software, where small, opinionated teams
+          can outrun much larger competitors with the right wedge into the US
+          market.
+        </p>
+        <ul class="bullets">
+          <li>Pre-seed &amp; seed checks of $50K&ndash;$200K, sweet spot $100K.</li>
+          <li>Hands-on US go-to-market and customer introductions.</li>
+          <li>An operator network across Seoul, San Francisco, and Tel Aviv.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== TEAM ============== -->
+  <section class="section" id="team">
+    <header class="sec-head reveal">
+      <span class="eyebrow">Team</span>
+      <h2 class="h-display">Operators who&rsquo;ve been there.</h2>
+      <p class="sec-sub">A small, focused team of founders and operators &mdash; building Rabbit Ventures the way we&rsquo;d build a startup.</p>
+    </header>
+
+    <div class="team-grid">
+      <article class="member reveal">
+        <div class="avatar" data-initials="AJ" style="--a:#ff8fb1;--b:#7c5cff"></div>
+        <h3>Aviram Jenik</h3>
+        <span class="role">Co-founder &middot; General Partner</span>
+        <p>
+          Entrepreneur, investor and advisor in B2B. Co-founded and led
+          Beyond Security as CEO until its acquisition by Fortra in 2021.
+          Angel investor in 40+ companies across Israel, the US, and Korea.
+        </p>
+        <div class="links">
+          <a href="https://www.linkedin.com/in/aviramjenik/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </article>
+
+      <article class="member reveal">
+        <div class="avatar" data-initials="CK" style="--a:#7c5cff;--b:#3ad6ff"></div>
+        <h3>Chang Kim <span class="muted">&middot; CK</span></h3>
+        <span class="role">Co-founder &middot; General Partner</span>
+        <p>
+          Two-time founder and former CEO of Tapas Media (acquired by Kakao
+          Entertainment for $510M). Background in product at Google and
+          Samsung; deep expertise in product, community, and mobile content.
+        </p>
+        <div class="links">
+          <a href="/author/ck/">Posts</a>
+        </div>
+      </article>
+
+      <article class="member reveal">
+        <div class="avatar" data-initials="SC" style="--a:#3ad6ff;--b:#7cffaf"></div>
+        <h3>Sun Cho</h3>
+        <span class="role">Advisor</span>
+        <p>
+          Accomplished leader in the gaming industry across Korea and the US.
+          Previously General Manager for Korea at now.gg; CEO and Founder of
+          Kiyat Games, a Silicon Valley-based mobile game publisher.
+        </p>
+        <div class="links">
+          <a href="/author/sun/">Posts</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============== PODCAST ============== -->
+  <section class="section podcast" id="podcast">
+    <header class="sec-head reveal">
+      <span class="eyebrow">Original series</span>
+      <h2 class="h-display">Startups with Seoul.</h2>
+      <p class="sec-sub">
+        Conversations with the Korean founders, operators and investors building
+        the next wave of global companies out of Seoul.
+      </p>
+    </header>
+
+    <div class="ep-grid">
+      <a class="ep reveal" href="/2024/08/22/startups-with-seoul-ep-13-kyum-kim/">
+        <span class="ep-num">Ep&nbsp;13</span>
+        <h3>Kyum Kim</h3>
+        <p class="ep-meta">Founder conversation</p>
+        <span class="ep-arrow" aria-hidden="true">&rarr;</span>
+      </a>
+      <a class="ep reveal" href="/2024/08/22/startups-with-seoul-ep-12-david-sangmin-lim/">
+        <span class="ep-num">Ep&nbsp;12</span>
+        <h3>David Sangmin Lim</h3>
+        <p class="ep-meta">Founder conversation</p>
+        <span class="ep-arrow" aria-hidden="true">&rarr;</span>
+      </a>
+      <a class="ep reveal" href="/2024/08/22/startups-with-seoul-ep-11-john-sung-kim/">
+        <span class="ep-num">Ep&nbsp;11</span>
+        <h3>John Sung Kim</h3>
+        <p class="ep-meta">Serial founder</p>
+        <span class="ep-arrow" aria-hidden="true">&rarr;</span>
+      </a>
+      <a class="ep reveal" href="/2024/02/14/startups-with-seoul-ep-7/">
+        <span class="ep-num">Ep&nbsp;7</span>
+        <h3>Jiwon Hong</h3>
+        <p class="ep-meta">Yesplz.ai</p>
+        <span class="ep-arrow" aria-hidden="true">&rarr;</span>
+      </a>
+      <a class="ep reveal" href="/2024/02/14/startups-with-seoul-episode-6/">
+        <span class="ep-num">Ep&nbsp;6</span>
+        <h3>Jiho Kang</h3>
+        <p class="ep-meta">Antler Korea</p>
+        <span class="ep-arrow" aria-hidden="true">&rarr;</span>
+      </a>
+      <a class="ep reveal" href="/2023/08/01/startups-with-seoul-episode-3/">
+        <span class="ep-num">Ep&nbsp;3</span>
+        <h3>Ryan Lee</h3>
+        <p class="ep-meta">Jigo.ai</p>
+        <span class="ep-arrow" aria-hidden="true">&rarr;</span>
+      </a>
+      <a class="ep reveal" href="/2023/08/01/startups-with-seoul-episode-1/">
+        <span class="ep-num">Ep&nbsp;1</span>
+        <h3>Paul Lee</h3>
+        <p class="ep-meta">Tribe Capital</p>
+        <span class="ep-arrow" aria-hidden="true">&rarr;</span>
+      </a>
+      <a class="ep ep-all reveal" href="/category/podcast/">
+        <span class="ep-num">All</span>
+        <h3>Browse all episodes</h3>
+        <p class="ep-meta">From the archive</p>
+        <span class="ep-arrow" aria-hidden="true">&rarr;</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============== CONTACT ============== -->
+  <section class="section contact" id="contact">
+    <div class="contact-card reveal">
+      <div>
+        <span class="eyebrow">Pitch us</span>
+        <h2 class="h-display">Building something global from Seoul?</h2>
+        <p class="sec-sub">
+          We&rsquo;d love to hear about it. Send a short note &mdash; what you&rsquo;re
+          building, who it&rsquo;s for, and why now &mdash; and we&rsquo;ll get back
+          to you.
+        </p>
+      </div>
+      <form class="contact-form" id="pitchForm" novalidate>
+        <label>
+          <span>Your name</span>
+          <input type="text" name="name" required autocomplete="name" />
+        </label>
+        <label>
+          <span>Email</span>
+          <input type="email" name="email" required autocomplete="email" />
+        </label>
+        <label>
+          <span>Company</span>
+          <input type="text" name="company" autocomplete="organization" />
+        </label>
+        <label class="full">
+          <span>What are you building?</span>
+          <textarea name="pitch" rows="4" required></textarea>
+        </label>
+        <button class="btn btn-primary lg" type="submit">
+          Send pitch
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </button>
+        <p class="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="foot-grid">
+    <div>
+      <a class="brand" href="#top" aria-label="Rabbit Ventures">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40" width="22" height="22">
+            <defs>
+              <linearGradient id="g2" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stop-color="#ff7ab6"/>
+                <stop offset="1" stop-color="#7c5cff"/>
+              </linearGradient>
+            </defs>
+            <path fill="url(#g2)" d="M13 4c1.6 0 3 1.4 3 3v7h8V7c0-1.6 1.4-3 3-3s3 1.4 3 3v9.5c3.5 1.6 6 5.2 6 9.5 0 5.8-5.2 11-12 11s-12-5.2-12-11c0-4.3 2.5-7.9 6-9.5V7c0-1.6 1.4-3 3-3z"/>
+          </svg>
+        </span>
+        <span class="brand-name">Rabbit <em>Ventures</em></span>
+      </a>
+      <p class="muted small">Helping Korean startups leap to global success.</p>
+    </div>
+    <nav aria-label="Footer">
+      <h4>Site</h4>
+      <a href="#approach">Approach</a>
+      <a href="#team">Team</a>
+      <a href="#podcast">Podcast</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <nav aria-label="Elsewhere">
+      <h4>Elsewhere</h4>
+      <a href="https://www.linkedin.com/company/rabbit-vc" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.youtube.com/channel/UCklksAZOwQL5TgJaGDevqbA/videos" target="_blank" rel="noopener">YouTube</a>
+      <a href="/feed/">RSS</a>
+    </nav>
+    <div>
+      <h4>Seoul</h4>
+      <p class="muted small">A micro-VC focused on pre-seed B2B SaaS and cybersecurity, partnering with Korean founders going global.</p>
+    </div>
+  </div>
+  <div class="foot-bar">
+    <span>&copy; <span id="yr"></span> Rabbit Ventures.</span>
+    <span class="muted">Made with care in Seoul.</span>
+  </div>
+</footer>
+
+<script src="./app.js" defer></script>
+</body>
+</html>
