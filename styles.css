@@ -478,6 +478,23 @@ button { font: inherit; cursor: pointer; }
   height: auto;
   object-fit: contain;
   display: block;
+  transform: scale(var(--logo-zoom, 1));
+  transform-origin: var(--logo-origin, center);
+}
+
+/* logo + name on the same line (used for Guide AI) */
+.pf-name-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.pf-name-row .pf-logo {
+  margin-bottom: 0;
+  align-self: center;
+}
+.pf-name-row .pf-name {
+  margin: 0;
 }
 .pf-logo.pf-wordmark { padding: 3px 10px; }
 .pf-wm {
