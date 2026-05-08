@@ -99,7 +99,7 @@ print(f"Wrote {manifest}")
 
 # 4. Download every rabbitvc.com /wp-content/uploads/ asset referenced anywhere
 url_re = re.compile(
-    r'https?://[^\s"\'<>)\\]+rabbitvc\.com/wp-content/uploads/[^\s"\'<>)\\]+'
+    r'https?://(?:[^\s"\'<>)\\]+\.)?rabbitvc\.com/wp-content/uploads/[^\s"\'<>)\\]+'
 )
 
 seen: set[str] = set()
