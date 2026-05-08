@@ -827,3 +827,66 @@ button { font: inherit; cursor: pointer; }
   padding: 4px 0 4px 16px;
   color: var(--fg);
 }
+
+/* =================== LISTEN ON =================== */
+.listen-on {
+  margin: 24px 0 32px;
+  padding: 18px 22px 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+}
+.listen-on-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  margin: 0 0 12px;
+  font-weight: 600;
+}
+.listen-on-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.lo-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  color: var(--fg);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: .02em;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: transform .2s var(--ease), border-color .2s var(--ease), background .2s, box-shadow .2s, color .2s;
+}
+.lo-btn:hover {
+  transform: translateY(-1px);
+  color: var(--fg);
+  border-color: color-mix(in oklab, var(--lo-color, var(--primary)) 60%, var(--border));
+  background: color-mix(in oklab, var(--lo-color, var(--primary)) 10%, var(--bg-elev));
+  box-shadow: 0 6px 16px -6px color-mix(in oklab, var(--lo-color, var(--primary)) 50%, transparent);
+}
+.lo-btn svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  color: var(--lo-color, var(--primary));
+}
+.lo-btn-spotify { --lo-color: #1ed760; }
+.lo-btn-apple   { --lo-color: #b04bc6; }
+.lo-btn-youtube { --lo-color: #ff0033; }
+
+/* show-level Listen On on the podcast index hero — slightly tighter */
+.podcast-hero .listen-on {
+  margin: 22px auto 0;
+  max-width: 560px;
+}
+.podcast-hero .listen-on-buttons { justify-content: center; }
