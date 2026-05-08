@@ -395,15 +395,18 @@ button { font: inherit; cursor: pointer; }
 }
 
 .pf-logo {
-  height: 84px;
-  margin-bottom: 8px;
+  height: 40px;
+  min-width: 56px;
+  max-width: 60%;
+  margin-bottom: 14px;
   background: #ffffff;
-  border-radius: 12px;
-  display: flex;
+  border-radius: 8px;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 12px 18px;
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  padding: 6px 12px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  align-self: flex-start;
   overflow: hidden;
 }
 .pf-logo img {
@@ -414,26 +417,12 @@ button { font: inherit; cursor: pointer; }
   object-fit: contain;
   display: block;
 }
-.pf-logo.pf-mono {
-  background: linear-gradient(135deg, var(--mono-a, #0bb4aa), var(--mono-b, #18d3c8));
-  border-color: transparent;
-  position: relative;
-}
-.pf-logo.pf-mono::before {
-  content: attr(data-letter);
-  font-family: 'Fraunces', serif;
-  font-size: 44px;
-  font-weight: 700;
-  color: #fff;
-  letter-spacing: -.02em;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
-}
-.pf-logo.pf-wordmark { padding: 12px 22px; }
+.pf-logo.pf-wordmark { padding: 4px 12px; }
 .pf-wm {
   font-family: 'Inter', system-ui, sans-serif;
   font-weight: 800;
-  font-size: clamp(28px, 3vw, 38px);
-  letter-spacing: -1.2px;
+  font-size: 19px;
+  letter-spacing: -.5px;
   color: #1f2937;
   line-height: 1;
 }
