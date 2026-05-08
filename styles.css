@@ -370,6 +370,7 @@ button { font: inherit; cursor: pointer; }
 .advisor-group {
   display: grid;
   gap: 14px;
+  text-align: center;
 }
 .advisor-group-title {
   font-family: 'Montserrat', sans-serif;
@@ -384,6 +385,7 @@ button { font: inherit; cursor: pointer; }
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+  justify-content: center;
 }
 .advisor-card {
   display: inline-flex;
