@@ -299,6 +299,32 @@ button { font: inherit; cursor: pointer; }
   box-shadow: var(--shadow-1);
   transition: transform .3s var(--ease), border-color .3s var(--ease), box-shadow .3s var(--ease);
 }
+.member--wrap {
+  display: block;
+}
+.member--wrap > .photo {
+  float: left;
+  width: 160px;
+  margin: 0 22px 10px 0;
+  shape-outside: circle(50%);
+}
+.member--wrap > .member-body {
+  display: block;
+}
+.member--wrap::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+@media (max-width: 640px) {
+  .member--wrap { padding: 22px; }
+  .member--wrap > .photo {
+    float: none;
+    width: 140px;
+    margin: 0 auto 16px;
+    shape-outside: none;
+  }
+}
 .member:hover {
   transform: translateY(-4px);
   border-color: var(--border-strong);
