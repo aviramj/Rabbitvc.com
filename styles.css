@@ -507,7 +507,6 @@ button { font: inherit; cursor: pointer; }
 .pf-card:hover::before { opacity: 1; }
 
 .pf-name {
-  display: flex; align-items: flex-start; justify-content: space-between; gap: 8px;
   font-family: 'Fraunces', serif;
   font-size: 22px;
   font-weight: 600;
@@ -517,11 +516,16 @@ button { font: inherit; cursor: pointer; }
   line-height: 1.2;
 }
 .pf-arrow {
+  position: absolute;
+  top: 14px;
+  right: 18px;
   color: var(--fg-muted);
   font-family: 'Inter', sans-serif;
   font-size: 18px;
-  flex-shrink: 0;
+  line-height: 1;
   transition: transform .25s var(--ease), color .25s;
+  z-index: 1;
+  pointer-events: none;
 }
 .pf-card:hover .pf-arrow {
   color: var(--primary);
