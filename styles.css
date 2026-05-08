@@ -383,7 +383,7 @@ button { font: inherit; cursor: pointer; }
   display: flex;
   flex-direction: column;
   gap: 10px;
-  padding: 22px 22px 24px;
+  padding: 18px 20px 22px;
   background: var(--bg-elev);
   border: 1px solid var(--border);
   border-radius: var(--r-md);
@@ -392,6 +392,41 @@ button { font: inherit; cursor: pointer; }
   isolation: isolate;
   overflow: hidden;
   transition: transform .25s var(--ease), border-color .25s var(--ease), box-shadow .25s var(--ease);
+}
+
+.pf-logo {
+  height: 84px;
+  margin-bottom: 8px;
+  background: #ffffff;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+}
+.pf-logo img {
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+.pf-logo.pf-mono {
+  background: linear-gradient(135deg, var(--mono-a, #0bb4aa), var(--mono-b, #18d3c8));
+  border-color: transparent;
+  position: relative;
+}
+.pf-logo.pf-mono::before {
+  content: attr(data-letter);
+  font-family: 'Fraunces', serif;
+  font-size: 44px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -.02em;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
 }
 .pf-card::before {
   content: "";
