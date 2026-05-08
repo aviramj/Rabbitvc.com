@@ -67,7 +67,7 @@
   }
 
   // ---------- Active section highlight ----------
-  const sectionIds = ['top', 'about', 'team', 'portfolio', 'contact'];
+  const sectionIds = ['top', 'about', 'team', 'advisors', 'portfolio', 'contact'];
   const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
   const navLinks = new Map(
     $$('.nav-links a[href^="#"]').map(a => [a.getAttribute('href').slice(1), a])
