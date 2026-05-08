@@ -150,11 +150,14 @@ button { font: inherit; cursor: pointer; }
 
 .mobile-menu {
   position: fixed; inset: 64px 0 auto 0; z-index: 49;
-  padding: 16px var(--pad); display: grid; gap: 4px;
+  padding: 16px var(--pad); gap: 4px;
   background: color-mix(in oklab, var(--bg) 95%, transparent);
   border-bottom: 1px solid var(--border);
   backdrop-filter: blur(14px);
+  display: none;
 }
+.mobile-menu:not([hidden]) { display: grid; }
+@media (min-width: 901px) { .mobile-menu { display: none !important; } }
 .mobile-menu a {
   padding: 14px; border-radius: 12px; font-weight: 600;
   color: var(--fg);
