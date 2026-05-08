@@ -428,6 +428,19 @@ button { font: inherit; cursor: pointer; }
   letter-spacing: -.02em;
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
 }
+.pf-logo.pf-wordmark { padding: 12px 22px; }
+.pf-wm {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 800;
+  font-size: clamp(28px, 3vw, 38px);
+  letter-spacing: -1.2px;
+  color: #1f2937;
+  line-height: 1;
+}
+.pf-wm em {
+  font-style: normal;
+  color: #0bb4aa;
+}
 .pf-card::before {
   content: "";
   position: absolute; inset: 0; z-index: -1;
