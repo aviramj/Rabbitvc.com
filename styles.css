@@ -358,6 +358,59 @@ button { font: inherit; cursor: pointer; }
   transform: scale(1.06);
 }
 
+/* =================== ADVISORS =================== */
+.advisors {
+  max-width: var(--maxw);
+  margin: 0 auto;
+}
+.advisor-groups {
+  display: grid;
+  gap: 36px;
+}
+.advisor-group {
+  display: grid;
+  gap: 14px;
+}
+.advisor-group-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin: 0;
+  font-weight: 600;
+}
+.advisor-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.advisor-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-weight: 500;
+  font-size: 14.5px;
+  color: var(--fg);
+  text-decoration: none;
+  transition: transform .2s var(--ease), border-color .2s, background .2s, color .2s;
+}
+.advisor-card:hover {
+  transform: translateY(-1px);
+  border-color: color-mix(in oklab, var(--primary) 60%, var(--border));
+  background: color-mix(in oklab, var(--primary) 8%, var(--bg-elev));
+}
+.advisor-li {
+  color: var(--fg-muted);
+  transition: color .2s;
+  flex-shrink: 0;
+}
+.advisor-card:hover .advisor-li { color: var(--primary); }
+
 /* =================== PORTFOLIO =================== */
 .portfolio {
   padding-top: clamp(40px, 6vw, 80px);
