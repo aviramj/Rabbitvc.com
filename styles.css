@@ -395,19 +395,28 @@ button { font: inherit; cursor: pointer; }
 }
 
 .pf-logo {
-  height: 40px;
-  min-width: 56px;
+  height: 28px;
   max-width: 60%;
-  margin-bottom: 14px;
+  margin-bottom: 18px;
   background: #ffffff;
-  border-radius: 8px;
+  border-radius: 6px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 6px 12px;
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 3px 10px;
   align-self: flex-start;
   overflow: hidden;
+  border: none;
+  box-shadow:
+    0 2px 6px -2px rgba(0, 0, 0, 0.18),
+    0 0 0 1px rgba(0, 0, 0, 0.04);
+  transition: transform .25s var(--ease), box-shadow .25s var(--ease);
+}
+.pf-card:hover .pf-logo {
+  transform: translateY(-1px);
+  box-shadow:
+    0 6px 14px -4px rgba(0, 0, 0, 0.30),
+    0 0 0 1px rgba(0, 0, 0, 0.05);
 }
 .pf-logo img {
   max-height: 100%;
@@ -417,12 +426,12 @@ button { font: inherit; cursor: pointer; }
   object-fit: contain;
   display: block;
 }
-.pf-logo.pf-wordmark { padding: 4px 12px; }
+.pf-logo.pf-wordmark { padding: 3px 10px; }
 .pf-wm {
   font-family: 'Inter', system-ui, sans-serif;
   font-weight: 800;
-  font-size: 19px;
-  letter-spacing: -.5px;
+  font-size: 15px;
+  letter-spacing: -.3px;
   color: #1f2937;
   line-height: 1;
 }
