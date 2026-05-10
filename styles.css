@@ -890,3 +890,24 @@ button { font: inherit; cursor: pointer; }
   max-width: 560px;
 }
 .podcast-hero .listen-on-buttons { justify-content: center; }
+/* STAGING NEWS CSS */
+.staging-banner{position:fixed;top:0;left:0;right:0;z-index:60;background:#ff8a5b;color:#1a0f08;font:600 12px/1.4 Montserrat,sans-serif;text-align:center;padding:6px 12px;letter-spacing:.04em}
+.staging-banner a{color:#1a0f08;text-decoration:underline;margin-left:6px}
+body:has(.staging-banner) .nav{top:28px}
+body:has(.staging-banner) .mobile-menu{top:92px}
+.news{max-width:var(--maxw);margin:0 auto}
+.news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+@media (max-width:900px){.news-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:540px){.news-grid{grid-template-columns:1fr}}
+.news-card{display:flex;flex-direction:column;background:var(--bg-elev);border:1px solid var(--border);border-radius:var(--r-md);overflow:hidden;text-decoration:none;color:inherit;transition:transform .25s var(--ease),border-color .25s,box-shadow .25s}
+.news-card:hover{transform:translateY(-4px);border-color:color-mix(in oklab,var(--primary) 60%,var(--border));box-shadow:var(--shadow-2)}
+.news-card-cover{aspect-ratio:16/9;overflow:hidden;background:linear-gradient(135deg,#0a0f17,#1a2434);position:relative}
+.news-card-cover img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s var(--ease)}
+.news-card:hover .news-card-cover img{transform:scale(1.04)}
+.news-placeholder{position:absolute;inset:0;display:grid;place-items:center;color:var(--fg-muted);font-size:13px;letter-spacing:.14em;text-transform:uppercase}
+.news-card-body{padding:18px 20px 22px;display:flex;flex-direction:column;gap:8px;flex:1}
+.news-card-meta{display:flex;align-items:center;gap:8px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--fg-muted)}
+.news-card-meta .news-type{padding:2px 9px;border-radius:999px;background:color-mix(in oklab,var(--primary) 18%,transparent);color:var(--primary)}
+.news-card-title{font-family:Montserrat,sans-serif;font-weight:600;font-size:17px;line-height:1.3;color:var(--fg);margin:0}
+.news-card-desc{font-size:14.5px;color:var(--fg-soft);line-height:1.55;margin:0}
+.news-card-link{margin-top:auto;padding-top:4px;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--primary)}
