@@ -95,6 +95,7 @@ button { font: inherit; cursor: pointer; }
 }
 .brand-name { font-size: clamp(18px, 1.4vw, 22px); }
 .brand-mark { width: auto; height: clamp(40px, 4.5vw, 54px); }
+[data-theme="light"] .brand-mark { filter: invert(1); }
 
 .nav-links {
   margin-left: 32px; display: flex; gap: 4px; flex: 1;
