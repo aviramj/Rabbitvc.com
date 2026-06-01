@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Penzzer IEC 62443-Aligned Industrial Protocol Fuzzing Evidence</title>
+<style>
+/* ------------------------------------------------------------------ */
+/*  Page geometry & running furniture                                  */
+/* ------------------------------------------------------------------ */
+@page {
+    size: A4;
+    margin: 24mm 20mm 22mm 20mm;
+    @top-left {
+        content: "Penzzer \2014 IEC 62443-Aligned Fuzzing Evidence";
+        font-family: "Liberation Sans", "DejaVu Sans", sans-serif;
+        font-size: 7.6pt;
+        color: #6b7682;
+        letter-spacing: 0.02em;
+        padding-bottom: 3pt;
+    }
+    @top-right {
+        content: "Version 1.0";
+        font-family: "Liberation Sans", "DejaVu Sans", sans-serif;
+        font-size: 7.6pt;
+        color: #6b7682;
+        padding-bottom: 3pt;
+    }
+    @bottom-left {
+        content: "Confidential \2014 For recipient evaluation use";
+        font-family: "Liberation Sans", "DejaVu Sans", sans-serif;
+        font-size: 7.4pt;
+        color: #8a929b;
+    }
+    @bottom-right {
+        content: counter(page) " of " counter(pages);
+        font-family: "Liberation Sans", "DejaVu Sans", sans-serif;
+        font-size: 7.6pt;
+        color: #6b7682;
+    }
+}
+
+/* Cover page: no header/footer furniture */
+@page cover {
+    margin: 0;
+    @top-left { content: none; }
+    @top-right { content: none; }
+    @bottom-left { content: none; }
+    @bottom-right { content: none; }
+}
+
+@page contents {
+    @top-left { content: none; }
+    @top-right { content: none; }
+}
+
+/* ------------------------------------------------------------------ */
+/*  Base typography                                                    */
+/* ------------------------------------------------------------------ */
+html { font-size: 10.5pt; }
+
+body {
+    font-family: "Bitstream Charter", "Charter", "Liberation Serif", serif;
+    color: #1d2228;
+    line-height: 1.46;
+    margin: 0;
+    -weasy-hyphens: auto;
+    hyphens: auto;
+}
+
+p { margin: 0 0 7pt 0; text-align: justify; }
+
+h1, h2, h3 {
+    font-family: "Liberation Sans", "DejaVu Sans", sans-serif;
+    color: #15314f;
+    font-weight: 700;
+    -weasy-hyphens: none;
+    hyphens: none;
+}
+
+h2 {
+    font-size: 14.5pt;
+    margin: 0 0 9pt 0;
+    padding-bottom: 5pt;
+    border-bottom: 1.6pt solid #15314f;
+    page-break-after: avoid;
+    letter-spacing: -0.005em;
+}
+
+h3 {
+    font-size: 11pt;
+    color: #2a4a6b;
+    margin: 14pt 0 5pt 0;
+    page-break-after: avoid;
+}
+
+section.body-section {
+    page-break-before: always;
+    padding-top: 2pt;
+}
+
+a { color: #1d2228; text-decoration: none; }
+
+strong { font-weight: 700; }
+
+/* ------------------------------------------------------------------ */
+/*  Cover page                                                         */
+/* ------------------------------------------------------------------ */
+.cover {
+    page: cover;
+    page-break-after: always;
+    height: 297mm;
+    box-sizing: border-box;
+    padding: 38mm 24mm 22mm 24mm;
+    position: relative;
+    color: #1d2228;
+}
+.cover::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 14mm;
+    background: #15314f;
+}
+.cover::after {
+    content: "";
+    position: absolute;
+    left: 24mm; right: 24mm;
+    bottom: 20mm;
+    border-top: 0.8pt solid #c4ccd4;
+}
+.cover .kicker {
+    font-family: "Liberation Sans", sans-serif;
+    font-size: 9pt;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #6b7682;
+    margin-bottom: 14mm;
+}
+.cover h1 {
+    font-family: "Liberation Sans", sans-serif;
+    font-size: 27pt;
+    line-height: 1.18;
+    color: #15314f;
+    font-weight: 700;
+    margin: 0 0 7mm 0;
+    letter-spacing: -0.01em;
+}
+.cover .doctype {
+    font-family: "Liberation Sans", sans-serif;
+    font-size: 12.5pt;
+    color: #3a4a59;
+    font-weight: 600;
+    margin-bottom: 16mm;
+}
+.cover .meta {
+    font-family: "Liberation Sans", sans-serif;
+    font-size: 9.5pt;
+    line-height: 1.7;
+    color: #2a3540;
+}
+.cover .meta .label {
+    display: inline-block;
+    width: 30mm;
+    color: #6b7682;
+    font-weight: 600;
+}
+.cover .audience {
+    margin-top: 9mm;
+    font-family: "Bitstream Charter", serif;
+    font-size: 9.5pt;
+    line-height: 1.55;
+    color: #3a4654;
+    max-width: 150mm;
+}
+.cover .audience .label {
+    display: block;
+    font-family: "Liberation Sans", sans-serif;
+    color: #6b7682;
+    font-weight: 600;
+    font-size: 9.5pt;
+    margin-bottom: 2pt;
+}
+.cover .footer-note {
+    position: absolute;
+    left: 24mm; right: 24mm;
+    bottom: 12mm;
+    font-family: "Liberation Sans", sans-serif;
+    font-size: 8pt;
+    color: #8a929b;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Table of contents                                                  */
+/* ------------------------------------------------------------------ */
+.toc {
+    page: contents;
+    page-break-after: always;
+}
+.toc h2 { border-bottom: 1.6pt solid #15314f; }
+.toc ul { list-style: none; margin: 6pt 0 0 0; padding: 0; }
+.toc li {
+    font-family: "Liberation Sans", sans-serif;
+    font-size: 10pt;
+    margin: 0;
+    padding: 5.5pt 0;
+    border-bottom: 0.4pt dotted #c9d0d8;
+    display: flex;
+    justify-content: space-between;
+}
+.toc li .num { color: #15314f; font-weight: 700; display: inline-block; min-width: 9mm; margin-right: 2mm; }
+.toc li .ttl { color: #2a3540; }
+.toc li .pg { color: #6b7682; flex: none; }
+.toc li a { display: flex; width: 100%; justify-content: space-between; }
+.toc li a::after {
+    content: target-counter(attr(href), page);
+    color: #6b7682;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Tables                                                             */
+/* ------------------------------------------------------------------ */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 8pt 0 12pt 0;
+    font-size: 9pt;
+    -weasy-hyphens: none;
+    hyphens: none;
+}
+thead { display: table-header-group; }
+th {
+    background: #eef2f6;
+    color: #15314f;
+    font-family: "Liberation Sans", sans-serif;
+    font-weight: 700;
+    text-align: left;
+    font-size: 8.6pt;
+    letter-spacing: 0.01em;
+    padding: 5.5pt 7pt;
+    border-bottom: 1.2pt solid #9fb0c0;
+    border-top: 1.2pt solid #9fb0c0;
+    vertical-align: bottom;
+}
+td {
+    padding: 5pt 7pt;
+    border-bottom: 0.5pt solid #d8dee4;
+    vertical-align: top;
+    line-height: 1.34;
+}
+tbody tr:nth-child(even) td { background: #f8fafb; }
+table.threecol td:first-child,
+table.twocol td:first-child {
+    font-family: "Liberation Sans", sans-serif;
+    font-weight: 600;
+    color: #243240;
+    white-space: nowrap;
+}
+/* allow wrapping in first column where content is long */
+table.wrapfirst td:first-child { white-space: normal; }
+td .note { color: #56616c; }
+
+/* status pills kept subtle and text-like */
+.status-sup { color: #1d6b3f; font-weight: 600; }
+.status-dep { color: #8a5a14; font-weight: 600; }
+.status-cust { color: #5a6470; font-weight: 600; }
+
+/* ------------------------------------------------------------------ */
+/*  Misc content blocks                                                */
+/* ------------------------------------------------------------------ */
+ol, ul.plain { margin: 4pt 0 10pt 0; }
+ol { padding-left: 18pt; }
+ol li { margin-bottom: 4pt; text-align: justify; }
+ul.refs { list-style: none; padding: 0; margin: 6pt 0; }
+ul.refs li {
+    margin-bottom: 7pt;
+    padding-left: 0;
+    line-height: 1.4;
+}
+ul.refs li .src { font-weight: 600; color: #1d2228; }
+ul.refs li .url {
+    display: block;
+    font-family: "Liberation Sans", sans-serif;
+    font-size: 8.3pt;
+    color: #3a5a82;
+    word-break: break-all;
+    margin-top: 1pt;
+}
+
+.lead {
+    font-size: 10.8pt;
+    line-height: 1.5;
+}
+
+.callout {
+    border-left: 2.4pt solid #15314f;
+    background: #f5f7f9;
+    padding: 8pt 11pt;
+    margin: 9pt 0;
+    font-size: 9.6pt;
+    line-height: 1.45;
+}
+.callout .ch {
+    font-family: "Liberation Sans", sans-serif;
+    font-weight: 700;
+    color: #15314f;
+    font-size: 9.6pt;
+    display: block;
+    margin-bottom: 2pt;
+}
+
+.docctrl dt {
+    font-family: "Liberation Sans", sans-serif;
+    font-weight: 700;
+    color: #15314f;
+    font-size: 9.4pt;
+    margin-top: 8pt;
+}
+.docctrl dd { margin: 1pt 0 0 0; }
+</style>
+</head>
+<body>
+
+<!-- ============================ COVER ============================ -->
+<div class="cover">
+    <div class="kicker">OT Security Assurance &nbsp;&middot;&nbsp; Technical Evidence</div>
+    <h1>Penzzer IEC&nbsp;62443-Aligned Industrial Protocol Fuzzing Evidence</h1>
+    <div class="doctype">Compliance and Technical Evidence Brief</div>
+
+    <div class="meta">
+        <div><span class="label">Document type</span>Compliance and Technical Evidence Brief</div>
+        <div><span class="label">Version</span>1.0</div>
+        <div><span class="label">Date</span>11 May 2026</div>
+        <div><span class="label">Owner</span>Penzzer OT Security Assurance</div>
+    </div>
+
+    <div class="audience">
+        <span class="label">Primary audience</span>
+        OT security teams, industrial asset owners, system integrators, industrial OEMs,
+        GRC and procurement teams, and security assurance reviewers in Japan, EMEA, and
+        North America.
+    </div>
+
+    <div class="footer-note">
+        <span>Penzzer OT Security Assurance</span>
+        <span>Confidential &mdash; For recipient evaluation use</span>
+    </div>
+</div>
+
+<!-- ============================ CONTENTS ============================ -->
+<div class="toc">
+    <h2>Contents</h2>
+    <ul>
+        <li><a href="#s1"><span><span class="num">1</span><span class="ttl">Summary</span></span></a></li>
+        <li><a href="#s2"><span><span class="num">2</span><span class="ttl">Standards Coverage</span></span></a></li>
+        <li><a href="#s3"><span><span class="num">3</span><span class="ttl">Supported Protocols</span></span></a></li>
+        <li><a href="#s4"><span><span class="num">4</span><span class="ttl">Evaluation Scope</span></span></a></li>
+        <li><a href="#s5"><span><span class="num">5</span><span class="ttl">Test Categories Executed</span></span></a></li>
+        <li><a href="#s6"><span><span class="num">6</span><span class="ttl">Methodology</span></span></a></li>
+        <li><a href="#s7"><span><span class="num">7</span><span class="ttl">IEC 62443 Alignment Matrix</span></span></a></li>
+        <li><a href="#s8"><span><span class="num">8</span><span class="ttl">Evidence Package</span></span></a></li>
+        <li><a href="#s9"><span><span class="num">9</span><span class="ttl">Reported Metrics</span></span></a></li>
+        <li><a href="#s10"><span><span class="num">10</span><span class="ttl">Acceptance Criteria</span></span></a></li>
+        <li><a href="#s11"><span><span class="num">11</span><span class="ttl">Buyer Requirement Mapping</span></span></a></li>
+        <li><a href="#s12"><span><span class="num">12</span><span class="ttl">Scope of Claim</span></span></a></li>
+        <li><a href="#s13"><span><span class="num">13</span><span class="ttl">Independent Technical Review</span></span></a></li>
+        <li><a href="#s14"><span><span class="num">14</span><span class="ttl">Reference Sources</span></span></a></li>
+        <li><a href="#s15"><span><span class="num">15</span><span class="ttl">Document Control</span></span></a></li>
+    </ul>
+</div>
+
+<!-- ============================ 1. SUMMARY ============================ -->
+<section class="body-section" id="s1">
+<h2>1.&nbsp;&nbsp;Summary</h2>
+<p class="lead">Penzzer evaluates industrial control devices under malformed traffic, invalid
+state transitions, unauthorized protocol behavior, and resource stress, and produces
+reproducible evidence mapped to the IEC&nbsp;62443 foundational requirement areas and to
+IPA's Cyber/Physical Security Framework (CPSF).</p>
+
+<p>This document provides the technical and compliance evidence buyers need for OT security
+review, supplier qualification, and product security assessment. It is a standalone
+reference; it does not require a separate sales briefing.</p>
+
+<h3>1.1&nbsp;&nbsp;Certification-readiness position</h3>
+<p>Penzzer does not claim IEC&nbsp;62443 certification for the Penzzer product itself. Instead,
+Penzzer provides IEC&nbsp;62443-aligned industrial fuzzing evidence that can support OT security
+review, supplier qualification, product security assessment, and certification-readiness
+activities.</p>
+
+<p>Formal IEC&nbsp;62443 product, component, system, or secure-development-lifecycle certification
+is issued by accredited certification bodies under recognized schemes such as ISASecure CSA,
+SSA, and SDLA. Penzzer evidence is structured as supporting technical material for internal
+assessors, customer audit teams, and external IEC&nbsp;62443 / ISASecure assessment partners.</p>
+
+<p>For Tier-1 engagements, an independent technical review may be included as part of the
+evidence package. The scope and reviewing laboratory are defined in the engagement test plan
+(see &sect;13).</p>
+</section>
+
+<!-- ============================ 2. STANDARDS COVERAGE ============================ -->
+<section class="body-section" id="s2">
+<h2>2.&nbsp;&nbsp;Standards Coverage</h2>
+<p>Penzzer's fuzzing evidence is mapped to the following frameworks:</p>
+
+<table class="twocol wrapfirst">
+<thead><tr><th style="width:38%">Framework</th><th>Coverage</th></tr></thead>
+<tbody>
+<tr><td>IEC&nbsp;62443-4-2 (component requirements)</td><td>Foundational Requirements FR1&ndash;FR7</td></tr>
+<tr><td>IEC&nbsp;62443-4-1 (secure product development)</td><td>Supporting evidence for security verification and validation testing (SVV) and security defect / vulnerability management activities</td></tr>
+<tr><td>IEC&nbsp;62443-3-3 (system security requirements)</td><td>System-level mapping where assets are tested as part of a system</td></tr>
+<tr><td>METI / IPA Cyber/Physical Security Framework (CPSF)</td><td>Relevant Layer&nbsp;2 and Layer&nbsp;3 checkpoints for cyber and cyber-physical risk in industrial environments</td></tr>
+<tr><td>ISASecure CSA / SSA / SDLA</td><td>Supporting technical evidence that may assist assessment preparation, lab review, and remediation planning</td></tr>
+<tr><td>METI OT security guidelines</td><td>Aligned with the supply-chain and operational-resilience expectations for critical infrastructure operators</td></tr>
+<tr><td>JPCERT/CC ICS advisories</td><td>Findings include reproduction data suitable for coordinated disclosure where appropriate</td></tr>
+</tbody>
+</table>
+
+<h3>2.1&nbsp;&nbsp;IEC 62443 foundational requirement coverage</h3>
+<table class="threecol">
+<thead><tr><th style="width:9%">FR</th><th style="width:32%">Foundational Requirement</th><th>Penzzer Coverage</th></tr></thead>
+<tbody>
+<tr><td>FR1</td><td>Identification and Authentication Control</td><td>Session and authentication fuzzing for protocols where authentication is defined (OPC&nbsp;UA, DNP3 Secure Authentication, BACnet/SC)</td></tr>
+<tr><td>FR2</td><td>Use Control</td><td>Unauthorized command and function-code testing across all supported protocols</td></tr>
+<tr><td>FR3</td><td>System Integrity</td><td>Malformed message, stateful, and boundary-value testing across all supported protocols</td></tr>
+<tr><td>FR4</td><td>Data Confidentiality</td><td>Error-response inspection for operational data leakage</td></tr>
+<tr><td>FR5</td><td>Restricted Data Flow</td><td>Protocol-boundary and routing tests for gateways and protocol converters</td></tr>
+<tr><td>FR6</td><td>Timely Response to Events</td><td>Logging, alerting, and telemetry observation during abnormal protocol conditions</td></tr>
+<tr><td>FR7</td><td>Resource Availability</td><td>Resource-exhaustion, recovery, and watchdog-behavior testing within safety limits</td></tr>
+</tbody>
+</table>
+
+<h3>2.2&nbsp;&nbsp;Security Level treatment</h3>
+<p>Penzzer evidence is mapped to IEC&nbsp;62443 foundational requirement areas. Penzzer does not
+assign or certify IEC&nbsp;62443 Security Levels (SL1&ndash;SL4). Where requested, findings and test
+evidence can be organized to support a buyer's internal SL-T / SL-A assessment or an external
+certification-body review.</p>
+</section>
+
+<!-- ============================ 3. SUPPORTED PROTOCOLS ============================ -->
+<section class="body-section" id="s3">
+<h2>3.&nbsp;&nbsp;Supported Protocols</h2>
+<p>The following industrial protocols are supported. Coverage is stated explicitly so buyers
+do not need to ask.</p>
+
+<table class="threecol wrapfirst">
+<thead><tr><th style="width:24%">Protocol</th><th style="width:27%">Status</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td>Modbus/TCP</td><td><span class="status-sup">Supported</span></td><td>Full function-code matrix, malformed and stateful coverage</td></tr>
+<tr><td>EtherNet/IP (CIP)</td><td><span class="status-sup">Supported</span></td><td>Explicit and implicit messaging, CIP object fuzzing</td></tr>
+<tr><td>PROFINET</td><td><span class="status-dep">Supported &mdash; scope dependent</span></td><td>DCP and selected cyclic / acyclic communication scenarios; RT / IRT scope confirmed during test planning</td></tr>
+<tr><td>EtherCAT</td><td><span class="status-dep">Supported &mdash; scope dependent</span></td><td>Mailbox and selected process-data fuzzing scenarios; hardware-in-the-loop setup confirmed during test planning</td></tr>
+<tr><td>OPC&nbsp;UA</td><td><span class="status-sup">Supported</span></td><td>Binary and HTTPS bindings, session and security-channel fuzzing</td></tr>
+<tr><td>DNP3 (TCP and serial-over-TCP)</td><td><span class="status-sup">Supported</span></td><td>Includes Secure Authentication v5</td></tr>
+<tr><td>BACnet/IP</td><td><span class="status-sup">Supported</span></td><td>Object and service fuzzing; BACnet/SC supported</td></tr>
+<tr><td>CC-Link IE Field / IE TSN</td><td><span class="status-cust">Available by custom grammar onboarding</span></td><td>Common in Japanese factory automation; scope confirmed during test planning</td></tr>
+<tr><td>CC-Link (classic)</td><td><span class="status-cust">Available by custom grammar onboarding</span></td><td>&mdash;</td></tr>
+<tr><td>SLMP (Mitsubishi)</td><td><span class="status-cust">Available by custom grammar onboarding</span></td><td>MELSEC seamless message protocol</td></tr>
+<tr><td>MELSOFT (Mitsubishi)</td><td><span class="status-cust">Available by custom grammar onboarding</span></td><td>&mdash;</td></tr>
+<tr><td>FL-net (JEMA)</td><td><span class="status-cust">Available by custom grammar onboarding</span></td><td>&mdash;</td></tr>
+<tr><td>Omron FINS</td><td><span class="status-cust">Available by custom grammar onboarding</span></td><td>TCP and UDP transports</td></tr>
+<tr><td>Yokogawa Vnet/IP</td><td><span class="status-cust">Available by custom grammar onboarding</span></td><td>&mdash;</td></tr>
+<tr><td>Keyence KV protocol</td><td><span class="status-cust">Available by custom grammar onboarding</span></td><td>&mdash;</td></tr>
+<tr><td>HSE (Foundation Fieldbus HSE)</td><td><span class="status-sup">Supported</span></td><td>&mdash;</td></tr>
+<tr><td>Vendor-specific protocols</td><td><span class="status-cust">Available by custom grammar onboarding</span></td><td>Lead time and scope confirmed during test planning</td></tr>
+</tbody>
+</table>
+
+<p class="note" style="font-size:8.8pt;color:#56616c;">Status values used in this table:
+Supported; Supported &mdash; limited coverage; Available by custom grammar onboarding; Planned;
+Not currently supported. Buyers should confirm protocol scope in the test plan before campaign
+execution.</p>
+</section>
+
+<!-- ============================ 4. EVALUATION SCOPE ============================ -->
+<section class="body-section" id="s4">
+<h2>4.&nbsp;&nbsp;Evaluation Scope</h2>
+
+<h3>4.1&nbsp;&nbsp;Assets under test</h3>
+<p>Penzzer evaluates: PLCs, RTUs, I/O modules, industrial gateways, protocol converters,
+engineering workstations, HMIs, embedded industrial devices, industrial network appliances,
+and simulated or emulated industrial protocol targets.</p>
+<p>Each asset record includes manufacturer, model, firmware version, hardware version,
+configuration, network role, enabled protocols, safety limits, reset and recovery procedure,
+and known test constraints.</p>
+
+<h3>4.2&nbsp;&nbsp;Test environment</h3>
+<p>Testing is performed in a controlled OT test environment. Live production control systems
+are tested only with explicit written authorization and operational safety controls in place.</p>
+<p>The test environment is documented in every engagement: network topology, zone and conduit
+assumptions, test host configuration, monitoring points, packet capture location, device
+logging method, power-cycle and reset access, safety boundary, operational constraints, and
+stop conditions.</p>
+</section>
+
+<!-- ============================ 5. TEST CATEGORIES ============================ -->
+<section class="body-section" id="s5">
+<h2>5.&nbsp;&nbsp;Test Categories Executed</h2>
+<p>The standard evaluation model includes the following twelve protocol robustness categories.
+Each engagement documents which categories are applicable, executed, modified, or excluded
+based on protocol behavior, asset capability, safety constraints, and buyer-approved scope.</p>
+
+<table class="twocol wrapfirst">
+<thead><tr><th style="width:34%">Category</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td>Malformed Packet Testing</td><td>Invalid lengths, headers, checksums, encodings, and message structures</td></tr>
+<tr><td>Boundary Value Testing</td><td>Maximum, minimum, null, negative, overflow, and out-of-range field values</td></tr>
+<tr><td>Illegal Function or Service Testing</td><td>Unsupported function codes, invalid service calls, reserved values</td></tr>
+<tr><td>Stateful Protocol Testing</td><td>Invalid transitions, out-of-order sequences, invalid session state, replayed steps</td></tr>
+<tr><td>Authentication and Session Testing</td><td>Invalid credentials, malformed session tokens, expired sessions, unauthorized reuse</td></tr>
+<tr><td>Unauthorized Command Testing</td><td>Command execution attempts outside expected authorization or state</td></tr>
+<tr><td>Timing and Rate Testing</td><td>Bursts, delays, jitter, replay timing, polling disruption, high-rate traffic</td></tr>
+<tr><td>Fragmentation and Reassembly Testing</td><td>Split messages, truncated messages, oversized fragments, reassembly abuse</td></tr>
+<tr><td>Discovery and Enumeration Testing</td><td>Broadcast, multicast, and discovery-message robustness</td></tr>
+<tr><td>Resource Exhaustion Testing</td><td>CPU, memory, connection table, session, and buffer pressure within safety limits</td></tr>
+<tr><td>Recovery Testing</td><td>Behavior after crash, hang, communication loss, watchdog reset, reboot</td></tr>
+<tr><td>Logging and Alerting Testing</td><td>Detection and telemetry generation under abnormal protocol conditions</td></tr>
+</tbody>
+</table>
+</section>
+
+<!-- ============================ 6. METHODOLOGY ============================ -->
+<section class="body-section" id="s6">
+<h2>6.&nbsp;&nbsp;Methodology</h2>
+
+<h3>Phase 1 &mdash; Scope Definition</h3>
+<p>Protocols, asset under test, firmware version, safety boundaries, test categories, expected
+normal behavior, stop conditions, evidence requirements, severity model, and pass/fail criteria
+are agreed in writing before testing begins.</p>
+
+<h3>Phase 2 &mdash; Baseline Characterization</h3>
+<p>Expected protocol traffic, device response behavior, normal polling cycle, normal CPU and
+memory state, expected logs, expected alarms, expected control behavior, and recovery procedure
+are recorded.</p>
+
+<h3>Phase 3 &mdash; Campaign Preparation</h3>
+<p>Seed corpus, protocol grammar or state model, mutation strategy, target service inventory,
+authentication or session material, rate limits, safety limits, and monitoring and logging
+tooling are prepared.</p>
+
+<h3>Phase 4 &mdash; Campaign Execution</h3>
+<p>Campaigns are separated by protocol, target asset, and test category so findings are
+attributable.</p>
+
+<h3>Phase 5 &mdash; Monitoring</h3>
+<p>Network traffic, device responses, protocol errors, service availability, control behavior,
+process simulation state, device logs, CPU and memory usage, watchdog behavior, and restart and
+recovery behavior are observed.</p>
+
+<h3>Phase 6 &mdash; Triage</h3>
+<p>Observations are classified as Confirmed Finding, Safety-Critical Finding, Availability
+Finding, Protocol Robustness Finding, Logging or Detection Gap, Expected Behavior, False
+Positive, or Out of Scope.</p>
+
+<h3>Phase 7 &mdash; Replay and Reproducibility</h3>
+<p>Each confirmed finding includes protocol, target asset, firmware version, test category,
+payload or message sequence, preconditions, timing details, expected and observed behavior,
+evidence artifacts, recovery steps, reproducibility status, and IEC&nbsp;62443 FR mapping.</p>
+
+<h3>Phase 8 &mdash; Reporting</h3>
+<p>The final report contains executive summary, scope, environment, safety controls,
+methodology, IEC&nbsp;62443 and IPA CPSF mapping tables, protocol and category coverage summaries,
+confirmed findings, severity model, reproducibility evidence, recovery results, logging
+observations, limitations, recommendations, and an artifact index.</p>
+</section>
+
+<!-- ============================ 7. ALIGNMENT MATRIX ============================ -->
+<section class="body-section" id="s7">
+<h2>7.&nbsp;&nbsp;IEC 62443 Alignment Matrix</h2>
+
+<table class="wrapfirst">
+<thead><tr>
+<th style="width:23%">Penzzer Evidence Area</th>
+<th style="width:19%">IEC 62443 FR</th>
+<th style="width:23%">CPSF Reference</th>
+<th>Example Evidence</th>
+</tr></thead>
+<tbody>
+<tr><td>Malformed message handling</td><td>FR3 System Integrity</td><td>L2 / L3 cyber&ndash;physical integrity</td><td>Device rejects malformed input without crash or unsafe state</td></tr>
+<tr><td>Unauthorized command testing</td><td>FR2 Use Control</td><td>L2 access and use control</td><td>Invalid command rejected or fails safely</td></tr>
+<tr><td>Session and authentication fuzzing</td><td>FR1 IAC</td><td>L2 identification and authentication</td><td>Invalid session state does not grant access</td></tr>
+<tr><td>Protocol boundary testing</td><td>FR5 Restricted Data Flow</td><td>L2 / L3 communication boundary</td><td>Messages do not cross unintended boundaries</td></tr>
+<tr><td>Error-response review</td><td>FR4 Data Confidentiality</td><td>L2 information protection</td><td>Errors do not disclose sensitive operational detail</td></tr>
+<tr><td>Logging and alerting review</td><td>FR6 Timely Response</td><td>L2 detection</td><td>Abnormal traffic produces logs, alerts, or telemetry</td></tr>
+<tr><td>Resource exhaustion testing</td><td>FR7 Resource Availability</td><td>L3 availability and resilience</td><td>Device maintains availability or recovers within defined limits</td></tr>
+<tr><td>Recovery testing</td><td>FR3 / FR7</td><td>L3 resilience</td><td>Device returns to expected operation after fault</td></tr>
+<tr><td>Stateful protocol fuzzing</td><td>FR2 / FR3</td><td>L2 / L3 integrity and use control</td><td>Invalid state transitions do not trigger unsafe behavior</td></tr>
+</tbody>
+</table>
+</section>
+
+<!-- ============================ 8. EVIDENCE PACKAGE ============================ -->
+<section class="body-section" id="s8">
+<h2>8.&nbsp;&nbsp;Evidence Package</h2>
+<p>Every engagement delivers the following package.</p>
+
+<table class="threecol wrapfirst">
+<thead><tr><th style="width:30%">Evidence Item</th><th style="width:27%">Delivered</th><th>Purpose</th></tr></thead>
+<tbody>
+<tr><td>Test plan</td><td>Standard</td><td>Scope and acceptance criteria</td></tr>
+<tr><td>Asset inventory</td><td>Standard</td><td>Tested hardware, software, firmware</td></tr>
+<tr><td>Protocol inventory</td><td>Standard</td><td>Tested services and communication paths</td></tr>
+<tr><td>Network topology</td><td>Standard</td><td>Test environment and boundaries</td></tr>
+<tr><td>Safety controls</td><td>Standard</td><td>Operational constraints and stop conditions</td></tr>
+<tr><td>Baseline behavior record</td><td>Standard</td><td>Comparison against abnormal behavior</td></tr>
+<tr><td>Fuzz category coverage</td><td>Standard</td><td>Methodology coverage</td></tr>
+<tr><td>Execution logs</td><td>Standard</td><td>Test execution record</td></tr>
+<tr><td>Packet captures</td><td>Standard</td><td>Technical replay and review</td></tr>
+<tr><td>Device logs</td><td>Standard</td><td>Root-cause and detection review</td></tr>
+<tr><td>Confirmed findings</td><td>Standard</td><td>Actionable results</td></tr>
+<tr><td>Replay artifacts</td><td>Standard</td><td>Reproducibility</td></tr>
+<tr><td>Recovery evidence</td><td>Standard</td><td>Resilience and availability behavior</td></tr>
+<tr><td>IEC&nbsp;62443 and IPA CPSF mapping</td><td>Standard</td><td>Compliance review</td></tr>
+<tr><td>Limitations</td><td>Standard</td><td>Scope clarity</td></tr>
+<tr><td>Independent technical review</td><td>Available for Tier-1 by default; available on request for other tiers</td><td>Third-party technical assurance (see &sect;13)</td></tr>
+</tbody>
+</table>
+</section>
+
+<!-- ============================ 9. REPORTED METRICS ============================ -->
+<section class="body-section" id="s9">
+<h2>9.&nbsp;&nbsp;Reported Metrics</h2>
+<p>Every report contains the following metrics with concrete values.</p>
+
+<table class="twocol wrapfirst">
+<thead><tr><th style="width:32%">Metric</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td>Protocol Coverage</td><td>Protocols, services, function codes, objects, and commands tested</td></tr>
+<tr><td>State Coverage</td><td>Protocol states and transition paths exercised</td></tr>
+<tr><td>Message Coverage</td><td>Number and classes of messages generated</td></tr>
+<tr><td>Mutation Coverage</td><td>Mutation strategies and field categories exercised</td></tr>
+<tr><td>Unique Confirmed Findings</td><td>Reproducible findings with evidence</td></tr>
+<tr><td>Crash Count</td><td>Reproducible device, service, or process crashes</td></tr>
+<tr><td>Hang Count</td><td>Reproducible nonresponsive states</td></tr>
+<tr><td>Recovery Time</td><td>Time to return to expected operation</td></tr>
+<tr><td>Manual Recovery Requirement</td><td>Whether manual reset, reboot, or intervention was required</td></tr>
+<tr><td>Availability Impact</td><td>Service degradation or loss of communication</td></tr>
+<tr><td>Logging Coverage</td><td>Whether abnormal behavior was logged or alerted</td></tr>
+<tr><td>Triage Confirmation Rate</td><td>Confirmed findings divided by candidate anomalies after triage</td></tr>
+<tr><td>Reproducibility Rate</td><td>Confirmed findings reproducible by replay</td></tr>
+<tr><td>Safety Impact Classification</td><td>Whether the finding may affect control, view, protection, or availability</td></tr>
+</tbody>
+</table>
+
+<h3>9.1&nbsp;&nbsp;Reference campaign results</h3>
+<p>The following are aggregate metrics from Penzzer's internal reference test suite.
+Engagement-specific results are always reported per asset.</p>
+
+<table class="twocol wrapfirst">
+<thead><tr><th style="width:55%">Reference Metric</th><th>Value</th></tr></thead>
+<tbody>
+<tr><td>Protocols covered in reference suite</td><td>16+</td></tr>
+<tr><td>Devices tested in reference suite</td><td>51+ devices across 15+ vendors</td></tr>
+<tr><td>Total messages generated per campaign (median)</td><td>10M+</td></tr>
+<tr><td>Mean time to first confirmed finding</td><td>4&ndash;24 hours</td></tr>
+<tr><td>Reproducibility rate (reference suite)</td><td>85&ndash;94%</td></tr>
+<tr><td>Triage confirmation rate (reference suite)</td><td>60&ndash;79%</td></tr>
+<tr><td>Mean recovery time after availability finding</td><td>Under 10 seconds</td></tr>
+</tbody>
+</table>
+
+<p class="note" style="font-size:8.8pt;color:#56616c;">A redacted sample report may be made
+available as Appendix&nbsp;A on request.</p>
+</section>
+
+<!-- ============================ 10. ACCEPTANCE CRITERIA ============================ -->
+<section class="body-section" id="s10">
+<h2>10.&nbsp;&nbsp;Acceptance Criteria</h2>
+<p>A completed evaluation meets the following criteria:</p>
+<ol>
+<li>Asset under test is identified by manufacturer, model, and firmware version.</li>
+<li>Tested protocol scope is explicitly documented.</li>
+<li>Test environment and safety boundary are documented.</li>
+<li>Baseline normal behavior is captured.</li>
+<li>The applicability and execution status of each protocol robustness category is documented; omissions are explained.</li>
+<li>Execution logs and packet captures are retained.</li>
+<li>Confirmed findings are separated from anomalies and false positives.</li>
+<li>Recovery behavior is recorded for every availability-impacting finding.</li>
+<li>Findings are mapped to IEC&nbsp;62443 FRs and IPA CPSF function categories.</li>
+<li>The report includes limitations and out-of-scope items.</li>
+</ol>
+</section>
+
+<!-- ============================ 11. BUYER REQUIREMENT MAPPING ============================ -->
+<section class="body-section" id="s11">
+<h2>11.&nbsp;&nbsp;Buyer Requirement Mapping</h2>
+
+<table class="twocol wrapfirst">
+<thead><tr><th style="width:40%">Buyer Requirement</th><th>Penzzer Response</th></tr></thead>
+<tbody>
+<tr><td>Supplier must support IEC&nbsp;62443 security review</td><td>Evidence is structured as supporting technical material for internal assessors and external IEC&nbsp;62443 / ISASecure assessment partners</td></tr>
+<tr><td>Product must demonstrate robustness against network attacks</td><td>Twelve test categories covering malformed traffic, state violations, unauthorized commands, and resource stress</td></tr>
+<tr><td>Testing must support asset-owner risk assessment</td><td>Report includes asset, protocol, topology, safety boundary, and reproducibility evidence</td></tr>
+<tr><td>Findings must be actionable</td><td>Each finding includes replay steps, evidence, affected asset, and recovery details</td></tr>
+<tr><td>Testing must support certification activities</td><td>Mapping to IEC&nbsp;62443 FRs, IPA CPSF, and ISASecure CSA/SSA/SDLA structure</td></tr>
+<tr><td>Availability and recovery must be evaluated</td><td>Crash, hang, recovery, and resource-availability metrics included</td></tr>
+<tr><td>Evidence must be auditable</td><td>Logs, packet captures, environment details, and artifact index included</td></tr>
+<tr><td>Findings must be suitable for coordinated disclosure</td><td>Reproduction data is structured for JPCERT/CC and equivalent CSIRTs</td></tr>
+</tbody>
+</table>
+</section>
+
+<!-- ============================ 12. SCOPE OF CLAIM ============================ -->
+<section class="body-section" id="s12">
+<h2>12.&nbsp;&nbsp;Scope of Claim</h2>
+<p>This document is a technical evidence brief, not a certification artifact. It does not
+represent IEC, ISA, or ISASecure certification, nor any accredited certification-body
+assessment. Penzzer evidence may be submitted as supporting technical material to such schemes;
+the certification decision is made by the accredited body.</p>
+</section>
+
+<!-- ============================ 13. INDEPENDENT REVIEW ============================ -->
+<section class="body-section" id="s13">
+<h2>13.&nbsp;&nbsp;Independent Technical Review</h2>
+<p>For Tier-1 engagements, Penzzer may include an independent technical review as part of the
+evidence package. Independent review is also available for other engagements by mutual
+agreement.</p>
+<p>The review may be performed by a mutually agreed external OT security laboratory,
+certification-preparation partner, or qualified industrial security assessor. The purpose of the
+review is to provide third-party assurance over the test plan, executed scope, evidence quality,
+finding reproducibility, and standards-alignment mapping.</p>
+<p>The independent review may deliver: reviewed test plan, environment description, asset and
+protocol scope, executed category summary, confirmed findings summary, IEC&nbsp;62443 alignment
+summary, limitations, and a signed technical review letter.</p>
+<div class="callout">
+<span class="ch">Important</span>
+Unless expressly issued by an accredited certification body under a recognized certification
+scheme, the independent review letter does not constitute IEC&nbsp;62443 certification, ISA
+approval, or ISASecure certification.
+</div>
+</section>
+
+<!-- ============================ 14. REFERENCE SOURCES ============================ -->
+<section class="body-section" id="s14">
+<h2>14.&nbsp;&nbsp;Reference Sources</h2>
+<ul class="refs">
+<li><span class="src">ISA/IEC 62443 Series of Standards</span><span class="url">https://www.isa.org/standards-and-publications/isa-standards/isa-iec-62443-series-of-standards</span></li>
+<li><span class="src">IEC 62443 overview and foundational requirements</span><span class="url">https://syc-se.iec.ch/deliveries/cybersecurity-guidelines/security-standards-and-best-practices/iec-62443/</span></li>
+<li><span class="src">ISASecure IEC 62443 Conformance Certification</span><span class="url">https://isasecure.org/</span></li>
+<li><span class="src">ISASecure ICSA Certification</span><span class="url">https://isasecure.org/certification/iec-62443-icsa-certification</span></li>
+<li><span class="src">ISA/IEC 62443 Cybersecurity Certificate Program</span><span class="url">https://www.isa.org/certification/certificate-programs/isa-iec-62443-cybersecurity-certificate-program</span></li>
+<li><span class="src">IPA Cyber/Physical Security Framework (CPSF)</span><span class="url">https://www.ipa.go.jp/security/economics/cpsf.html</span></li>
+<li><span class="src">METI Cybersecurity Guidelines for Industrial Automation</span><span class="url">https://www.meti.go.jp/policy/netsecurity/</span></li>
+<li><span class="src">JPCERT/CC ICS Security</span><span class="url">https://www.jpcert.or.jp/english/cs/ics.html</span></li>
+</ul>
+</section>
+
+<!-- ============================ 15. DOCUMENT CONTROL ============================ -->
+<section class="body-section" id="s15">
+<h2>15.&nbsp;&nbsp;Document Control</h2>
+<dl class="docctrl">
+<dt>Owner</dt><dd>Penzzer OT Security Assurance</dd>
+<dt>Reviewers</dt><dd>Product Security, OT Security Engineering, Legal, Compliance</dd>
+<dt>Review cycle</dt><dd>Quarterly, or upon material changes to IEC&nbsp;62443 positioning, IPA CPSF revisions, supported protocol scope, or certification scheme requirements.</dd>
+</dl>
+</section>
+
+</body>
+</html>
