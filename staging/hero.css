@@ -73,8 +73,8 @@
 }
 .rv-cols{
   display:grid;
-  grid-template-columns:minmax(0,1.5fr) minmax(0,.9fr);
-  gap:clamp(32px,5vw,74px);
+  grid-template-columns:minmax(0,1.65fr) minmax(0,.85fr);
+  gap:clamp(32px,4.4vw,64px);
   width:100%;
   align-items:start;
 }
@@ -92,26 +92,17 @@
   margin:0;
   font-family:'Montserrat',sans-serif;
   font-weight:700;
-  font-size:clamp(42px,6.6vw,86px);
-  letter-spacing:-.032em;
-  line-height:1.02;
+  font-size:clamp(34px,4.4vw,60px);
+  letter-spacing:-.03em;
+  line-height:1.04;
   text-wrap:balance;
 }
-.rv-motto{
-  margin:clamp(18px,2.4vw,26px) 0 0;
-  font-family:var(--rv-mono);
-  font-size:clamp(10.5px,1.15vw,13.5px);
-  letter-spacing:.24em;
-  text-transform:uppercase;
-  color:rgba(255,255,255,.68);
-}
-.rv-motto::before{                      /* the rule the deck sets under its titles */
-  content:'';
-  display:block;
+.rv-title span{ color:var(--rv-blue); }
+.rv-rule{                               /* the rule the deck sets under its titles */
   width:56px;
   height:2px;
   background:var(--rv-blue);
-  margin-bottom:clamp(16px,2vw,22px);
+  margin:clamp(22px,2.8vw,30px) 0 0;
 }
 .rv-lede{
   margin:clamp(18px,2.2vw,24px) 0 0;
@@ -265,7 +256,4 @@
   }
   .rv-latest a.rv-item:nth-of-type(n+4){ display:none; }   /* three is enough on a phone */
   .rv-inner{ padding-block:32px; }
-}
-@media (max-width:560px){
-  .rv-motto{ letter-spacing:.18em; }
 }
