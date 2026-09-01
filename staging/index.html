@@ -3,6 +3,7 @@
 <head>
 <script>if(location.hash==='#news')location.replace('../news/');</script>
 <meta charset="utf-8" />
+<meta name="robots" content="noindex,nofollow" />
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
 <title>Rabbit Ventures - Staging Preview</title>
 <meta name="description" content="Rabbit Ventures" />
@@ -13,7 +14,7 @@
 <meta property="og:description" content="Rabbit Ventures" />
 <meta property="og:url" content="https://rabbitvc.com/" />
 <meta property="og:site_name" content="Rabbit Ventures" />
-<meta property="og:image" content="../wp-content/uploads/2023/07/rabbit.png" />
+<meta property="og:image" content="./wp-content/uploads/2023/07/rabbit.png" />
 <meta name="twitter:card" content="summary_large_image" />
 <link rel="canonical" href="https://rabbitvc.com/" />
 
@@ -23,12 +24,11 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet" />
-<link rel="preload" as="image" href="../wp-content/uploads/2023/03/rabbit-website-background-image5-1-1536x1147.jpg" />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="../styles.css" />
+<link rel="stylesheet" href="./hero.css" />
 </head>
 <body>
-<div class="staging-banner" role="note">Staging preview - not yet live. <a href="../">View production</a></div>
 
 <a class="skip" href="#main">Skip to content</a>
 
@@ -75,39 +75,42 @@
 <main id="main">
 
   <!-- ================= HERO ================= -->
-  <section class="hero" id="top">
-    <div class="hero-bg" aria-hidden="true">
-      <picture>
-        <source media="(min-width: 1400px)" srcset="../wp-content/uploads/2023/03/rabbit-website-background-image5-1-2048x1529.jpg" />
-        <source media="(min-width: 900px)"  srcset="../wp-content/uploads/2023/03/rabbit-website-background-image5-1-1536x1147.jpg" />
-        <source media="(min-width: 600px)"  srcset="../wp-content/uploads/2023/03/rabbit-website-background-image5-1-1024x765.jpg" />
-        <img src="../wp-content/uploads/2023/03/rabbit-website-background-image5-1-768x573.jpg" alt="" loading="eager" decoding="async" />
-      </picture>
-      <span class="hero-tint"></span>
-      <span class="hero-vignette"></span>
-    </div>
+  <section class="rv-hero" id="top">
+    <div class="rv-inner">
+      <div class="rv-cols">
 
-    <div class="hero-inner reveal">
-      <h1 class="hero-title">
-        Beyond Capital: <br />Global&nbsp;Reach. Rapid&nbsp;Scale. Day&nbsp;One.
-      </h1>
-      <p class="hero-sub"><em>Capital for Visionaries. Infrastructure for Builders.</em></p>
+        <div class="rv-lead">
+          <p class="rv-kicker">Seed &middot; Cross-border &middot; Deep tech</p>
+          <h1 class="rv-title">Beyond Capital.</h1>
+          <p class="rv-motto">Global Reach &middot; Rapid Scale &middot; Day One</p>
+          <p class="rv-lede">Rabbit Ventures is the seed partner for cross-border companies. We provide the capital and the operational blueprint &mdash; hands-on from the first cheque through global growth.</p>
+          <div class="rv-cta">
+            <a class="rv-btn rv-btn-solid" href="#portfolio">
+              View Portfolio
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </a>
+            <a class="rv-btn rv-btn-line" href="#team">Meet the Team</a>
+          </div>
+        </div>
 
-      <div class="hero-cta">
-        <a class="btn btn-primary lg" href="#portfolio">
-          View Portfolio
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-        </a>
-        <a class="btn btn-ghost lg" href="#team">
-          Meet the Team
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-        </a>
+        <aside class="rv-latest" aria-labelledby="rv-latest-h">
+          <h2 id="rv-latest-h">Latest</h2>
+          <div id="rv-latest-list">
+            <a class="rv-item" href="../news/"><time datetime="2026-08-05">5 August 2026</time><span class="rv-item-title">New in the portfolio: AlpacaX</span></a>
+            <a class="rv-item" href="../news/"><time datetime="2026-08-05">5 August 2026</time><span class="rv-item-title">New in the portfolio: Storika</span></a>
+            <a class="rv-item" href="../news/"><time datetime="2026-07-30">30 July 2026</time><span class="rv-item-title">Global Founders Speed Pitch, Seattle Tech Week</span></a>
+            <a class="rv-item" href="../news/"><time datetime="2026-07-25">25 July 2026</time><span class="rv-item-title">San Francisco AI Summit</span></a>
+          </div>
+          <a class="rv-more" href="../news/">All news &rarr;</a>
+        </aside>
+
       </div>
     </div>
 
-    <a class="scroll-cue" href="#about" aria-label="Scroll to about">
-      <span></span>
-    </a>
+    <div class="rv-ticker" aria-hidden="true">
+      <div class="rv-row" id="rv-row-a"></div>
+      <div class="rv-row rv-row-b" id="rv-row-b"></div>
+    </div>
   </section>
 
   <!-- ================= ABOUT ================= -->
@@ -131,8 +134,8 @@
         <div class="photo">
           <img src="../wp-content/uploads/2023/04/Aviram-Jenik-01_1-1002x1024.jpg"
                srcset="../wp-content/uploads/2023/04/Aviram-Jenik-01_1-294x300.jpg 294w,
-                       ./wp-content/uploads/2023/04/Aviram-Jenik-01_1-768x784.jpg 768w,
-                       ./wp-content/uploads/2023/04/Aviram-Jenik-01_1-1002x1024.jpg 1002w"
+                       ../wp-content/uploads/2023/04/Aviram-Jenik-01_1-768x784.jpg 768w,
+                       ../wp-content/uploads/2023/04/Aviram-Jenik-01_1-1002x1024.jpg 1002w"
                sizes="(max-width: 700px) 90vw, 420px"
                alt="Aviram Jenik" width="1002" height="1024" loading="lazy" decoding="async" />
         </div>
@@ -150,8 +153,8 @@
         <div class="photo">
           <img src="../wp-content/uploads/2023/03/MJ-Kang-768x768.jpeg"
                srcset="../wp-content/uploads/2023/03/MJ-Kang-300x300.jpeg 300w,
-                       ./wp-content/uploads/2023/03/MJ-Kang-600x600.jpeg 600w,
-                       ./wp-content/uploads/2023/03/MJ-Kang-768x768.jpeg 768w"
+                       ../wp-content/uploads/2023/03/MJ-Kang-600x600.jpeg 600w,
+                       ../wp-content/uploads/2023/03/MJ-Kang-768x768.jpeg 768w"
                sizes="(max-width: 700px) 90vw, 420px"
                alt="MJ Kang" width="768" height="768" loading="lazy" decoding="async" />
         </div>
@@ -169,8 +172,8 @@
         <div class="photo">
           <img src="../wp-content/uploads/2023/04/station_2957_1-908x1024.jpg"
                srcset="../wp-content/uploads/2023/04/station_2957_1-266x300.jpg 266w,
-                       ./wp-content/uploads/2023/04/station_2957_1-768x866.jpg 768w,
-                       ./wp-content/uploads/2023/04/station_2957_1-908x1024.jpg 908w"
+                       ../wp-content/uploads/2023/04/station_2957_1-768x866.jpg 768w,
+                       ../wp-content/uploads/2023/04/station_2957_1-908x1024.jpg 908w"
                sizes="(max-width: 700px) 90vw, 420px"
                alt="SK (Soo Keun) Lee" width="908" height="1024" loading="lazy" decoding="async" />
         </div>
@@ -188,8 +191,8 @@
         <div class="photo">
           <img src="../wp-content/uploads/2023/03/sun-cho-profile-768x1024.jpg"
                srcset="../wp-content/uploads/2023/03/sun-cho-profile-225x300.jpg 225w,
-                       ./wp-content/uploads/2023/03/sun-cho-profile-600x800.jpg 600w,
-                       ./wp-content/uploads/2023/03/sun-cho-profile-768x1024.jpg 768w"
+                       ../wp-content/uploads/2023/03/sun-cho-profile-600x800.jpg 600w,
+                       ../wp-content/uploads/2023/03/sun-cho-profile-768x1024.jpg 768w"
                sizes="(max-width: 700px) 90vw, 420px"
                alt="Sun Cho" width="768" height="1024" loading="lazy" decoding="async" />
         </div>
@@ -303,7 +306,7 @@
         <span class="pf-arrow" aria-hidden="true">&#8599;</span>
         <p class="pf-desc">An AI-based social media manager for influencers and brands</p>
       </a>
-      <a class="pf-card reveal" href="https://www.secuxr.com/" target="_blank" rel="noopener">
+      <a class="pf-card reveal" data-name="SecuXR" href="https://www.secuxr.com/" target="_blank" rel="noopener">
         <div class="pf-logo pf-wordmark"><span class="pf-wm">secu<em>xr</em></span></div>
         <span class="pf-arrow" aria-hidden="true">&#8599;</span>
         <p class="pf-desc">Bringing VR/XR user interface to cyber security</p>
@@ -346,6 +349,21 @@
         <span class="pf-arrow" aria-hidden="true">&#8599;</span>
         <p class="pf-desc">AI-powered onboarding</p>
       </a>
+      <a class="pf-card reveal" href="https://www.alpacax.com" target="_blank" rel="noopener">
+        <div class="pf-logo"><img src="../logos/alpacax.png" alt="AlpacaX" loading="lazy" /></div>
+        <span class="pf-arrow" aria-hidden="true">&#8599;</span>
+        <p class="pf-desc">Scoped access control for AI agents operating production infrastructure</p>
+      </a>
+      <a class="pf-card reveal" href="https://www.storika.ai" target="_blank" rel="noopener">
+        <div class="pf-logo"><img src="../logos/storika.png" alt="Storika" loading="lazy" /></div>
+        <span class="pf-arrow" aria-hidden="true">&#8599;</span>
+        <p class="pf-desc">AI agent platform for end-to-end creator marketing</p>
+      </a>
+      <a class="pf-card reveal" href="https://rutile.tech/en/" target="_blank" rel="noopener">
+        <div class="pf-logo"><img src="../logos/rutile.png" alt="Rutile" loading="lazy" /></div>
+        <span class="pf-arrow" aria-hidden="true">&#8599;</span>
+        <p class="pf-desc">Security and governance platform for enterprise AI agents</p>
+      </a>
     </div>
   </section>
 
@@ -363,5 +381,87 @@
 </footer>
 
 <script src="../app.js" defer></script>
+
+<!-- Hero ticker + Latest, staged. Both read from content already on the site,
+     so the hero stays current as the portfolio and the news page grow. -->
+<script>
+(function(){
+  /* ---- ticker: names come from this page's own portfolio section ---- */
+  function portfolioNames(){
+    var names = [];
+    document.querySelectorAll('#portfolio .pf-card').forEach(function(card){
+      var img = card.querySelector('.pf-logo img[alt]');
+      var wm  = card.querySelector('.pf-wm');
+      var name = card.dataset.name || (img ? img.getAttribute('alt') : (wm ? wm.textContent : ''));
+      name = (name || '').trim();
+      if (name) names.push(name);
+    });
+    return names;
+  }
+  function fillRow(el, list){
+    if (!el || !list.length) return;
+    var html = list.map(function(n){
+      return '<span>' + n.replace(/&/g,'&amp;').replace(/</g,'&lt;') + '</span>';
+    }).join('');
+    el.innerHTML = html + html;          /* doubled so the -50% loop is seamless */
+  }
+  var names = portfolioNames();
+  if (names.length){
+    var half = Math.ceil(names.length / 2);
+    fillRow(document.getElementById('rv-row-a'), names.slice(0, half));
+    fillRow(document.getElementById('rv-row-b'), names.slice(half));
+  } else {
+    var t = document.querySelector('.rv-ticker');
+    if (t) t.style.display = 'none';     /* never show an empty rail */
+  }
+
+  /* ---- keep the nav in the hero's colours for as long as the hero is behind it ---- */
+  var hero = document.querySelector('.rv-hero'), navEl = document.getElementById('nav');
+  if (hero && navEl){
+    var syncNav = function(){
+      navEl.classList.toggle('rv-over-hero', hero.getBoundingClientRect().bottom > 72);
+    };
+    syncNav();
+    addEventListener('scroll', syncNav, { passive:true });
+    addEventListener('resize', syncNav);
+  }
+
+  /* ---- Latest: served copy is correct; refresh it from the news page ---- */
+  var list = document.getElementById('rv-latest-list');
+  if (!list || !window.fetch || !window.DOMParser) return;
+  fetch('../news/', { credentials:'same-origin' })
+    .then(function(r){ return r.ok ? r.text() : Promise.reject(r.status); })
+    .then(function(html){
+      var doc   = new DOMParser().parseFromString(html, 'text/html');
+      var cards = [].slice.call(doc.querySelectorAll('.news-card')).slice(0, 4);
+      if (cards.length < 4) return;                       /* keep the served copy */
+      var frag = document.createDocumentFragment();
+      cards.forEach(function(card){
+        var title = card.querySelector('.news-card-title');
+        var date  = card.querySelector('.news-date');
+        if (!title) return;
+        var a = document.createElement('a');
+        a.className = 'rv-item';
+        a.href = card.getAttribute('href') || '../news/';
+        if (a.href && !/^\.\.\/news/.test(card.getAttribute('href') || '')) {
+          a.target = '_blank';
+          a.rel = 'noopener';
+        }
+        var t = document.createElement('time');
+        t.textContent = date ? date.textContent.trim() : '';
+        var s = document.createElement('span');
+        s.className = 'rv-item-title';
+        s.textContent = title.textContent.trim();
+        a.appendChild(t); a.appendChild(s);
+        frag.appendChild(a);
+      });
+      if (frag.childNodes.length === 4){
+        list.innerHTML = '';
+        list.appendChild(frag);
+      }
+    })
+    .catch(function(){ /* offline or moved: the served copy stands */ });
+})();
+</script>
 </body>
 </html>
