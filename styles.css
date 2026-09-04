@@ -695,7 +695,8 @@ button { font: inherit; cursor: pointer; }
   box-shadow: var(--shadow-2);
 }
 .ep-card-cover {
-  aspect-ratio: 1 / 1;
+  position: relative;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
   background: #0a0f17;
 }
@@ -705,12 +706,61 @@ button { font: inherit; cursor: pointer; }
   object-fit: cover;
   transition: transform .5s var(--ease);
 }
+/* audio-only episodes fall back to the show artwork, letterboxed rather than cropped */
+.ep-card-cover--art {
+  background:
+    radial-gradient(120% 120% at 50% 0%, #16243a 0%, #0a0f17 70%);
+}
+.ep-card-cover--art img { object-fit: contain; }
 .ep-card:hover .ep-card-cover img { transform: scale(1.04); }
+
+/* play badge over the video still */
+.ep-card-play {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(.94);
+  width: 54px;
+  height: 54px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: #fff;
+  background: color-mix(in oklab, #0a0f17 55%, transparent);
+  border: 1px solid rgba(255, 255, 255, .35);
+  backdrop-filter: blur(4px);
+  opacity: .85;
+  transition: transform .25s var(--ease), opacity .25s var(--ease), background .25s var(--ease);
+  pointer-events: none;
+}
+.ep-card-play svg { margin-left: 3px; }
+.ep-card:hover .ep-card-play {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+  background: color-mix(in oklab, var(--primary) 80%, #0a0f17);
+  border-color: transparent;
+}
+.ep-card-badge {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  padding: 4px 9px;
+  border-radius: 999px;
+  color: #fff;
+  background: color-mix(in oklab, #0a0f17 65%, transparent);
+  border: 1px solid rgba(255, 255, 255, .28);
+  backdrop-filter: blur(4px);
+}
 .ep-card-meta {
   padding: 18px 20px 22px;
   display: flex;
   flex-direction: column;
   gap: 6px;
+  flex: 1;
 }
 .ep-card-date {
   font-size: 12px;
@@ -728,6 +778,27 @@ button { font: inherit; cursor: pointer; }
   letter-spacing: -.005em;
   color: var(--fg);
   margin: 0;
+}
+.ep-card-guest {
+  font-size: 13.5px;
+  line-height: 1.45;
+  color: var(--fg-muted);
+  margin: 2px 0 0;
+}
+.ep-card-guest-name {
+  font-weight: 700;
+  color: var(--fg-soft);
+}
+.ep-card-desc {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--fg-muted);
+  margin: 4px 0 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 /* single episode page */
