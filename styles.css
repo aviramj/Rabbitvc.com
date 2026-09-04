@@ -663,6 +663,12 @@ button { font: inherit; cursor: pointer; }
   max-width: 640px;
   margin: 0 auto;
 }
+.podcast-count {
+  font-size: 13px;
+  letter-spacing: .04em;
+  color: var(--fg-muted);
+  margin: 14px 0 0;
+}
 
 /* episode list grid */
 .podcast-list {
@@ -673,7 +679,7 @@ button { font: inherit; cursor: pointer; }
 .ep-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: 28px 24px;
 }
 @media (max-width: 900px) { .ep-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 540px) { .ep-grid { grid-template-columns: 1fr; } }
@@ -687,119 +693,174 @@ button { font: inherit; cursor: pointer; }
   overflow: hidden;
   text-decoration: none;
   color: inherit;
-  transition: transform .25s var(--ease), border-color .25s var(--ease), box-shadow .25s var(--ease);
+  position: relative;
+  isolation: isolate;
+  transition: transform .3s var(--ease), border-color .3s var(--ease), box-shadow .3s var(--ease);
 }
+/* teal hairline that draws itself across the top on hover */
+.ep-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 2px;
+  width: 100%;
+  z-index: 3;
+  background: var(--primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .35s var(--ease);
+}
+.ep-card:hover::before { transform: scaleX(1); }
 .ep-card:hover {
-  transform: translateY(-4px);
-  border-color: color-mix(in oklab, var(--primary) 60%, var(--border));
+  transform: translateY(-5px);
+  border-color: color-mix(in oklab, var(--primary) 45%, var(--border));
   box-shadow: var(--shadow-2);
 }
 .ep-card-cover {
   position: relative;
   aspect-ratio: 16 / 9;
   overflow: hidden;
-  background: #0a0f17;
+  background: #070b12;
 }
-.ep-card-cover img {
+.ep-card-still {
+  position: relative;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform .5s var(--ease);
+  display: block;
+  transition: transform .6s var(--ease);
 }
-/* audio-only episodes fall back to the show artwork, letterboxed rather than cropped */
-.ep-card-cover--art {
-  background:
-    radial-gradient(120% 120% at 50% 0%, #16243a 0%, #0a0f17 70%);
-}
-.ep-card-cover--art img { object-fit: contain; }
-.ep-card:hover .ep-card-cover img { transform: scale(1.04); }
+.ep-card:hover .ep-card-still { transform: scale(1.05); }
 
-/* play badge over the video still */
-.ep-card-play {
+/* audio-only episodes have no video frame: show the artwork whole,
+   over a blurred wash of itself instead of black bars */
+.ep-card-cover--art .ep-card-still { object-fit: contain; }
+.ep-card-wash {
   position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.3);
+  filter: blur(26px) saturate(.55) brightness(.45);
+}
+
+/* scrim keeps the episode number legible over any still */
+.ep-card-cover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+    color-mix(in oklab, #070b12 55%, transparent) 0%,
+    transparent 38%,
+    transparent 62%,
+    color-mix(in oklab, #070b12 45%, transparent) 100%);
+  pointer-events: none;
+}
+.ep-card-num {
+  position: absolute;
+  left: 14px;
+  top: 13px;
+  z-index: 2;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: #fff;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, .55);
+}
+.ep-card-cue {
+  position: absolute;
+  z-index: 2;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%) scale(.94);
-  width: 54px;
-  height: 54px;
+  transform: translate(-50%, -50%) scale(.92);
+  width: 48px;
+  height: 48px;
   display: grid;
   place-items: center;
   border-radius: 50%;
   color: #fff;
-  background: color-mix(in oklab, #0a0f17 55%, transparent);
-  border: 1px solid rgba(255, 255, 255, .35);
-  backdrop-filter: blur(4px);
-  opacity: .85;
-  transition: transform .25s var(--ease), opacity .25s var(--ease), background .25s var(--ease);
+  background: color-mix(in oklab, #070b12 45%, transparent);
+  border: 1px solid rgba(255, 255, 255, .4);
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  transition: transform .3s var(--ease), opacity .3s var(--ease), background .3s var(--ease);
   pointer-events: none;
 }
-.ep-card-play svg { margin-left: 3px; }
-.ep-card:hover .ep-card-play {
-  transform: translate(-50%, -50%) scale(1);
+.ep-card-cue svg { margin-left: 2px; }
+.ep-card-cover--art .ep-card-cue svg { margin-left: 0; }
+.ep-card:hover .ep-card-cue,
+.ep-card:focus-visible .ep-card-cue {
   opacity: 1;
-  background: color-mix(in oklab, var(--primary) 80%, #0a0f17);
+  transform: translate(-50%, -50%) scale(1);
+  background: color-mix(in oklab, var(--primary) 85%, #070b12);
   border-color: transparent;
 }
-.ep-card-badge {
-  position: absolute;
-  left: 12px;
-  top: 12px;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  padding: 4px 9px;
-  border-radius: 999px;
-  color: #fff;
-  background: color-mix(in oklab, #0a0f17 65%, transparent);
-  border: 1px solid rgba(255, 255, 255, .28);
-  backdrop-filter: blur(4px);
-}
+
 .ep-card-meta {
-  padding: 18px 20px 22px;
+  padding: 16px 20px 18px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
   flex: 1;
+  gap: 0;
 }
 .ep-card-date {
-  font-size: 12px;
-  letter-spacing: .1em;
+  font-size: 11px;
+  letter-spacing: .14em;
   text-transform: uppercase;
-  color: var(--primary);
+  color: var(--fg-muted);
   font-weight: 600;
-  margin: 0;
+  margin: 0 0 8px;
 }
+/* the guest is the headline here - the show name is already the page title */
 .ep-card-title {
   font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
-  font-size: 17px;
-  line-height: 1.3;
-  letter-spacing: -.005em;
+  font-weight: 700;
+  font-size: 21px;
+  line-height: 1.2;
+  letter-spacing: -.015em;
   color: var(--fg);
   margin: 0;
 }
-.ep-card-guest {
-  font-size: 13.5px;
-  line-height: 1.45;
-  color: var(--fg-muted);
-  margin: 2px 0 0;
-}
-.ep-card-guest-name {
-  font-weight: 700;
-  color: var(--fg-soft);
+.ep-card-role {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: .01em;
+  color: var(--primary);
+  margin: 5px 0 0;
 }
 .ep-card-desc {
   font-size: 14px;
-  line-height: 1.55;
+  line-height: 1.6;
   color: var(--fg-muted);
-  margin: 4px 0 0;
+  margin: 12px 0 0;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+.ep-card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: auto;
+  padding-top: 16px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  transition: color .25s var(--ease), gap .25s var(--ease);
+}
+.ep-card-cta svg { transition: transform .25s var(--ease); }
+.ep-card:hover .ep-card-cta { color: var(--primary); }
+.ep-card:hover .ep-card-cta svg { transform: translateX(3px); }
 
 /* single episode page */
 .ep {
@@ -956,11 +1017,32 @@ button { font: inherit; cursor: pointer; }
 .lo-btn-apple   { --lo-color: #b04bc6; }
 .lo-btn-youtube { --lo-color: #ff0033; }
 
-/* show-level Listen On on the podcast index hero — slightly tighter */
-.podcast-hero .listen-on {
-  margin: 22px auto 0;
-  max-width: 560px;
+/* show-level Listen On on the podcast index hero — a bare row, not a panel */
+.listen-on--bare {
+  background: none;
+  border: 0;
+  padding: 0;
 }
+.podcast-hero .listen-on {
+  margin: 26px auto 0;
+  max-width: 620px;
+}
+.podcast-hero .listen-on-label {
+  margin-bottom: 14px;
+  position: relative;
+}
+/* rules either side of the LISTEN ON label */
+.podcast-hero .listen-on-label::before,
+.podcast-hero .listen-on-label::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: clamp(28px, 12%, 90px);
+  height: 1px;
+  background: var(--border);
+}
+.podcast-hero .listen-on-label::before { right: calc(50% + 62px); }
+.podcast-hero .listen-on-label::after  { left:  calc(50% + 62px); }
 .podcast-hero .listen-on-buttons { justify-content: center; }
 /* STAGING NEWS CSS */
 .staging-banner{position:fixed;top:0;left:0;right:0;z-index:60;background:#ff8a5b;color:#1a0f08;font:600 12px/1.4 Montserrat,sans-serif;text-align:center;padding:6px 12px;letter-spacing:.04em}
