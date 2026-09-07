@@ -5,74 +5,106 @@
     "",
     "'linkedin' and 'bio' are the two fields that still need filling. The script",
     "refuses to run while any are empty, so the guest block ships complete or not",
-    "at all. Everything else here is already correct and needs no editing.",
+    "at all. Names and roles are already correct and need no editing.",
     "",
-    "Keep bios to 1-2 sentences, third person, present tense for current roles."
+    "Bios are ONE sentence. The role line sits directly above, so a bio that just",
+    "restates the role is wasted - say what the role does not. Values are HTML:",
+    "use &amp; for &, and &#8217; for an apostrophe.",
+    "",
+    "Pre-filled bios were written from text already on the site. Blank ones are",
+    "guests the site says nothing about beyond their role."
   ],
   "guests": [
-    { "slug": "startups-with-seoul-ep-13-kyum-kim",
-      "name": "Kyum Kim", "role": "Co-Founder, Blind",
+    {
+      "slug": "startups-with-seoul-ep-13-kyum-kim",
+      "name": "Kyum Kim",
+      "role": "Co-Founder, Blind",
       "linkedin": "https://www.linkedin.com/in/kyumkim/",
-      "bio": "" },
-
-    { "slug": "startups-with-seoul-ep-12-david-sangmin-lim",
-      "name": "David Sangmin Lim", "role": "Director, Atinum Investment",
+      "bio": "Built Blind&#8217;s US business from scratch; earlier at TMon."
+    },
+    {
+      "slug": "startups-with-seoul-ep-12-david-sangmin-lim",
+      "name": "David Sangmin Lim",
+      "role": "Director, Atinum Investment",
       "linkedin": "",
-      "bio": "" },
-
-    { "slug": "startups-with-seoul-ep-11-john-sung-kim",
-      "name": "John Sung Kim", "role": "Serial Entrepreneur",
+      "bio": ""
+    },
+    {
+      "slug": "startups-with-seoul-ep-11-john-sung-kim",
+      "name": "John Sung Kim",
+      "role": "Serial Entrepreneur",
       "linkedin": "",
-      "bio": "" },
-
-    { "slug": "startups-with-seoul-ep-10-david-lee",
-      "name": "David Lee", "role": "Designer & Entrepreneur",
+      "bio": ""
+    },
+    {
+      "slug": "startups-with-seoul-ep-10-david-lee",
+      "name": "David Lee",
+      "role": "Designer & Entrepreneur",
       "linkedin": "",
-      "bio": "" },
-
-    { "slug": "startups-with-seoul-ep-9-sol-eun",
-      "name": "Sol Eun", "role": "Startup Founder",
+      "bio": ""
+    },
+    {
+      "slug": "startups-with-seoul-ep-9-sol-eun",
+      "name": "Sol Eun",
+      "role": "Startup Founder",
       "linkedin": "",
-      "bio": "" },
-
-    { "slug": "startups-with-seoul-ep-8-cy-choi",
-      "name": "CY Choi", "role": "Investor & Corporate Development",
+      "bio": "Started and sold his own startup."
+    },
+    {
+      "slug": "startups-with-seoul-ep-8-cy-choi",
+      "name": "CY Choi",
+      "role": "Investor & Corporate Development",
       "linkedin": "",
-      "bio": "" },
-
-    { "slug": "startups-with-seoul-ep-7",
-      "name": "Jiwon Hong", "role": "Founder, Yesplz.ai",
+      "bio": "Career spans an endowment fund, a venture capital firm, and M&amp;A at a tech company."
+    },
+    {
+      "slug": "startups-with-seoul-ep-7",
+      "name": "Jiwon Hong",
+      "role": "Founder, Yesplz.ai",
       "linkedin": "",
-      "bio": "" },
-
-    { "slug": "startups-with-seoul-episode-6",
-      "name": "Jiho Kang", "role": "Antler Korea",
+      "bio": "Left a large company to start Yesplz.ai."
+    },
+    {
+      "slug": "startups-with-seoul-episode-6",
+      "name": "Jiho Kang",
+      "role": "Antler Korea",
       "linkedin": "",
-      "bio": "" },
-
-    { "slug": "startups-with-seoul-episode-4",
-      "name": "Clara Hong", "role": "Smore",
+      "bio": "Startup founder turned investor."
+    },
+    {
+      "slug": "startups-with-seoul-episode-4",
+      "name": "Clara Hong",
+      "role": "Smore",
       "linkedin": "https://www.linkedin.com/in/rhaun-hong/",
-      "bio": "" },
-
-    { "slug": "startups-with-seoul-episode-4-2",
-      "name": "David Yi", "role": "Ethos VC",
+      "bio": ""
+    },
+    {
+      "slug": "startups-with-seoul-episode-4-2",
+      "name": "David Yi",
+      "role": "Ethos VC",
       "linkedin": "https://www.linkedin.com/in/thedavidyi/",
-      "bio": "" },
-
-    { "slug": "startups-with-seoul-episode-3",
-      "name": "Ryan Lee", "role": "Founder & CEO, Jigo.ai",
+      "bio": ""
+    },
+    {
+      "slug": "startups-with-seoul-episode-3",
+      "name": "Ryan Lee",
+      "role": "Founder & CEO, Jigo.ai",
       "linkedin": "https://www.linkedin.com/in/ryanshlee/",
-      "bio": "" },
-
-    { "slug": "startups-with-seoul-episode-2",
-      "name": "Chris Chae", "role": "Co-Founder, Relate",
+      "bio": "Fund Partner at Rabbit Ventures."
+    },
+    {
+      "slug": "startups-with-seoul-episode-2",
+      "name": "Chris Chae",
+      "role": "Co-Founder, Relate",
       "linkedin": "https://www.linkedin.com/in/chaec/",
-      "bio": "" },
-
-    { "slug": "startups-with-seoul-episode-1",
-      "name": "Paul Lee", "role": "Partner, Tribe Capital",
+      "bio": "Fund Partner at Rabbit Ventures."
+    },
+    {
+      "slug": "startups-with-seoul-episode-1",
+      "name": "Paul Lee",
+      "role": "Partner, Tribe Capital",
       "linkedin": "https://www.linkedin.com/in/paul-lee-in/",
-      "bio": "" }
+      "bio": ""
+    }
   ]
 }

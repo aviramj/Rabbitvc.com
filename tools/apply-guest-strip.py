@@ -3,8 +3,8 @@
 Stamp the guest block into every episode page under podcast/.
 
 Reads tools/guests.json and inserts (or refreshes) a <section class="ep-guest">
-just above the Listen On row on each episode page: avatar initials, the guest's
-name linked to their LinkedIn, their role, and a short bio.
+just above the Listen On row on each episode page: a small label, the guest's
+name linked to their LinkedIn, their role, and a one-line bio.
 
 The block goes after .ep-body rather than inside it. Video episodes lead with the
 embed and audio ones end with the player, so anchoring to the media element would
@@ -51,27 +51,16 @@ LI_ICON = (
 )
 
 
-def initials(name):
-    parts = [p for p in re.split(r"\s+", name.strip()) if p]
-    if not parts:
-        return "?"
-    if len(parts) == 1:
-        return parts[0][:2].upper()
-    return (parts[0][0] + parts[-1][0]).upper()
-
-
 def build(g):
     return (
         START + "\n"
         '    <section class="ep-guest" aria-label="About the guest">\n'
-        '      <span class="ep-guest-av" aria-hidden="true">' + initials(g["name"]) + '</span>\n'
-        '      <div class="ep-guest-body">\n'
-        '        <p class="ep-guest-name"><a href="' + html.escape(g["linkedin"], quote=True) + '" '
+        '      <p class="ep-guest-cap">The guest</p>\n'
+        '      <p class="ep-guest-name"><a href="' + html.escape(g["linkedin"], quote=True) + '" '
         'target="_blank" rel="noopener">' + html.escape(g["name"]) +
         '<span class="ep-guest-li">' + LI_ICON + '</span></a></p>\n'
-        '        <p class="ep-guest-role">' + g["role"] + '</p>\n'
-        '        <p class="ep-guest-bio">' + g["bio"] + '</p>\n'
-        '      </div>\n'
+        '      <p class="ep-guest-role">' + g["role"] + '</p>\n'
+        '      <p class="ep-guest-bio">' + g["bio"] + '</p>\n'
         '    </section>\n'
         + END + "\n"
     )
