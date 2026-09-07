@@ -933,6 +933,72 @@ button { font: inherit; cursor: pointer; }
   display: block;
 }
 
+/* guest block: sits between the episode's media and its write-up */
+.ep-guest {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-left: 2px solid var(--primary);
+  border-radius: var(--r-md);
+  padding: 22px 24px;
+  margin: 0 0 30px;
+}
+.ep-guest-av {
+  flex: 0 0 auto;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 17px;
+  letter-spacing: .03em;
+  color: #fff;
+  background: linear-gradient(140deg,
+    color-mix(in oklab, var(--primary) 40%, #16243a), #101b29);
+}
+.ep-guest-name {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.2;
+  margin: 0;
+}
+.ep-guest-name a {
+  color: var(--fg);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: .4em;
+  transition: color .2s var(--ease);
+}
+.ep-guest-name a:hover { color: var(--primary); }
+.ep-guest-li {
+  display: inline-flex;
+  opacity: .45;
+  transition: opacity .2s var(--ease), transform .2s var(--ease);
+}
+.ep-guest-name a:hover .ep-guest-li { opacity: 1; transform: translateY(-1px); }
+.ep-guest-role {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--primary);
+  margin: 5px 0 10px;
+}
+.ep-guest-bio {
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--fg-muted);
+  margin: 0;
+}
+@media (max-width: 560px) {
+  .ep-guest { flex-direction: column; gap: 14px; padding: 20px; }
+}
+
 .ep-body {
   font-size: 17px;
   line-height: 1.7;
