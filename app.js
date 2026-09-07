@@ -66,6 +66,13 @@
     update();
   }
 
+  // ---------- Episode count (derived, so adding a card is enough) ----------
+  const epCount = $('.podcast-count');
+  if (epCount) {
+    const n = $$('.ep-grid .ep-card').length;
+    if (n) epCount.textContent = n === 1 ? '1 episode' : `${n} episodes`;
+  }
+
   // ---------- Active section highlight ----------
   const sectionIds = ['top', 'about', 'team', 'advisors', 'portfolio', 'contact'];
   const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
