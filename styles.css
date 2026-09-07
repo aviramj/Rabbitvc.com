@@ -850,14 +850,6 @@ button { font: inherit; cursor: pointer; }
   color: var(--fg);
   margin: 0;
 }
-.ep-card-role {
-  font-size: 13px;
-  font-weight: 600;
-  line-height: 1.4;
-  letter-spacing: .01em;
-  color: var(--primary);
-  margin: 5px 0 0;
-}
 .ep-card-desc {
   font-size: 14px;
   line-height: 1.6;
