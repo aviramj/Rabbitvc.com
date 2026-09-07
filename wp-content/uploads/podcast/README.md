@@ -8,9 +8,14 @@ filename is the only thing tying an image to an episode.
 Until a file lands, its card falls back on its own: video episodes show the
 YouTube still, and episodes 1-3 show the rabbit brand plate.
 
-- **Format:** JPG (PNG is fine if the file stays under ~400 KB)
+- **Format:** JPG. Upload PNGs if that is what you have and they will be
+  converted - the thirteen here started as PNGs averaging 550 KB each, 7.1 MB
+  in total, and came down to 1.4 MB as JPEGs at quality 88 with no visible
+  loss. PNG is the wrong container for a photograph.
 - **Size:** 1920x1080, the same master you upload to YouTube
-- **Naming:** zero-padded, `ep-01` through `ep-13`
+- **Naming:** zero-padded, `ep-01.jpg` through `ep-13.jpg`. Upload under any
+  name and it can be renamed in a follow-up commit; the filename is what ties
+  an image to an episode.
 
 | File        | Guest             | Episode page slug                            |
 | ----------- | ----------------- | -------------------------------------------- |
