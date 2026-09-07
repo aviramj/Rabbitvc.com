@@ -830,20 +830,25 @@ button { font: inherit; cursor: pointer; }
   color: var(--primary);
   font-weight: 700;
 }
+/* the thumbnail prints the guest's name, so the card does not repeat it.
+   The heading stays in the document, hidden visually: it is what gives the
+   grid headings for screen-reader navigation and for search engines. */
 .ep-card-title {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  font-size: 21px;
-  line-height: 1.2;
-  letter-spacing: -.015em;
-  color: var(--fg);
-  margin: 0;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 .ep-card-desc {
   font-size: 14px;
   line-height: 1.6;
   color: var(--fg-muted);
-  margin: 12px 0 0;
+  margin: 4px 0 0;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   line-clamp: 3;
