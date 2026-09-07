@@ -1,8 +1,12 @@
 # Episode thumbnails
 
 Drop the 16:9 episode thumbnails here, named exactly as listed below.
-`tools/apply-thumbnails.py` wires them into the cards on /podcast/ by this
-name, so the filename is the only thing tying an image to an episode.
+The cards on /podcast/ and the og:image tags already point at these paths, so
+dropping the files in is all that is needed - no code change follows. The
+filename is the only thing tying an image to an episode.
+
+Until a file lands, its card falls back on its own: video episodes show the
+YouTube still, and episodes 1-3 show the rabbit brand plate.
 
 - **Format:** JPG (PNG is fine if the file stays under ~400 KB)
 - **Size:** 1920x1080, the same master you upload to YouTube
