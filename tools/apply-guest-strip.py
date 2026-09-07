@@ -4,7 +4,8 @@ Stamp the guest block into every episode page under podcast/.
 
 Reads tools/guests.json and inserts (or refreshes) a <section class="ep-guest">
 just above the Listen On row on each episode page: a small label, the guest's
-name linked to their LinkedIn, their role, and a one-line bio.
+name linked to their LinkedIn, their role, and - where there is one - a
+one-line bio.
 
 The block goes after .ep-body rather than inside it. Video episodes lead with the
 embed and audio ones end with the player, so anchoring to the media element would
@@ -60,8 +61,8 @@ def build(g):
         'target="_blank" rel="noopener">' + html.escape(g["name"]) +
         '<span class="ep-guest-li">' + LI_ICON + '</span></a></p>\n'
         '      <p class="ep-guest-role">' + g["role"] + '</p>\n'
-        '      <p class="ep-guest-bio">' + g["bio"] + '</p>\n'
-        '    </section>\n'
+        + ('      <p class="ep-guest-bio">' + g["bio"] + '</p>\n' if g["bio"].strip() else "")
+        + '    </section>\n'
         + END + "\n"
     )
 
@@ -81,8 +82,10 @@ def main():
                 print("removed from %s" % g["slug"])
         return 0
 
-    missing = [(g["name"], f) for g in guests
-               for f in ("linkedin", "bio") if not g.get(f, "").strip()]
+    # a bio is optional - some guests have nothing on record beyond their role,
+    # and the block reads fine without one. A LinkedIn URL is not: the name is
+    # rendered as a link, so a blank one would produce a link to nowhere.
+    missing = [(g["name"], "linkedin") for g in guests if not g.get("linkedin", "").strip()]
     if missing:
         print("Not ready - %d field(s) still empty in tools/guests.json:" % len(missing))
         for name, field in missing:
@@ -91,7 +94,8 @@ def main():
         return 1
 
     if "--check" in sys.argv:
-        print("Ready: all %d guests have a linkedin and a bio." % len(guests))
+        print("Ready: all %d guests have a linkedin (%d also have a bio)."
+              % (len(guests), sum(1 for g in guests if g["bio"].strip())))
         return 0
 
     for g in guests:
