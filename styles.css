@@ -396,6 +396,9 @@ button { font: inherit; cursor: pointer; }
 
 /* =================== TEAM =================== */
 .team { background: var(--bg-soft); max-width: none; }
+/* On paper --bg-soft is white, which made the team band the only white
+   stripe on the cream page. Hold the band to the page ground in light. */
+[data-theme="light"] .team { background: var(--bg); }
 .team .sec-head, .team .team-grid { max-width: var(--maxw); margin-left: auto; margin-right: auto; }
 .team-grid {
   display: grid; grid-template-columns: 1fr 1fr; gap: 28px;
