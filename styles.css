@@ -395,7 +395,10 @@ button { font: inherit; cursor: pointer; }
 }
 
 /* =================== TEAM =================== */
-.team { background: var(--bg-soft); max-width: none; }
+/* The band sits on the page ground in both themes: --bg-soft lifted it to
+   white on the cream page and to a paler navy in dark, making the team
+   the one section that did not match its neighbours. */
+.team { background: var(--bg); max-width: none; }
 .team .sec-head, .team .team-grid { max-width: var(--maxw); margin-left: auto; margin-right: auto; }
 .team-grid {
   display: grid; grid-template-columns: 1fr 1fr; gap: 28px;
