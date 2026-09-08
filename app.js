@@ -100,7 +100,7 @@
   function portfolioNames(){
     var names = [];
     document.querySelectorAll('#portfolio .pf-card').forEach(function(card){
-      var img = card.querySelector('.pf-logo img[alt]');
+      var img = card.querySelector('img[alt]');
       var wm  = card.querySelector('.pf-wm');
       var name = card.dataset.name || (img ? img.getAttribute('alt') : (wm ? wm.textContent : ''));
       name = (name || '').trim();
