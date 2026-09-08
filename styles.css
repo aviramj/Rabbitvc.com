@@ -170,6 +170,22 @@ button { font: inherit; cursor: pointer; }
 }
 .mobile-menu a:hover { background: var(--bg-card); }
 
+/* Contact Us in the mobile menu is the primary CTA, not a nav item.
+   Below 900px the header button is hidden, so this is the only one. */
+.mobile-menu a[href^="mailto"] {
+  position: relative; margin-top: 20px; padding: 16px 14px;
+  text-align: center; border-radius: 999px;
+  background: var(--primary); color: #fff;
+  font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 13px;
+  letter-spacing: .08em; text-transform: uppercase;
+  box-shadow: 0 8px 24px -8px color-mix(in oklab, var(--primary) 60%, transparent);
+}
+.mobile-menu a[href^="mailto"]::before {
+  content: ""; position: absolute; left: 14px; right: 14px; top: -10px;
+  border-top: 1px solid var(--border);
+}
+.mobile-menu a[href^="mailto"]:hover { background: var(--primary-2); }
+
 @media (max-width: 900px) {
   .nav-links { display: none; }
   .menu-btn { display: inline-grid; }
