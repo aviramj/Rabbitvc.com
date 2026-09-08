@@ -74,7 +74,7 @@
   }
 
   // ---------- Active section highlight ----------
-  const sectionIds = ['top', 'about', 'team', 'advisors', 'portfolio', 'contact'];
+  const sectionIds = ['top', 'about', 'team', 'advisors', 'contact'];
   const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
   const navLinks = new Map(
     $$('.nav-links a[href^="#"]').map(a => [a.getAttribute('href').slice(1), a])
@@ -96,10 +96,10 @@
   // ---------- Hero ticker and Latest ----------
   // Both read from content already on the site, so the hero stays current
   // as the portfolio and the news page grow.
-  /* ---- ticker: names come from this page's own portfolio section ---- */
-  function portfolioNames(){
+  /* ---- ticker: the served names stand; refresh them from the portfolio page ---- */
+  function portfolioNames(doc){
     var names = [];
-    document.querySelectorAll('#portfolio .pf-card').forEach(function(card){
+    doc.querySelectorAll('#portfolio .pf-card').forEach(function(card){
       var img = card.querySelector('img[alt]');
       var wm  = card.querySelector('.pf-wm');
       var name = card.dataset.name || (img ? img.getAttribute('alt') : (wm ? wm.textContent : ''));
@@ -115,14 +115,28 @@
     }).join('');
     el.innerHTML = html + html;          /* doubled so the -50% loop is seamless */
   }
-  var names = portfolioNames();
-  if (names.length){
-    var half = Math.ceil(names.length / 2);
-    fillRow(document.getElementById('rv-row-a'), names.slice(0, half));
-    fillRow(document.getElementById('rv-row-b'), names.slice(half));
-  } else {
-    var t = document.querySelector('.rv-ticker');
-    if (t) t.style.display = 'none';     /* never show an empty rail */
+  function fillTicker(list){
+    if (!list.length) return false;
+    var half = Math.ceil(list.length / 2);
+    fillRow(document.getElementById('rv-row-a'), list.slice(0, half));
+    fillRow(document.getElementById('rv-row-b'), list.slice(half));
+    return true;
+  }
+  var ticker = document.querySelector('.rv-ticker');
+  if (ticker){
+    /* the portfolio lives on its own page now, so the rail ships with the
+       names in the markup and only re-reads that page to stay current */
+    if (!fillTicker(portfolioNames(document))){
+      if (window.fetch && window.DOMParser){
+        fetch('./portfolio/', { credentials:'same-origin' })
+          .then(function(r){ return r.ok ? r.text() : Promise.reject(r.status); })
+          .then(function(html){
+            fillTicker(portfolioNames(new DOMParser().parseFromString(html, 'text/html')));
+          })
+          .catch(function(){ /* offline or moved: the served copy stands */ });
+      }
+      if (!ticker.querySelector('span')) ticker.style.display = 'none';  /* never show an empty rail */
+    }
   }
 
   /* ---- Latest: served copy is correct; refresh it from the news page ---- */
