@@ -557,6 +557,72 @@ button { font: inherit; cursor: pointer; }
 }
 .advisor-card:hover .advisor-li { color: var(--primary); }
 
+/* =================== PARTNERSHIP BAND ===================
+   The page's one inverted moment: cream on the navy theme, navy on the
+   cream one, so the band reads as a spotlight in both. Its own tokens
+   rather than the page's, since the ground flips relative to everything
+   around it.
+   ======================================================== */
+.partnership {
+  --band-bg: #F5F4EE;
+  --band-fg: #1B1B3A;
+  --band-soft: #4A4A6A;
+  --band-muted: #6E6C85;
+  --band-hair: rgba(27, 27, 58, .16);
+  --band-accent: #1E5FC4;
+  --band-mark-filter: invert(1);          /* the mark ships white; darken it on cream */
+  max-width: none;
+  background: var(--band-bg);
+  color: var(--band-fg);
+  padding-block: clamp(56px, 7vw, 96px);
+}
+[data-theme="light"] .partnership {
+  --band-bg: #0A0E27;
+  --band-fg: #f5f7fb;
+  --band-soft: #C9CDE0;
+  --band-muted: #8A90AB;
+  --band-hair: rgba(255, 255, 255, .16);
+  --band-accent: #6FADFF;
+  --band-mark-filter: none;
+}
+.partnership-inner { max-width: 900px; margin: 0 auto; padding-inline: var(--pad); text-align: center; }
+.partnership-eyebrow {
+  font-family: var(--rv-mono);
+  font-size: 12px; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--band-accent); margin: 0 0 clamp(22px, 3vw, 34px);
+}
+/* the lockup: two marks at one optical height, held apart by a hairline cross */
+.lockup { display: flex; align-items: center; justify-content: center; gap: clamp(18px, 3vw, 34px); flex-wrap: wrap; }
+.lockup-mark { height: clamp(34px, 4vw, 46px); width: auto; filter: var(--band-mark-filter); }
+.lockup-logo { height: clamp(28px, 3.2vw, 38px); width: auto; }
+.lockup-x { font-size: clamp(16px, 1.8vw, 20px); color: var(--band-muted); line-height: 1; }
+.partnership h2 {
+  font-family: 'Montserrat', sans-serif; font-weight: 600;
+  font-size: clamp(26px, 3.4vw, 42px); line-height: 1.12; letter-spacing: -.012em;
+  margin: clamp(28px, 3.6vw, 44px) 0 18px; color: var(--band-fg);
+}
+.partnership-p {
+  margin: 0 auto; max-width: 62ch;
+  font-size: clamp(15.5px, 1.5vw, 17.5px); line-height: 1.62; color: var(--band-soft);
+}
+.partnership-p strong { color: var(--band-fg); font-weight: 600; }
+.partnership-foot {
+  display: grid; grid-template-columns: 1fr 1fr; gap: clamp(20px, 3vw, 48px);
+  margin-top: clamp(34px, 4vw, 52px); padding-top: clamp(24px, 3vw, 34px);
+  border-top: 1px solid var(--band-hair); text-align: left;
+}
+.partnership-foot dt {
+  font-family: var(--rv-mono); font-size: 11px; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--band-muted); margin-bottom: 8px;
+}
+.partnership-foot dd { margin: 0; font-size: 14.5px; line-height: 1.55; color: var(--band-soft); }
+.partnership-foot dd strong { display: block; color: var(--band-fg); font-weight: 600; font-size: 15.5px; margin-bottom: 2px; }
+.partnership-foot .with-logo { display: flex; align-items: center; gap: 14px; margin-top: 12px; }
+.partnership-foot .with-logo img { height: 34px; width: auto; }
+@media (max-width: 720px) {
+  .partnership-foot { grid-template-columns: 1fr; }
+}
+
 /* =================== PORTFOLIO =================== */
 .portfolio {
   padding-top: clamp(40px, 6vw, 80px);
