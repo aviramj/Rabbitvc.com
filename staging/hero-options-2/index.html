@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<title>Rabbit Ventures — Hero Options, Round 2</title>
+<meta name="robots" content="noindex,nofollow" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --navy:#0A0E27; --panel:#0C1330; --indigo:#2E2A6E;
+  --blue:#3B8EFF; --cream:#F5F4EE; --paper:#FBFAF6; --gold:#B4924F; --ink:#1B1B3A;
+  --line-d:rgba(255,255,255,.13); --line-dd:rgba(255,255,255,.07);
+  --line-l:rgba(27,27,58,.16); --line-ll:rgba(27,27,58,.09);
+  --mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,monospace;
+  --sans:'Montserrat',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --maxw:1240px; --pad:clamp(20px,5vw,60px);
+  --rabbit:url(../../wp-content/uploads/2024/08/rabbit-only-transparent-white-1024x707.png);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#05070F;color:#fff;font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* ---- review chrome (preview only) ---- */
+.review-bar{position:sticky;top:0;z-index:80;display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;
+  padding:10px clamp(14px,3vw,26px);background:rgba(5,7,15,.88);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line-dd);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.review-bar strong{color:#fff;letter-spacing:.1em}
+.review-bar a{text-decoration:none;color:rgba(255,255,255,.62);font-weight:600;padding:5px 11px;
+  border:1px solid var(--line-dd);border-radius:999px;transition:.2s}
+.review-bar a:hover{color:#fff;border-color:rgba(255,255,255,.35)}
+.tag-note{position:absolute;z-index:30;left:0;right:0;top:0;padding:13px var(--pad) 0;pointer-events:none;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;display:flex;gap:12px;flex-wrap:wrap;align-items:baseline}
+.tag-note b{font-family:var(--sans);font-size:11.5px;letter-spacing:.18em}
+.tag-note span{opacity:.55;text-transform:none;letter-spacing:.08em}
+
+/* ---- shared ---- */
+.hero{position:relative;min-height:100svh;overflow:hidden;isolation:isolate;display:flex;flex-direction:column}
+.wrap{width:100%;max-width:var(--maxw);margin-inline:auto;padding-inline:var(--pad)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-top:46px;flex:0 0 auto}
+.nav .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px;letter-spacing:-.01em}
+.nav .brand i{width:24px;height:17px;background:currentColor;
+  -webkit-mask:var(--rabbit) no-repeat right center/contain;mask:var(--rabbit) no-repeat right center/contain}
+.nav .links{display:flex;gap:24px;font-size:13px;font-weight:500;opacity:.7}
+.nav .links span:first-child{opacity:1;font-weight:600}
+@media (max-width:920px){.nav .links{display:none}}
+.body-row{flex:1 1 auto;display:flex;align-items:center;padding-block:clamp(30px,5vw,60px)}
+.kicker{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;margin:0}
+h1{margin:0;font-weight:700;letter-spacing:-.03em;line-height:1.04;text-wrap:balance}
+.cta{display:flex;gap:11px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;text-decoration:none;
+  font-size:13px;font-weight:600;letter-spacing:.02em;border:1px solid transparent;transition:.2s}
+
+/* ============ 1 · INDEX — cream, no statement, portfolio is the hero ============ */
+.hIndex{background:var(--paper);color:var(--ink)}
+.hIndex .nav .links{opacity:.6}
+.hIndex .body-row{align-items:stretch;flex-direction:column;justify-content:center}
+.hIndex .standfirst{max-width:66ch;margin:0 0 clamp(26px,4vw,44px);font-size:clamp(17px,1.85vw,21px);
+  line-height:1.5;letter-spacing:-.012em;color:var(--ink)}
+.hIndex .standfirst b{font-weight:600}
+.hIndex .idx-head{display:flex;justify-content:space-between;align-items:baseline;
+  padding-bottom:10px;border-bottom:1px solid var(--ink);
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink)}
+.hIndex .idx{columns:2;column-gap:clamp(28px,4vw,64px);margin-top:0}
+@media (max-width:820px){.hIndex .idx{columns:1}}
+.hIndex .idx a{display:flex;justify-content:space-between;align-items:baseline;gap:16px;
+  break-inside:avoid;padding:9px 0;border-bottom:1px solid var(--line-ll);
+  text-decoration:none;color:var(--ink);transition:.16s}
+.hIndex .idx a:hover{color:#3B3596}
+.hIndex .idx .n{font-size:14.5px;font-weight:600;letter-spacing:-.01em;white-space:nowrap}
+.hIndex .idx .d{font-size:11.5px;color:#6B6880;text-align:right;line-height:1.4;
+  overflow:hidden;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical}
+.hIndex .idx-foot{display:flex;justify-content:space-between;align-items:baseline;padding-top:16px;
+  font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#6B6880}
+.hIndex .idx-foot a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--gold);padding-bottom:2px}
+
+/* ============ 2 · MERIDIAN — navy, statement + true-longitude rail ============ */
+.hMer{background:var(--navy);color:#fff}
+.hMer .glow{position:absolute;inset:auto 0 -25% 0;height:75%;z-index:0;
+  background:radial-gradient(ellipse at 50% 100%,rgba(46,42,110,.6),transparent 66%)}
+.hMer .wrap{position:relative;z-index:5}
+.hMer .kicker{color:var(--blue);margin-bottom:20px}
+.hMer h1{font-size:clamp(34px,4.6vw,62px);max-width:19ch}
+.hMer .sub{margin:24px 0 0;max-width:52ch;font-size:clamp(15px,1.5vw,18px);color:rgba(255,255,255,.72)}
+.hMer .cta{margin-top:34px}
+.hMer .btn.solid{background:var(--blue);color:#06122B;border-color:var(--blue)}
+.hMer .btn.line{border-color:rgba(255,255,255,.3);color:#fff}
+.hMer .rail{flex:0 0 auto;padding-bottom:40px}
+.hMer .rail-in{position:relative}
+.hMer .rail-labels{position:relative;height:62px;margin-top:10px}
+.hMer svg{display:block;width:100%;height:auto;overflow:visible}
+.hMer .mk{position:absolute;top:0;transform:translateX(-50%);text-align:center;white-space:nowrap}
+.hMer .mk b{display:block;font-size:13px;font-weight:600;letter-spacing:-.005em}
+.hMer .mk small{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;color:rgba(255,255,255,.5);margin-top:3px}
+.hMer .mk u{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--blue);
+  text-decoration:none;margin-top:2px;font-variant-numeric:tabular-nums}
+@media (max-width:700px){.hMer .mk b{font-size:11px}.hMer .mk small{display:none}}
+
+/* ============ 3 · TICKER — navy, the portfolio scrolls ============ */
+.hTick{background:var(--navy);color:#fff}
+.hTick .body-row{flex-direction:column;justify-content:center;align-items:flex-start;gap:clamp(34px,5vw,60px)}
+.hTick .kicker{color:var(--blue)}
+.hTick h1{font-size:clamp(30px,3.9vw,52px);max-width:19ch;margin-top:18px}
+.hTick .sub{margin:20px 0 0;max-width:50ch;font-size:15.5px;color:rgba(255,255,255,.7)}
+.tickwrap{width:100%;border-top:1px solid var(--line-dd);border-bottom:1px solid var(--line-dd);
+  padding:clamp(18px,2.4vw,28px) 0;overflow:hidden;position:relative;
+  -webkit-mask:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);
+          mask:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent)}
+.tickrow{display:flex;width:max-content;gap:0;animation:tick 64s linear infinite}
+.tickrow.b{animation-duration:78s;animation-direction:reverse;margin-top:14px}
+.tickwrap:hover .tickrow{animation-play-state:paused}
+.tickrow span{display:inline-flex;align-items:center;gap:22px;padding-right:22px;
+  font-size:clamp(19px,2.5vw,34px);font-weight:600;letter-spacing:-.022em;white-space:nowrap;color:rgba(255,255,255,.92)}
+.tickrow.b span{font-weight:400;color:rgba(255,255,255,.42)}
+.tickrow span::after{content:'';width:5px;height:5px;border-radius:50%;background:var(--blue);opacity:.55;flex:none}
+.tickrow.b span::after{background:rgba(255,255,255,.3)}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.tickrow{animation:none}}
+.hTick .btn.solid{background:var(--blue);color:#06122B;border-color:var(--blue)}
+.hTick .btn.line{border-color:rgba(255,255,255,.3);color:#fff}
+
+/* ============ 4 · BROADSHEET — paper, masthead + news column ============ */
+.hBroad{background:var(--cream);color:var(--ink)}
+.hBroad .nav{border-bottom:1px solid var(--ink);padding-bottom:16px}
+.hBroad .nav .links{opacity:.62}
+.hBroad .masthead{display:flex;justify-content:space-between;align-items:baseline;gap:20px;flex-wrap:wrap;
+  padding:12px 0;border-bottom:1px solid var(--line-l);
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:#6B6880}
+.hBroad .cols{display:grid;grid-template-columns:1.55fr .95fr;gap:clamp(30px,4.5vw,68px);width:100%;align-items:start}
+@media (max-width:900px){.hBroad .cols{grid-template-columns:1fr;gap:36px}}
+.hBroad h1{font-size:clamp(36px,5vw,68px);color:var(--ink)}
+.hBroad h1 span{color:#3B3596}
+.hBroad .lede{margin:26px 0 0;max-width:48ch;font-size:clamp(15.5px,1.55vw,18px);color:#4A4863}
+.hBroad .drop{margin-top:30px;padding-top:22px;border-top:1px solid var(--line-l);
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.hBroad .drop div b{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:5px}
+.hBroad .drop div p{margin:0;font-size:13px;color:#4A4863;line-height:1.45}
+.hBroad .news{border-left:1px solid var(--line-l);padding-left:clamp(20px,2.6vw,34px)}
+@media (max-width:900px){.hBroad .news{border-left:0;padding-left:0;border-top:1px solid var(--line-l);padding-top:26px}}
+.hBroad .news h2{margin:0 0 4px;font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:#6B6880;font-weight:500}
+.hBroad .news a{display:block;padding:15px 0;border-bottom:1px solid var(--line-ll);text-decoration:none;color:var(--ink)}
+.hBroad .news a:hover .t{color:#3B3596}
+.hBroad .news time{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.14em;
+  text-transform:uppercase;color:#8A879C;margin-bottom:5px}
+.hBroad .news .t{font-size:14.5px;font-weight:600;letter-spacing:-.012em;line-height:1.35;transition:.16s}
+.hBroad .news .more{display:inline-block;margin-top:16px;font-family:var(--mono);font-size:10.5px;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--ink);text-decoration:none;
+  border-bottom:1px solid var(--gold);padding-bottom:2px}
+.hBroad .btn.solid{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+.hBroad .btn.line{border-color:rgba(27,27,58,.26);color:var(--ink)}
+.hBroad .cta{margin-top:30px}
+
+/* ============ 5 · MONOGRAM — type as the image ============ */
+.hMono{background:var(--cream);color:var(--ink)}
+.hMono .body-row{position:relative;align-items:center}
+.hMono .type{position:absolute;left:0;right:0;top:50%;transform:translateY(-52%);z-index:0;pointer-events:none;
+  font-size:20.4vw;font-weight:800;letter-spacing:-.055em;line-height:.84;color:var(--ink);
+  padding-inline:var(--pad);max-width:var(--maxw);margin-inline:auto;white-space:nowrap}
+.hMono .type i{font-style:normal;color:transparent;-webkit-text-stroke:1.6px rgba(27,27,58,.34)}
+.hMono .panel{position:relative;z-index:5;margin-left:auto;width:min(360px,84%);
+  background:var(--paper);border:1px solid var(--line-l);padding:clamp(22px,2.6vw,32px);
+  box-shadow:0 24px 60px -34px rgba(27,27,58,.45)}
+.hMono .panel .kicker{color:var(--gold);margin-bottom:14px}
+.hMono .panel p{margin:0;font-size:15px;line-height:1.55;color:#3A384F}
+.hMono .panel p+p{margin-top:12px;font-size:13px;color:#6B6880}
+.hMono .panel .cta{margin-top:22px}
+.hMono .btn.solid{background:var(--ink);color:var(--cream);border-color:var(--ink);width:100%;justify-content:center}
+.hMono .foot{flex:0 0 auto;padding-bottom:34px;display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:#6B6880}
+@media (max-width:820px){
+  /* stack: the type keeps its scale, the panel sits under it rather than over it */
+  .hMono .body-row{flex-direction:column;justify-content:center;gap:clamp(24px,6vw,40px)}
+  .hMono .type{position:static;transform:none;padding-inline:0;font-size:17vw;line-height:.88;white-space:nowrap}
+  .hMono .panel{margin-left:0;width:100%;box-shadow:none}
+}
+
+/* ---- notes ---- */
+.notes{max-width:880px;margin-inline:auto;padding:clamp(56px,8vw,110px) var(--pad);color:rgba(255,255,255,.72);font-size:15px;line-height:1.75}
+.notes h2{font-size:22px;color:#fff;margin:0 0 16px;letter-spacing:-.015em}
+.notes h3{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin:34px 0 12px}
+.notes table{width:100%;border-collapse:collapse;margin-top:18px;font-size:13.5px}
+.notes th,.notes td{text-align:left;padding:10px 12px 10px 0;border-bottom:1px solid var(--line-dd);vertical-align:top}
+.notes th{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);font-weight:500}
+.notes td b{color:#fff;font-weight:600}
+</style>
+</head>
+<body>
+
+<div class="review-bar">
+  <strong>Rabbit Ventures</strong> · Homepage hero — round two
+  <span style="flex:1"></span>
+  <a href="#s1">1 · Index</a><a href="#s2">2 · Meridian</a><a href="#s3">3 · Ticker</a>
+  <a href="#s4">4 · Broadsheet</a><a href="#s5">5 · Monogram</a><a href="#notes">Notes</a>
+</div>
+
+<!-- ===================== 1 · INDEX ===================== -->
+<section class="hero hIndex" id="s1">
+  <div class="tag-note" style="color:#6B6880"><b>ONE — INDEX</b><span>Light · no image · the portfolio is the hero</span></div>
+  <div class="wrap nav" aria-hidden="true">
+    <span class="brand"><i></i> Rabbit Ventures</span>
+    <span class="links"><span>Home</span><span>Portfolio</span><span>News</span><span>Team</span><span>Podcast</span><span>Contact</span></span>
+  </div>
+  <div class="wrap body-row">
+    <div style="width:100%">
+      <p class="standfirst"><b>Rabbit Ventures is a seed fund for cross-border companies</b>, writing first cheques across Silicon Valley, Seoul and Tel Aviv, and staying hands-on from that cheque through global growth.</p>
+      <div class="idx-head"><span>Portfolio</span><span>18 companies</span></div>
+      <div class="idx">
+        <a href="#s1"><span class="n">AlpacaX</span><span class="d">Scoped access control for AI agents</span></a>
+        <a href="#s1"><span class="n">BizCrush</span><span class="d">In-person meeting agent</span></a>
+        <a href="#s1"><span class="n">Guide AI</span><span class="d">AI-powered onboarding</span></a>
+        <a href="#s1"><span class="n">Jigo.ai</span><span class="d">AI lease document management</span></a>
+        <a href="#s1"><span class="n">Miraflow</span><span class="d">Realistic digital humans and AI avatars</span></a>
+        <a href="#s1"><span class="n">Nurie</span><span class="d">Enterprise AI-ops tooling</span></a>
+        <a href="#s1"><span class="n">Phyxup</span><span class="d">Patient care for physical therapists</span></a>
+        <a href="#s1"><span class="n">Provally</span><span class="d">Eliminating false positives in code assessment</span></a>
+        <a href="#s1"><span class="n">Rutile</span><span class="d">Governance for enterprise AI agents</span></a>
+        <a href="#s1"><span class="n">SecuXR</span><span class="d">VR/XR interfaces for cyber security</span></a>
+        <a href="#s1"><span class="n">Sociable</span><span class="d">AI social manager for brands</span></a>
+        <a href="#s1"><span class="n">SortieLab</span><span class="d">Personal data storage and management</span></a>
+        <a href="#s1"><span class="n">Spotlite</span><span class="d">IP for fashion models in the age of AI</span></a>
+        <a href="#s1"><span class="n">Storika</span><span class="d">AI agents for creator marketing</span></a>
+        <a href="#s1"><span class="n">Teiren</span><span class="d">SIEM for security operations</span></a>
+        <a href="#s1"><span class="n">Tribe Money</span><span class="d">Group financing with virtual accounts</span></a>
+        <a href="#s1"><span class="n">WordBricks</span><span class="d">AI productivity suite</span></a>
+        <a href="#s1"><span class="n">Work Onward</span><span class="d">Hyperlocal hiring for local shops and SMBs</span></a>
+      </div>
+      <div class="idx-foot"><span>Silicon Valley · Seoul · Tel Aviv</span><a href="#s1">The team →</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 2 · MERIDIAN ===================== -->
+<section class="hero hMer" id="s2">
+  <div class="glow" aria-hidden="true"></div>
+  <div class="tag-note"><b>TWO — MERIDIAN</b><span>Dark · a drawn graphic, not a photo · statement-led</span></div>
+  <div class="wrap nav" aria-hidden="true">
+    <span class="brand"><i></i> Rabbit Ventures</span>
+    <span class="links"><span>Home</span><span>Portfolio</span><span>News</span><span>Team</span><span>Podcast</span><span>Contact</span></span>
+  </div>
+  <div class="wrap body-row">
+    <div>
+      <p class="kicker">Seed · Cross-border</p>
+      <h1>One fund, three markets, no time difference that matters.</h1>
+      <p class="sub">We write the first cheque and open the next market — capital for visionaries, infrastructure for builders.</p>
+      <div class="cta">
+        <a class="btn solid" href="#s2">View Portfolio</a>
+        <a class="btn line" href="#s2">Meet the Team</a>
+      </div>
+    </div>
+  </div>
+  <div class="wrap rail">
+    <div class="rail-in">
+      <svg viewBox="0 0 1000 112" role="img" aria-label="The three markets plotted at their true longitudes, with connecting arcs.">
+        <line x1="0" y1="104" x2="1000" y2="104" stroke="rgba(255,255,255,.16)" stroke-width="1" />
+        <g stroke="rgba(255,255,255,.09)" stroke-width="1">
+          <line x1="83"  y1="96" x2="83"  y2="104" /><line x1="250" y1="96" x2="250" y2="104" />
+          <line x1="417" y1="96" x2="417" y2="104" /><line x1="583" y1="96" x2="583" y2="104" />
+          <line x1="750" y1="96" x2="750" y2="104" /><line x1="917" y1="96" x2="917" y2="104" />
+        </g>
+        <path d="M161 104 Q379 14 597 104" fill="none" stroke="#3B8EFF" stroke-width="1.3" opacity=".85" />
+        <path d="M597 104 Q725 40 853 104" fill="none" stroke="#3B8EFF" stroke-width="1.3" opacity=".85" />
+        <g fill="#3B8EFF">
+          <circle cx="161" cy="104" r="4.5" /><circle cx="597" cy="104" r="4.5" /><circle cx="853" cy="104" r="4.5" />
+        </g>
+      </svg>
+      <div class="rail-labels">
+      <div class="mk" style="left:16.1%"><b>Silicon Valley</b><small>122.1° W</small><u data-tz="America/Los_Angeles">--:--</u></div>
+      <div class="mk" style="left:59.7%"><b>Tel Aviv</b><small>34.8° E</small><u data-tz="Asia/Jerusalem">--:--</u></div>
+      <div class="mk" style="left:85.3%"><b>Seoul</b><small>127.0° E</small><u data-tz="Asia/Seoul">--:--</u></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 3 · TICKER ===================== -->
+<section class="hero hTick" id="s3">
+  <div class="tag-note"><b>THREE — TICKER</b><span>Dark · content-first · the portfolio moves</span></div>
+  <div class="wrap nav" aria-hidden="true">
+    <span class="brand"><i></i> Rabbit Ventures</span>
+    <span class="links"><span>Home</span><span>Portfolio</span><span>News</span><span>Team</span><span>Podcast</span><span>Contact</span></span>
+  </div>
+  <div class="body-row">
+    <div style="width:100%">
+      <div class="wrap">
+        <p class="kicker">Eighteen companies · Three markets</p>
+        <h1>We back the first cheque, then open the next market.</h1>
+        <p class="sub">Seed-stage deep tech across Silicon Valley, Seoul and Tel Aviv.</p>
+        <div class="cta" style="margin-top:30px">
+          <a class="btn solid" href="#s3">View Portfolio</a>
+          <a class="btn line" href="#s3">Meet the Team</a>
+        </div>
+      </div>
+      <div class="tickwrap" style="margin-top:clamp(34px,5vw,58px)">
+        <div class="tickrow" id="tick-a"></div>
+        <div class="tickrow b" id="tick-b"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 4 · BROADSHEET ===================== -->
+<section class="hero hBroad" id="s4">
+  <div class="tag-note" style="color:#6B6880"><b>FOUR — BROADSHEET</b><span>Light · editorial · statement beside live news</span></div>
+  <div class="wrap nav" aria-hidden="true">
+    <span class="brand"><i></i> Rabbit Ventures</span>
+    <span class="links"><span>Home</span><span>Portfolio</span><span>News</span><span>Team</span><span>Podcast</span><span>Contact</span></span>
+  </div>
+  <div class="wrap"><div class="masthead"><span>Seed · Cross-border · Deep tech</span><span>Silicon Valley · Seoul · Tel Aviv</span><span>Fund II</span></div></div>
+  <div class="wrap body-row">
+    <div class="cols">
+      <div>
+        <h1>Beyond capital.<br /><span>Global from day one.</span></h1>
+        <p class="lede">Rabbit Ventures is the seed partner for cross-border companies. We provide the capital and the operational blueprint — hands-on from the first cheque through global growth.</p>
+        <div class="drop">
+          <div><b>Stage</b><p>Seed and first cheque, with follow-on through growth.</p></div>
+          <div><b>Focus</b><p>Deep tech, B2B SaaS and applied AI.</p></div>
+          <div><b>Reach</b><p>Three offices, one partnership, from day one.</p></div>
+        </div>
+        <div class="cta">
+          <a class="btn solid" href="#s4">View Portfolio</a>
+          <a class="btn line" href="#s4">Meet the Team</a>
+        </div>
+      </div>
+      <div class="news">
+        <h2>Latest</h2>
+        <a href="#s4"><time>5 August 2026</time><span class="t">New in the portfolio: AlpacaX</span></a>
+        <a href="#s4"><time>5 August 2026</time><span class="t">New in the portfolio: Storika</span></a>
+        <a href="#s4"><time>30 July 2026</time><span class="t">Global Founders Speed Pitch, Seattle Tech Week</span></a>
+        <a href="#s4"><time>25 July 2026</time><span class="t">San Francisco AI Summit</span></a>
+        <a class="more" href="#s4">All news →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 5 · MONOGRAM ===================== -->
+<section class="hero hMono" id="s5">
+  <div class="tag-note" style="color:#6B6880"><b>FIVE — MONOGRAM</b><span>Light · the type is the image · no illustration at all</span></div>
+  <div class="wrap nav" aria-hidden="true">
+    <span class="brand"><i></i> Rabbit Ventures</span>
+    <span class="links"><span>Home</span><span>Portfolio</span><span>News</span><span>Team</span><span>Podcast</span><span>Contact</span></span>
+  </div>
+  <div class="wrap body-row">
+    <div class="type" aria-hidden="true">BEYOND<br /><i>CAPITAL</i></div>
+    <div class="panel">
+      <p class="kicker">Rabbit Ventures</p>
+      <p>The seed partner for cross-border companies — Silicon Valley, Seoul and Tel Aviv.</p>
+      <p>First cheques in deep tech, B2B SaaS and applied AI, with hands-on support from day one.</p>
+      <div class="cta"><a class="btn solid" href="#s5">View Portfolio</a></div>
+    </div>
+  </div>
+  <div class="wrap foot"><span>18 portfolio companies</span><span>Global reach · Rapid scale · Day one</span><span>rabbitvc.com</span></div>
+</section>
+
+<!-- ===================== NOTES ===================== -->
+<section class="notes" id="notes">
+  <h2>How this round differs from the first</h2>
+  <p>The first four were all one idea — a big statement on navy — and three of them leaned on the rabbit blown up to half the screen. Here the mark stays at nav size in every direction, and the five spread deliberately across light and dark, image and no image, statement-first and content-first.</p>
+  <table>
+    <thead><tr><th>Direction</th><th>Ground</th><th>Imagery</th><th>Opens on</th></tr></thead>
+    <tbody>
+      <tr><td><b>Index</b></td><td>Paper</td><td>None</td><td>The 18 companies, set as a typographic index</td></tr>
+      <tr><td><b>Meridian</b></td><td>Navy</td><td>Drawn longitude rail</td><td>A statement, evidenced by geography</td></tr>
+      <tr><td><b>Ticker</b></td><td>Navy</td><td>Moving type</td><td>A short statement over the portfolio in motion</td></tr>
+      <tr><td><b>Broadsheet</b></td><td>Cream</td><td>None</td><td>A statement beside the four latest news items</td></tr>
+      <tr><td><b>Monogram</b></td><td>Cream</td><td>The type itself</td><td>Two words at architectural scale</td></tr>
+    </tbody>
+  </table>
+  <h3>Still true from round one</h3>
+  <p>Colours are sampled from the deck, the cards and the banners — navy #0A0E27, blue #3B8EFF, indigo #2E2A6E, cream #F5F4EE, gold #B4924F, ink #1B1B3A. The illustrated cityscape is gone in all five, and the site's teal and orange still need retiring alongside whichever direction wins.</p>
+  <h3>Live content</h3>
+  <p>Index, Ticker and Broadsheet pull real names, descriptions and headlines already on the site, so they stay current as the portfolio and the news page grow. Meridian's clocks are the actual local times in the three offices.</p>
+</section>
+
+<script>
+(function(){
+  var pf = ["AlpacaX","BizCrush","Guide AI","Jigo.ai","Miraflow","Nurie","Phyxup","Provally","Rutile",
+            "SecuXR","Sociable","SortieLab","Spotlite","Storika","Teiren","Tribe Money","WordBricks","Work Onward"];
+  function fill(el, list){
+    if(!el) return;
+    var html = list.map(function(n){ return '<span>'+n+'</span>'; }).join('');
+    el.innerHTML = html + html;           /* doubled so the -50% loop is seamless */
+  }
+  fill(document.getElementById('tick-a'), pf.slice(0,9));
+  fill(document.getElementById('tick-b'), pf.slice(9));
+
+  var clocks = document.querySelectorAll('[data-tz]');
+  function tick(){
+    clocks.forEach(function(el){
+      try{
+        el.textContent = new Intl.DateTimeFormat('en-GB',{
+          hour:'2-digit', minute:'2-digit', hour12:false, timeZone:el.dataset.tz
+        }).format(new Date());
+      }catch(e){ el.textContent = ''; }
+    });
+  }
+  tick(); setInterval(tick, 15000);
+})();
+</script>
+</body>
+</html>
