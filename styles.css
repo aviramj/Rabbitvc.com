@@ -30,6 +30,11 @@
   --pad: clamp(16px, 4vw, 40px);
   --section-y: clamp(72px, 10vw, 140px);
   --ease: cubic-bezier(.2,.8,.2,1);
+  /* Portfolio wall: marks silhouette to white on navy, panel is the light ground. */
+  --pf-mark-filter: grayscale(1) brightness(0) invert(1);
+  --pf-mark-opacity: .68;
+  --pf-panel: #F5F4EE;
+  --pf-panel-ink: #1B1B3A;
 }
 
 [data-theme="light"] {
@@ -47,6 +52,10 @@
   --primary: #1E5FC4;
   --primary-2: #17509F;
   --on-primary: #FFFFFF;
+  /* On paper the marks invert the other way and the panel lifts to white. */
+  --pf-mark-filter: grayscale(1) brightness(0);
+  --pf-mark-opacity: .58;
+  --pf-panel: #FFFFFF;
   --shadow-1: 0 1px 0 rgba(0,0,0,.03) inset, 0 30px 60px -30px rgba(0,0,0,.18);
   --shadow-2: 0 30px 80px -30px rgba(0,0,0,.20);
 }
@@ -559,135 +568,82 @@ button { font: inherit; cursor: pointer; }
 
 .pf-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+  grid-template-columns: repeat(5, 1fr);
+  border-top: 1px solid var(--border);
+  border-left: 1px solid var(--border);
 }
-@media (max-width: 900px) { .pf-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 540px) { .pf-grid { grid-template-columns: 1fr; } }
+@media (max-width: 1000px) { .pf-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 620px)  { .pf-grid { grid-template-columns: repeat(2, 1fr); } }
 
 .pf-card {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 18px 20px 22px;
-  background: var(--bg-elev);
-  border: 1px solid var(--border);
-  border-radius: var(--r-md);
+  display: grid;
+  place-items: center;
+  min-height: 152px;
+  padding: 20px;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
   text-decoration: none;
   color: inherit;
-  isolation: isolate;
   overflow: hidden;
-  transition: transform .25s var(--ease), border-color .25s var(--ease), box-shadow .25s var(--ease);
+  transition: background .28s var(--ease);
 }
+.pf-card:focus-visible { outline: 2px solid var(--primary); outline-offset: -2px; }
 
-.pf-logo {
-  height: 42px;
-  max-width: 75%;
-  margin-bottom: 16px;
-  background: #ffffff;
-  border-radius: 8px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 5px 12px;
-  align-self: flex-start;
-  overflow: hidden;
-  border: none;
-  box-shadow:
-    0 2px 6px -2px rgba(0, 0, 0, 0.18),
-    0 0 0 1px rgba(0, 0, 0, 0.04);
-  transition: transform .25s var(--ease), box-shadow .25s var(--ease);
+.pf-markwrap {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  transition: transform .32s var(--ease);
 }
-.pf-card:hover .pf-logo {
-  transform: translateY(-1px);
-  box-shadow:
-    0 6px 14px -4px rgba(0, 0, 0, 0.30),
-    0 0 0 1px rgba(0, 0, 0, 0.05);
-}
-.pf-logo img {
-  max-height: 100%;
+/* One box for every mark, so the wall reads evenly whatever the aspect ratio. */
+.pf-mark {
+  width: 136px;
   max-width: 100%;
-  width: auto;
-  height: auto;
+  max-height: 48px;
   object-fit: contain;
   display: block;
-  transform: scale(var(--logo-zoom, 1));
-  transform-origin: var(--logo-origin, center);
-  filter: var(--logo-filter, none);
+  filter: var(--pf-mark-filter);
+  opacity: var(--pf-mark-opacity);
+  transition: filter .3s var(--ease), opacity .3s var(--ease), color .3s var(--ease);
 }
-
-/* logo + name on the same line (used for Guide AI) */
-.pf-name-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 14px;
-}
-.pf-name-row .pf-logo {
-  margin-bottom: 0;
-  align-self: center;
-}
-.pf-name-row .pf-name {
-  margin: 0;
-}
-.pf-logo.pf-wordmark { padding: 5px 14px; }
 .pf-wm {
-  font-family: 'Montserrat', system-ui, sans-serif;
-  font-weight: 800;
-  font-size: 22px;
-  letter-spacing: -.4px;
-  color: #1f2937;
-  line-height: 1;
-}
-.pf-wm em {
-  font-style: normal;
-  color: var(--primary);
-}
-.pf-card::before {
-  content: "";
-  position: absolute; inset: 0; z-index: -1;
-  background: linear-gradient(135deg, color-mix(in oklab, var(--primary) 16%, transparent), transparent 65%);
-  opacity: 0;
-  transition: opacity .3s var(--ease);
-}
-.pf-card:hover {
-  transform: translateY(-3px);
-  border-color: color-mix(in oklab, var(--primary) 60%, var(--border));
-  box-shadow: var(--shadow-2);
-}
-.pf-card:hover::before { opacity: 1; }
-
-.pf-name {
+  width: auto;
+  max-height: none;
+  text-align: center;
   font-family: 'Montserrat', sans-serif;
-  font-size: 22px;
-  font-weight: 600;
-  letter-spacing: -.01em;
+  font-weight: 700;
+  font-size: 19px;
   color: var(--fg);
-  margin: 0;
-  line-height: 1.2;
+  filter: none;
 }
-.pf-arrow {
+
+.pf-meta {
   position: absolute;
-  top: 14px;
-  right: 18px;
-  color: var(--fg-muted);
-  font-family: 'Montserrat', sans-serif;
-  font-size: 18px;
-  line-height: 1;
-  transition: transform .25s var(--ease), color .25s;
-  z-index: 1;
+  left: 0; right: 0; bottom: 0;
+  padding: 0 14px 14px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(6px);
   pointer-events: none;
-}
-.pf-card:hover .pf-arrow {
-  color: var(--primary);
-  transform: translate(3px, -3px);
+  transition: opacity .28s var(--ease), transform .32s var(--ease);
 }
 .pf-desc {
-  color: var(--fg-soft);
-  font-size: 14.5px;
-  line-height: 1.55;
-  margin: 0;
+  font-size: 11px;
+  line-height: 1.42;
+  color: var(--pf-panel-ink);
+  text-wrap: pretty;
+}
+
+/* Hover turns the cell into a panel so the mark can return to full colour. */
+.pf-card:is(:hover, :focus-visible) { background: var(--pf-panel); }
+.pf-card:is(:hover, :focus-visible) .pf-mark { filter: none; opacity: 1; }
+.pf-card:is(:hover, :focus-visible) .pf-wm { color: var(--pf-panel-ink); }
+.pf-card:is(:hover, :focus-visible) .pf-markwrap { transform: translateY(-20px); }
+.pf-card:is(:hover, :focus-visible) .pf-meta { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .pf-card, .pf-markwrap, .pf-mark, .pf-meta { transition: none; }
 }
 
 /* =================== CONTACT =================== */
