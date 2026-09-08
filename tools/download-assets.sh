@@ -80,5 +80,5 @@ if command -v zip >/dev/null 2>&1; then
   echo "Created $ZIP  ($(wc -c < "$ZIP" | tr -d ' ') bytes)"
 else
   tar -czf "${ZIP%.zip}.tar.gz" "$OUT"
-  echo "zip not found — created ${ZIP%.zip}.tar.gz instead"
+  echo "zip not found; created ${ZIP%.zip}.tar.gz instead"
 fi

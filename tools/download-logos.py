@@ -30,7 +30,7 @@ from pathlib import Path
 UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
       "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36")
 
-# (slug, homepage URL) — slugs match how we'll reference them in index.html
+# (slug, homepage URL); slugs match how we'll reference them in index.html
 COMPANIES: list[tuple[str, str]] = [
     ("work-onward", "https://www.workonward.com/"),
     ("jigo-ai",     "https://jigo.ai/"),
@@ -203,7 +203,7 @@ def main() -> int:
         print("Created logos.zip")
     else:
         os.system("tar -czf logos.tar.gz logos")
-        print("zip not found — created logos.tar.gz instead")
+        print("zip not found; created logos.tar.gz instead")
     return 0
 
 

@@ -1,5 +1,5 @@
 /* ============================================================
-   Rabbit Ventures — modern reactive single-page
+   Rabbit Ventures: modern reactive single-page
    ============================================================ */
 
 :root {
@@ -1029,7 +1029,7 @@ button { font: inherit; cursor: pointer; }
 .lo-btn-apple   { --lo-color: #b04bc6; }
 .lo-btn-youtube { --lo-color: #ff0033; }
 
-/* show-level Listen On on the podcast index hero — a bare row, not a panel */
+/* show-level Listen On on the podcast index hero: a bare row, not a panel */
 .listen-on--bare {
   background: none;
   border: 0;

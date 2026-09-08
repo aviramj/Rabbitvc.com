@@ -12,7 +12,7 @@ Usage:
     python3 tools/export-podcast.py
     # then push podcast-export.zip to the repo
 
-No external deps — just stdlib. Requires Python 3.8+.
+No external deps, just stdlib. Requires Python 3.8+.
 """
 from __future__ import annotations
 
@@ -152,7 +152,7 @@ if any(p.iterdir() for p in [OUT]):
     else:
         name = "podcast-export.tar.gz"
         subprocess.check_call(["tar", "-czf", name, "podcast-export"])
-        print(f"zip not found — created {name} instead")
+        print(f"zip not found; created {name} instead")
     print(f"Push {name} to the repo when you're done.")
 else:
     print("No data exported.")

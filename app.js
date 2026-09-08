@@ -1,4 +1,4 @@
-// Rabbit Ventures — single-page reactive behaviors
+// Rabbit Ventures: single-page reactive behaviors
 (() => {
   'use strict';
 
