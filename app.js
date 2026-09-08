@@ -125,17 +125,6 @@
     if (t) t.style.display = 'none';     /* never show an empty rail */
   }
 
-  /* ---- keep the nav in the hero's colours for as long as the hero is behind it ---- */
-  var hero = document.querySelector('.rv-hero'), navEl = document.getElementById('nav');
-  if (hero && navEl){
-    var syncNav = function(){
-      navEl.classList.toggle('rv-over-hero', hero.getBoundingClientRect().bottom > 72);
-    };
-    syncNav();
-    addEventListener('scroll', syncNav, { passive:true });
-    addEventListener('resize', syncNav);
-  }
-
   /* ---- Latest: served copy is correct; refresh it from the news page ---- */
   var list = document.getElementById('rv-latest-list');
   if (!list || !window.fetch || !window.DOMParser) return;
