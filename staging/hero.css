@@ -35,9 +35,10 @@
 .nav.scrolled.rv-over-hero .nav-links a.active{ background:rgba(255,255,255,.12); }
 
 /* The mark is white line-art; the site inverts it in light mode, which would
-   turn it black against this navy hero. */
+   turn it black against this navy hero. Scoped to the homepage: every other
+   page has a light ground at the top and still needs the inversion. */
 [data-theme="light"] .nav.rv-over-hero .brand-mark,
-[data-theme="light"] .nav:not(.scrolled) .brand-mark{ filter:none; }
+[data-theme="light"] .home-page .nav:not(.scrolled) .brand-mark{ filter:none; }
 
 /* ---------------- shell ---------------- */
 .rv-hero{

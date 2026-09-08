@@ -23,11 +23,10 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet" />
-<link rel="preload" as="image" href="./wp-content/uploads/2023/03/rabbit-website-background-image5-1-1536x1147.jpg" />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="./styles.css" />
 </head>
-<body>
+<body class="home-page">
 
 <a class="skip" href="#main">Skip to content</a>
 
@@ -73,39 +72,42 @@
 <main id="main">
 
   <!-- ================= HERO ================= -->
-  <section class="hero" id="top">
-    <div class="hero-bg" aria-hidden="true">
-      <picture>
-        <source media="(min-width: 1400px)" srcset="./wp-content/uploads/2023/03/rabbit-website-background-image5-1-2048x1529.jpg" />
-        <source media="(min-width: 900px)"  srcset="./wp-content/uploads/2023/03/rabbit-website-background-image5-1-1536x1147.jpg" />
-        <source media="(min-width: 600px)"  srcset="./wp-content/uploads/2023/03/rabbit-website-background-image5-1-1024x765.jpg" />
-        <img src="./wp-content/uploads/2023/03/rabbit-website-background-image5-1-768x573.jpg" alt="" loading="eager" decoding="async" />
-      </picture>
-      <span class="hero-tint"></span>
-      <span class="hero-vignette"></span>
-    </div>
+  <section class="rv-hero" id="top">
+    <div class="rv-inner">
+      <div class="rv-cols">
 
-    <div class="hero-inner reveal">
-      <h1 class="hero-title">
-        Beyond Capital: <br />Global&nbsp;Reach. Rapid&nbsp;Scale. Day&nbsp;One.
-      </h1>
-      <p class="hero-sub"><em>Capital for Visionaries. Infrastructure for Builders.</em></p>
+        <div class="rv-lead">
+          <p class="rv-kicker">Seed &middot; Cross-border &middot; Deep tech</p>
+          <h1 class="rv-title">Beyond&nbsp;Capital:<br />Global&nbsp;Reach.<br />Rapid&nbsp;Scale. Day&nbsp;One.</h1>
+          <div class="rv-rule" aria-hidden="true"></div>
+          <p class="rv-lede">Rabbit Ventures is the seed partner for cross-border companies. We provide the capital and the operational blueprint, and stay hands-on from the first cheque through global growth.</p>
+          <div class="rv-cta">
+            <a class="rv-btn rv-btn-solid" href="#portfolio">
+              View Portfolio
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </a>
+            <a class="rv-btn rv-btn-line" href="#team">Meet the Team</a>
+          </div>
+        </div>
 
-      <div class="hero-cta">
-        <a class="btn btn-primary lg" href="#portfolio">
-          View Portfolio
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-        </a>
-        <a class="btn btn-ghost lg" href="#team">
-          Meet the Team
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-        </a>
+        <aside class="rv-latest" aria-labelledby="rv-latest-h">
+          <h2 id="rv-latest-h">Latest</h2>
+          <div id="rv-latest-list">
+            <a class="rv-item" href="./news/"><time datetime="2026-08-05">5 August 2026</time><span class="rv-item-title">New in the portfolio: AlpacaX</span></a>
+            <a class="rv-item" href="./news/"><time datetime="2026-08-05">5 August 2026</time><span class="rv-item-title">New in the portfolio: Storika</span></a>
+            <a class="rv-item" href="./news/"><time datetime="2026-07-30">30 July 2026</time><span class="rv-item-title">Global Founders Speed Pitch, Seattle Tech Week</span></a>
+            <a class="rv-item" href="./news/"><time datetime="2026-07-25">25 July 2026</time><span class="rv-item-title">San Francisco AI Summit</span></a>
+          </div>
+          <a class="rv-more" href="./news/">All news &rarr;</a>
+        </aside>
+
       </div>
     </div>
 
-    <a class="scroll-cue" href="#about" aria-label="Scroll to about">
-      <span></span>
-    </a>
+    <div class="rv-ticker" aria-hidden="true">
+      <div class="rv-row" id="rv-row-a"></div>
+      <div class="rv-row rv-row-b" id="rv-row-b"></div>
+    </div>
   </section>
 
   <!-- ================= ABOUT ================= -->
@@ -301,7 +303,7 @@
         <span class="pf-arrow" aria-hidden="true">&#8599;</span>
         <p class="pf-desc">An AI-based social media manager for influencers and brands</p>
       </a>
-      <a class="pf-card reveal" href="https://www.secuxr.com/" target="_blank" rel="noopener">
+      <a class="pf-card reveal" data-name="SecuXR" href="https://www.secuxr.com/" target="_blank" rel="noopener">
         <div class="pf-logo pf-wordmark"><span class="pf-wm">secu<em>xr</em></span></div>
         <span class="pf-arrow" aria-hidden="true">&#8599;</span>
         <p class="pf-desc">Bringing VR/XR user interfaces to cybersecurity</p>
