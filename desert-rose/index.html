@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="../styles.css?v=202609091250" />
+<link rel="stylesheet" href="../styles.css?v=202609091305" />
 <style>
   /* The banner runs under the fixed bar, so main carries no top padding here
      and the banner's own padding clears the nav. */
@@ -35,7 +35,10 @@
   .dr-hero p.eyebrow { font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: #6FADFF; font-weight: 600; margin: 0 0 12px; }
   .dr-hero h1 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: clamp(34px, 5.4vw, 60px); letter-spacing: -.02em; line-height: 1.05; margin: 0 0 18px; color: #fff; text-wrap: balance; }
   .dr-hero p.sub { font-size: clamp(16px, 1.4vw, 20px); color: rgba(255,255,255,.88); max-width: 640px; margin: 0; line-height: 1.5; }
-  .dr-prose { max-width: 760px; margin: 0 auto; padding: clamp(24px, 4vw, 56px) var(--pad) clamp(72px, 10vw, 140px); color: var(--fg-soft); }
+  .dr-prose { max-width: 760px; margin: 0 auto; padding: clamp(20px, 2.4vw, 36px) var(--pad) clamp(72px, 10vw, 140px); color: var(--fg-soft); }
+  /* the first heading would stack its own top margin on the padding above,
+     leaving the copy adrift under the photo */
+  .dr-prose > :first-child { margin-top: 0; }
   .dr-prose h2 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: clamp(22px, 2.4vw, 30px); color: var(--fg); margin: clamp(32px, 4vw, 56px) 0 16px; letter-spacing: -.01em; }
   .dr-prose p { font-size: clamp(16px, 1.25vw, 18px); line-height: 1.7; margin: 0 0 18px; }
   .dr-prose blockquote { border-left: 3px solid var(--primary); padding: 4px 0 4px 20px; margin: 24px 0; font-style: italic; color: var(--fg); font-size: clamp(16px, 1.3vw, 19px); line-height: 1.55; }
@@ -231,6 +234,6 @@
   <p class="copy">Copyright &copy; Rabbit Ventures</p>
 </footer>
 
-<script src="../app.js?v=202609091250" defer></script>
+<script src="../app.js?v=202609091305" defer></script>
 </body>
 </html>
