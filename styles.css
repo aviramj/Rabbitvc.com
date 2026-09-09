@@ -301,6 +301,10 @@ button { font: inherit; cursor: pointer; }
 }
 
 /* =================== VISION + THESIS =================== */
+/* Stacked sections each lay down a full --section-y, so a seam runs to twice
+   the rhythm. Vision, team and partners take a shorter tail and lead-in so
+   the headings sit closer to the band above them. */
+.vision { padding-bottom: clamp(40px, 4.6vw, 72px); }
 .vision-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr);
@@ -398,7 +402,11 @@ button { font: inherit; cursor: pointer; }
 /* The band sits on the page ground in both themes: --bg-soft lifted it to
    white on the cream page and to a paler navy in dark, making the team
    the one section that did not match its neighbours. */
-.team { background: var(--bg); max-width: none; }
+.team {
+  background: var(--bg);
+  max-width: none;
+  padding-block: clamp(40px, 4.6vw, 72px);
+}
 .team .sec-head, .team .team-grid { max-width: var(--maxw); margin-left: auto; margin-right: auto; }
 .team-grid {
   display: grid; grid-template-columns: 1fr 1fr; gap: 28px;
@@ -506,6 +514,7 @@ button { font: inherit; cursor: pointer; }
 .advisors {
   max-width: var(--maxw);
   margin: 0 auto;
+  padding-top: clamp(40px, 4.6vw, 72px);
 }
 .advisor-groups {
   display: grid;
