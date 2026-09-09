@@ -326,9 +326,8 @@ section[id] { scroll-margin-top: clamp(80px, 8vh, 96px); }
 
 .vision-eyebrow {
   margin: 0 0 clamp(14px, 1.8vw, 20px);
-  font-family: 'IBM Plex Mono', ui-monospace, monospace;
-  font-size: 11.5px; font-weight: 500;
-  letter-spacing: .22em; text-transform: uppercase;
+  font-size: 12px; font-weight: 600;
+  letter-spacing: .18em; text-transform: uppercase;
   color: var(--primary);
 }
 .vision-h {
@@ -1286,11 +1285,15 @@ body:has(.staging-banner) .mobile-menu{top:92px}
 }
 
 /* ---------------- statement ---------------- */
+/* Montserrat, not --rv-mono: this reads as a page eyebrow like the ones on
+   portfolio, news, contact and desert rose, so it takes their cut. The mono
+   stays on the hero's meta furniture below - Latest, item dates, the more
+   link - where it is doing tabular work rather than labelling a headline. */
 .rv-kicker{
   margin:0 0 clamp(16px,2vw,22px);
-  font-family:var(--rv-mono);
-  font-size:clamp(10px,1.05vw,11.5px);
-  letter-spacing:.22em;
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:.18em;
   text-transform:uppercase;
   color:var(--primary);
 }
