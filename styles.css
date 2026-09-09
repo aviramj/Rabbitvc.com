@@ -477,6 +477,10 @@ section[id] { scroll-margin-top: clamp(80px, 8vh, 96px); }
   width: 100%; height: 100%; object-fit: cover;
   transition: transform .6s var(--ease);
 }
+
+/* Tall portraits: pull the square crop up so the face sits mid-circle. */
+.photo--upper img { object-position: 50% 16%; }
+
 .member:hover .photo img { transform: scale(1.05); }
 
 .member-body h3 {
