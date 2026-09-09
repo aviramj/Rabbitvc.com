@@ -622,10 +622,6 @@ section[id] { scroll-margin-top: clamp(80px, 8vh, 96px); }
 /* A second pairing under the first partner's copy: it needs the paragraph above
    it to read as finished before the next mark starts. */
 .lockup--next { margin-top: clamp(40px, 5vw, 68px); }
-/* Technion stacks a wordmark over two lines of subtitle, so at a shared height
-   its type sits far smaller than J-Ventures' single line. The bump matches them
-   optically rather than by the box. */
-.lockup-logo--technion { height: clamp(40px, 4.8vw, 56px); }
 .lockup-x { font-size: clamp(16px, 1.8vw, 20px); color: var(--band-muted); line-height: 1; }
 .partnership-p {
   margin: 0 auto; max-width: 62ch;
