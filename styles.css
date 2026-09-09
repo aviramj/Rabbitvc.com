@@ -596,11 +596,6 @@ section[id] { scroll-margin-top: clamp(80px, 8vh, 96px); }
   --band-mark-filter: invert(1);          /* darken it on the cream page, as the brand mark does */
 }
 .partnership-inner { max-width: 900px; margin: 0 auto; padding-inline: var(--pad); text-align: center; }
-.partnership-eyebrow {
-  font-family: var(--rv-mono);
-  font-size: 12px; letter-spacing: .18em; text-transform: uppercase;
-  color: var(--band-accent); margin: 0 0 clamp(22px, 3vw, 34px);
-}
 /* the lockup: two marks at one optical height, held apart by a hairline cross */
 .lockup { margin-bottom: clamp(28px, 3.6vw, 44px); display: flex; align-items: center; justify-content: center; gap: clamp(18px, 3vw, 34px); flex-wrap: wrap; }
 .lockup-mark { height: clamp(42px, 4.8vw, 58px); width: auto; filter: var(--band-mark-filter); }
