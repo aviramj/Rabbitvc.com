@@ -518,6 +518,7 @@ section[id] { scroll-margin-top: clamp(80px, 8vh, 96px); }
   max-width: var(--maxw);
   margin: 0 auto;
   padding-top: clamp(40px, 4.6vw, 72px);
+  padding-bottom: clamp(36px, 4.2vw, 64px);
 }
 .advisor-groups {
   display: grid;
@@ -571,8 +572,8 @@ section[id] { scroll-margin-top: clamp(80px, 8vh, 96px); }
 
 /* =================== PARTNERSHIP BAND ===================
    Follows the theme like every other section: the deck navy in dark, the
-   card stock in light. Hairlines top and bottom set it apart from its
-   neighbours without changing ground.
+   card stock in light. It runs close under Fund Partners, with no rule
+   between them, since the two read as one thought.
    ======================================================== */
 .partnership {
   --band-fg: var(--fg);
@@ -584,9 +585,8 @@ section[id] { scroll-margin-top: clamp(80px, 8vh, 96px); }
   max-width: none;
   background: var(--bg);
   color: var(--band-fg);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  padding-block: clamp(56px, 7vw, 96px);
+  padding-top: clamp(20px, 2.6vw, 40px);
+  padding-bottom: clamp(56px, 7vw, 96px);
 }
 /* the Technion mark is a single deep navy: white it out on the navy ground,
    and leave it as drawn on the cream one */
