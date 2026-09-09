@@ -15,11 +15,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="../styles.css?v=202609090006" />
 <style>
-  body.dr-page main { padding-top: 90px; }
-  .dr-hero { max-width: var(--maxw); margin: 0 auto; padding: clamp(40px, 6vw, 80px) var(--pad) clamp(20px, 3vw, 40px); text-align: center; }
+  /* The banner runs under the fixed bar, so main carries no top padding here
+     and the banner's own padding clears the nav. */
+  body.dr-page main { padding-top: 0; }
+  .dr-hero { position: relative; min-height: clamp(420px, 58vh, 640px); display: flex; align-items: flex-end; overflow: hidden; isolation: isolate; }
+  .dr-hero > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
+  /* The scrim carries the type: solid ground at the foot, thinning upward. */
+  .dr-hero::after { content: ""; position: absolute; inset: 0; z-index: -1;
+    background: linear-gradient(to top, var(--bg) 3%, color-mix(in oklab, var(--bg) 74%, transparent) 46%, color-mix(in oklab, var(--bg) 26%, transparent)); }
+  .dr-hero-inner { max-width: var(--maxw); margin: 0 auto; width: 100%; padding: clamp(120px, 16vh, 200px) var(--pad) clamp(36px, 5vw, 64px); }
   .dr-hero p.eyebrow { font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: var(--primary); font-weight: 600; margin: 0 0 12px; }
-  .dr-hero h1 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: clamp(34px, 5vw, 56px); letter-spacing: -.01em; line-height: 1.1; margin: 0 0 16px; color: var(--fg); }
-  .dr-hero p.sub { font-size: clamp(16px, 1.4vw, 20px); color: var(--fg-soft); max-width: 720px; margin: 0 auto; line-height: 1.5; }
+  .dr-hero h1 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: clamp(34px, 5.4vw, 60px); letter-spacing: -.02em; line-height: 1.05; margin: 0 0 18px; color: #fff; text-wrap: balance; }
+  .dr-hero p.sub { font-size: clamp(16px, 1.4vw, 20px); color: rgba(255,255,255,.88); max-width: 640px; margin: 0; line-height: 1.5; }
   .dr-prose { max-width: 760px; margin: 0 auto; padding: clamp(24px, 4vw, 56px) var(--pad) clamp(72px, 10vw, 140px); color: var(--fg-soft); }
   .dr-prose h2 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: clamp(22px, 2.4vw, 30px); color: var(--fg); margin: clamp(32px, 4vw, 56px) 0 16px; letter-spacing: -.01em; }
   .dr-prose p { font-size: clamp(16px, 1.25vw, 18px); line-height: 1.7; margin: 0 0 18px; }
@@ -76,9 +83,12 @@
 <main id="main">
 
   <section class="dr-hero">
-    <p class="eyebrow">Founder Program</p>
-    <h1>Desert Rose Workation</h1>
-    <p class="sub">A two-week workation in the Arizona desert where Rabbit Ventures founders, mentors, and investors step away from the noise and work on what actually matters.</p>
+    <img src="./photos/desert-rose-hero.jpg" alt="Rabbit Ventures founders and mentors working together in the house during the Desert Rose Workation" />
+    <div class="dr-hero-inner">
+      <p class="eyebrow">Founder Program</p>
+      <h1>Desert Rose Workation</h1>
+      <p class="sub">A two-week workation in the Arizona desert where Rabbit Ventures founders, mentors, and investors step away from the noise and work on what actually matters.</p>
+    </div>
   </section>
 
   <article class="dr-prose">
