@@ -558,32 +558,26 @@ button { font: inherit; cursor: pointer; }
 .advisor-card:hover .advisor-li { color: var(--primary); }
 
 /* =================== PARTNERSHIP BAND ===================
-   The page's one inverted moment: cream on the navy theme, navy on the
-   cream one, so the band reads as a spotlight in both. Its own tokens
-   rather than the page's, since the ground flips relative to everything
-   around it.
+   Follows the theme like every other section: the deck navy in dark, the
+   card stock in light. Hairlines top and bottom set it apart from its
+   neighbours without changing ground.
    ======================================================== */
 .partnership {
-  --band-bg: #F5F4EE;
-  --band-fg: #1B1B3A;
-  --band-soft: #4A4A6A;
-  --band-muted: #6E6C85;
-  --band-hair: rgba(27, 27, 58, .16);
-  --band-accent: #1E5FC4;
-  --band-mark-filter: invert(1);          /* the mark ships white; darken it on cream */
+  --band-fg: var(--fg);
+  --band-soft: var(--fg-soft);
+  --band-muted: var(--fg-muted);
+  --band-hair: var(--border);
+  --band-accent: var(--primary);
+  --band-mark-filter: none;               /* the mark ships white: right on navy */
   max-width: none;
-  background: var(--band-bg);
+  background: var(--bg);
   color: var(--band-fg);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
   padding-block: clamp(56px, 7vw, 96px);
 }
 [data-theme="light"] .partnership {
-  --band-bg: #0A0E27;
-  --band-fg: #f5f7fb;
-  --band-soft: #C9CDE0;
-  --band-muted: #8A90AB;
-  --band-hair: rgba(255, 255, 255, .16);
-  --band-accent: #6FADFF;
-  --band-mark-filter: none;
+  --band-mark-filter: invert(1);          /* darken it on the cream page, as the brand mark does */
 }
 .partnership-inner { max-width: 900px; margin: 0 auto; padding-inline: var(--pad); text-align: center; }
 .partnership-eyebrow {
