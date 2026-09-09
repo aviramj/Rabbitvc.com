@@ -478,8 +478,9 @@ section[id] { scroll-margin-top: clamp(80px, 8vh, 96px); }
   transition: transform .6s var(--ease);
 }
 
-/* Tall portraits: pull the square crop up so the face sits mid-circle. */
-.photo--upper img { object-position: 50% 16%; }
+/* Tall portraits: pull the square crop up so the face, not the chest,
+   fills the circle. Percentages keep it right at the 140px mobile size. */
+.photo--upper img { object-position: 50% 22%; }
 
 .member:hover .photo img { transform: scale(1.05); }
 
