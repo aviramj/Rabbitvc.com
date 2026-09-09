@@ -78,16 +78,17 @@
 
   /* The painting signs the page off instead of announcing it, fading up out
      of the ground. It carries no type, so it follows the theme on both edges. */
-  .ct-plate { position: relative; height: clamp(300px, 42vw, 560px); overflow: hidden; }
+  .ct-plate { position: relative; height: clamp(380px, 60vw, 820px); overflow: hidden; }
   .ct-plate img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 34%; }
   /* Opaque at the top so the painting rises out of the ground, and settling
      again at the bottom so it meets the footer instead of being cut off. */
   .ct-plate::after { content: ""; position: absolute; inset: 0;
     background: linear-gradient(to bottom,
       var(--bg),
-      color-mix(in oklab, var(--bg) 26%, transparent) 30%,
-      color-mix(in oklab, var(--bg) 3%, transparent) 62%,
-      color-mix(in oklab, var(--bg) 40%, transparent)); }
+      color-mix(in oklab, var(--bg) 16%, transparent) 20%,
+      transparent 42%,
+      transparent 76%,
+      color-mix(in oklab, var(--bg) 34%, transparent)); }
 
   @media (max-width: 700px) {
     .ct-strip { grid-template-columns: 1fr; }
