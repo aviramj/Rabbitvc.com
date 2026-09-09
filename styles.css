@@ -112,7 +112,13 @@ button { font: inherit; cursor: pointer; }
   line-height: 1;
 }
 .brand-name { font-size: clamp(18px, 1.4vw, 22px); }
-.brand-mark { width: auto; height: clamp(32px, 3.4vw, 40px); transition: filter .3s var(--ease); }
+.brand-mark {
+  width: auto; height: clamp(32px, 3.4vw, 40px);
+  /* The silhouette is bottom-heavy (thin ears up top, broad body below), so its
+     mass centre sits ~10% low. Nudging up optically centres it on the wordmark. */
+  transform: translateY(-3px);
+  transition: filter .3s var(--ease);
+}
 [data-theme="light"] .brand-mark { filter: invert(1); }
 
 .nav-links {
