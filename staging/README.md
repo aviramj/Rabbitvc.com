@@ -21,15 +21,23 @@ cityscape painting, differing in what they ask it to do:
 
 | Option | The painting is | Reads as |
 | --- | --- | --- |
-| A. Skyline | the banner, behind the headline | a conventional interior page. This is what is built at `/contact/`. |
+| A. Skyline | the banner, behind the headline | a conventional interior page. Superseded. |
 | B. Letterhead | a tall panel beside the details, washed into the ground at the seam | a letterhead. Addresses are a list, so a fourth office is one more row. |
 | C. Three windows | cut into three, one slice per office | the offices *are* the artwork. Cards run Tel Aviv, Valley, Seoul, the order the painting is composed in. |
-| D. Quiet letter | a closing band, fading up out of the ground | a printed letter. Type only above the fold; closest to the three-city strip from the old banner. |
+| **D. Quiet letter** | a closing band, fading up out of the ground | a printed letter. Type only above the fold; closest to the three-city strip from the old banner. **Chosen, and built at `/contact/`.** |
 
-C leans on the painting being composed left to right as Tel Aviv, then the
-Valley, then Seoul. Each frame is one `background-position` on a single file
-at `background-size: 400%`, so there are no new image assets and no crops to
-maintain.
+D went in on being minimal and professional. The built page drops the banner,
+the panel and the landmark icons: the address is the loudest thing on it, the
+gold from the business cards rules off under it, the three cities sit in a
+hairline strip, and the painting closes the page rather than opening it.
+Copy-address is a mono whisper rather than a second button, and each city block
+is itself the map link, marked with one small arrow, so no row of repeated
+"view on map" lines is needed.
+
+C, for the record, leans on the painting being composed left to right as Tel
+Aviv, then the Valley, then Seoul. Each frame is one `background-position` on a
+single file at `background-size: 400%`, so there are no new image assets and no
+crops to maintain. Worth revisiting if the page ever wants more weight.
 
 Two review conveniences, not part of any option: `?only=c` isolates one
 direction and `?theme=light` opens on the cream ground.

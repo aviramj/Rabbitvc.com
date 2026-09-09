@@ -4,12 +4,12 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
 <title>Contact | Rabbit Ventures</title>
-<meta name="description" content="Reach Rabbit Ventures at hello@rabbitvc.com, or find us in Silicon Valley, Seoul, and Tel Aviv." />
+<meta name="description" content="Write to Rabbit Ventures at hello@rabbitvc.com. Offices in Silicon Valley, Seoul, and Tel Aviv." />
 <meta name="theme-color" content="#0A0E27" />
 <meta property="og:locale" content="en_US" />
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Contact | Rabbit Ventures" />
-<meta property="og:description" content="Reach Rabbit Ventures at hello@rabbitvc.com, or find us in Silicon Valley, Seoul, and Tel Aviv." />
+<meta property="og:description" content="Write to Rabbit Ventures at hello@rabbitvc.com. Offices in Silicon Valley, Seoul, and Tel Aviv." />
 <meta property="og:url" content="https://rabbitvc.com/contact/" />
 <meta property="og:site_name" content="Rabbit Ventures" />
 <meta property="og:image" content="https://rabbitvc.com/wp-content/uploads/2025/09/rabbit-ventures-og.png" />
@@ -23,89 +23,76 @@
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="../styles.css?v=202609091320" />
 <style>
-  /* The banner runs under the fixed bar, so main carries no top padding and
-     the banner's own padding clears the nav. Same handling as Desert Rose. */
-  body.contact-page main { padding-top: 0; }
+  /* Nothing runs under the bar on this page, so main clears it the way the
+     news and portfolio pages do. */
+  body.contact-page main { padding-top: 90px; }
 
-  /* ---------- Banner: the original Rabbit skyline artwork ---------- */
-  /* The painting merges Tel Aviv, Silicon Valley and Seoul into one coastline,
-     which is the page's whole argument, so it carries the headline. */
-  .ct-hero { position: relative; min-height: clamp(380px, 52vh, 560px); display: flex; align-items: flex-end; overflow: hidden; isolation: isolate; }
-  .ct-hero > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 42%; z-index: -2; }
-  /* The scrim holds the type, so it stays navy in both themes: following --bg
-     would wash the artwork to cream in light mode and take the headline with it. */
-  .ct-hero::after { content: ""; position: absolute; inset: 0; z-index: -1;
-    background: linear-gradient(to top, #0A0E27 3%, rgba(10,14,39,.76) 48%, rgba(10,14,39,.30)); }
-  .ct-hero-inner { max-width: var(--maxw); margin: 0 auto; width: 100%; padding: clamp(120px, 16vh, 190px) var(--pad) clamp(36px, 5vw, 60px); }
-  /* On the navy scrim the eyebrow keeps the lighter blue in both themes:
-     --primary darkens for the cream ground and all but disappears here. */
-  .ct-hero p.eyebrow { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11.5px; letter-spacing: .18em; text-transform: uppercase; color: #6FADFF; font-weight: 500; margin: 0 0 14px; }
-  .ct-hero h1 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: clamp(34px, 5.4vw, 60px); letter-spacing: -.02em; line-height: 1.05; margin: 0 0 18px; color: #fff; text-wrap: balance; }
-  .ct-hero p.sub { font-size: clamp(16px, 1.4vw, 20px); color: rgba(255,255,255,.88); max-width: 620px; margin: 0; line-height: 1.55; }
+  .ct-letter { max-width: 900px; margin: 0 auto; padding: clamp(48px, 7vw, 104px) var(--pad) clamp(56px, 7vw, 100px); text-align: center; }
+  .ct-letter .eyebrow { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11.5px; letter-spacing: .18em; text-transform: uppercase; font-weight: 500; color: var(--fg-muted); margin: 0 0 clamp(16px, 2vw, 22px); }
+  /* Light weight, muted: the headline introduces the address rather than
+     competing with it. The address is the loudest thing on the page. */
+  .ct-letter h1 { font-family: 'Montserrat', sans-serif; font-weight: 300; font-size: clamp(21px, 3.2vw, 40px); letter-spacing: -.01em; line-height: 1.15; margin: 0 0 clamp(28px, 3.6vw, 46px); color: var(--fg-soft); }
 
-  .ct-body { max-width: var(--maxw); margin: 0 auto; padding: clamp(48px, 7vw, 92px) var(--pad) clamp(72px, 10vw, 130px); }
-
-  /* ---------- The email, given the room it deserves ---------- */
   .ct-mail {
-    text-align: center;
-    border: 1px solid var(--border); border-radius: var(--r-lg);
-    background: var(--bg-card);
-    padding: clamp(36px, 5vw, 64px) clamp(20px, 4vw, 48px);
-    box-shadow: var(--shadow-1);
-  }
-  .ct-mail .label { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11.5px; letter-spacing: .18em; text-transform: uppercase; color: var(--primary); font-weight: 500; margin: 0 0 18px; }
-  .ct-mail-address {
     display: inline-block;
-    font-family: 'Montserrat', sans-serif; font-weight: 600;
-    font-size: clamp(24px, 4.4vw, 44px); letter-spacing: -.02em; line-height: 1.15;
+    font-family: 'Montserrat', sans-serif; font-weight: 700;
+    font-size: clamp(30px, 8vw, 62px); letter-spacing: -.03em; line-height: 1.05;
     color: var(--fg);
-    border-bottom: 2px solid color-mix(in oklab, var(--primary) 45%, transparent);
-    padding-bottom: 4px;
-    transition: color .2s var(--ease), border-color .2s var(--ease);
-    /* the address is longer than a phone is wide */
+    transition: color .2s var(--ease);
+    /* the address is wider than a phone */
     overflow-wrap: anywhere;
   }
-  .ct-mail-address:is(:hover, :focus-visible) { color: var(--primary); border-color: var(--primary); }
-  .ct-mail p.note { margin: 22px auto 0; max-width: 520px; color: var(--fg-soft); font-size: clamp(15px, 1.2vw, 17px); line-height: 1.6; }
-  .ct-mail-actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 28px; }
-  /* Copy sits beside the mail link so nobody is forced into a mail client.
-     It takes the pill of the primary button rather than .btn-outline's square
-     corners, so the pair reads as one control group. */
-  .ct-copy {
-    color: var(--fg); background: transparent;
-    border: 1px solid var(--border-strong);
-  }
-  .ct-copy:hover { background: var(--bg-card); border-color: var(--fg-muted); }
-  .ct-copy[hidden] { display: none; }
+  .ct-mail:is(:hover, :focus-visible) { color: var(--primary); }
 
-  /* ---------- Offices: one rail, hairline-divided ---------- */
-  .ct-offices-head { margin: clamp(56px, 7vw, 88px) 0 clamp(20px, 2.6vw, 32px); text-align: center; }
-  .ct-offices-head h2 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: clamp(22px, 2.6vw, 32px); letter-spacing: -.01em; margin: 0 0 10px; color: var(--fg); }
-  .ct-offices-head p { margin: 0; color: var(--fg-soft); font-size: clamp(15px, 1.2vw, 17px); }
-  .ct-offices {
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    border: 1px solid var(--border); border-radius: var(--r-lg);
-    background: var(--bg-card);
-    overflow: hidden;
-  }
-  .ct-office { padding: clamp(28px, 3.4vw, 44px) clamp(18px, 2.4vw, 32px); text-align: center; display: flex; flex-direction: column; align-items: center; }
-  .ct-office + .ct-office { border-left: 1px solid var(--border); }
-  .ct-office svg { color: var(--fg-soft); opacity: .82; width: clamp(48px, 5vw, 64px); height: auto; margin-bottom: 16px; }
-  .ct-office h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: clamp(18px, 1.9vw, 24px); letter-spacing: -.01em; margin: 0 0 10px; color: var(--primary); }
-  .ct-office address { font-style: normal; color: var(--fg-soft); font-size: clamp(14px, 1.05vw, 16px); line-height: 1.6; margin: 0 0 14px; }
-  .ct-office .map {
-    margin-top: auto;
+  /* Copy stays a whisper: useful, never a second button competing with the
+     address. It only appears where the clipboard API exists. */
+  .ct-copy {
+    display: inline-block; margin-top: clamp(14px, 1.8vw, 20px);
+    padding: 4px 2px; border: 0; background: none;
     font-family: 'IBM Plex Mono', ui-monospace, monospace;
-    font-size: 11.5px; letter-spacing: .1em; text-transform: uppercase;
+    font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase;
     color: var(--fg-muted);
     border-bottom: 1px solid transparent;
     transition: color .2s var(--ease), border-color .2s var(--ease);
   }
-  .ct-office .map:is(:hover, :focus-visible) { color: var(--primary); border-color: color-mix(in oklab, var(--primary) 50%, transparent); }
+  .ct-copy:hover { color: var(--fg); border-bottom-color: var(--border-strong); }
+  .ct-copy[hidden] { display: none; }
 
-  @media (max-width: 780px) {
-    .ct-offices { grid-template-columns: 1fr; }
-    .ct-office + .ct-office { border-left: 0; border-top: 1px solid var(--border); }
+  /* The gold from the business cards, used once. */
+  .ct-rule { height: 2px; width: min(320px, 58%); margin: clamp(26px, 3vw, 38px) auto clamp(40px, 5vw, 72px); border: 0;
+    background: linear-gradient(to right, transparent, var(--accent) 30%, var(--accent) 70%, transparent); }
+
+  /* Three cities, hairline-divided: the strip from the old banner, type only. */
+  .ct-strip { display: grid; grid-template-columns: repeat(3, 1fr); }
+  .ct-city { display: block; padding: 4px clamp(12px, 2vw, 28px); color: inherit; }
+  .ct-city + .ct-city { border-left: 1px solid var(--border); }
+  .ct-city h2 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: clamp(17px, 1.9vw, 23px); letter-spacing: -.01em; margin: 0 0 8px; color: var(--fg); transition: color .2s var(--ease); }
+  /* One small mark, so the block reads as something you can open without a
+     row of repeated "view on map" links under the addresses. */
+  .ct-city h2 span { font-weight: 400; font-size: .62em; opacity: .4; margin-left: 5px; vertical-align: 2px; transition: opacity .2s var(--ease); }
+  .ct-city address { font-style: normal; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 12.5px; line-height: 1.7; letter-spacing: .02em; color: var(--fg-muted); margin: 0; }
+  .ct-city:is(:hover, :focus-visible) h2 { color: var(--primary); }
+  .ct-city:is(:hover, :focus-visible) h2 span { opacity: 1; }
+
+  .ct-signoff { margin: clamp(40px, 5vw, 72px) auto 0; max-width: 460px; color: var(--fg-muted); font-size: 14.5px; line-height: 1.65; }
+
+  /* The painting signs the page off instead of announcing it, fading up out
+     of the ground. It carries no type, so it follows the theme on both edges. */
+  .ct-plate { position: relative; height: clamp(220px, 26vw, 340px); overflow: hidden; }
+  .ct-plate img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 34%; }
+  /* Opaque at the top so the painting rises out of the ground, and settling
+     again at the bottom so it meets the footer instead of being cut off. */
+  .ct-plate::after { content: ""; position: absolute; inset: 0;
+    background: linear-gradient(to bottom,
+      var(--bg),
+      color-mix(in oklab, var(--bg) 32%, transparent) 52%,
+      color-mix(in oklab, var(--bg) 6%, transparent) 80%,
+      color-mix(in oklab, var(--bg) 46%, transparent)); }
+
+  @media (max-width: 700px) {
+    .ct-strip { grid-template-columns: 1fr; }
+    .ct-city { padding: 20px 0; }
+    .ct-city + .ct-city { border-left: 0; border-top: 1px solid var(--border); }
   }
 
   body.contact-page .nav-links a[aria-current="page"] { opacity: 1; background: var(--bg-card); }
@@ -115,7 +102,7 @@
 
 <a class="skip" href="#main">Skip to content</a>
 
-<header class="nav" id="nav">
+<header class="nav nav--solid" id="nav">
   <a class="brand" href="../" aria-label="Rabbit Ventures home">
     <img class="brand-mark" src="../wp-content/uploads/2025/09/rabbit-mark-white.png" alt="" width="316" height="400" />
     <span class="brand-name">Rabbit Ventures</span>
@@ -156,95 +143,42 @@
 
 <main id="main">
 
-  <section class="ct-hero">
+  <section class="ct-letter">
+    <p class="eyebrow">Contact</p>
+    <h1>Write to us.</h1>
+
+    <a class="ct-mail" href="mailto:hello@rabbitvc.com">hello@rabbitvc.com</a>
+    <div><button class="ct-copy" id="ct-copy" type="button" hidden>Copy address</button></div>
+
+    <hr class="ct-rule" />
+
+    <div class="ct-strip">
+      <a class="ct-city" href="https://www.google.com/maps/search/?api=1&amp;query=5+Bay+Tree+Ln%2C+Los+Altos%2C+CA" target="_blank" rel="noopener">
+        <h2>Silicon Valley <span aria-hidden="true">&#8599;</span></h2>
+        <address>5 Bay Tree Ln<br />Los Altos, CA</address>
+      </a>
+      <a class="ct-city" href="https://www.google.com/maps/search/?api=1&amp;query=172+Yeoksam-ro%2C+Gangnam-gu%2C+Seoul" target="_blank" rel="noopener">
+        <h2>Seoul <span aria-hidden="true">&#8599;</span></h2>
+        <address>172 Yeoksam-ro<br />Gangnam-gu</address>
+      </a>
+      <a class="ct-city" href="https://www.google.com/maps/search/?api=1&amp;query=80+Derech+Menachem+Begin%2C+Tel+Aviv" target="_blank" rel="noopener">
+        <h2>Tel Aviv <span aria-hidden="true">&#8599;</span></h2>
+        <address>80 Derech Begin<br />Tel Aviv</address>
+      </a>
+    </div>
+
+    <p class="ct-signoff">One inbox, three time zones. A partner reads every note.</p>
+  </section>
+
+  <div class="ct-plate">
     <img
       src="../wp-content/uploads/2023/03/rabbit-website-background-image5-1-1536x1147.jpg"
       srcset="../wp-content/uploads/2023/03/rabbit-website-background-image5-1-1024x765.jpg 1024w,
               ../wp-content/uploads/2023/03/rabbit-website-background-image5-1-1536x1147.jpg 1536w,
               ../wp-content/uploads/2023/03/rabbit-website-background-image5-1-2048x1529.jpg 2048w"
       sizes="100vw"
-      width="1536" height="1147"
+      width="1536" height="1147" loading="lazy"
       alt="Illustration merging the Tel Aviv seafront, the Silicon Valley hills and the Seoul skyline into one coastline at dusk" />
-    <div class="ct-hero-inner">
-      <p class="eyebrow">Contact</p>
-      <h1>Let&rsquo;s talk</h1>
-      <p class="sub">One inbox, three time zones. Whether you are building, raising, or just want to compare notes, write to us and a partner will read it.</p>
-    </div>
-  </section>
-
-  <div class="ct-body">
-
-    <section class="ct-mail reveal" aria-labelledby="ct-mail-h">
-      <p class="label" id="ct-mail-h">Email us</p>
-      <a class="ct-mail-address" href="mailto:hello@rabbitvc.com">hello@rabbitvc.com</a>
-      <p class="note">Founders: a short note on what you are building, who it is for, and where you are today goes further than a deck.</p>
-      <div class="ct-mail-actions">
-        <a class="btn btn-primary lg" href="mailto:hello@rabbitvc.com">Write to us</a>
-        <button class="btn lg ct-copy" id="ct-copy" type="button" hidden>Copy address</button>
-      </div>
-    </section>
-
-    <div class="ct-offices-head reveal">
-      <h2>Where to find us</h2>
-      <p>Silicon Valley, Seoul, and Tel Aviv.</p>
-    </div>
-
-    <section class="ct-offices reveal" aria-label="Our offices">
-
-      <div class="ct-office">
-        <!-- Golden Gate Bridge -->
-        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M2 46H62" />
-          <path d="M16 49V10M21 49V10M16 10H21M16 17H21M16 27H21M16 37H21" />
-          <path d="M43 49V10M48 49V10M43 10H48M43 17H48M43 27H48M43 37H48" />
-          <path d="M21 10Q32 58 43 10" />
-          <path d="M2 32Q8 29 16 10" />
-          <path d="M48 10Q56 29 62 32" />
-          <path d="M23.8 20.5V46M26.5 28V46M32 34V46M37.5 28V46M40.3 20.5V46" />
-          <path d="M8.5 25V46M55.5 25V46" />
-        </svg>
-        <h3>Silicon Valley</h3>
-        <address>5 Bay Tree Ln<br />Los Altos, CA</address>
-        <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=5+Bay+Tree+Ln%2C+Los+Altos%2C+CA" target="_blank" rel="noopener">View on map</a>
-      </div>
-
-      <div class="ct-office">
-        <!-- N Seoul Tower -->
-        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M20 58H44" />
-          <path d="M25 58L29 34M39 58L35 34" />
-          <path d="M26.6 49H37.4M27.9 41H36.1" />
-          <path d="M29 34V25M35 34V25" />
-          <path d="M24.5 25L27 17H37L39.5 25Z" />
-          <path d="M26 21H38" />
-          <path d="M31 17V12M33 17V12" />
-          <path d="M32 12V4" />
-          <path d="M30 9H34" />
-        </svg>
-        <h3>Seoul</h3>
-        <address>172 Yeoksam-ro<br />Gangnam-gu</address>
-        <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=172+Yeoksam-ro%2C+Gangnam-gu%2C+Seoul" target="_blank" rel="noopener">View on map</a>
-      </div>
-
-      <div class="ct-office">
-        <!-- Tel Aviv lattice tower -->
-        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M20 58H44" />
-          <path d="M23 58L30 14M41 58L34 14" />
-          <path d="M25.2 44H38.8M27.5 30H36.5M30 14H34" />
-          <path d="M23 58L38.8 44M41 58L25.2 44" />
-          <path d="M25.2 44L36.5 30M38.8 44L27.5 30" />
-          <path d="M27.5 30L34 14M36.5 30L30 14" />
-          <path d="M32 14V4" />
-          <path d="M30 8H34" />
-        </svg>
-        <h3>Tel Aviv</h3>
-        <address>80 Derech Begin<br />Tel Aviv</address>
-        <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=80+Derech+Menachem+Begin%2C+Tel+Aviv" target="_blank" rel="noopener">View on map</a>
-      </div>
-
-    </section>
-
   </div>
 
 </main>
@@ -267,7 +201,7 @@
         btn.textContent = 'Copied';
         clearTimeout(timer);
         timer = setTimeout(function () { btn.textContent = label; }, 2000);
-      }).catch(function () { /* blocked: the mail link and the address still stand */ });
+      }).catch(function () { /* blocked: the address is still a mail link */ });
     });
   })();
 </script>
