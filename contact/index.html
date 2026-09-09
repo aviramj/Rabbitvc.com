@@ -40,18 +40,11 @@
     font-family: 'Montserrat', sans-serif; font-weight: 700;
     font-size: clamp(30px, 8vw, 62px); letter-spacing: -.03em; line-height: 1.05;
     color: var(--fg);
-    /* text-decoration rather than a border, so the rule follows the text if
-       the address ever wraps. It scales with the type: 2px under 62px reads
-       as a hairline. */
-    text-decoration: underline;
-    text-decoration-thickness: max(2px, .045em);
-    text-underline-offset: .16em;
-    text-decoration-color: color-mix(in oklab, var(--primary) 42%, transparent);
-    transition: color .2s var(--ease), text-decoration-color .2s var(--ease);
+    transition: color .2s var(--ease);
     /* the address is wider than a phone */
     overflow-wrap: anywhere;
   }
-  .ct-mail:is(:hover, :focus-visible) { color: var(--primary); text-decoration-color: var(--primary); }
+  .ct-mail:is(:hover, :focus-visible) { color: var(--primary); }
 
   /* Copy stays a whisper: useful, never a second button competing with the
      address. It only appears where the clipboard API exists. */
@@ -82,8 +75,6 @@
   .ct-city address { font-style: normal; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 12.5px; line-height: 1.7; letter-spacing: .02em; color: var(--fg-muted); margin: 0; }
   .ct-city:is(:hover, :focus-visible) h2 { color: var(--primary); }
   .ct-city:is(:hover, :focus-visible) h2 span { opacity: 1; }
-
-  .ct-signoff { margin: clamp(40px, 5vw, 72px) auto 0; max-width: 460px; color: var(--fg-muted); font-size: 14.5px; line-height: 1.65; }
 
   /* The painting signs the page off instead of announcing it, fading up out
      of the ground. It carries no type, so it follows the theme on both edges. */
@@ -175,8 +166,6 @@
         <address>80 Derech Begin<br />Tel Aviv</address>
       </a>
     </div>
-
-    <p class="ct-signoff">One inbox, three time zones. A partner reads every note.</p>
   </section>
 
   <div class="ct-plate">
