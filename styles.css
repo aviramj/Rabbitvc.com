@@ -592,15 +592,10 @@ button { font: inherit; cursor: pointer; }
   color: var(--band-accent); margin: 0 0 clamp(22px, 3vw, 34px);
 }
 /* the lockup: two marks at one optical height, held apart by a hairline cross */
-.lockup { display: flex; align-items: center; justify-content: center; gap: clamp(18px, 3vw, 34px); flex-wrap: wrap; }
+.lockup { margin-bottom: clamp(28px, 3.6vw, 44px); display: flex; align-items: center; justify-content: center; gap: clamp(18px, 3vw, 34px); flex-wrap: wrap; }
 .lockup-mark { height: clamp(34px, 4vw, 46px); width: auto; filter: var(--band-mark-filter); }
 .lockup-logo { height: clamp(28px, 3.2vw, 38px); width: auto; }
 .lockup-x { font-size: clamp(16px, 1.8vw, 20px); color: var(--band-muted); line-height: 1; }
-.partnership h2 {
-  font-family: 'Montserrat', sans-serif; font-weight: 600;
-  font-size: clamp(26px, 3.4vw, 42px); line-height: 1.12; letter-spacing: -.012em;
-  margin: clamp(28px, 3.6vw, 44px) 0 18px; color: var(--band-fg);
-}
 .partnership-p {
   margin: 0 auto; max-width: 62ch;
   font-size: clamp(15.5px, 1.5vw, 17.5px); line-height: 1.62; color: var(--band-soft);
