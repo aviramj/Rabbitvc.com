@@ -41,11 +41,6 @@ PATHS=(
   "wp-content/uploads/2023/04/station_2957_1-266x300.jpg"
   "wp-content/uploads/2023/04/station_2957_1-768x866.jpg"
   "wp-content/uploads/2023/04/station_2957_1-908x1024.jpg"
-
-  # Sun Cho
-  "wp-content/uploads/2023/03/sun-cho-profile-225x300.jpg"
-  "wp-content/uploads/2023/03/sun-cho-profile-600x800.jpg"
-  "wp-content/uploads/2023/03/sun-cho-profile-768x1024.jpg"
 )
 
 rm -rf "$OUT" "$ZIP" "${ZIP%.zip}.tar.gz"
