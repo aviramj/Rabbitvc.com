@@ -34,6 +34,41 @@
   .dr-prose blockquote cite { display: block; margin-top: 10px; font-style: normal; font-size: 14px; color: var(--fg-muted); }
   .dr-news { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad) clamp(72px, 10vw, 140px); }
   .dr-news h2 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: clamp(22px, 2.4vw, 30px); color: var(--fg); margin: 0 0 24px; letter-spacing: -.01em; }
+  /* A photo breaks the prose column full-width, with its caption set back
+     in the column so the picture is the only thing that spans. */
+  .dr-break { margin: clamp(44px, 5.5vw, 80px) 0; }
+  .dr-break img { width: 100%; height: clamp(240px, 34vw, 420px); object-fit: cover; display: block; }
+  .dr-break figcaption { max-width: 760px; margin: 12px auto 0; padding: 0 var(--pad);
+    font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: .1em;
+    text-transform: uppercase; color: var(--fg-muted); }
+
+  /* Contact sheet: a four-across grid where a few frames take two columns and
+     the portrait shot takes two rows, so it reads as a spread, not a table. */
+  .dr-gallery { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad) clamp(56px, 7vw, 96px); }
+  .dr-gallery h2 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: clamp(22px, 2.4vw, 30px); color: var(--fg); margin: 0 0 6px; letter-spacing: -.01em; }
+  .dr-gallery p.note { margin: 0 0 24px; color: var(--fg-muted); font-size: 14.5px; }
+  .dr-grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 1fr; gap: 10px; }
+  .dr-grid button { padding: 0; border: 0; background: var(--bg-soft); overflow: hidden; cursor: zoom-in; display: block; }
+  .dr-grid img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4/3; display: block;
+    opacity: .92; transition: transform .45s var(--ease), opacity .3s var(--ease); }
+  .dr-grid button:hover img, .dr-grid button:focus-visible img { transform: scale(1.04); opacity: 1; }
+  .dr-grid .wide { grid-column: span 2; }
+  .dr-grid .wide img { aspect-ratio: 8/3; }
+  .dr-grid .tall { grid-row: span 2; }
+  .dr-grid .tall img { aspect-ratio: 2/3; }
+  @media (max-width: 900px) { .dr-grid { grid-template-columns: repeat(2, 1fr); } }
+
+  /* A closed dialog is display:none by default; only style the open state,
+     or the frame renders inline on the page. */
+  .dr-lightbox { position: fixed; inset: 0; z-index: 80; place-items: center;
+    background: color-mix(in oklab, #000 82%, transparent); padding: clamp(16px, 4vw, 56px); border: 0; }
+  .dr-lightbox[open] { display: grid; }
+  .dr-lightbox::backdrop { background: color-mix(in oklab, #000 82%, transparent); }
+  .dr-lightbox img { max-width: 100%; max-height: 88vh; width: auto; height: auto; object-fit: contain; }
+  .dr-lightbox .close { position: absolute; top: 16px; right: 20px; width: 40px; height: 40px;
+    display: grid; place-items: center; border-radius: 999px; border: 1px solid rgba(255,255,255,.3);
+    background: rgba(255,255,255,.08); color: #fff; font-size: 20px; line-height: 1; cursor: pointer; }
+
   body.dr-page .nav-links a[aria-current="page"] { color: var(--primary); opacity: 1; background: var(--bg-card); }
 </style>
 </head>
@@ -83,7 +118,7 @@
 <main id="main">
 
   <section class="dr-hero">
-    <img src="./photos/desert-rose-hero.jpg" alt="Rabbit Ventures founders and mentors working together in the house during the Desert Rose Workation" />
+    <img src="./photos/dr-zion-peaks.jpg" alt="Red rock canyon walls above the road into Zion, southern Utah" />
     <div class="dr-hero-inner">
       <p class="eyebrow">Founder Program</p>
       <h1>Desert Rose Workation</h1>
@@ -102,6 +137,14 @@
       <cite>Aviram Jenik, General Partner, Rabbit Ventures</cite>
     </blockquote>
 
+    </article>
+
+  <figure class="dr-break">
+    <img src="./photos/dr-fire-pit.jpg" alt="" loading="lazy" />
+    <figcaption>The campfire question nobody expected</figcaption>
+  </figure>
+
+  <article class="dr-prose" style="padding-top:0">
     <h2>One rule: there are no rules</h2>
     <p>The program’s philosophy is simple. There is no formal schedule, no mandatory mentoring blocks, no compulsory sessions. Founders move through the two weeks on their own goals: seeking out the mentor they need that day, sitting down with an investor over coffee, working shoulder-to-shoulder with another founder on a hard problem.</p>
     <p>The format is intentionally bare so that the unplanned moments can happen: the late-night kitchen conversation, the half-hour walk between cabins, the campfire question that nobody expected.</p>
@@ -114,6 +157,14 @@
     <h2>Who is in the room</h2>
     <p>The first edition gathered roughly twenty people: the Rabbit Ventures team, founders from our portfolio, a marketing and storytelling coach, a cybersecurity specialist, and founder-turned-investors. Each cohort is intentionally small so that everyone is in the same room, eating the same meals, and arguing about the same problems.</p>
 
+    </article>
+
+  <figure class="dr-break">
+    <img src="./photos/dr-watchman-rest.jpg" alt="" loading="lazy" style="object-position:center 30%" />
+    <figcaption>The half-hour walk that turns into the conversation</figcaption>
+  </figure>
+
+  <article class="dr-prose" style="padding-top:0">
     <h2>What founders take away</h2>
     <p>Founders do not just work at Desert Rose. They find, sharpen, and start to execute their own story. Product decisions clarify. Positioning gets honest. Fundraising narratives get tested by people who have raised before. And investors stop looking like capital providers and start looking like partners on a long walk.</p>
 
@@ -122,10 +173,41 @@
       <cite>Jonghee Hong, Mentor &amp; Storytelling Coach (MyStoryDoer)</cite>
     </blockquote>
 
+    </article>
+
+  <figure class="dr-break">
+    <img src="./photos/dr-living-room-session.jpg" alt="" loading="lazy" />
+    <figcaption>No fixed agenda &mdash; the house at work</figcaption>
+  </figure>
+
+  <article class="dr-prose" style="padding-top:0">
     <h2>How it helps Rabbit founders</h2>
     <p>For us, Desert Rose is the highest-leverage two weeks of the year. A founder leaves with a clearer thesis, a sharper go-to-market motion, a peer group of other founders who will pick up the phone for years afterward, and direct access to the LPs and mentors who have already faced the problems they are about to face. That compounding is what we are investing in.</p>
 
   </article>
+
+  <section class="dr-gallery" aria-label="Photo gallery">
+    <h2>Two weeks in pictures</h2>
+    <p class="note">Click any frame to open it full size.</p>
+    <div class="dr-grid">
+        <button type="button" class="wide" data-full="./photos/dr-trail-vista.jpg" aria-label="On the trail above the valley"><img src="./photos/dr-trail-vista.jpg" alt="On the trail above the valley" loading="lazy" /></button>
+        <button type="button" class="tall" data-full="./photos/dr-zion-road.jpg" aria-label="The whole group, on the road below the Watchman"><img src="./photos/dr-zion-road.jpg" alt="The whole group, on the road below the Watchman" loading="lazy" /></button>
+        <button type="button" class="" data-full="./photos/dr-ledge-group.jpg" aria-label="A ledge, and somewhere to sit"><img src="./photos/dr-ledge-group.jpg" alt="A ledge, and somewhere to sit" loading="lazy" /></button>
+        <button type="button" class="" data-full="./photos/dr-dinner-table.jpg" aria-label="The whole house at one table"><img src="./photos/dr-dinner-table.jpg" alt="The whole house at one table" loading="lazy" /></button>
+        <button type="button" class="" data-full="./photos/dr-fire-pit.jpg" aria-label="The campfire question nobody expected"><img src="./photos/dr-fire-pit.jpg" alt="The campfire question nobody expected" loading="lazy" /></button>
+        <button type="button" class="" data-full="./photos/dr-mentor-conversation.jpg" aria-label="A founder and a mentor, working it out"><img src="./photos/dr-mentor-conversation.jpg" alt="A founder and a mentor, working it out" loading="lazy" /></button>
+        <button type="button" class="wide" data-full="./photos/dr-ping-pong.jpg" aria-label="The garage table, settling something"><img src="./photos/dr-ping-pong.jpg" alt="The garage table, settling something" loading="lazy" /></button>
+        <button type="button" class="" data-full="./photos/dr-canyon-sit.jpg" aria-label="Above the canyon"><img src="./photos/dr-canyon-sit.jpg" alt="Above the canyon" loading="lazy" /></button>
+        <button type="button" class="" data-full="./photos/dr-table-work.jpg" aria-label="Four laptops, one problem"><img src="./photos/dr-table-work.jpg" alt="Four laptops, one problem" loading="lazy" /></button>
+        <button type="button" class="" data-full="./photos/dr-making-dumplings.jpg" aria-label="Dinner takes a production line"><img src="./photos/dr-making-dumplings.jpg" alt="Dinner takes a production line" loading="lazy" /></button>
+        <button type="button" class="" data-full="./photos/dr-riverbank.jpg" aria-label="Down at the water"><img src="./photos/dr-riverbank.jpg" alt="Down at the water" loading="lazy" /></button>
+        <button type="button" class="wide" data-full="./photos/dr-kitchen-line.jpg" aria-label="Plating up for twenty"><img src="./photos/dr-kitchen-line.jpg" alt="Plating up for twenty" loading="lazy" /></button>
+        <button type="button" class="" data-full="./photos/dr-working-armchair.jpg" aria-label="Heads-down in the good chair"><img src="./photos/dr-working-armchair.jpg" alt="Heads-down in the good chair" loading="lazy" /></button>
+        <button type="button" class="" data-full="./photos/dr-hackathon-room.jpg" aria-label="Hackathon night"><img src="./photos/dr-hackathon-room.jpg" alt="Hackathon night" loading="lazy" /></button>
+        <button type="button" class="" data-full="./photos/dr-red-rock-perch.jpg" aria-label="Red rock, blue sky"><img src="./photos/dr-red-rock-perch.jpg" alt="Red rock, blue sky" loading="lazy" /></button>
+        <button type="button" class="" data-full="./photos/dr-heading-home.jpg" aria-label="Bags packed, two weeks later"><img src="./photos/dr-heading-home.jpg" alt="Bags packed, two weeks later" loading="lazy" /></button>
+    </div>
+  </section>
 
   <section class="dr-news" aria-label="Desert Rose stories">
     <h2>Stories from the desert</h2>
@@ -139,6 +221,29 @@
   </section>
 
 </main>
+
+<dialog class="dr-lightbox" id="dr-lightbox">
+  <button class="close" type="button" aria-label="Close">&times;</button>
+  <img alt="" />
+</dialog>
+
+<script>
+  (function () {
+    var dlg = document.getElementById('dr-lightbox');
+    if (!dlg || !dlg.showModal) return;                 /* no dialog support: frames stay inert */
+    var img = dlg.querySelector('img');
+    document.querySelectorAll('.dr-grid button').forEach(function (b) {
+      b.addEventListener('click', function () {
+        img.src = b.dataset.full;
+        img.alt = b.querySelector('img').alt;
+        dlg.showModal();
+      });
+    });
+    dlg.querySelector('.close').addEventListener('click', function () { dlg.close(); });
+    dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
+    dlg.addEventListener('close', function () { img.removeAttribute('src'); });
+  })();
+</script>
 
 <footer class="footer">
   <p class="copy">Copyright &copy; Rabbit Ventures</p>
