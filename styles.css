@@ -702,7 +702,10 @@ button { font: inherit; cursor: pointer; }
 .nav--solid .nav-links a:hover,
 .nav--solid .nav-links a.active,
 .nav--solid .nav-links a[aria-current="page"] { background: var(--bg-card); }
-.nav--solid .nav-links a[aria-current="page"] { color: var(--primary); opacity: 1; }
+/* The current page reads as a pill, the same as the current section does on
+   the homepage. It used to also turn blue here, which made Portfolio, News
+   and Podcast behave unlike every other page in the nav. */
+.nav--solid .nav-links a[aria-current="page"] { opacity: 1; }
 
 .podcast-hero {
   max-width: var(--maxw);
