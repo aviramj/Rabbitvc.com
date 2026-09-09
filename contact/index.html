@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en-US" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<title>Contact | Rabbit Ventures</title>
+<meta name="description" content="Reach Rabbit Ventures at hello@rabbitvc.com, or find us in Silicon Valley, Seoul, and Tel Aviv." />
+<meta name="theme-color" content="#0A0E27" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Contact | Rabbit Ventures" />
+<meta property="og:description" content="Reach Rabbit Ventures at hello@rabbitvc.com, or find us in Silicon Valley, Seoul, and Tel Aviv." />
+<meta property="og:url" content="https://rabbitvc.com/contact/" />
+<meta property="og:site_name" content="Rabbit Ventures" />
+<meta property="og:image" content="https://rabbitvc.com/wp-content/uploads/2025/09/rabbit-ventures-og.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="canonical" href="https://rabbitvc.com/contact/" />
+<link rel="icon" href="../wp-content/uploads/2023/08/cropped-rabbit-32x32.png" sizes="32x32" />
+<link rel="icon" href="../wp-content/uploads/2023/08/cropped-rabbit-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="../wp-content/uploads/2023/08/cropped-rabbit-180x180.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../styles.css?v=202609091320" />
+<style>
+  /* The banner runs under the fixed bar, so main carries no top padding and
+     the banner's own padding clears the nav. Same handling as Desert Rose. */
+  body.contact-page main { padding-top: 0; }
+
+  /* ---------- Banner: the original Rabbit skyline artwork ---------- */
+  /* The painting merges Tel Aviv, Silicon Valley and Seoul into one coastline,
+     which is the page's whole argument, so it carries the headline. */
+  .ct-hero { position: relative; min-height: clamp(380px, 52vh, 560px); display: flex; align-items: flex-end; overflow: hidden; isolation: isolate; }
+  .ct-hero > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 42%; z-index: -2; }
+  /* The scrim holds the type, so it stays navy in both themes: following --bg
+     would wash the artwork to cream in light mode and take the headline with it. */
+  .ct-hero::after { content: ""; position: absolute; inset: 0; z-index: -1;
+    background: linear-gradient(to top, #0A0E27 3%, rgba(10,14,39,.76) 48%, rgba(10,14,39,.30)); }
+  .ct-hero-inner { max-width: var(--maxw); margin: 0 auto; width: 100%; padding: clamp(120px, 16vh, 190px) var(--pad) clamp(36px, 5vw, 60px); }
+  /* On the navy scrim the eyebrow keeps the lighter blue in both themes:
+     --primary darkens for the cream ground and all but disappears here. */
+  .ct-hero p.eyebrow { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11.5px; letter-spacing: .18em; text-transform: uppercase; color: #6FADFF; font-weight: 500; margin: 0 0 14px; }
+  .ct-hero h1 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: clamp(34px, 5.4vw, 60px); letter-spacing: -.02em; line-height: 1.05; margin: 0 0 18px; color: #fff; text-wrap: balance; }
+  .ct-hero p.sub { font-size: clamp(16px, 1.4vw, 20px); color: rgba(255,255,255,.88); max-width: 620px; margin: 0; line-height: 1.55; }
+
+  .ct-body { max-width: var(--maxw); margin: 0 auto; padding: clamp(48px, 7vw, 92px) var(--pad) clamp(72px, 10vw, 130px); }
+
+  /* ---------- The email, given the room it deserves ---------- */
+  .ct-mail {
+    text-align: center;
+    border: 1px solid var(--border); border-radius: var(--r-lg);
+    background: var(--bg-card);
+    padding: clamp(36px, 5vw, 64px) clamp(20px, 4vw, 48px);
+    box-shadow: var(--shadow-1);
+  }
+  .ct-mail .label { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11.5px; letter-spacing: .18em; text-transform: uppercase; color: var(--primary); font-weight: 500; margin: 0 0 18px; }
+  .ct-mail-address {
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif; font-weight: 600;
+    font-size: clamp(24px, 4.4vw, 44px); letter-spacing: -.02em; line-height: 1.15;
+    color: var(--fg);
+    border-bottom: 2px solid color-mix(in oklab, var(--primary) 45%, transparent);
+    padding-bottom: 4px;
+    transition: color .2s var(--ease), border-color .2s var(--ease);
+    /* the address is longer than a phone is wide */
+    overflow-wrap: anywhere;
+  }
+  .ct-mail-address:is(:hover, :focus-visible) { color: var(--primary); border-color: var(--primary); }
+  .ct-mail p.note { margin: 22px auto 0; max-width: 520px; color: var(--fg-soft); font-size: clamp(15px, 1.2vw, 17px); line-height: 1.6; }
+  .ct-mail-actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 28px; }
+  /* Copy sits beside the mail link so nobody is forced into a mail client.
+     It takes the pill of the primary button rather than .btn-outline's square
+     corners, so the pair reads as one control group. */
+  .ct-copy {
+    color: var(--fg); background: transparent;
+    border: 1px solid var(--border-strong);
+  }
+  .ct-copy:hover { background: var(--bg-card); border-color: var(--fg-muted); }
+  .ct-copy[hidden] { display: none; }
+
+  /* ---------- Offices: one rail, hairline-divided ---------- */
+  .ct-offices-head { margin: clamp(56px, 7vw, 88px) 0 clamp(20px, 2.6vw, 32px); text-align: center; }
+  .ct-offices-head h2 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: clamp(22px, 2.6vw, 32px); letter-spacing: -.01em; margin: 0 0 10px; color: var(--fg); }
+  .ct-offices-head p { margin: 0; color: var(--fg-soft); font-size: clamp(15px, 1.2vw, 17px); }
+  .ct-offices {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    border: 1px solid var(--border); border-radius: var(--r-lg);
+    background: var(--bg-card);
+    overflow: hidden;
+  }
+  .ct-office { padding: clamp(28px, 3.4vw, 44px) clamp(18px, 2.4vw, 32px); text-align: center; display: flex; flex-direction: column; align-items: center; }
+  .ct-office + .ct-office { border-left: 1px solid var(--border); }
+  .ct-office svg { color: var(--fg-soft); opacity: .82; width: clamp(48px, 5vw, 64px); height: auto; margin-bottom: 16px; }
+  .ct-office h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: clamp(18px, 1.9vw, 24px); letter-spacing: -.01em; margin: 0 0 10px; color: var(--primary); }
+  .ct-office address { font-style: normal; color: var(--fg-soft); font-size: clamp(14px, 1.05vw, 16px); line-height: 1.6; margin: 0 0 14px; }
+  .ct-office .map {
+    margin-top: auto;
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 11.5px; letter-spacing: .1em; text-transform: uppercase;
+    color: var(--fg-muted);
+    border-bottom: 1px solid transparent;
+    transition: color .2s var(--ease), border-color .2s var(--ease);
+  }
+  .ct-office .map:is(:hover, :focus-visible) { color: var(--primary); border-color: color-mix(in oklab, var(--primary) 50%, transparent); }
+
+  @media (max-width: 780px) {
+    .ct-offices { grid-template-columns: 1fr; }
+    .ct-office + .ct-office { border-left: 0; border-top: 1px solid var(--border); }
+  }
+
+  body.contact-page .nav-links a[aria-current="page"] { opacity: 1; background: var(--bg-card); }
+</style>
+</head>
+<body class="contact-page">
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav" id="nav">
+  <a class="brand" href="../" aria-label="Rabbit Ventures home">
+    <img class="brand-mark" src="../wp-content/uploads/2025/09/rabbit-mark-white.png" alt="" width="316" height="400" />
+    <span class="brand-name">Rabbit Ventures</span>
+  </a>
+
+  <nav class="nav-links" aria-label="Primary">
+    <a href="../">Home</a>
+    <a href="../#team">Team</a>
+    <a href="../#advisors">Fund Partners</a>
+    <a href="../portfolio/">Portfolio</a>
+    <a href="../news/">News</a>
+    <a href="../desert-rose/">Desert Rose</a>
+    <a href="../podcast/">Podcast</a>
+  </nav>
+
+  <div class="nav-actions">
+    <button id="theme-toggle" class="icon-btn" type="button" aria-label="Toggle color theme" title="Toggle theme">
+      <svg class="i-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      <svg class="i-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    </button>
+    <a class="btn btn-ghost" href="./" aria-current="page">Contact Us</a>
+    <button class="icon-btn menu-btn" id="menu-btn" type="button" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobile-menu" hidden>
+  <a href="../">Home</a>
+  <a href="../#team">Team</a>
+  <a href="../#advisors">Fund Partners</a>
+  <a href="../portfolio/">Portfolio</a>
+  <a href="../news/">News</a>
+  <a href="../desert-rose/">Desert Rose</a>
+  <a href="../podcast/">Podcast</a>
+  <a href="./" aria-current="page">Contact Us</a>
+</div>
+
+<main id="main">
+
+  <section class="ct-hero">
+    <img
+      src="../wp-content/uploads/2023/03/rabbit-website-background-image5-1-1536x1147.jpg"
+      srcset="../wp-content/uploads/2023/03/rabbit-website-background-image5-1-1024x765.jpg 1024w,
+              ../wp-content/uploads/2023/03/rabbit-website-background-image5-1-1536x1147.jpg 1536w,
+              ../wp-content/uploads/2023/03/rabbit-website-background-image5-1-2048x1529.jpg 2048w"
+      sizes="100vw"
+      width="1536" height="1147"
+      alt="Illustration merging the Tel Aviv seafront, the Silicon Valley hills and the Seoul skyline into one coastline at dusk" />
+    <div class="ct-hero-inner">
+      <p class="eyebrow">Contact</p>
+      <h1>Let&rsquo;s talk</h1>
+      <p class="sub">One inbox, three time zones. Whether you are building, raising, or just want to compare notes, write to us and a partner will read it.</p>
+    </div>
+  </section>
+
+  <div class="ct-body">
+
+    <section class="ct-mail reveal" aria-labelledby="ct-mail-h">
+      <p class="label" id="ct-mail-h">Email us</p>
+      <a class="ct-mail-address" href="mailto:hello@rabbitvc.com">hello@rabbitvc.com</a>
+      <p class="note">Founders: a short note on what you are building, who it is for, and where you are today goes further than a deck.</p>
+      <div class="ct-mail-actions">
+        <a class="btn btn-primary lg" href="mailto:hello@rabbitvc.com">Write to us</a>
+        <button class="btn lg ct-copy" id="ct-copy" type="button" hidden>Copy address</button>
+      </div>
+    </section>
+
+    <div class="ct-offices-head reveal">
+      <h2>Where to find us</h2>
+      <p>Silicon Valley, Seoul, and Tel Aviv.</p>
+    </div>
+
+    <section class="ct-offices reveal" aria-label="Our offices">
+
+      <div class="ct-office">
+        <!-- Golden Gate Bridge -->
+        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M2 46H62" />
+          <path d="M16 49V10M21 49V10M16 10H21M16 17H21M16 27H21M16 37H21" />
+          <path d="M43 49V10M48 49V10M43 10H48M43 17H48M43 27H48M43 37H48" />
+          <path d="M21 10Q32 58 43 10" />
+          <path d="M2 32Q8 29 16 10" />
+          <path d="M48 10Q56 29 62 32" />
+          <path d="M23.8 20.5V46M26.5 28V46M32 34V46M37.5 28V46M40.3 20.5V46" />
+          <path d="M8.5 25V46M55.5 25V46" />
+        </svg>
+        <h3>Silicon Valley</h3>
+        <address>5 Bay Tree Ln<br />Los Altos, CA</address>
+        <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=5+Bay+Tree+Ln%2C+Los+Altos%2C+CA" target="_blank" rel="noopener">View on map</a>
+      </div>
+
+      <div class="ct-office">
+        <!-- N Seoul Tower -->
+        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M20 58H44" />
+          <path d="M25 58L29 34M39 58L35 34" />
+          <path d="M26.6 49H37.4M27.9 41H36.1" />
+          <path d="M29 34V25M35 34V25" />
+          <path d="M24.5 25L27 17H37L39.5 25Z" />
+          <path d="M26 21H38" />
+          <path d="M31 17V12M33 17V12" />
+          <path d="M32 12V4" />
+          <path d="M30 9H34" />
+        </svg>
+        <h3>Seoul</h3>
+        <address>172 Yeoksam-ro<br />Gangnam-gu</address>
+        <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=172+Yeoksam-ro%2C+Gangnam-gu%2C+Seoul" target="_blank" rel="noopener">View on map</a>
+      </div>
+
+      <div class="ct-office">
+        <!-- Tel Aviv lattice tower -->
+        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M20 58H44" />
+          <path d="M23 58L30 14M41 58L34 14" />
+          <path d="M25.2 44H38.8M27.5 30H36.5M30 14H34" />
+          <path d="M23 58L38.8 44M41 58L25.2 44" />
+          <path d="M25.2 44L36.5 30M38.8 44L27.5 30" />
+          <path d="M27.5 30L34 14M36.5 30L30 14" />
+          <path d="M32 14V4" />
+          <path d="M30 8H34" />
+        </svg>
+        <h3>Tel Aviv</h3>
+        <address>80 Derech Begin<br />Tel Aviv</address>
+        <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=80+Derech+Menachem+Begin%2C+Tel+Aviv" target="_blank" rel="noopener">View on map</a>
+      </div>
+
+    </section>
+
+  </div>
+
+</main>
+
+<footer class="footer">
+  <p class="copy">Copyright &copy; Rabbit Ventures</p>
+</footer>
+
+<script src="../app.js?v=202609091320" defer></script>
+<script>
+  /* Copy is an enhancement: the button only appears where the clipboard API
+     is actually available, so it never sits there doing nothing. */
+  (function () {
+    var btn = document.getElementById('ct-copy');
+    if (!btn || !navigator.clipboard) return;
+    btn.hidden = false;
+    var label = btn.textContent, timer;
+    btn.addEventListener('click', function () {
+      navigator.clipboard.writeText('hello@rabbitvc.com').then(function () {
+        btn.textContent = 'Copied';
+        clearTimeout(timer);
+        timer = setTimeout(function () { btn.textContent = label; }, 2000);
+      }).catch(function () { /* blocked: the mail link and the address still stand */ });
+    });
+  })();
+</script>
+</body>
+</html>
