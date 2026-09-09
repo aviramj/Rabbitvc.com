@@ -29,10 +29,11 @@
   /* The same 760px column the prose uses, so the headline starts exactly
      where the body copy below it starts instead of out at the page gutter. */
   .dr-hero-inner { max-width: 760px; margin: 0 auto; width: 100%; padding: clamp(120px, 16vh, 200px) var(--pad) clamp(36px, 5vw, 64px); }
-  /* The eyebrow sits on the navy scrim, not the page ground, so it keeps the
-     lighter blue in both themes: --primary darkens for cream in light mode
-     and all but disappears here. */
-  .dr-hero p.eyebrow { font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: #6FADFF; font-weight: 600; margin: 0 0 12px; }
+  /* The accent blue the portfolio, news and podcast eyebrows take, pinned to
+     its dark-theme value rather than var(--primary): the scrim stays navy in
+     both themes, while --primary darkens for cream in light mode and drops to
+     3.2:1 here. Hardcoded, it matches those pages and holds 5.9:1. */
+  .dr-hero p.eyebrow { font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: #3B8EFF; font-weight: 600; margin: 0 0 12px; }
   .dr-hero h1 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: clamp(24px, 3vw, 40px); letter-spacing: -.02em; line-height: 1.05; margin: 0 0 18px; color: #fff; text-wrap: balance; }
   .dr-hero p.sub { font-size: clamp(16px, 1.4vw, 20px); color: rgba(255,255,255,.88); max-width: 640px; margin: 0; line-height: 1.5; }
   .dr-prose { max-width: 760px; margin: 0 auto; padding: clamp(20px, 2.4vw, 36px) var(--pad) clamp(72px, 10vw, 140px); color: var(--fg-soft); }
