@@ -28,7 +28,9 @@
   body.contact-page main { padding-top: 90px; }
 
   .ct-letter { max-width: 900px; margin: 0 auto; padding: clamp(48px, 7vw, 104px) var(--pad) clamp(56px, 7vw, 100px); text-align: center; }
-  .ct-letter .eyebrow { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11.5px; letter-spacing: .18em; text-transform: uppercase; font-weight: 500; color: var(--fg-muted); margin: 0 0 clamp(16px, 2vw, 22px); }
+  /* The same blue the homepage's mono eyebrow takes, so the label reads as
+     part of the site rather than as grey furniture. */
+  .ct-letter .eyebrow { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11.5px; letter-spacing: .18em; text-transform: uppercase; font-weight: 500; color: var(--primary); margin: 0 0 clamp(16px, 2vw, 22px); }
   /* Light weight, muted: the headline introduces the address rather than
      competing with it. The address is the loudest thing on the page. */
   .ct-letter h1 { font-family: 'Montserrat', sans-serif; font-weight: 300; font-size: clamp(21px, 3.2vw, 40px); letter-spacing: -.01em; line-height: 1.15; margin: 0 0 clamp(28px, 3.6vw, 46px); color: var(--fg-soft); }
@@ -38,11 +40,18 @@
     font-family: 'Montserrat', sans-serif; font-weight: 700;
     font-size: clamp(30px, 8vw, 62px); letter-spacing: -.03em; line-height: 1.05;
     color: var(--fg);
-    transition: color .2s var(--ease);
+    /* text-decoration rather than a border, so the rule follows the text if
+       the address ever wraps. It scales with the type: 2px under 62px reads
+       as a hairline. */
+    text-decoration: underline;
+    text-decoration-thickness: max(2px, .045em);
+    text-underline-offset: .16em;
+    text-decoration-color: color-mix(in oklab, var(--primary) 42%, transparent);
+    transition: color .2s var(--ease), text-decoration-color .2s var(--ease);
     /* the address is wider than a phone */
     overflow-wrap: anywhere;
   }
-  .ct-mail:is(:hover, :focus-visible) { color: var(--primary); }
+  .ct-mail:is(:hover, :focus-visible) { color: var(--primary); text-decoration-color: var(--primary); }
 
   /* Copy stays a whisper: useful, never a second button competing with the
      address. It only appears where the clipboard API exists. */
