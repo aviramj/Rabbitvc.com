@@ -486,7 +486,7 @@ section[id] { scroll-margin-top: clamp(80px, 8vh, 96px); }
 
 /* Tall portraits: pull the square crop up so the face, not the chest,
    fills the circle. Percentages keep it right at the 140px mobile size. */
-.photo--upper img { object-position: 50% 22%; }
+.photo--upper img { object-position: 50% 38%; }
 
 .member:hover .photo img { transform: scale(1.05); }
 
