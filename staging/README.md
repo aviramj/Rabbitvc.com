@@ -1,8 +1,8 @@
 # Staging
 
-Preview work for the homepage redesign. Nothing in here is linked from the
-live site, and nothing here changes it: `index.html`, `styles.css` and
-`app.js` at the repository root are untouched by this branch.
+Preview work. Nothing in here is linked from the live site, and nothing here
+changes it: `index.html`, `styles.css` and `app.js` at the repository root are
+untouched by this branch.
 
 | Path | What it is |
 | --- | --- |
@@ -11,6 +11,28 @@ live site, and nothing here changes it: `index.html`, `styles.css` and
 | `hero-review/` | The partner review page: the chosen direction, what it is made of, and the open questions. Also published as a Claude artifact. Self-contained apart from Google Fonts. |
 | `hero-options/` | Round one. Four takes on a large statement over navy. Superseded, kept for reference. |
 | `hero-options-2/` | Round two. Five distinct directions: Index, Meridian, Ticker, Broadsheet, Monogram. The chosen hero came from Ticker plus Broadsheet's Latest column. |
+| `contact-options/` | Four directions for `/contact/`: Skyline, Letterhead, Three windows, Quiet letter. Loads `../../styles.css`, so every option is judged in the site's real tokens and type. |
+
+## The contact page
+
+`contact-options/` shows four ways to lay out `/contact/`. All four carry the
+same content, the address and the three offices, and all four use the 2023
+cityscape painting, differing in what they ask it to do:
+
+| Option | The painting is | Reads as |
+| --- | --- | --- |
+| A. Skyline | the banner, behind the headline | a conventional interior page. This is what is built at `/contact/`. |
+| B. Letterhead | a tall panel beside the details, washed into the ground at the seam | a letterhead. Addresses are a list, so a fourth office is one more row. |
+| C. Three windows | cut into three, one slice per office | the offices *are* the artwork. Cards run Tel Aviv, Valley, Seoul, the order the painting is composed in. |
+| D. Quiet letter | a closing band, fading up out of the ground | a printed letter. Type only above the fold; closest to the three-city strip from the old banner. |
+
+C leans on the painting being composed left to right as Tel Aviv, then the
+Valley, then Seoul. Each frame is one `background-position` on a single file
+at `background-size: 400%`, so there are no new image assets and no crops to
+maintain.
+
+Two review conveniences, not part of any option: `?only=c` isolates one
+direction and `?theme=light` opens on the cream ground.
 
 ## The hero
 

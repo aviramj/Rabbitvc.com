@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en-US" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<title>Rabbit Ventures &mdash; Contact Page Options</title>
+<meta name="robots" content="noindex,nofollow" />
+<meta name="theme-color" content="#0A0E27" />
+<link rel="icon" href="../../wp-content/uploads/2023/08/cropped-rabbit-32x32.png" sizes="32x32" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet" />
+<!-- The real stylesheet, so every option is judged in the site's own tokens
+     and type rather than an approximation of them. -->
+<link rel="stylesheet" href="../../styles.css?v=202609091320" />
+<style>
+  /* ---------- review chrome: preview only, part of no option ---------- */
+  body { padding-top: 52px; }
+  .rv-bar {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 80;
+    display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px;
+    padding: 10px clamp(14px, 3vw, 28px);
+    background: color-mix(in oklab, var(--bg) 88%, transparent);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 11.5px; letter-spacing: .1em; text-transform: uppercase;
+    color: var(--fg-muted);
+  }
+  .rv-bar strong { color: var(--fg); font-weight: 600; letter-spacing: .12em; }
+  .rv-bar a { padding: 5px 11px; border: 1px solid var(--border); border-radius: 999px; color: var(--fg-soft); transition: .2s var(--ease); }
+  .rv-bar a:hover { color: var(--fg); border-color: var(--border-strong); background: var(--bg-card); }
+  .rv-bar .spacer { margin-left: auto; }
+
+  .opt { border-top: 1px solid var(--border-strong); scroll-margin-top: 52px; }
+  .opt-tag {
+    max-width: var(--maxw); margin: 0 auto;
+    padding: clamp(28px, 4vw, 48px) var(--pad) clamp(10px, 1.6vw, 18px);
+    display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 16px;
+  }
+  .opt-tag .k { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--primary); font-weight: 500; }
+  .opt-tag h2 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: clamp(20px, 2.2vw, 28px); letter-spacing: -.01em; margin: 0; color: var(--fg); }
+  .opt-tag p { margin: 0; flex: 1 1 320px; min-width: 260px; color: var(--fg-muted); font-size: 14px; line-height: 1.55; }
+  /* Each option is framed so two directions never bleed into one another. */
+  .opt-frame { border: 1px solid var(--border); border-radius: var(--r-lg); overflow: hidden; max-width: var(--maxw); margin: 0 auto clamp(48px, 7vw, 90px); }
+
+  /* Shared: the artwork, used differently by each option. */
+  :root {
+    --art: url("../../wp-content/uploads/2023/03/rabbit-website-background-image5-1-1536x1147.jpg");
+    /* C zooms 4x into the painting, so it draws on the largest export. */
+    --art-2x: url("../../wp-content/uploads/2023/03/rabbit-website-background-image5-1-2048x1529.jpg");
+  }
+
+  .eyebrow-mono { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11.5px; letter-spacing: .18em; text-transform: uppercase; font-weight: 500; margin: 0 0 14px; }
+
+  /* ================= A: Skyline banner (the built page) ================= */
+  .a-hero { position: relative; min-height: 380px; display: flex; align-items: flex-end; overflow: hidden; isolation: isolate; }
+  .a-hero > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 42%; z-index: -2; }
+  .a-hero::after { content: ""; position: absolute; inset: 0; z-index: -1;
+    background: linear-gradient(to top, #0A0E27 3%, rgba(10,14,39,.76) 48%, rgba(10,14,39,.30)); }
+  .a-hero-inner { width: 100%; padding: 96px clamp(20px, 4vw, 56px) 44px; }
+  .a-hero .eyebrow-mono { color: #6FADFF; }
+  .a-hero h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: clamp(32px, 4.4vw, 52px); letter-spacing: -.02em; line-height: 1.05; margin: 0 0 16px; color: #fff; }
+  .a-hero p { font-size: 17px; color: rgba(255,255,255,.88); max-width: 560px; margin: 0; line-height: 1.55; }
+  .a-body { padding: clamp(40px, 5vw, 72px) clamp(20px, 4vw, 56px) clamp(48px, 6vw, 84px); }
+  .a-mail { text-align: center; border: 1px solid var(--border); border-radius: var(--r-lg); background: var(--bg-card); padding: clamp(32px, 4vw, 52px) 24px; }
+  .a-mail .eyebrow-mono { color: var(--primary); }
+  .a-mail a.addr { display: inline-block; font-weight: 600; font-size: clamp(24px, 3.6vw, 40px); letter-spacing: -.02em; color: var(--fg); border-bottom: 2px solid color-mix(in oklab, var(--primary) 45%, transparent); padding-bottom: 4px; overflow-wrap: anywhere; }
+  .a-offices { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--border); border-radius: var(--r-lg); background: var(--bg-card); overflow: hidden; margin-top: clamp(36px, 4.4vw, 60px); }
+  .a-office { padding: clamp(24px, 3vw, 38px) 20px; text-align: center; }
+  .a-office + .a-office { border-left: 1px solid var(--border); }
+  .a-office svg { color: var(--fg-soft); opacity: .82; width: 56px; height: auto; margin: 0 auto 14px; }
+  .a-office h4 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 20px; margin: 0 0 8px; color: var(--primary); }
+  .a-office address { font-style: normal; color: var(--fg-soft); font-size: 15px; line-height: 1.6; margin: 0; }
+
+  /* ================= B: Split letterhead ================= */
+  .b-wrap { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); min-height: 620px; }
+  .b-left { padding: clamp(40px, 5vw, 76px) clamp(24px, 4vw, 60px); display: flex; flex-direction: column; justify-content: center; }
+  .b-left .eyebrow-mono { color: var(--primary); }
+  .b-left h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: clamp(30px, 3.8vw, 46px); letter-spacing: -.02em; line-height: 1.06; margin: 0 0 14px; color: var(--fg); }
+  .b-left > p.lede { color: var(--fg-soft); font-size: 16px; line-height: 1.6; margin: 0 0 clamp(26px, 3vw, 38px); max-width: 44ch; }
+  .b-mail { display: block; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: clamp(22px, 2.9vw, 34px); letter-spacing: -.02em; color: var(--fg); overflow-wrap: anywhere; }
+  /* The gold from the business cards, used once, as the rule under the address. */
+  .b-rule { height: 2px; width: 64px; background: var(--accent); margin: 14px 0 clamp(28px, 3.4vw, 40px); }
+  .b-list { border-top: 1px solid var(--border); }
+  .b-row { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; padding: 16px 0; border-bottom: 1px solid var(--border); }
+  .b-row dt { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 16px; color: var(--fg); margin: 0; }
+  .b-row dd { margin: 0; text-align: right; color: var(--fg-soft); font-size: 14.5px; line-height: 1.5; }
+  .b-art { position: relative; background: var(--art) center 42% / cover; }
+  /* The seam is a wash of the page ground, so the painting resolves into the
+     panel instead of stopping at a hard edge. */
+  .b-art::after { content: ""; position: absolute; inset: 0;
+    background: linear-gradient(to right, var(--bg), rgba(10,14,39,.16) 42%, transparent); }
+  [data-theme="light"] .b-art::after { background: linear-gradient(to right, var(--bg), rgba(245,244,238,.10) 42%, transparent); }
+  @media (max-width: 860px) {
+    .b-wrap { grid-template-columns: 1fr; }
+    .b-art { min-height: 300px; order: -1; }
+    .b-art::after { background: linear-gradient(to bottom, transparent, rgba(10,14,39,.20) 60%, var(--bg)); }
+    [data-theme="light"] .b-art::after { background: linear-gradient(to bottom, transparent, rgba(245,244,238,.14) 60%, var(--bg)); }
+  }
+
+  /* ================= C: Three windows ================= */
+  .c-wrap { padding: clamp(44px, 5.5vw, 84px) clamp(20px, 4vw, 56px) clamp(48px, 6vw, 84px); text-align: center; }
+  .c-wrap .eyebrow-mono { color: var(--primary); }
+  .c-wrap h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: clamp(28px, 3.6vw, 44px); letter-spacing: -.02em; margin: 0 0 18px; color: var(--fg); }
+  .c-mail { display: inline-block; font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: clamp(20px, 2.6vw, 30px); letter-spacing: -.01em; color: var(--primary); border-bottom: 2px solid color-mix(in oklab, var(--primary) 40%, transparent); padding-bottom: 3px; overflow-wrap: anywhere; }
+  .c-note { margin: 20px auto clamp(36px, 4.4vw, 60px); max-width: 560px; color: var(--fg-muted); font-size: 14.5px; line-height: 1.6; }
+  .c-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(14px, 1.8vw, 24px); }
+  .c-card { border: 1px solid var(--border); border-radius: var(--r-md); overflow: hidden; background: var(--bg-card); text-align: left; transition: transform .3s var(--ease), border-color .3s var(--ease); }
+  .c-card:hover { transform: translateY(-4px); border-color: color-mix(in oklab, var(--primary) 55%, var(--border)); }
+  /* One file, three windows onto it. At 300% the card shows exactly a third of
+     the painting's width, so 0 / 50 / 100% land on Tel Aviv, the Valley and
+     Seoul in the order the artist painted them. */
+  .c-frame { aspect-ratio: 5/4; background-image: var(--art-2x); background-size: 400% auto; background-repeat: no-repeat; }
+  .c-frame.tlv { background-position: 0% 54%; }
+  .c-frame.svl { background-position: 43% 34%; }
+  .c-frame.sel { background-position: 100% 30%; }
+  .c-body { padding: 18px 20px 22px; }
+  .c-body h4 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 19px; margin: 0 0 6px; color: var(--fg); }
+  .c-body address { font-style: normal; color: var(--fg-soft); font-size: 14.5px; line-height: 1.55; margin: 0; }
+  @media (max-width: 820px) { .c-grid { grid-template-columns: 1fr; } .c-frame { aspect-ratio: 16/7; } }
+
+  /* ================= D: Quiet letter ================= */
+  .d-wrap { padding: clamp(56px, 7vw, 110px) clamp(20px, 4vw, 56px) 0; text-align: center; }
+  .d-wrap .eyebrow-mono { color: var(--fg-muted); }
+  .d-wrap h3 { font-family: 'Montserrat', sans-serif; font-weight: 300; font-size: clamp(26px, 3.2vw, 40px); letter-spacing: -.01em; margin: 0 0 clamp(30px, 3.6vw, 46px); color: var(--fg-soft); }
+  .d-mail { display: inline-block; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: clamp(26px, 5.2vw, 62px); letter-spacing: -.03em; line-height: 1.05; color: var(--fg); overflow-wrap: anywhere; }
+  .d-rule { height: 2px; width: min(320px, 58%); background: linear-gradient(to right, transparent, var(--accent) 30%, var(--accent) 70%, transparent); margin: clamp(22px, 2.6vw, 34px) auto clamp(40px, 5vw, 70px); }
+  /* The strip from the old banner: three cities, hairline-divided, type only. */
+  .d-strip { display: grid; grid-template-columns: repeat(3, 1fr); max-width: 900px; margin: 0 auto clamp(52px, 6.5vw, 96px); }
+  .d-city { padding: 0 clamp(14px, 2vw, 28px); }
+  .d-city + .d-city { border-left: 1px solid var(--border); }
+  .d-city h4 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: clamp(17px, 1.9vw, 23px); letter-spacing: -.01em; margin: 0 0 8px; color: var(--fg); }
+  .d-city address { font-style: normal; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 12.5px; line-height: 1.7; letter-spacing: .02em; color: var(--fg-muted); margin: 0; }
+  @media (max-width: 700px) {
+    .d-strip { grid-template-columns: 1fr; gap: 0; }
+    .d-city { padding: 18px 0; }
+    .d-city + .d-city { border-left: 0; border-top: 1px solid var(--border); }
+  }
+  /* The painting signs the page off rather than announcing it. */
+  .d-art { position: relative; height: clamp(220px, 26vw, 340px); background: var(--art) center 34% / cover; }
+  .d-art::after { content: ""; position: absolute; inset: 0;
+    background: linear-gradient(to bottom, var(--bg), rgba(10,14,39,.30) 55%, rgba(10,14,39,.05)); }
+  [data-theme="light"] .d-art::after { background: linear-gradient(to bottom, var(--bg), rgba(245,244,238,.20) 55%, rgba(245,244,238,0)); }
+</style>
+</head>
+<body>
+
+<div class="rv-bar">
+  <strong>Contact page &mdash; options</strong>
+  <a href="#a">A &middot; Skyline</a>
+  <a href="#b">B &middot; Letterhead</a>
+  <a href="#c">C &middot; Three windows</a>
+  <a href="#d">D &middot; Quiet letter</a>
+  <span class="spacer"></span>
+  <a href="../../contact/">Built page</a>
+  <a href="#" id="theme-toggle">Flip theme</a>
+</div>
+
+<main>
+
+<!-- ==================== A ==================== -->
+<section class="opt" id="a">
+  <div class="opt-tag">
+    <span class="k">Option A</span>
+    <h2>Skyline</h2>
+    <p>What is built on the branch now. The painting is the banner, the email gets a panel of its own, the offices sit on one hairline rail with a landmark each. Most conventional, most immediately legible.</p>
+  </div>
+  <div class="opt-frame">
+    <div class="a-hero">
+      <img src="../../wp-content/uploads/2023/03/rabbit-website-background-image5-1-1536x1147.jpg" alt="" />
+      <div class="a-hero-inner">
+        <p class="eyebrow-mono">Contact</p>
+        <h3>Let&rsquo;s talk</h3>
+        <p>One inbox, three time zones. Whether you are building, raising, or just want to compare notes, write to us and a partner will read it.</p>
+      </div>
+    </div>
+    <div class="a-body">
+      <div class="a-mail">
+        <p class="eyebrow-mono">Email us</p>
+        <a class="addr" href="mailto:hello@rabbitvc.com">hello@rabbitvc.com</a>
+      </div>
+      <div class="a-offices">
+        <div class="a-office">
+          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M2 46H62" /><path d="M16 49V10M21 49V10M16 10H21M16 17H21M16 27H21M16 37H21" /><path d="M43 49V10M48 49V10M43 10H48M43 17H48M43 27H48M43 37H48" /><path d="M21 10Q32 58 43 10" /><path d="M2 32Q8 29 16 10" /><path d="M48 10Q56 29 62 32" /><path d="M23.8 20.5V46M26.5 28V46M32 34V46M37.5 28V46M40.3 20.5V46" /><path d="M8.5 25V46M55.5 25V46" />
+          </svg>
+          <h4>Silicon Valley</h4><address>5 Bay Tree Ln<br />Los Altos, CA</address>
+        </div>
+        <div class="a-office">
+          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20 58H44" /><path d="M25 58L29 34M39 58L35 34" /><path d="M26.6 49H37.4M27.9 41H36.1" /><path d="M29 34V25M35 34V25" /><path d="M24.5 25L27 17H37L39.5 25Z" /><path d="M26 21H38" /><path d="M31 17V12M33 17V12" /><path d="M32 12V4" /><path d="M30 9H34" />
+          </svg>
+          <h4>Seoul</h4><address>172 Yeoksam-ro<br />Gangnam-gu</address>
+        </div>
+        <div class="a-office">
+          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20 58H44" /><path d="M23 58L30 14M41 58L34 14" /><path d="M25.2 44H38.8M27.5 30H36.5M30 14H34" /><path d="M23 58L38.8 44M41 58L25.2 44" /><path d="M25.2 44L36.5 30M38.8 44L27.5 30" /><path d="M27.5 30L34 14M36.5 30L30 14" /><path d="M32 14V4" /><path d="M30 8H34" />
+          </svg>
+          <h4>Tel Aviv</h4><address>80 Derech Begin<br />Tel Aviv</address>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== B ==================== -->
+<section class="opt" id="b">
+  <div class="opt-tag">
+    <span class="k">Option B</span>
+    <h2>Letterhead</h2>
+    <p>No banner. The page splits: contact details on the left as a letterhead, the painting held tall on the right and washed into the ground at the seam. The addresses read as a list, so a fourth office is one more row.</p>
+  </div>
+  <div class="opt-frame">
+    <div class="b-wrap">
+      <div class="b-left">
+        <p class="eyebrow-mono">Contact</p>
+        <h3>Three offices,<br />one inbox</h3>
+        <p class="lede">Write to us and a partner will read it. Founders: what you are building, who it is for, and where you are today goes further than a deck.</p>
+        <a class="b-mail" href="mailto:hello@rabbitvc.com">hello@rabbitvc.com</a>
+        <div class="b-rule"></div>
+        <dl class="b-list">
+          <div class="b-row"><dt>Silicon Valley</dt><dd>5 Bay Tree Ln<br />Los Altos, CA</dd></div>
+          <div class="b-row"><dt>Seoul</dt><dd>172 Yeoksam-ro<br />Gangnam-gu</dd></div>
+          <div class="b-row"><dt>Tel Aviv</dt><dd>80 Derech Begin<br />Tel Aviv</dd></div>
+        </dl>
+      </div>
+      <div class="b-art" role="img" aria-label="Illustration merging the Tel Aviv seafront, the Silicon Valley hills and the Seoul skyline"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== C ==================== -->
+<section class="opt" id="c">
+  <div class="opt-tag">
+    <span class="k">Option C</span>
+    <h2>Three windows</h2>
+    <p>The painting is already Tel Aviv, then the Valley, then Seoul, left to right. This cuts it into three and gives each office its own slice, so the offices are the artwork rather than sitting under it. Card order follows the painting.</p>
+  </div>
+  <div class="opt-frame">
+    <div class="c-wrap">
+      <p class="eyebrow-mono">Contact</p>
+      <h3>Let&rsquo;s talk</h3>
+      <a class="c-mail" href="mailto:hello@rabbitvc.com">hello@rabbitvc.com</a>
+      <p class="c-note">One inbox, three time zones. A partner reads every note.</p>
+      <div class="c-grid">
+        <div class="c-card">
+          <div class="c-frame tlv"></div>
+          <div class="c-body"><h4>Tel Aviv</h4><address>80 Derech Begin<br />Tel Aviv</address></div>
+        </div>
+        <div class="c-card">
+          <div class="c-frame svl"></div>
+          <div class="c-body"><h4>Silicon Valley</h4><address>5 Bay Tree Ln<br />Los Altos, CA</address></div>
+        </div>
+        <div class="c-card">
+          <div class="c-frame sel"></div>
+          <div class="c-body"><h4>Seoul</h4><address>172 Yeoksam-ro<br />Gangnam-gu</address></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== D ==================== -->
+<section class="opt" id="d">
+  <div class="opt-tag">
+    <span class="k">Option D</span>
+    <h2>Quiet letter</h2>
+    <p>Type only up top: the address at full size over the gold rule from the business cards, the three cities as a hairline strip. The painting closes the page instead of opening it, fading up out of the ground. The most restrained, and the closest to the strip you sent.</p>
+  </div>
+  <div class="opt-frame">
+    <div class="d-wrap">
+      <p class="eyebrow-mono">Contact</p>
+      <h3>Write to us.</h3>
+      <a class="d-mail" href="mailto:hello@rabbitvc.com">hello@rabbitvc.com</a>
+      <div class="d-rule"></div>
+      <div class="d-strip">
+        <div class="d-city"><h4>Silicon Valley</h4><address>5 Bay Tree Ln<br />Los Altos, CA</address></div>
+        <div class="d-city"><h4>Seoul</h4><address>172 Yeoksam-ro<br />Gangnam-gu</address></div>
+        <div class="d-city"><h4>Tel Aviv</h4><address>80 Derech Begin<br />Tel Aviv</address></div>
+      </div>
+    </div>
+    <div class="d-art" role="img" aria-label="Illustration merging the Tel Aviv seafront, the Silicon Valley hills and the Seoul skyline"></div>
+  </div>
+</section>
+
+</main>
+
+<script>
+  /* ?only=b isolates one option, for screenshotting a direction on its own. */
+  var qs = new URLSearchParams(location.search);
+  if (qs.get('theme')) document.documentElement.setAttribute('data-theme', qs.get('theme'));
+  var only = qs.get('only');
+  if (only) {
+    document.querySelectorAll('.opt').forEach(function (s) {
+      if (s.id !== only) s.remove();
+    });
+  }
+  document.getElementById('theme-toggle').addEventListener('click', function (e) {
+    e.preventDefault();
+    var r = document.documentElement;
+    r.setAttribute('data-theme', r.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+  });
+</script>
+</body>
+</html>
