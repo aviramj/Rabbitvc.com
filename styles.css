@@ -658,9 +658,6 @@ button { font: inherit; cursor: pointer; }
   .pf-card, .pf-markwrap, .pf-mark, .pf-meta { transition: none; }
 }
 
-/* =================== CONTACT =================== */
-.contact { padding-top: 0; padding-bottom: clamp(80px, 10vw, 140px); text-align: center; }
-
 /* =================== FOOTER =================== */
 .footer {
   border-top: 1px solid var(--border);
