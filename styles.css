@@ -606,10 +606,19 @@ section[id] { scroll-margin-top: clamp(80px, 8vh, 96px); }
   --band-mark-filter: invert(1);          /* darken it on the cream page, as the brand mark does */
 }
 .partnership-inner { max-width: 900px; margin: 0 auto; padding-inline: var(--pad); text-align: center; }
-/* the lockup: two marks at one optical height, held apart by a hairline cross */
-.lockup { margin-bottom: clamp(28px, 3.6vw, 44px); display: flex; align-items: center; justify-content: center; gap: clamp(18px, 3vw, 34px); flex-wrap: wrap; }
-.lockup-mark { height: clamp(42px, 4.8vw, 58px); width: auto; filter: var(--band-mark-filter); }
-.lockup-logo { height: clamp(32px, 3.8vw, 44px); width: auto; }
+/* the lockup: two marks at one optical height, held apart by a hairline cross.
+   A grid, not a centred flex row: centring the row as a whole would hang each
+   pairing off its own total width, so the wider partner logo would drag its
+   rabbit mark further out than the narrower one. Equal side columns put the
+   cross on the centre line and both marks the same distance from it, so the
+   pairings stack in register however wide the logos run. */
+.lockup {
+  margin-bottom: clamp(28px, 3.6vw, 44px);
+  display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
+  gap: clamp(18px, 3vw, 34px);
+}
+.lockup-mark { height: clamp(42px, 4.8vw, 58px); width: auto; filter: var(--band-mark-filter); justify-self: end; }
+.lockup-logo { height: clamp(32px, 3.8vw, 44px); width: auto; justify-self: start; }
 /* A second pairing under the first partner's copy: it needs the paragraph above
    it to read as finished before the next mark starts. */
 .lockup--next { margin-top: clamp(40px, 5vw, 68px); }
