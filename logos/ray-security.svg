@@ -1,20 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 328 100" role="img" aria-label="Ray Security">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 382.8 100" role="img" aria-label="Ray Security">
   <title>Ray Security</title>
-  <!-- mark: the sail, cut by the beam -->
-  <g>
-    <path fill="#00246B" d="M14 14 H72 A14 14 0 0 1 86 28 V86 H66 A52 52 0 0 1 14 34 Z"/>
-    <path fill="#00DEFF" d="M10 84 C32 64 54 42 72 16 L86 34 C62 52 34 70 10 84 Z"/>
-  </g>
-  <!-- wordmark: RAY, drawn as paths so it needs no webfont -->
-  <g fill="#00246B" transform="translate(140 12) scale(0.76)">
-    <!-- R -->
-    <path fill-rule="evenodd" d="M0 0 H44 C58 0 68 11 68 25.5 C68 37 61 46 51 50 L78 100 H54 L31 55 H20 V100 H0 Z
-                                 M20 17 H43 C49.5 17 54 20.5 54 26 C54 31.5 49.5 35 43 35 H20 Z"/>
-    <!-- A -->
-    <path fill-rule="evenodd" transform="translate(86 0)" d="M40 0 L80 100 H62 L53.2 78 H26.8 L18 100 H0 Z
-                                 M40 45 L33.2 62 H46.8 Z"/>
-    <!-- Y -->
-    <path transform="translate(174 0)" d="M0 0 H22 L37 30 L52 0 H74 L46 52 V100 H28 V52 Z"/>
-  </g>
+  <!-- the mark: the sail, cut by the beam -->
+  <path fill="#0B2461" d="M14 14H72a14 14 0 0 1 14 14v58H66A52 52 0 0 1 14 34Z"/>
+  <path fill="#00DFFF" d="M7 87C30 66 53 43 72 16l14 18C63 51 33 71 7 87Z"/>
+  <!-- RAY, Montserrat Bold outlines: the site's own face, and no webfont to load -->
+  <path fill="#0B2461" transform="translate(134 9)" d="M9.72 82L9.72 0L44.75 0Q61.85 0 71.34 7.91Q80.83 15.81 80.83 29.75Q80.83 38.89 76.49 45.51Q72.16 52.13 64.19 55.64Q64.08 55.64 64.08 55.76L82.35 82L61.85 82L46.15 59.16Q45.69 59.16 45.22 59.16L28.7 59.16L28.7 82ZM28.7 44.05L44.16 44.05Q52.95 44.05 57.28 40.24Q61.62 36.43 61.62 29.75Q61.62 22.96 57.28 19.21Q52.95 15.46 44.16 15.46L28.7 15.46Z M85.05 82L121.59 0L140.34 0L177 82L157.09 82L149.83 64.43L111.75 64.43L104.49 82ZM143.85 50.02L130.85 18.63L117.85 50.02Z M199.73 82L199.73 52.71L167.98 0L188.13 0L210.04 36.43L231.94 0L250.57 0L218.71 52.95L218.71 82Z"/>
 </svg>
