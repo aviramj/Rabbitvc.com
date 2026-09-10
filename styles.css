@@ -708,10 +708,16 @@ section[id] { scroll-margin-top: clamp(80px, 8vh, 96px); }
   transform: translateY(6px);
   pointer-events: none;
   transition: opacity .28s var(--ease), transform .32s var(--ease);
-}
-.pf-desc {
+  /* The type is set here, not only on the inline .pf-desc inside: a line box
+     is at least as tall as its containing block's strut, so leaving this at the
+     inherited 16px/1.65 held the lines 26px apart however tight .pf-desc was. */
   font-size: 11px;
   line-height: 1.42;
+}
+.pf-desc {
+  display: block;
+  font-size: inherit;
+  line-height: inherit;
   color: var(--pf-panel-ink);
   text-wrap: pretty;
 }
