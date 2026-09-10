@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-5 -26.0 545.7 152" role="img" aria-label="SPLX">
+  <title>SPLX</title>
+  <defs>
+    <linearGradient id="splx-g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3FE3D8"/><stop offset=".45" stop-color="#3B82F6"/><stop offset="1" stop-color="#9B6BF5"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(0 -21.0) scale(1.4200)">
+    <g fill="none" stroke="url(#splx-g)" stroke-width="15" stroke-linejoin="round">
+      <path d="M27.5 7.5 H62.5 L92.5 37.5 V72.5
+               A20 20 0 0 1 72.5 92.5 H27.5
+               A20 20 0 0 1 7.5 72.5 V27.5
+               A20 20 0 0 1 27.5 7.5 Z"/>
+      <path d="M22 78 L78 22"/>
+    </g>
+  </g>
+  <path fill="#000000" transform="translate(179.9 0)" d="M7.14 84.57L7.14 70.29L26.29 70.29L26.29 78.71L31 83.43L60.57 83.43L65.43 78.57L65.43 62L60.71 57.29L22.86 57.29L7.43 41.86L7.43 15.43L22.86 0L68 0L83.43 15.43L83.43 29.86L64.29 29.86L64.29 21.29L59.57 16.57L31.29 16.57L26.57 21.29L26.57 36L31.29 40.71L69.14 40.71L84.57 56.14L84.57 84.29L68.86 100L22.57 100Z M100.29 0L163 0L178.29 15.43L178.29 50.43L162.86 66L119.71 66L119.71 100L100.29 100ZM154.14 49.71L159.14 44.71L159.14 21.29L154.14 16.29L119.71 16.29L119.71 49.71Z M192.57 0L212 0L212 83.57L262 83.57L262 100L192.57 100Z M299 48.43L265.57 0L287.43 0L310 32.86L332.57 0L354.43 0L321 49L355.86 100L334 100L310 64.71L286 100L264.14 100Z"/>
+</svg>
