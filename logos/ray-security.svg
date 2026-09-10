@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 378.7 100" role="img" aria-label="Ray Security">
   <title>Ray Security</title>
-  <!-- the mark: the sail, cut by the beam -->
-  <path fill="#0B2461" d="M14 14H72a14 14 0 0 1 14 14v58H66A52 52 0 0 1 14 34Z"/>
+  <!-- The beam is cut out of the sail, dilated by a stroke so a thin gap rings
+       it, then painted back inside. The wall flattens sail and beam to the same
+       white at rest; the gap is what keeps the beam visible there. -->
+  <defs>
+    <mask id="ray-beam" maskUnits="userSpaceOnUse" x="0" y="0" width="100" height="100">
+      <rect width="100" height="100" fill="#fff"/>
+      <path fill="#000" stroke="#000" stroke-width="4" stroke-linejoin="round" d="M7 87C30 66 53 43 72 16l14 18C63 51 33 71 7 87Z"/>
+    </mask>
+  </defs>
+  <path fill="#0B2461" d="M14 14H72a14 14 0 0 1 14 14v58H66A52 52 0 0 1 14 34Z" mask="url(#ray-beam)"/>
   <path fill="#00DFFF" d="M7 87C30 66 53 43 72 16l14 18C63 51 33 71 7 87Z"/>
   <!-- RAY, Montserrat SemiBold outlines: the site's own face, and no webfont to load -->
   <path fill="#0B2461" transform="translate(134 9)" d="M11.01 82L11.01 0L44.63 0Q61.03 0 70.34 7.73Q79.66 15.46 79.66 29.17Q79.66 38.19 75.44 44.69Q71.22 51.19 63.49 54.59Q62.91 54.94 62.2 55.17L81.06 82L64.66 82L47.91 57.99Q46.39 58.1 44.75 58.1L26.24 58.1L26.24 82ZM26.24 45.57L44.05 45.57Q54.12 45.57 59.22 41.23Q64.31 36.9 64.31 29.17Q64.31 21.32 59.22 17.1Q54.12 12.89 44.05 12.89L26.24 12.89Z M85.05 82L121.95 0L136.94 0L173.96 82L158.03 82L149.83 63.02L108.83 63.02L100.74 82ZM144.79 51.07L129.33 15.23L113.98 51.07Z M198.44 82L198.44 53.3L166.23 0L182.51 0L206.52 39.95L230.77 0L245.77 0L213.67 53.07L213.67 82Z"/>
