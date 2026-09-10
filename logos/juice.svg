@@ -4,12 +4,12 @@
   <defs>
     <mask id="juice-slash" maskUnits="userSpaceOnUse" x="0" y="0" width="100" height="100">
       <rect width="100" height="100" fill="#fff"/>
-      <rect x="-50" y="44" width="200" height="12" fill="#000" transform="rotate(-45 50 50)"/>
+      <rect x="-50" y="40" width="200" height="20" fill="#000" transform="rotate(-45 50 50)"/>
     </mask>
   </defs>
   <g transform="translate(0 -21.0) scale(1.4200)">
     <!-- the ring, cut by a masked diagonal so the gap is real negative space -->
-    <path d="M100 0 V48 A52 52 0 0 1 48 100 H0 V52 A52 52 0 0 1 52 0 Z M69 31 V49.239999999999995 A19.76 19.76 0 0 1 49.239999999999995 69 H31 V50.760000000000005 A19.76 19.76 0 0 1 50.760000000000005 31 Z" fill="#111111" fill-rule="evenodd" mask="url(#juice-slash)"/>
+    <path d="M100 0 V48 A52 52 0 0 1 48 100 H0 V52 A52 52 0 0 1 52 0 Z M84 16 V48.64 A35.36 35.36 0 0 1 48.64 84 H16 V51.36 A35.36 35.36 0 0 1 51.36 16 Z" fill="#111111" fill-rule="evenodd" mask="url(#juice-slash)"/>
     <!-- the bolt bridges the gap, crossing the diagonal rather than running along it -->
     <g transform="translate(50 50) rotate(0) scale(1.6)"><path d="M12 -34 L-12 2 L2 2 L-12 34 L14 -2 L0 -2 Z" fill="#111111"/></g>
   </g>
