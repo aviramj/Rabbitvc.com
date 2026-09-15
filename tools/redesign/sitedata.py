@@ -1,4 +1,4 @@
-# Extracted from the live pages: content, images and every real link.
+# Extracted from the previous pages at origin/main: content, images, every link.
 # News dates are the corrected LinkedIn post dates, newest first.
 TEAM = [{'bio': 'Aviram Jenik, an entrepreneur, investor, and advisor in the B2B sector, co-founded and led '
          'Beyond Security as its CEO until its acquisition by Fortra in 2021. With a track record of '
@@ -133,9 +133,9 @@ PORTFOLIO = [{'desc': 'Hyperlocal hiring platform for local shops and SMBs',
   'style': ''},
  {'desc': 'AI-powered onboarding',
   'href': 'https://www.getguide.ai/',
-  'img': 'logos/guide-ai.png',
+  'img': 'logos/guide-ai.svg',
   'name': 'Guide AI',
-  'style': 'max-height:64px'},
+  'style': 'max-height:30px'},
  {'desc': 'Scoped access control for AI agents operating production infrastructure',
   'href': 'https://www.alpacax.com',
   'img': 'logos/alpacax.png',
