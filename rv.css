@@ -986,3 +986,14 @@ body{margin:0;background:#F7F5EF;}
 @media (max-width:360px){
   .pf-list{grid-template-columns:1fr;}
 }
+
+/* ============================================================
+   NEWS MEASURE
+   The description caps at 72ch for readability, so past roughly
+   1300px the text stopped growing while the row kept widening -
+   215px of empty column at 1512px, all of it dumped on the
+   right. Capping the whole column and centring it splits that
+   air evenly instead, and keeps the rule under the headline the
+   same width as the rows beneath it.
+   ============================================================ */
+.pg--measure{max-width:1180px;margin-inline:auto;}

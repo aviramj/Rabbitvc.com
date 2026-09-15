@@ -333,7 +333,7 @@ def news():
     return head(1, "News | Rabbit Ventures",
                 "Portfolio announcements, events and press from Rabbit Ventures.",
                 "https://rabbitvc.com/news/") + nav(1, "News") + '''
-<main id="main" class="pg-main">
+<main id="main" class="pg-main pg--measure">
   %s
   <div class="nw-list">%s</div>
 </main>''' % (page_head("Where we have been showing up",
