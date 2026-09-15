@@ -972,6 +972,11 @@ body{margin:0;background:#F7F5EF;}
     padding:0;font-size:12px;line-height:1.45;
   }
   .pc:is(:hover,:focus-visible){background:var(--bg);}
+  /* Full colour too. On a pointer the marks are silhouetted at rest and come
+     up in colour on hover; with no hover the silhouette would be the only
+     state a phone ever shows, so the colour state is the resting one here. */
+  .pc-mark .pf-mark{filter:none;opacity:1;}
+  .pc-wm{opacity:1;}
 }
 /* Two across rather than one: a single column made the wall 36 screens long. */
 @media (max-width:700px){
