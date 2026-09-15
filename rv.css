@@ -990,20 +990,16 @@ body{margin:0;background:#F7F5EF;}
    instead; where there is one, the reveal is untouched.
    ============================================================ */
 @media (hover:none),(max-width:700px){
-  .pc{
-    display:flex;flex-direction:column;align-items:center;justify-content:flex-start;
-    gap:12px;min-height:0;padding:20px 14px 22px;
-  }
+  /* Logo only. The description was put in flow here because touch has no
+     hover to reveal it, but two lines of 12px type under every mark made the
+     wall busy - the marks read better on their own. The hover reveal on a
+     pointer is untouched. */
+  .pc-meta{display:none;}
+  .pc{min-height:124px;}
   .pc-mark{transform:none;}
   .pc:is(:hover,:focus-visible) .pc-mark{transform:none;}
-  .pc-meta{
-    position:static;opacity:1;transform:none;pointer-events:auto;
-    padding:0;font-size:12px;line-height:1.45;
-  }
   .pc:is(:hover,:focus-visible){background:var(--bg);}
-  /* Full colour too. On a pointer the marks are silhouetted at rest and come
-     up in colour on hover; with no hover the silhouette would be the only
-     state a phone ever shows, so the colour state is the resting one here. */
+  /* Full colour: with no hover, the silhouette would be the only state. */
   .pc-mark .pf-mark{filter:none;opacity:1;}
   .pc-wm{opacity:1;}
 }
@@ -1012,6 +1008,8 @@ body{margin:0;background:#F7F5EF;}
   .pf-list{grid-template-columns:repeat(2,minmax(0,1fr));}
   .pc-mark .pf-mark{width:112px;max-height:40px;}
 }
-@media (max-width:360px){
+/* One across only on the very narrowest phones; with the description gone
+   a 112px mark sits comfortably in a 150px cell at 360px. */
+@media (max-width:330px){
   .pf-list{grid-template-columns:1fr;}
 }
