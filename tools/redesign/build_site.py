@@ -66,7 +66,10 @@ def nav(depth, active=""):
         '<a href="%s"%s>%s</a>' % (href(t, depth) or (u or "./"),
                                    ' aria-current="page"' if n == active else "", n)
         for n, t in NAV)
-    mob = "".join('<a href="%s">%s</a>' % (href(t, depth) or (u or "./"), n) for n, t in NAV)
+    mob = "".join('<a href="%s"%s>%s</a>'
+                  % (href(t, depth) or (u or "./"),
+                     ' aria-current="page"' if n == active else "", n)
+                  for n, t in NAV)
     return f'''
 <header class="s-nav">
   <a class="s-brand" href="{u or './'}" aria-label="Rabbit Ventures home">

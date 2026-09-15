@@ -934,3 +934,50 @@
    pale line under the footer. body keeps the bone ground for the page. */
 html{background:#1C222E;color-scheme:light;}
 body{margin:0;background:#F7F5EF;}
+
+/* ============================================================
+   CURRENT PAGE
+   Every page already marks its own nav link with
+   aria-current="page" - a screen reader announces it, but
+   nothing painted it, so sighted visitors had no marker at all.
+   A brass underline: the same accent the hover state uses, held
+   on, which reads as "you are here" without shouting.
+   ============================================================ */
+.s-links a[aria-current="page"],
+.d--a .s-nav .s-links a[aria-current="page"]{
+  color:#FFFFFF;border-bottom-color:var(--accent);
+}
+.s-mobile a[aria-current="page"]{color:#FFFFFF;}
+.s-mobile a[aria-current="page"]::before{
+  content:"";display:inline-block;width:14px;height:1px;
+  background:var(--accent);vertical-align:middle;margin-right:10px;
+}
+
+/* ============================================================
+   PORTFOLIO ON TOUCH AND ON NARROW SCREENS
+   The cell reveals its description on hover. Touch has no
+   hover, so on a phone the wall was 36 logos and no words.
+   Where there is no pointer, the description sits in flow
+   instead; where there is one, the reveal is untouched.
+   ============================================================ */
+@media (hover:none),(max-width:700px){
+  .pc{
+    display:flex;flex-direction:column;align-items:center;justify-content:flex-start;
+    gap:12px;min-height:0;padding:20px 14px 22px;
+  }
+  .pc-mark{transform:none;}
+  .pc:is(:hover,:focus-visible) .pc-mark{transform:none;}
+  .pc-meta{
+    position:static;opacity:1;transform:none;pointer-events:auto;
+    padding:0;font-size:12px;line-height:1.45;
+  }
+  .pc:is(:hover,:focus-visible){background:var(--bg);}
+}
+/* Two across rather than one: a single column made the wall 36 screens long. */
+@media (max-width:700px){
+  .pf-list{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .pc-mark .pf-mark{width:112px;max-height:40px;}
+}
+@media (max-width:360px){
+  .pf-list{grid-template-columns:1fr;}
+}
