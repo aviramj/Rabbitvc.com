@@ -9,6 +9,7 @@ import hashlib, os, re, shutil
 from sitedata import (TEAM, PARTNERS, PORTFOLIO, NEWS, PODCAST,
                       DR_GALLERY, DR_PROSE, OFFICES, DR_STORIES)
 from episodes import EPISODES
+from marks import MARKS
 
 ROOT = "/home/user/Rabbitvc.com"
 NAV = [("Home", ""), ("Team", "#team"), ("Fund Partners", "#advisors"),
@@ -400,16 +401,16 @@ def podcast():
         '<span class="pd-desc">%s</span><span class="pd-watch">Watch &rarr;</span></a>'
         % (e["href"], e["still"], e["name"], e["num"], e["name"], e["desc"])
         for e in PODCAST[1:])
-    plats = ", ".join('<a href="%s" target="_blank" rel="noopener">%s</a>' % (u, n)
-                      for n, u in PLATFORMS[:2])
-    plats += ' or <a href="%s" target="_blank" rel="noopener">%s</a>' % (PLATFORMS[2][1], PLATFORMS[2][0])
+    plats = '<span class="pd-plats">%s</span>' % "".join(
+        '<a class="lo" href="%s" target="_blank" rel="noopener">%s<span>%s</span></a>'
+        % (u, mark_for(n), n) for n, u in PLATFORMS)
 
     return head(1, "Podcast | Rabbit Ventures",
                 "Conversations with founders, operators, and investors.",
                 "https://rabbitvc.com/podcast/") + nav(1, "Podcast") + '''
 <main id="main" class="pg-main">
   %s
-  <p class="pd-meta"><b>%d episodes</b><span>Listen on %s</span></p>
+  <p class="pd-meta"><b>%d episodes</b><span>Listen on</span>%s</p>
   <a class="pd-lead" href="%s">
     <img src="../wp-content/uploads/podcast/%s" alt="%s on The Rabbit Ventures Podcast" />
     <span>
@@ -452,6 +453,14 @@ def contact():
 </main>''' % cities + FOOT_TPL
 
 
+def mark_for(name):
+    """The platform's own mark, or nothing if the name is not one we hold."""
+    key = ("spotify" if "spotify" in name.lower()
+           else "apple" if "apple" in name.lower()
+           else "youtube" if "youtube" in name.lower() else None)
+    return MARKS.get(key, "")
+
+
 # ---------------------------------------------------------- podcast episode
 def episode(i):
     """One episode page, two folders deep. The order of EPISODES is the
@@ -476,9 +485,10 @@ def episode(i):
                     ('<p class="ep-guest-role">%s</p>' % g["role"]) if g.get("role") else "",
                     ('<p class="ep-guest-bio">%s</p>' % g["bio"]) if g.get("bio") else ""))
 
-    plat = ", ".join('<a href="%s" target="_blank" rel="noopener">%s</a>' % (u, n)
-                     for n, u in e["links"])
-    listen = ('<div class="ep-listen"><b>Listen on</b><span>%s</span></div>' % plat) if plat else ""
+    plat = "".join(
+        '<a class="lo" href="%s" target="_blank" rel="noopener">%s<span>%s</span></a>'
+        % (u, mark_for(n), n) for n, u in e["links"])
+    listen = ('<div class="ep-listen"><b>Listen on</b>%s</div>' % plat) if plat else ""
 
     def key(x):
         m = re.match(r"Ep\s*(\d+)", x["title"])
