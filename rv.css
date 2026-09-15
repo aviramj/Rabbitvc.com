@@ -862,43 +862,45 @@
 
 /* ============================================================
    PODCAST EPISODE
-   The video is the page, so it sits at the top at reading width
-   with the title above it and the guest and platforms below,
-   on the same ruled column the rest of the site uses.
+   Four type sizes and no more. The page had nine, six of them
+   inside a 3px band - close enough to look accidental rather
+   than deliberate. Here the scale is 42 / 28 / 17 / 14:
+   headline, guest, prose, label. Everything that is prose is
+   17px whether it is the episode description or the guest's
+   bio; everything that is a label is 14px. The guest's current
+   role is the same 17px as the bio and separates from it by
+   ink and weight instead of by a fourth decimal of a pixel.
    ============================================================ */
 .ep-wrap{max-width:860px;margin-inline:auto;}
-.ep-back{display:inline-block;font-size:13.5px;color:var(--ink2);margin-bottom:clamp(20px,2.6vw,32px);
+.ep-back{display:inline-block;font-size:14px;color:var(--ink2);margin-bottom:clamp(20px,2.6vw,32px);
   border-bottom:1px solid transparent;padding-bottom:1px;transition:color .15s,border-color .15s;}
 .ep-back:hover{color:var(--brand);border-bottom-color:var(--brand);}
-.ep-n{display:block;font-size:13px;color:var(--accent);margin-bottom:9px;}
+.ep-n{display:block;font-size:14px;color:var(--accent);margin-bottom:9px;}
 .ep-h1{font-weight:700;font-size:clamp(27px,3.2vw,42px);letter-spacing:-.03em;line-height:1.04;
   margin:0 0 clamp(22px,2.8vw,34px);}
 .ep-video{position:relative;aspect-ratio:16/9;background:var(--band);
   border:1px solid var(--rule);margin-bottom:clamp(24px,3vw,38px);}
 .ep-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;}
-.ep-copy p{font-size:clamp(16px,1.55vw,18.5px);line-height:1.62;color:var(--ink2);
-  margin:0 0 16px;max-width:66ch;}
+.ep-copy p{font-size:17px;line-height:1.62;color:var(--ink2);margin:0 0 16px;max-width:66ch;}
+.ep-copy p:last-child{margin-bottom:0;}
+
 .ep-guest{border-top:1px solid var(--rule);margin-top:clamp(30px,3.8vw,48px);
   padding-top:clamp(22px,2.6vw,32px);}
-.ep-guest-cap{font-size:13px;color:var(--accent);margin:0 0 8px;}
-.ep-guest-name{font-weight:700;font-size:clamp(23px,2.4vw,29px);letter-spacing:-.028em;
+.ep-guest-cap{font-size:14px;color:var(--accent);margin:0 0 8px;}
+.ep-guest-name{font-weight:700;font-size:clamp(23px,2.3vw,28px);letter-spacing:-.028em;
   line-height:1.08;margin:0 0 7px;}
 .ep-guest-name a{border-bottom:1px solid transparent;padding-bottom:1px;transition:color .15s,border-color .15s;}
 .ep-guest-name a:hover{color:var(--brand);border-bottom-color:var(--brand);}
-/* The role is what the guest does now, so it sits with the name as a
-   credential: full-strength ink, medium weight, tight under it. The bio is
-   body copy - lighter, roomier, its own paragraph. Previously the two were
-   both 15px grey and read as one block. */
-.ep-guest-role{font-size:16px;font-weight:500;color:var(--ink);margin:0;}
-.ep-guest-bio{font-size:15.5px;color:var(--ink2);line-height:1.62;margin:14px 0 0;max-width:62ch;}
+.ep-guest-role{font-size:17px;font-weight:500;color:var(--ink);line-height:1.5;margin:0;}
+.ep-guest-bio{font-size:17px;color:var(--ink2);line-height:1.62;margin:14px 0 0;max-width:62ch;}
+
 /* Platform links carry their own mark, drawn in ink like every other logo
    on the site rather than in brand colour, so the row stays one material. */
 .ep-listen{display:flex;flex-wrap:wrap;align-items:center;gap:12px clamp(20px,2.4vw,34px);
   border-top:1px solid var(--rule);margin-top:clamp(26px,3.2vw,40px);padding-top:clamp(20px,2.4vw,28px);
-  font-size:14.5px;color:var(--ink2);}
+  font-size:14px;color:var(--ink2);}
 .ep-listen b{color:var(--ink);font-weight:700;}
-.lo{display:inline-flex;align-items:center;gap:9px;color:var(--ink2);
-  transition:color .15s;}
+.lo{display:inline-flex;align-items:center;gap:9px;color:var(--ink2);font-size:14px;transition:color .15s;}
 .lo svg{width:19px;height:19px;flex:0 0 auto;display:block;}
 .lo span{border-bottom:1px solid var(--rule);padding-bottom:2px;transition:border-color .15s;}
 .lo:hover{color:var(--brand);}
@@ -911,13 +913,13 @@
    index rendered darker than the identical row on an episode page. */
 .pd-meta .lo{color:var(--ink2);border-bottom:0;padding-bottom:0;}
 .pd-meta .lo:hover{color:var(--brand);}
+
 /* previous / next, so an episode is not a dead end */
 .ep-seq{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
   border-top:1px solid var(--rule);margin-top:clamp(30px,3.8vw,48px);padding-top:22px;font-size:14px;}
 .ep-seq a{color:var(--ink2);transition:color .15s;}
 .ep-seq a:hover{color:var(--brand);}
 .ep-seq span{color:var(--rule);}
-
 
 /* ---- document reset ----
    The mockup rendered inside a host page that already zeroed these, so the
