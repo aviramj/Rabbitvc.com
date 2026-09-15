@@ -426,6 +426,17 @@
   .d--a .tv--c .team-grid,.d--a .tv--d .team-grid{grid-template-columns:repeat(2,1fr);}
   .d--a .tv--b .team-grid{grid-template-columns:1fr;}
 }
+/* On a phone the two-column grid left an opened biography 166px wide - about
+   23 characters a line, a ribbon rather than a paragraph. One column below
+   620px gives it the full measure (~48 characters). The portrait stops being
+   a full-width square at the same time, so four of them do not turn the
+   section into a stack of giant photographs. */
+@media (max-width:620px){
+  .d--a .tv--c .team-grid,.d--a .tv--d .team-grid{grid-template-columns:1fr;}
+  .d--a .tv--d .team-grid{gap:clamp(30px,6vw,40px);}
+  .d--a .tv--d .m-photo{max-width:190px;}
+  .d--a .tv--d .m-bio{max-width:68ch;}
+}
 
 /* ============================================================
    INNER PAGES
