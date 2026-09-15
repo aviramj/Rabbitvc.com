@@ -380,7 +380,10 @@
   .d--a .m,.d--b .m,.d--c .m{grid-template-columns:1fr;}
   .d--b .s-figure{grid-template-columns:1fr;}
   .d--b .ph--3{display:none;}
-  .fp-list{columns:1;}
+  /* Two, not one: the longest name is 146px and a column is 150px even at
+     360px, so nothing wraps, and the block halves from 527px to 288px
+     instead of leaving 200px empty beside every name. */
+  .fp-list{columns:2;}
   .pf-wall{grid-template-columns:repeat(auto-fill,minmax(118px,1fr));}
 }
 @media (prefers-reduced-motion:reduce){
@@ -431,6 +434,9 @@
    620px gives it the full measure (~48 characters). The portrait stops being
    a full-width square at the same time, so four of them do not turn the
    section into a stack of giant photographs. */
+@media (max-width:359px){
+  .fp-list{columns:1;}
+}
 @media (max-width:620px){
   .d--a .tv--c .team-grid,.d--a .tv--d .team-grid{grid-template-columns:1fr;}
   .d--a .tv--d .team-grid{gap:clamp(30px,6vw,40px);}
