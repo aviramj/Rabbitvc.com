@@ -434,8 +434,14 @@
 @media (max-width:620px){
   .d--a .tv--c .team-grid,.d--a .tv--d .team-grid{grid-template-columns:1fr;}
   .d--a .tv--d .team-grid{gap:clamp(30px,6vw,40px);}
-  .d--a .tv--d .m-photo{max-width:190px;}
+  .d--a .tv--d .m-photo{max-width:190px;margin-inline:auto;}
   .d--a .tv--d .m-bio{max-width:68ch;}
+  /* Centred on the card's own axis: portrait, role, name and the Background
+     control. The biography itself stays flush left - centred paragraphs are
+     hard to read, because every line starts in a different place. */
+  .d--a .tv--d .m{text-align:center;}
+  .d--a .tv--d .m-det{text-align:left;}
+  .d--a .tv--d .m-det summary{justify-content:center;}
 }
 
 /* ============================================================
