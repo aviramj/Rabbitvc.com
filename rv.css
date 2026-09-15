@@ -865,5 +865,11 @@
    stylesheet never needed them. Standing on its own, the browser default
    body margin left an 8px white frame around every page, and an unpainted
    html/body meant the ground showed through outside .site. */
-html{background:#F7F5EF;color-scheme:light;}
+/* The canvas is navy, not bone. html's background is what a browser paints
+   over the whole viewport and beyond it - the rubber-band area you see when
+   you overscroll past either end. Both ends of every page are navy (the nav
+   bar above, the footer below), so a bone canvas flashed a pale band there,
+   and any sub-pixel rounding at the foot of the document showed the same
+   pale line under the footer. body keeps the bone ground for the page. */
+html{background:#1C222E;color-scheme:light;}
 body{margin:0;background:#F7F5EF;}
