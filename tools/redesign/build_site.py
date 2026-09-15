@@ -5,7 +5,7 @@ One source of truth per page, so the copy cannot drift between them.
 Content and every outbound link come from sitedata.py, which was read
 straight off the pages this replaces.
 """
-import os, re, shutil
+import hashlib, os, re, shutil
 from sitedata import (TEAM, PARTNERS, PORTFOLIO, NEWS, PODCAST,
                       DR_GALLERY, DR_PROSE, OFFICES, DR_STORIES)
 
@@ -134,7 +134,10 @@ FOOT_TPL = '''
 </html>
 '''
 
-VER = "20260915"
+# Derived from the stylesheet itself: a hand-kept version string was left
+# unchanged across a CSS fix once already, so every cached browser and the
+# CDN kept serving the stale sheet and the fix was invisible.
+VER = hashlib.md5(open("rv.css", "rb").read()).hexdigest()[:8]
 
 
 def page_head(title, sub):
