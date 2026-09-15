@@ -8,6 +8,7 @@ straight off the pages this replaces.
 import hashlib, os, re, shutil
 from sitedata import (TEAM, PARTNERS, PORTFOLIO, NEWS, PODCAST,
                       DR_GALLERY, DR_PROSE, OFFICES, DR_STORIES)
+from episodes import EPISODES
 
 ROOT = "/home/user/Rabbitvc.com"
 NAV = [("Home", ""), ("Team", "#team"), ("Fund Partners", "#advisors"),
@@ -451,6 +452,73 @@ def contact():
 </main>''' % cities + FOOT_TPL
 
 
+# ---------------------------------------------------------- podcast episode
+def episode(i):
+    """One episode page, two folders deep. The order of EPISODES is the
+    directory order, so prev/next walk by episode number instead."""
+    e = EPISODES[i]
+    num = re.match(r"Ep\s*(\d+)", e["title"])
+    label = "Ep %s" % num.group(1) if num else ""
+    name = e["title"].split(":", 1)[1].strip() if ":" in e["title"] else e["title"]
+
+    copy = "".join("<p>%s</p>" % p for p in e["paras"])
+
+    g = e["guest"]
+    guest = ""
+    if g and g.get("name"):
+        who = ('<a href="%s" target="_blank" rel="noopener">%s</a>' % (g["li"], g["name"])
+               if g.get("li") else g["name"])
+        guest = ('<section class="ep-guest">'
+                 '<p class="ep-guest-cap">The guest</p>'
+                 '<p class="ep-guest-name">%s</p>'
+                 '%s%s</section>'
+                 % (who,
+                    ('<p class="ep-guest-role">%s</p>' % g["role"]) if g.get("role") else "",
+                    ('<p class="ep-guest-bio">%s</p>' % g["bio"]) if g.get("bio") else ""))
+
+    plat = ", ".join('<a href="%s" target="_blank" rel="noopener">%s</a>' % (u, n)
+                     for n, u in e["links"])
+    listen = ('<div class="ep-listen"><b>Listen on</b><span>%s</span></div>' % plat) if plat else ""
+
+    def key(x):
+        m = re.match(r"Ep\s*(\d+)", x["title"])
+        return int(m.group(1)) if m else 0
+    order = sorted(range(len(EPISODES)), key=lambda j: key(EPISODES[j]))
+    at = order.index(i)
+    def link(j, arrow, side):
+        if j < 0 or j >= len(order):
+            return "<span></span>"
+        o = EPISODES[order[j]]
+        t = o["title"].split(":", 1)[1].strip() if ":" in o["title"] else o["title"]
+        return '<a href="../%s/">%s</a>' % (o["slug"], arrow % t)
+    seq = ('<nav class="ep-seq">%s%s</nav>'
+           % (link(at - 1, "&larr; %s", "prev"), link(at + 1, "%s &rarr;", "next")))
+
+    desc = e["paras"][0] if e["paras"] else "The Rabbit Ventures Podcast."
+    desc = re.sub(r"<[^>]+>", "", desc)[:180]
+
+    return head(2, "%s | The Rabbit Ventures Podcast" % e["title"], desc,
+                "https://rabbitvc.com/podcast/%s/" % e["slug"]) + nav(2, "Podcast") + \
+        '''
+<main id="main" class="pg-main">
+  <article class="ep-wrap">
+    <a class="ep-back" href="../">&larr; All episodes</a>
+    <span class="ep-n">%s</span>
+    <h1 class="ep-h1">%s</h1>
+    <div class="ep-video">
+      <iframe src="https://www.youtube.com/embed/%s" title="%s"
+              loading="lazy" allowfullscreen
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    </div>
+    <div class="ep-copy">%s</div>
+    %s
+    %s
+    %s
+  </article>
+</main>''' % (label, name, e["yt"], e["title"], copy, guest, listen, seq) + FOOT_TPL
+
+
 if __name__ == "__main__":
     shutil.copy("rv.css", os.path.join(ROOT, "rv.css"))
     print("rv.css copied")
@@ -458,3 +526,5 @@ if __name__ == "__main__":
                      ("news/index.html", news), ("desert-rose/index.html", desert),
                      ("podcast/index.html", podcast), ("contact/index.html", contact)]:
         print(write(path, fn()))
+    for i, e in enumerate(EPISODES):
+        print(write("podcast/%s/index.html" % e["slug"], episode(i)))
