@@ -492,8 +492,11 @@
 
 /* ---- news ---- */
 .nw-list{border-top:1px solid var(--rule);}
+/* The cover grows with the page instead of sitting at a fixed 168px, so the
+   row reaches the right edge rather than stopping short of it. Rows stay
+   flush left - the date column is the spine of the index. */
 .nw{
-  display:grid;grid-template-columns:132px 168px minmax(0,1fr);
+  display:grid;grid-template-columns:132px clamp(168px,17vw,260px) minmax(0,1fr);
   gap:clamp(20px,2.6vw,40px);align-items:start;
   padding:24px 0;border-bottom:1px solid var(--rule);transition:background .15s;
 }
@@ -505,7 +508,10 @@
    events, and greying them was hiding the only thing that dates them. */
 .nw-cover img{width:100%;aspect-ratio:16/10;object-fit:cover;background:var(--band);}
 .nw-title{display:block;font-weight:700;font-size:17.5px;line-height:1.28;letter-spacing:-.015em;margin-bottom:7px;}
-.nw-desc{display:block;font-size:14.5px;color:var(--ink2);line-height:1.6;max-width:72ch;}
+/* No 72ch cap: these are two- and three-line blurbs, not running prose, and
+   the cap was what left the right of the row empty on a laptop. 104ch is a
+   safety valve for very wide monitors, not the working measure. */
+.nw-desc{display:block;font-size:14.5px;color:var(--ink2);line-height:1.6;max-width:104ch;}
 
 /* ---- contact ---- */
 .ct-mail{
@@ -986,14 +992,3 @@ body{margin:0;background:#F7F5EF;}
 @media (max-width:360px){
   .pf-list{grid-template-columns:1fr;}
 }
-
-/* ============================================================
-   NEWS MEASURE
-   The description caps at 72ch for readability, so past roughly
-   1300px the text stopped growing while the row kept widening -
-   215px of empty column at 1512px, all of it dumped on the
-   right. Capping the whole column and centring it splits that
-   air evenly instead, and keeps the rule under the headline the
-   same width as the rows beneath it.
-   ============================================================ */
-.pg--measure{max-width:1180px;margin-inline:auto;}
