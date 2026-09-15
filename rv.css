@@ -850,3 +850,11 @@
   display:grid;place-items:center;border:1px solid rgba(255,255,255,.3);
   background:rgba(255,255,255,.08);color:#fff;font-size:22px;line-height:1;cursor:pointer;}
 .dr-gal button{cursor:zoom-in;}
+
+/* ---- document reset ----
+   The mockup rendered inside a host page that already zeroed these, so the
+   stylesheet never needed them. Standing on its own, the browser default
+   body margin left an 8px white frame around every page, and an unpainted
+   html/body meant the ground showed through outside .site. */
+html{background:#F7F5EF;color-scheme:light;}
+body{margin:0;background:#F7F5EF;}
