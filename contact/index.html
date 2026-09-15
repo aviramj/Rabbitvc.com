@@ -1,209 +1,105 @@
 <!doctype html>
-<html lang="en-US" data-theme="dark">
+<html lang="en-US">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
 <title>Contact | Rabbit Ventures</title>
-<meta name="description" content="Write to Rabbit Ventures at hello@rabbitvc.com. Offices in Silicon Valley, Seoul, and Tel Aviv." />
-<meta name="theme-color" content="#0A0E27" />
+<meta name="description" content="Write to Rabbit Ventures. Offices in Silicon Valley, Seoul and Tel Aviv." />
+<meta name="theme-color" content="#1C222E" />
 <meta property="og:locale" content="en_US" />
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Contact | Rabbit Ventures" />
-<meta property="og:description" content="Write to Rabbit Ventures at hello@rabbitvc.com. Offices in Silicon Valley, Seoul, and Tel Aviv." />
+<meta property="og:description" content="Write to Rabbit Ventures. Offices in Silicon Valley, Seoul and Tel Aviv." />
 <meta property="og:url" content="https://rabbitvc.com/contact/" />
 <meta property="og:site_name" content="Rabbit Ventures" />
 <meta property="og:image" content="https://rabbitvc.com/wp-content/uploads/2025/09/rabbit-ventures-og.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
 <link rel="canonical" href="https://rabbitvc.com/contact/" />
 <link rel="icon" href="../wp-content/uploads/2023/08/cropped-rabbit-32x32.png" sizes="32x32" />
 <link rel="icon" href="../wp-content/uploads/2023/08/cropped-rabbit-192x192.png" sizes="192x192" />
 <link rel="apple-touch-icon" href="../wp-content/uploads/2023/08/cropped-rabbit-180x180.png" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="../styles.css?v=202609091320" />
-<style>
-  /* Nothing runs under the bar on this page, so main clears it the way the
-     news and portfolio pages do. */
-  body.contact-page main { padding-top: 90px; }
-
-  .ct-letter { max-width: 900px; margin: 0 auto; padding: clamp(40px, 5.5vw, 84px) var(--pad) clamp(36px, 4.5vw, 64px); text-align: center; }
-  /* The same blue and the same Montserrat cut the portfolio, news and podcast
-     eyebrows take, so every page label reads as one element. The margin stays
-     wider than theirs: it opens the letter, and the headline needs the air. */
-  .ct-letter .eyebrow { font-size: 12px; letter-spacing: .18em; text-transform: uppercase; font-weight: 600; color: var(--primary); margin: 0 0 clamp(16px, 2vw, 22px); }
-  /* Light weight, muted: the headline introduces the address rather than
-     competing with it. The address is the loudest thing on the page. */
-  .ct-letter h1 { font-family: 'Montserrat', sans-serif; font-weight: 300; font-size: clamp(18px, 2.4vw, 29px); letter-spacing: -.01em; line-height: 1.15; margin: 0 0 clamp(28px, 3.6vw, 46px); color: var(--fg-soft); }
-
-  .ct-mail {
-    display: inline-block;
-    font-family: 'Montserrat', sans-serif; font-weight: 700;
-    font-size: clamp(24px, 4.6vw, 40px); letter-spacing: -.025em; line-height: 1.1;
-    color: var(--fg);
-    transition: color .2s var(--ease);
-    /* the address is wider than a phone */
-    overflow-wrap: anywhere;
-  }
-  .ct-mail:is(:hover, :focus-visible) { color: var(--primary); }
-
-  /* Copy stays a whisper: useful, never a second button competing with the
-     address. It only appears where the clipboard API exists. */
-  .ct-copy {
-    display: inline-block; margin-top: clamp(14px, 1.8vw, 20px);
-    padding: 4px 2px; border: 0; background: none;
-    font-family: 'IBM Plex Mono', ui-monospace, monospace;
-    font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase;
-    color: var(--fg-muted);
-    border-bottom: 1px solid transparent;
-    transition: color .2s var(--ease), border-color .2s var(--ease);
-  }
-  .ct-copy:hover { color: var(--fg); border-bottom-color: var(--border-strong); }
-  .ct-copy[hidden] { display: none; }
-
-  /* The gold from the business cards, used once. */
-  .ct-rule { height: 2px; width: min(320px, 58%); margin: clamp(26px, 3vw, 38px) auto clamp(40px, 5vw, 72px); border: 0;
-    background: linear-gradient(to right, transparent, var(--accent) 30%, var(--accent) 70%, transparent); }
-
-  /* Three cities, hairline-divided: the strip from the old banner, type only. */
-  .ct-strip { display: grid; grid-template-columns: repeat(3, 1fr); }
-  .ct-city { display: block; padding: 4px clamp(12px, 2vw, 28px); color: inherit; }
-  .ct-city + .ct-city { border-left: 1px solid var(--border); }
-  .ct-city h2 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: clamp(17px, 1.9vw, 23px); letter-spacing: -.01em; margin: 0 0 8px; color: var(--fg); transition: color .2s var(--ease); }
-  /* One small mark, so the block reads as something you can open without a
-     row of repeated "view on map" links under the addresses. */
-  .ct-city h2 span { font-weight: 400; font-size: .62em; opacity: .4; margin-left: 5px; vertical-align: 2px; transition: opacity .2s var(--ease); }
-  .ct-city address { font-style: normal; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 12.5px; line-height: 1.7; letter-spacing: .02em; color: var(--fg-muted); margin: 0; }
-  .ct-city:is(:hover, :focus-visible) h2 { color: var(--primary); }
-  .ct-city:is(:hover, :focus-visible) h2 span { opacity: 1; }
-
-  /* The painting signs the page off instead of announcing it, fading up out
-     of the ground. It carries no type, so it follows the theme on both edges. */
-  .ct-plate { position: relative; height: clamp(380px, 60vw, 820px); overflow: hidden; }
-  .ct-plate img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 34%; }
-  /* Opaque at the top so the painting rises out of the ground, and settling
-     again at the bottom so it meets the footer instead of being cut off. */
-  .ct-plate::after { content: ""; position: absolute; inset: 0;
-    background: linear-gradient(to bottom,
-      var(--bg),
-      color-mix(in oklab, var(--bg) 16%, transparent) 20%,
-      transparent 42%,
-      transparent 76%,
-      color-mix(in oklab, var(--bg) 34%, transparent)); }
-
-  @media (max-width: 700px) {
-    .ct-strip { grid-template-columns: 1fr; }
-    .ct-city { padding: 20px 0; }
-    .ct-city + .ct-city { border-left: 0; border-top: 1px solid var(--border); }
-  }
-
-  body.contact-page .nav-links a[aria-current="page"] { opacity: 1; background: var(--bg-card); }
-</style>
+<link rel="stylesheet" href="../rv.css?v=20260915" />
 </head>
-<body class="contact-page">
-
+<body>
 <a class="skip" href="#main">Skip to content</a>
-
-<header class="nav nav--solid" id="nav">
-  <a class="brand" href="../" aria-label="Rabbit Ventures home">
-    <img class="brand-mark" src="../wp-content/uploads/2025/09/rabbit-mark-white.png" alt="" width="316" height="400" />
-    <span class="brand-name">Rabbit Ventures</span>
+<div class="site d--a d--a3">
+<header class="s-nav">
+  <a class="s-brand" href="../" aria-label="Rabbit Ventures home">
+    <img class="mark" src="../wp-content/uploads/2025/09/rabbit-mark-white.png" alt="" width="316" height="400" />
+    <span class="s-wordmark">Rabbit Ventures</span>
   </a>
-
-  <nav class="nav-links" aria-label="Primary">
-    <a href="../">Home</a>
-    <a href="../#team">Team</a>
-    <a href="../#advisors">Fund Partners</a>
-    <a href="../portfolio/">Portfolio</a>
-    <a href="../news/">News</a>
-    <a href="../desert-rose/">Desert Rose</a>
-    <a href="../podcast/">Podcast</a>
-  </nav>
-
-  <div class="nav-actions">
-    <button id="theme-toggle" class="icon-btn" type="button" aria-label="Toggle color theme" title="Toggle theme">
-      <svg class="i-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-      <svg class="i-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
-    </button>
-    <a class="btn btn-ghost" href="./" aria-current="page">Contact Us</a>
-    <button class="icon-btn menu-btn" id="menu-btn" type="button" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
-      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-    </button>
-  </div>
+  <nav class="s-links" aria-label="Primary"><a href="../">Home</a><a href="../#team">Team</a><a href="../#advisors">Fund Partners</a><a href="../portfolio/">Portfolio</a><a href="../news/">News</a><a href="../desert-rose/">Desert Rose</a><a href="../podcast/">Podcast</a></nav>
+  <a class="s-contact" href="../contact/">Contact Us</a>
+  <button class="s-menu-btn" id="menu-btn" type="button"
+          aria-controls="mobile-menu" aria-expanded="false">Menu</button>
 </header>
-
-<div class="mobile-menu" id="mobile-menu" hidden>
-  <a href="../">Home</a>
-  <a href="../#team">Team</a>
-  <a href="../#advisors">Fund Partners</a>
-  <a href="../portfolio/">Portfolio</a>
-  <a href="../news/">News</a>
-  <a href="../desert-rose/">Desert Rose</a>
-  <a href="../podcast/">Podcast</a>
-  <a href="./" aria-current="page">Contact Us</a>
-</div>
-
-<main id="main">
-
-  <section class="ct-letter">
-    <p class="eyebrow">Contact</p>
-    <h1>Write to us.</h1>
-
-    <a class="ct-mail" href="mailto:hello@rabbitvc.com">hello@rabbitvc.com</a>
-    <div><button class="ct-copy" id="ct-copy" type="button" hidden>Copy address</button></div>
-
-    <hr class="ct-rule" />
-
-    <div class="ct-strip">
-      <a class="ct-city" href="https://www.google.com/maps/search/?api=1&amp;query=5+Bay+Tree+Ln%2C+Los+Altos%2C+CA" target="_blank" rel="noopener">
-        <h2>Silicon Valley <span aria-hidden="true">&#8599;</span></h2>
-        <address>5 Bay Tree Ln<br />Los Altos, CA</address>
-      </a>
-      <a class="ct-city" href="https://www.google.com/maps/search/?api=1&amp;query=172+Yeoksam-ro%2C+Gangnam-gu%2C+Seoul" target="_blank" rel="noopener">
-        <h2>Seoul <span aria-hidden="true">&#8599;</span></h2>
-        <address>172 Yeoksam-ro<br />Gangnam-gu</address>
-      </a>
-      <a class="ct-city" href="https://www.google.com/maps/search/?api=1&amp;query=80+Derech+Menachem+Begin%2C+Tel+Aviv" target="_blank" rel="noopener">
-        <h2>Tel Aviv <span aria-hidden="true">&#8599;</span></h2>
-        <address>80 Derech Begin<br />Tel Aviv</address>
-      </a>
-    </div>
+<nav class="s-mobile" id="mobile-menu" aria-label="Primary" hidden><a href="../">Home</a><a href="../#team">Team</a><a href="../#advisors">Fund Partners</a><a href="../portfolio/">Portfolio</a><a href="../news/">News</a><a href="../desert-rose/">Desert Rose</a><a href="../podcast/">Podcast</a>
+  <a href="../contact/">Contact Us</a>
+</nav>
+<main id="main" class="pg-main pg--flush">
+  <section class="cy-letter">
+    <h1><a class="cy-mail" href="mailto:hello@rabbitvc.com">hello@rabbitvc.com</a></h1>
+    <div><button class="cy-copy" id="copy-addr" type="button">Copy address</button></div>
+    <div class="cy-strip"><a class="cy-city" href="https://www.google.com/maps/search/?api=1&amp;query=5+Bay+Tree+Ln%2C+Los+Altos%2C+CA" target="_blank" rel="noopener"><h2>Silicon Valley</h2><address>5 Bay Tree Ln<br />Los Altos, CA</address></a><a class="cy-city" href="https://www.google.com/maps/search/?api=1&amp;query=172+Yeoksam-ro%2C+Gangnam-gu%2C+Seoul" target="_blank" rel="noopener"><h2>Seoul</h2><address>172 Yeoksam-ro<br />Gangnam-gu</address></a><a class="cy-city" href="https://www.google.com/maps/search/?api=1&amp;query=80+Derech+Menachem+Begin%2C+Tel+Aviv" target="_blank" rel="noopener"><h2>Tel Aviv</h2><address>80 Derech Begin<br />Tel Aviv</address></a></div>
   </section>
-
-  <div class="ct-plate">
-    <img
-      src="../wp-content/uploads/2023/03/rabbit-website-background-image5-1-1536x1147.jpg"
-      srcset="../wp-content/uploads/2023/03/rabbit-website-background-image5-1-1024x765.jpg 1024w,
-              ../wp-content/uploads/2023/03/rabbit-website-background-image5-1-1536x1147.jpg 1536w,
-              ../wp-content/uploads/2023/03/rabbit-website-background-image5-1-2048x1529.jpg 2048w"
-      sizes="100vw"
-      width="1536" height="1147" loading="lazy"
-      alt="Illustration merging the Tel Aviv seafront, the Silicon Valley hills and the Seoul skyline into one coastline at dusk" />
+  <div class="cy-plate">
+    <img src="../wp-content/uploads/2023/03/rabbit-website-background-image5-1-1536x1147.jpg"
+         srcset="../wp-content/uploads/2023/03/rabbit-website-background-image5-1-1024x765.jpg 1024w,
+                 ../wp-content/uploads/2023/03/rabbit-website-background-image5-1-1536x1147.jpg 1536w,
+                 ../wp-content/uploads/2023/03/rabbit-website-background-image5-1-2048x1529.jpg 2048w"
+         sizes="100vw" width="1536" height="1147" loading="lazy"
+         alt="Illustration merging the Tel Aviv seafront, the Silicon Valley hills and the Seoul skyline into one coastline at dusk" />
   </div>
-
 </main>
-
-<footer class="footer">
-  <p class="copy">Copyright &copy; Rabbit Ventures</p>
+<footer class="s-foot">
+  <span class="s-wordmark">Rabbit Ventures</span>
+  <span>Copyright &copy; Rabbit Ventures</span>
 </footer>
-
-<script src="../app.js?v=202609091320" defer></script>
+</div>
 <script>
-  /* Copy is an enhancement: the button only appears where the clipboard API
-     is actually available, so it never sits there doing nothing. */
-  (function () {
-    var btn = document.getElementById('ct-copy');
-    if (!btn || !navigator.clipboard) return;
-    btn.hidden = false;
-    var label = btn.textContent, timer;
-    btn.addEventListener('click', function () {
-      navigator.clipboard.writeText('hello@rabbitvc.com').then(function () {
-        btn.textContent = 'Copied';
-        clearTimeout(timer);
-        timer = setTimeout(function () { btn.textContent = label; }, 2000);
-      }).catch(function () { /* blocked: the address is still a mail link */ });
+(function () {
+  var b = document.getElementById('menu-btn'), m = document.getElementById('mobile-menu');
+  if (!b || !m) return;
+  b.addEventListener('click', function () {
+    var open = m.hidden;
+    m.hidden = !open;
+    b.setAttribute('aria-expanded', String(open));
+  });
+})();
+// Contact: copy the address without leaving the page.
+(function () {
+  var b = document.getElementById('copy-addr');
+  if (!b || !navigator.clipboard) { if (b) b.hidden = true; return; }
+  b.addEventListener('click', function () {
+    navigator.clipboard.writeText('hello@rabbitvc.com').then(function () {
+      var t = b.textContent; b.textContent = 'Copied';
+      setTimeout(function () { b.textContent = t; }, 1600);
     });
-  })();
+  });
+})();
+// Desert Rose: open a frame full size.
+(function () {
+  var dlg = document.getElementById('lightbox');
+  if (!dlg) return;
+  var img = null;                            // created on first open, so the
+  function frame() {                         // page never holds a srcless <img>
+    if (!img) { img = document.createElement('img'); dlg.appendChild(img); }
+    return img;
+  }
+  document.querySelectorAll('.dr-gal button').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var el = frame();
+      el.src = b.dataset.full;
+      el.alt = b.querySelector('img').alt;
+      dlg.showModal();
+    });
+  });
+  dlg.querySelector('.close').addEventListener('click', function () { dlg.close(); });
+  dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
+  dlg.addEventListener('close', function () { if (img) img.remove(), img = null; });
+})();
 </script>
 </body>
 </html>

@@ -1,0 +1,852 @@
+/* ============================================================
+   THE THREE HOMEPAGES
+   One structure, three skins. Every colour is a literal inside
+   a .d--x block, so each plate is a closed visual world.
+   ============================================================ */
+.site{
+  --pad:clamp(20px,3.6vw,58px);
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--ff-t);
+  font-size:16px;
+  line-height:1.62;
+  font-synthesis-weight:none;
+}
+.site *{box-sizing:border-box;}
+:where(.site) :where(p,h1,h2,h3){margin:0;font-weight:inherit;}
+:where(.site) :where(ul){list-style:none;margin:0;padding:0;}
+:where(.site) :where(a){color:inherit;text-decoration:none;}
+:where(.site) :where(img){height:auto;}
+.site .mark{filter:brightness(0) invert(1);}
+
+/* ---------------- nav ---------------- */
+.s-nav{
+  display:flex;align-items:center;gap:clamp(16px,3vw,44px);
+  padding:18px var(--pad);
+  border-bottom:1px solid var(--rule);
+}
+.s-brand{display:flex;align-items:center;gap:11px;margin-right:auto;}
+/* Set by eye, which beats the arithmetic here. Matching ink centroids puts
+   the mark at +1px, but the rabbit's ears carry the silhouette and it wants
+   to sit up rather than hang. 4px above the shared midline. */
+.s-brand .mark{width:21px;height:27px;transform:translateY(-4px);}
+.s-wordmark{font-family:var(--ff-d);font-size:19px;letter-spacing:.01em;font-weight:600;line-height:1;}
+.s-links{display:flex;gap:clamp(12px,1.7vw,26px);flex-wrap:wrap;}
+.s-links a{font-size:13.5px;font-weight:500;color:var(--ink2);padding-bottom:2px;border-bottom:1px solid transparent;transition:color .15s,border-color .15s;}
+.s-links a:hover{color:var(--ink);border-bottom-color:var(--accent);}
+.s-contact{font-size:14px;font-weight:500;border:1px solid var(--rule);padding:9px 17px;transition:background .15s,color .15s,border-color .15s;}
+.s-contact:hover{background:var(--brand);color:var(--on-brand);border-color:var(--brand);}
+
+/* ---------------- hero ---------------- */
+.s-hero{
+  display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,.85fr);
+  gap:clamp(28px,5vw,76px);
+  padding:clamp(44px,6.4vw,96px) var(--pad) clamp(40px,5.4vw,78px);
+  align-items:start;
+}
+.eyebrow{font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);}
+.s-h1{
+  font-family:var(--ff-d);
+  font-size:var(--h1);
+  line-height:1.03;
+  letter-spacing:-.02em;
+  margin-top:0;
+  text-wrap:balance;
+}
+.s-lede{margin-top:clamp(20px,2.4vw,28px);max-width:48ch;font-size:clamp(16px,1.55vw,18.5px);color:var(--ink2);}
+.s-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:clamp(24px,3vw,34px);}
+.btn{font-size:14.5px;font-weight:500;padding:13px 24px;border:1px solid var(--brand);transition:background .15s,color .15s;}
+.btn-solid{background:var(--brand);color:var(--on-brand);}
+.btn-solid:hover{background:var(--ink);border-color:var(--ink);}
+.btn-line:hover{background:var(--brand);color:var(--on-brand);}
+
+.s-latest{border-top:2px solid var(--ink);padding-top:16px;}
+.s-latest-h{font-family:var(--ff-d);font-size:19px;font-weight:600;margin-bottom:4px;}
+.n-item{display:block;padding:13px 0;border-bottom:1px solid var(--rule);}
+.n-item time{display:block;font-size:13px;color:var(--ink2);margin-bottom:2px;}
+.n-item span{font-size:15px;color:var(--ink);}
+.n-item:hover span{text-decoration:underline;text-underline-offset:3px;}
+.n-more{display:inline-block;margin-top:16px;font-size:14px;color:var(--accent);border-bottom:1px solid currentColor;}
+.n-more:hover{text-decoration:underline;text-underline-offset:3px;}
+
+/* ---------------- portfolio band ---------------- */
+/* One row, real marks, 120 seconds end to end — slow enough to read a
+   name as it passes. Stops on hover, and does not move at all for anyone
+   who has asked their system for less motion. */
+.s-ticker{
+  display:flex;
+  overflow:hidden;
+  border-top:1px solid var(--rule);
+  border-bottom:1px solid var(--rule);
+  padding:20px 0;
+  -webkit-mask:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
+          mask:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
+}
+.tk-row{
+  display:flex;align-items:center;gap:clamp(34px,4.4vw,64px);
+  padding-right:clamp(34px,4.4vw,64px);
+  flex:0 0 auto;
+  animation:tk 120s linear infinite;
+}
+.s-ticker:hover .tk-row{animation-play-state:paused;}
+.tk-row img{
+  height:26px;width:auto;max-width:none;object-fit:contain;
+  filter:var(--logo-filter);opacity:.5;
+}
+@keyframes tk{from{transform:translateX(0);}to{transform:translateX(-100%);}}
+@media (prefers-reduced-motion:reduce){
+  .s-ticker{overflow-x:auto;}
+  .tk-row{animation:none;}
+  .s-ticker .tk-row[aria-hidden]{display:none;}
+}
+
+/* ---------------- photography ---------------- */
+.s-figure{display:grid;}
+.ph{margin:0;position:relative;}
+.ph img{width:100%;object-fit:cover;display:block;}
+.ph figcaption{font-size:12.5px;color:var(--ink2);padding:10px var(--pad) 0;}
+
+/* ---------------- vision + thesis ---------------- */
+.s-vision{
+  display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);
+  gap:clamp(28px,5vw,80px);
+  padding:clamp(46px,6.4vw,96px) var(--pad);
+}
+.v-h{font-family:var(--ff-d);font-size:clamp(27px,3.3vw,42px);line-height:1.1;letter-spacing:-.018em;margin:0 0 22px;text-wrap:balance;}
+.v-h em{font-style:italic;color:var(--brand);}
+.v-p{margin-bottom:16px;color:var(--ink2);max-width:52ch;font-size:16.5px;}
+.v-p strong{color:var(--ink);font-weight:600;}
+.v-thesis-h{font-family:var(--ff-d);font-size:22px;font-weight:600;margin-bottom:4px;}
+.t-row{display:grid;grid-template-columns:124px minmax(0,1fr);gap:20px;padding:15px 0;border-bottom:1px solid var(--rule);}
+.t-row:first-of-type{border-top:1px solid var(--rule);}
+.t-row dt{font-size:15px;font-weight:600;padding-top:2px;}
+.t-row dd{margin:0;font-size:16px;}
+.t-row dd small{display:block;font-size:13.5px;color:var(--ink2);margin-top:3px;line-height:1.5;}
+
+/* ---------------- section headers ---------------- */
+.sec-h{display:flex;justify-content:space-between;align-items:baseline;gap:24px;flex-wrap:wrap;padding-bottom:14px;border-bottom:2px solid var(--ink);margin-bottom:clamp(24px,3vw,38px);}
+.sec-h h2{font-family:var(--ff-d);font-size:clamp(21px,2.5vw,31px);letter-spacing:-.016em;line-height:1.1;}
+.sec-h span{font-size:13px;color:var(--ink2);}
+
+/* ---------------- team ---------------- */
+.s-team{padding:clamp(46px,6.4vw,96px) var(--pad);}
+.team-grid{display:grid;gap:clamp(24px,3.4vw,48px);}
+.m-photo{overflow:hidden;background:var(--band);}
+.m-photo img{width:100%;aspect-ratio:1/1;object-fit:cover;object-position:var(--crop,top center);transition:transform .7s cubic-bezier(.2,.7,.2,1);}
+.m:hover .m-photo img{transform:scale(1.03);}
+.m-role{font-family:var(--ff-d);font-style:italic;font-size:15.5px;color:var(--accent);}
+.m-name{font-family:var(--ff-d);font-size:clamp(19px,1.85vw,24px);line-height:1.16;margin:6px 0 12px;}
+.m-bio{font-size:15px;color:var(--ink2);line-height:1.65;}
+.m-li{display:inline-block;margin-top:14px;font-size:14px;color:var(--accent);border-bottom:1px solid currentColor;}
+
+.m--geo .m-photo img{--crop:center 44%;}
+
+/* The vision column was ending 180px short of the thesis panel. Same words,
+   given the weight they deserve: the heading carries the section, the first
+   paragraph reads as a lede, and the emphasis in the headline is visible
+   again (it was set in the brand navy, which is the ink colour). */
+.d--a .s-vision{align-items:center;}
+.d--a .v-h{font-size:clamp(30px,4.3vw,59px);line-height:1.02;letter-spacing:-.03em;margin-bottom:34px;}
+.d--a3 .v-h em{font-style:normal;color:inherit;}
+.d--a .v-p{
+  /* the same size as the hero lede under the headline */
+  font-size:clamp(16px,1.55vw,18.5px);
+  line-height:1.6;
+  max-width:58ch;
+  margin-bottom:28px;
+}
+.d--a .v-p:last-child{margin-bottom:0;}
+/* the panel breathes to match the taller column beside it */
+.d--a .v-thesis .t-row{padding:19px 0;}
+
+/* ---------------- fund partners ---------------- */
+.s-fp{padding:clamp(46px,6.4vw,96px) var(--pad);}
+.fp-sub{font-family:var(--ff-d);font-size:18px;color:var(--ink);margin-bottom:14px;}
+.fp-list{columns:3;column-gap:clamp(20px,3vw,48px);}
+.fp-list li{break-inside:avoid;}
+.fp-list a{display:block;padding:11px 0;border-bottom:1px solid var(--rule);font-size:16.5px;font-family:var(--ff-d);transition:padding-left .15s;}
+.fp-list a:hover{padding-left:8px;color:var(--brand);}
+
+/* ---------------- portfolio wall ---------------- */
+.s-pf{padding:clamp(46px,6.4vw,96px) var(--pad);}
+.pf-wall{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);}
+.pf-cell{background:var(--bg);display:flex;align-items:center;justify-content:center;padding:22px 16px;min-height:88px;}
+.pf-cell img{max-height:30px;width:auto;max-width:100%;object-fit:contain;filter:var(--logo-filter);opacity:.62;transition:opacity .15s;}
+.pf-cell:hover img{opacity:1;}
+
+/* ---------------- partnership ---------------- */
+.s-pship{padding:clamp(46px,6.4vw,96px) var(--pad);}
+.ps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(28px,4.4vw,64px);}
+/* Both partner marks sit in an identical well and scale to fit it, so two
+   logos drawn at different proportions carry the same visual weight. */
+.lockup{display:flex;align-items:center;justify-content:center;gap:20px;min-height:64px;margin-bottom:22px;}
+.lockup .mark{width:34px;height:44px;flex:0 0 auto;}
+.lockup i{font-style:normal;font-size:17px;opacity:.45;flex:0 0 auto;}
+/* Partner marks keep their own colours — they are somebody else's brand,
+   not part of this palette — but still share one well so they carry equal
+   weight. */
+/* Matched by visual area, not by height: J-Ventures is a long horizontal
+   wordmark, Technion a compact mark over two lines, so equal heights make
+   J-Ventures read far bigger. */
+.lk-logo{
+  height:38px;width:auto;max-width:200px;
+  object-fit:contain;object-position:center;
+}
+.lk-technion{height:54px;}
+.ps-one p{font-size:16px;color:var(--ink2);max-width:44ch;}
+.ps-one p strong{color:var(--ink);font-weight:600;}
+
+/* ---------------- footer ---------------- */
+.s-foot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;padding:26px var(--pad);border-top:1px solid var(--rule);font-size:13px;color:var(--ink2);}
+
+/* ============================================================
+   01 — OXFORD
+   Bone paper, one deep Oxford navy, brass, Source Serif.
+   Not the old #0A0E27: the ground is paper and the accent is
+   brass, which is what separates an institution from a SaaS deck.
+   ============================================================ */
+.d--a{
+  --bg:#F7F5EF; --ink:#14161A; --ink2:#54565C; --rule:#DAD5C8;
+  --brand:#1C222E; --on-brand:#F7F5EF; --accent:#8A6B24; --band:#EEEADF;
+  --ff-d:'Newsreader',Georgia,serif;
+  --ff-t:'Literata',Georgia,serif;
+  --h1:clamp(37px,5.4vw,70px);
+  --logo-filter:grayscale(1) brightness(0);
+  font-size:15.5px;
+  line-height:1.6;
+}
+.d--a .s-h1{font-weight:500;letter-spacing:-.014em;line-height:1.02;}
+.d--a .s-wordmark{font-weight:500;letter-spacing:.015em;}
+.d--a .v-h,.d--a .sec-h h2,.d--a .m-name{font-weight:500;}
+
+/* the alternate setting: same skin, different voice */
+.d--a2{
+  --ff-d:'Spectral',Georgia,serif;
+  --ff-t:'Libre Franklin','Helvetica Neue',Arial,sans-serif;
+  --h1:clamp(33px,4.7vw,59px);
+  font-size:16px;
+  line-height:1.62;
+}
+.d--a2 .s-h1{font-weight:600;letter-spacing:-.02em;line-height:1.06;}
+.d--a2 .s-wordmark{font-weight:600;}
+.d--a2 .v-h,.d--a2 .sec-h h2,.d--a2 .m-name{font-weight:600;}
+.d--a2 .m-role{font-family:'Spectral',Georgia,serif;}
+
+/* the third setting: no webfont at all. Arial does nothing on its own,
+   so the scale contrast and the tracking have to do the work. */
+.d--a3{
+  --ff-d:Arial,'Helvetica Neue',Helvetica,sans-serif;
+  --ff-t:Arial,'Helvetica Neue',Helvetica,sans-serif;
+  --h1:clamp(34px,5.1vw,66px);
+  font-size:16px;
+  line-height:1.56;
+}
+.d--a3 .s-h1{font-weight:700;letter-spacing:-.035em;line-height:1;}
+.d--a3 .s-wordmark{font-weight:700;font-size:18px;letter-spacing:-.018em;}
+.d--a3 .v-h,.d--a3 .sec-h h2{font-weight:700;letter-spacing:-.028em;}
+.d--a3 .m-name{font-weight:700;letter-spacing:-.02em;}
+.d--a3 .m-role{font-style:normal;font-size:14px;font-weight:400;}
+.d--a3 .v-h em{font-style:normal;}
+.d--a3 .v-thesis-h{font-weight:700;font-size:19px;letter-spacing:-.015em;}
+.d--a3 .s-latest-h{font-weight:700;font-size:16px;letter-spacing:-.01em;}
+.d--a3 .fp-sub{font-weight:700;font-size:16px;letter-spacing:-.01em;}
+.d--a3 .fp-list a{font-size:16px;}
+.d--a3 .m-bio,.d--a3 .ps-one p{font-size:15.5px;}
+.d--a .s-nav{background:var(--brand);color:#F7F5EF;border-bottom:0;}
+.d--a .s-nav .s-links a{color:rgba(247,245,239,.76);}
+.d--a .s-nav .s-links a:hover{color:#fff;border-bottom-color:#C9A85C;}
+.d--a .s-contact{border-color:rgba(247,245,239,.4);}
+.d--a .s-contact:hover{background:#F7F5EF;color:var(--brand);border-color:#F7F5EF;}
+.d--a .s-figure{display:none;}
+.d--a .ph{background:var(--brand);isolation:isolate;}
+.d--a .ph img{aspect-ratio:21/8;object-position:center 58%;filter:grayscale(1) contrast(.94) brightness(1.9);mix-blend-mode:multiply;}
+.d--a .ph figcaption{padding-top:14px;padding-bottom:16px;color:rgba(240,237,227,.66);}
+.d--a .v-thesis{background:var(--brand);color:#F0EDE3;padding:clamp(26px,3vw,40px);align-self:start;}
+.d--a .v-thesis .t-row{border-color:rgba(240,237,227,.22);}
+.d--a .v-thesis .t-row dd small{color:rgba(240,237,227,.66);}
+.d--a .v-thesis .t-row dt{color:#C9A85C;}
+.d--a .team-grid{grid-template-columns:repeat(2,1fr);}
+.d--a .m{display:grid;grid-template-columns:minmax(0,.72fr) minmax(0,1fr);gap:22px;align-items:start;}
+.d--a .s-fp{background:var(--band);}
+.d--a .s-pship{background:var(--band);}
+/* minmax(0,…) so the two columns can actually shrink: with the implicit
+   auto floor the logo and the 44ch paragraph pushed the page wider than
+   the viewport on a phone. Below 700px they stack. */
+.d--a .ps-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(30px,4.4vw,76px);}
+@media (max-width:700px){.d--a .ps-grid{grid-template-columns:1fr;}}
+.d--a .ps-one{border-top:1px solid var(--rule);padding-top:26px;text-align:center;}
+.d--a .ps-one p{margin-inline:auto;}
+.d--a .s-pship .mark{filter:brightness(0);}
+.d--a .s-foot{background:var(--brand);color:rgba(240,237,227,.7);border-top-color:rgba(240,237,227,.2);}
+
+/* ============================================================
+   02 — CLARET
+   White pages, a claret cover, Caslon headlines.
+   ============================================================ */
+.d--b{
+  --bg:#FFFFFF; --ink:#1C1A1B; --ink2:#575254; --rule:#E0DCD5;
+  --brand:#6B1E2B; --on-brand:#FFFFFF; --accent:#8F6F2E; --band:#F1EFEA;
+  --ff-d:'Libre Caslon Display',Georgia,serif;
+  --ff-t:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;
+  --h1:clamp(33px,4.6vw,58px);
+  --logo-filter:grayscale(1) brightness(0);
+}
+.d--b .s-nav{background:var(--brand);color:#fff;border-bottom:0;}
+.d--b .s-nav .s-links a{color:rgba(255,255,255,.78);}
+.d--b .s-nav .s-links a:hover{color:#fff;border-bottom-color:#D9B76A;}
+.d--b .s-contact{border-color:rgba(255,255,255,.42);}
+.d--b .s-contact:hover{background:#fff;color:var(--brand);border-color:#fff;}
+.d--b .s-hero{background:var(--brand);color:#fff;padding-bottom:clamp(46px,6vw,84px);}
+.d--b .s-hero .eyebrow{color:#D9B76A;}
+.d--b .s-hero .s-lede{color:rgba(255,255,255,.82);}
+.d--b .s-h1{font-weight:400;letter-spacing:-.012em;}
+.d--b .s-hero .btn{border-color:#fff;}
+.d--b .s-hero .btn-solid{background:#fff;color:var(--brand);}
+.d--b .s-hero .btn-solid:hover{background:#D9B76A;border-color:#D9B76A;color:#2B1013;}
+.d--b .s-hero .btn-line{color:#fff;}
+.d--b .s-hero .btn-line:hover{background:#fff;color:var(--brand);}
+.d--b .s-latest{border-top-color:#D9B76A;}
+.d--b .s-latest .n-item{border-bottom-color:rgba(255,255,255,.2);}
+.d--b .s-latest .n-item time{color:#D9B76A;}
+.d--b .s-latest .n-item span{color:#fff;}
+.d--b .s-latest .n-more{color:#D9B76A;}
+.d--b .s-figure{grid-template-columns:repeat(2,1fr);gap:1px;background:var(--rule);}
+.d--b .ph{background:var(--bg);}
+.d--b .ph img{aspect-ratio:16/10;filter:saturate(.88) contrast(1.03);}
+.d--b .ph figcaption{padding:10px 14px 16px;}
+.d--b .v-h em{font-style:italic;}
+.d--b .v-thesis{border-top:2px solid var(--brand);padding-top:18px;}
+.d--b .v-thesis .t-row dt{color:var(--brand);}
+.d--b .team-grid{grid-template-columns:1fr;}
+.d--b .m{display:grid;grid-template-columns:196px minmax(0,1fr);gap:clamp(20px,3vw,44px);padding-bottom:clamp(22px,3vw,38px);border-bottom:1px solid var(--rule);}
+.d--b .m:last-child{border-bottom:0;padding-bottom:0;}
+.d--b .m-photo img{aspect-ratio:1/1;}
+.d--b .m-bio{max-width:78ch;}
+.d--b .lockup .mark{filter:brightness(0);}
+.d--b .s-fp{background:var(--band);}
+.d--b .s-pf{background:var(--bg);}
+.d--b .s-pship{background:var(--band);}
+.d--b .s-foot{background:var(--brand);color:rgba(255,255,255,.76);border-top:0;}
+
+/* ============================================================
+   03 — MIDNIGHT
+   The brand navy, deepened: stone type, brass rules, Garamond.
+   ============================================================ */
+.d--c{
+  --bg:#101736; --ink:#E7E1D3; --ink2:#9AA0B8; --rule:#232C54;
+  --brand:#C3A25A; --on-brand:#101736; --accent:#C3A25A; --band:#151D42;
+  --ff-d:'EB Garamond',Georgia,serif;
+  --ff-t:'Libre Franklin','Helvetica Neue',Arial,sans-serif;
+  --h1:clamp(42px,6vw,82px);
+  --logo-filter:grayscale(1) brightness(0) invert(1);
+}
+.d--c .s-nav{background:rgba(16,23,54,.72);border-bottom-color:rgba(231,225,211,.16);position:relative;z-index:2;}
+.d--c .s-wordmark{letter-spacing:.02em;}
+.d--c .s-hero{
+  position:relative;
+  background-image:linear-gradient(rgba(16,23,54,.84),rgba(16,23,54,.95)),url(assets/seattle.jpg);
+  background-size:cover;background-position:center 30%;
+  padding-top:clamp(56px,8vw,120px);padding-bottom:clamp(52px,7vw,110px);
+  margin-top:-73px;padding-block-start:clamp(120px,12vw,190px);
+}
+.d--c .s-h1{font-weight:500;letter-spacing:-.005em;line-height:.98;}
+.d--c .s-lede{color:#C6CADA;}
+.d--c .btn-solid{color:#101736;}
+.d--c .btn-line{border-color:rgba(231,225,211,.45);}
+.d--c .btn-line:hover{background:var(--brand);color:#101736;border-color:var(--brand);}
+.d--c .s-latest{border-top-color:var(--brand);}
+.d--c .s-figure{display:none;}
+.d--c .s-vision{background:var(--band);}
+.d--c .v-h em{color:var(--brand);font-style:italic;}
+.d--c .v-thesis{border-top:1px solid var(--brand);padding-top:18px;}
+.d--c .sec-h{border-bottom-color:var(--brand);}
+.d--c .team-grid{grid-template-columns:repeat(2,1fr);}
+.d--c .m{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1fr);gap:22px;align-items:start;}
+.d--c .m-photo img{filter:grayscale(1) contrast(1.05) brightness(.95);}
+.d--c .s-pf{background:var(--band);}
+.d--c .pf-cell{background:var(--band);}
+.d--c .pf-wall{border-color:var(--rule);}
+.d--c .s-pship .lk-logo{opacity:.92;}
+.d--c .s-foot{background:#0C1229;}
+
+/* ---------------- responsive ---------------- */
+@media (max-width:1000px){
+  .s-hero,.s-vision{grid-template-columns:1fr;}
+  .d--a .team-grid,.d--c .team-grid{grid-template-columns:1fr;}
+  .fp-list{columns:2;}
+}
+@media (max-width:720px){
+  .s-links{display:none;}
+  .d--a .m,.d--b .m,.d--c .m{grid-template-columns:1fr;}
+  .d--b .s-figure{grid-template-columns:1fr;}
+  .d--b .ph--3{display:none;}
+  .fp-list{columns:1;}
+  .pf-wall{grid-template-columns:repeat(auto-fill,minmax(118px,1fr));}
+}
+@media (prefers-reduced-motion:reduce){
+  .site *{transition-duration:.001ms !important;}
+}
+
+
+/* ============================================================
+   TEAM LAYOUT OPTIONS
+   Each block below overrides only the team section, so every
+   option sits on the same Oxford skin.
+   ============================================================ */
+.tv{padding-block:clamp(38px,5vw,72px);}
+
+/* B — portrait over text, two across */
+.d--a .tv--b .team-grid{grid-template-columns:repeat(2,1fr);gap:clamp(30px,4vw,56px);}
+.d--a .tv--b .m{display:block;}
+.d--a .tv--b .m-photo{margin-bottom:18px;}
+.d--a .tv--b .m-photo img{aspect-ratio:3/2;}
+
+/* C — four portraits across, names only */
+.d--a .tv--c .team-grid{grid-template-columns:repeat(4,1fr);gap:clamp(18px,2.4vw,32px);}
+.d--a .tv--c .m{display:block;}
+.d--a .tv--c .m-photo{margin-bottom:14px;}
+.d--a .tv--c .m-name{margin:4px 0 0;}
+
+/* D — four across, biography opens on demand */
+.d--a .tv--d .team-grid{grid-template-columns:repeat(4,1fr);gap:clamp(18px,2.4vw,32px);}
+.d--a .tv--d .m{display:block;}
+.d--a .tv--d .m-photo{margin-bottom:14px;}
+.d--a .tv--d .m-name{margin:4px 0 10px;}
+.m-det{border-top:1px solid var(--rule);padding-top:10px;}
+.m-det summary{
+  cursor:pointer;font-size:14px;color:var(--accent);list-style:none;
+  display:flex;align-items:center;justify-content:space-between;gap:8px;
+}
+.m-det summary::-webkit-details-marker{display:none;}
+.m-det summary::after{content:"+";font-size:16px;line-height:1;}
+.m-det[open] summary::after{content:"\2212";}
+.m-det .m-bio{margin-top:12px;font-size:14.5px;}
+
+@media (max-width:900px){
+  .d--a .tv--c .team-grid,.d--a .tv--d .team-grid{grid-template-columns:repeat(2,1fr);}
+  .d--a .tv--b .team-grid{grid-template-columns:1fr;}
+}
+
+/* ============================================================
+   INNER PAGES
+   Portfolio, News and Contact on the same skin as the homepage:
+   same bone ground, same navy, same rules, same spacing scale.
+   ============================================================ */
+.pg-main{padding:clamp(40px,5.4vw,80px) var(--pad) clamp(56px,7vw,110px);}
+.pg-head{border-bottom:2px solid var(--ink);padding-bottom:clamp(18px,2.2vw,26px);margin-bottom:clamp(30px,3.6vw,50px);}
+.pg-h1{
+  font-family:var(--ff-d);font-weight:700;
+  font-size:clamp(27px,3.2vw,42px);line-height:1.04;letter-spacing:-.03em;
+  /* Wide enough for both page headlines to set on one line; a longer one
+     would still wrap rather than run the full width of the page. */
+  max-width:34ch;text-wrap:balance;
+}
+.pg-sub{margin-top:18px;max-width:58ch;font-size:clamp(16px,1.55vw,18.5px);color:var(--ink2);}
+
+/* ---- portfolio ---- */
+.pf-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(258px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);}
+.pc{background:var(--bg);display:flex;flex-direction:column;padding:26px 24px 28px;transition:background .15s;}
+.pc:hover{background:var(--band);}
+/* The live portfolio card, carried over whole: one 136px box for every mark
+   with the per-logo heights the team tuned by hand, silhouetted to ink, and
+   on hover the cell becomes a panel, the mark lifts and returns to full
+   colour, and the description fades up underneath. */
+.pc{
+  position:relative;
+  display:grid;place-items:center;
+  min-height:152px;padding:20px;
+  background:var(--bg);
+  overflow:hidden;
+  transition:background .28s cubic-bezier(.2,.8,.2,1);
+}
+.pc-mark{display:grid;place-items:center;width:100%;transition:transform .32s cubic-bezier(.2,.8,.2,1);}
+.pc-mark .pf-mark{
+  width:136px;max-width:100%;max-height:48px;
+  object-fit:contain;display:block;
+  filter:grayscale(1) brightness(0);opacity:.58;
+  transition:filter .3s,opacity .3s;
+}
+.pc-meta{
+  position:absolute;left:0;right:0;bottom:0;
+  padding:0 14px 14px;
+  text-align:center;
+  opacity:0;transform:translateY(6px);
+  pointer-events:none;
+  transition:opacity .28s,transform .32s cubic-bezier(.2,.8,.2,1);
+  font-size:11px;line-height:1.42;
+}
+.pc-desc{display:block;font-size:inherit;line-height:inherit;color:var(--ink);text-wrap:pretty;}
+.pc:is(:hover,:focus-visible){background:#FFFFFF;}
+.pc:is(:hover,:focus-visible) .pf-mark{filter:none;opacity:1;}
+.pc:is(:hover,:focus-visible) .pc-mark{transform:translateY(-20px);}
+.pc:is(:hover,:focus-visible) .pc-meta{opacity:1;transform:none;}
+@media (prefers-reduced-motion:reduce){
+  .pc,.pc-mark,.pf-mark,.pc-meta{transition:none;}
+}
+
+/* ---- news ---- */
+.nw-list{border-top:1px solid var(--rule);}
+.nw{
+  display:grid;grid-template-columns:132px 168px minmax(0,1fr);
+  gap:clamp(20px,2.6vw,40px);align-items:start;
+  padding:24px 0;border-bottom:1px solid var(--rule);transition:background .15s;
+}
+.nw:hover{background:var(--band);}
+.nw-when{display:flex;flex-direction:column;gap:5px;padding-top:2px;}
+.nw-when time{font-size:14.5px;color:var(--ink);}
+.nw-when em{font-style:normal;font-size:13px;color:var(--accent);}
+/* In colour, like the Desert Rose sheet: these are photographs of real
+   events, and greying them was hiding the only thing that dates them. */
+.nw-cover img{width:100%;aspect-ratio:16/10;object-fit:cover;background:var(--band);}
+.nw-title{display:block;font-weight:700;font-size:17.5px;line-height:1.28;letter-spacing:-.015em;margin-bottom:7px;}
+.nw-desc{display:block;font-size:14.5px;color:var(--ink2);line-height:1.6;max-width:72ch;}
+
+/* ---- contact ---- */
+.ct-mail{
+  display:inline-block;font-weight:700;
+  font-size:clamp(22px,2.7vw,34px);letter-spacing:-.03em;line-height:1.06;
+  border-bottom:2px solid var(--rule);padding-bottom:6px;
+  transition:border-color .15s;
+}
+.ct-mail:hover{border-bottom-color:var(--brand);}
+.ct-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:clamp(44px,6vw,86px);}
+.ct-city{background:var(--bg);padding:26px 24px 30px;transition:background .15s;}
+.ct-city:hover{background:var(--band);}
+.ct-name{display:block;font-weight:700;font-size:20px;letter-spacing:-.018em;margin-bottom:10px;}
+.ct-city:hover .ct-name{color:var(--brand);}
+.ct-addr{display:block;font-size:15px;color:var(--ink2);line-height:1.6;}
+
+@media (max-width:820px){
+  .nw{grid-template-columns:110px minmax(0,1fr);}
+  .nw-cover{display:none;}
+  .ct-grid{grid-template-columns:1fr;}
+}
+
+/* ============================================================
+   NEWS LAYOUT OPTIONS
+   ============================================================ */
+.nv{border-top:1px solid var(--rule);}
+
+/* B — the ledger */
+.lg{
+  display:grid;grid-template-columns:130px 104px minmax(0,1fr);
+  gap:clamp(16px,2.2vw,32px);align-items:baseline;
+  padding:14px 0;border-bottom:1px solid var(--rule);
+  transition:background .15s;
+}
+.lg:hover{background:var(--band);}
+.lg time{font-size:14px;color:var(--ink2);}
+.lg em{font-style:normal;font-size:13px;color:var(--accent);}
+.lg-t{font-size:16.5px;font-weight:600;letter-spacing:-.012em;line-height:1.35;}
+.lg:hover .lg-t{text-decoration:underline;text-underline-offset:3px;}
+
+/* C — by year */
+.yr{border-bottom:2px solid var(--ink);padding:26px 0 10px;}
+.nv--c .yr:first-child{padding-top:0;}
+.yr span{font-size:clamp(22px,2.6vw,32px);font-weight:700;letter-spacing:-.03em;}
+.lead{
+  display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);
+  gap:clamp(20px,3vw,44px);align-items:start;
+  padding:24px 0;border-bottom:1px solid var(--rule);
+}
+.lead:hover{background:var(--band);}
+.lead-img img{width:100%;aspect-ratio:3/2;object-fit:cover;background:var(--band);}
+.lead-m{display:block;font-size:13px;color:var(--ink2);margin-bottom:8px;}
+.lead-t{display:block;font-size:clamp(19px,2.1vw,25px);font-weight:700;letter-spacing:-.02em;line-height:1.22;margin-bottom:10px;}
+.lead-d{display:block;font-size:15px;color:var(--ink2);line-height:1.6;max-width:62ch;}
+
+/* D — wide rows */
+.ed{
+  display:grid;grid-template-columns:minmax(0,420px) minmax(0,1fr);
+  gap:clamp(24px,3.4vw,56px);align-items:center;
+  padding:30px 0;border-bottom:1px solid var(--rule);
+}
+.ed:hover{background:var(--band);}
+.ed-img img{width:100%;aspect-ratio:3/2;object-fit:cover;background:var(--band);}
+.ed-m{display:block;font-size:13px;color:var(--ink2);margin-bottom:10px;}
+.ed-t{display:block;font-size:clamp(20px,2.3vw,28px);font-weight:700;letter-spacing:-.022em;line-height:1.2;margin-bottom:12px;}
+.ed-d{display:block;font-size:15.5px;color:var(--ink2);line-height:1.6;max-width:56ch;}
+
+@media (max-width:820px){
+  .lg{grid-template-columns:110px minmax(0,1fr);}
+  .lg em{display:none;}
+  .lead,.ed{grid-template-columns:1fr;}
+}
+
+/* ============================================================
+   DESERT ROSE
+   A programme page, not a brochure: the photograph sits under
+   the headline rather than behind it (type over a gradient
+   scrim is one of the tells), section headings hang in the
+   left margin like an annual report, and the quotes are set
+   as pulls with a brass hairline instead of a coloured bar.
+   ============================================================ */
+.dr-band{margin-inline:calc(var(--pad) * -1);margin-bottom:clamp(34px,4.4vw,64px);}
+.dr-band img{width:100%;aspect-ratio:21/9;object-fit:cover;object-position:center 58%;display:block;background:var(--band);}
+.dr-band figcaption{font-size:12.5px;color:var(--ink2);padding:10px var(--pad) 0;}
+
+/* Centred rather than flush left: with a 64ch measure the page would
+   otherwise dump every spare pixel into one void on the right. */
+.dr-prose{display:grid;grid-template-columns:minmax(0,190px) minmax(0,1fr);
+  gap:0 clamp(28px,4.4vw,72px);max-width:1080px;margin-inline:auto;}
+/* Each heading and its paragraphs share a row: the heading hangs left,
+   the copy runs in one measure down the right. */
+.dr-sec{display:contents;}
+.dr-h{
+  grid-column:1;font-weight:700;font-size:17px;line-height:1.24;letter-spacing:-.018em;
+  margin:0;padding:34px 0 0;border-top:1px solid var(--rule);
+}
+.dr-copy{grid-column:2;padding:34px 0 40px;border-top:1px solid var(--rule);}
+.dr-copy > :first-child{margin-top:0;}
+.dr-copy p{font-size:clamp(16px,1.55vw,18.5px);line-height:1.62;color:var(--ink2);margin:0 0 18px;max-width:64ch;}
+.dr-copy p:last-child{margin-bottom:0;}
+.dr-quote{margin:26px 0 0;max-width:60ch;}
+.dr-quote p{
+  font-size:clamp(19px,2.1vw,25px);line-height:1.34;letter-spacing:-.022em;
+  color:var(--ink);font-weight:400;margin:0 0 12px;
+  border-top:2px solid var(--accent);padding-top:18px;
+}
+.dr-quote footer{font-size:13.5px;color:var(--ink2);}
+
+/* Contact sheet: four across, a few frames doubled so it reads as a
+   spread rather than a table. Grey until you point at one. */
+.dr-gal{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
+.dr-gal button{padding:0;border:0;background:var(--band);overflow:hidden;cursor:zoom-in;display:block;font:inherit;}
+/* In colour. Measured, these frames average .23-.67 saturation: red rock,
+   blue sky, firelight. Greying them throws away the one thing on the site
+   that no other fund's photography has. The small news thumbnails stay grey
+   because there the job is to make 23 mismatched images read as one list. */
+.dr-gal img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3;display:block;
+  transition:transform .45s cubic-bezier(.2,.8,.2,1);}
+.dr-gal button:is(:hover,:focus-visible) img{transform:scale(1.03);}
+.dr-gal .wide{grid-column:span 2;}
+.dr-gal .wide img{aspect-ratio:8/3;}
+.dr-gal .tall{grid-row:span 2;}
+.dr-gal .tall img{aspect-ratio:2/3;height:100%;}
+
+.dr-sub{
+  font-weight:700;font-size:clamp(18px,1.9vw,23px);letter-spacing:-.022em;line-height:1.12;
+  margin:clamp(48px,6vw,84px) 0 clamp(18px,2vw,26px);
+  padding-bottom:12px;border-bottom:2px solid var(--ink);
+}
+
+/* ============================================================
+   PODCAST
+   ============================================================ */
+.pd-meta{
+  display:flex;flex-wrap:wrap;align-items:baseline;gap:10px 26px;
+  margin-bottom:clamp(30px,3.8vw,52px);font-size:14.5px;color:var(--ink2);
+}
+.pd-meta b{color:var(--ink);font-weight:700;}
+.pd-meta a{border-bottom:1px solid var(--rule);padding-bottom:2px;color:var(--ink);transition:border-color .15s;}
+.pd-meta a:hover{border-bottom-color:var(--accent);}
+
+.pd-lead{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);gap:clamp(24px,3.4vw,52px);
+  align-items:start;padding-bottom:clamp(34px,4.4vw,60px);border-bottom:1px solid var(--rule);}
+/* The episode art is drawn on white; multiplied onto the page the white
+   drops out and the still sits on the bone ground like everything else. */
+.pd-lead img{width:100%;aspect-ratio:16/9;object-fit:cover;mix-blend-mode:multiply;}
+.pd-latest{font-size:13px;color:var(--accent);display:block;margin-bottom:10px;}
+.pd-lead h3{font-weight:700;font-size:clamp(21px,2.4vw,28px);letter-spacing:-.028em;line-height:1.08;margin:0 0 12px;}
+.pd-lead p{font-size:clamp(15.5px,1.4vw,17px);line-height:1.6;color:var(--ink2);margin:0 0 18px;max-width:46ch;}
+
+.pd-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--rule);
+  border:1px solid var(--rule);border-top:0;margin-top:clamp(34px,4.4vw,60px);}
+/* Column, so the Watch line sits on the cell floor and the row of cues
+   lines up across the grid however long the descriptions run. */
+.pd-ep{background:var(--bg);display:flex;flex-direction:column;padding:20px 20px 24px;transition:background .18s;}
+.pd-ep:hover{background:var(--band);}
+.pd-ep img{width:100%;aspect-ratio:16/9;object-fit:cover;mix-blend-mode:multiply;margin-bottom:16px;}
+.pd-n{display:block;font-size:12.5px;color:var(--ink2);margin-bottom:7px;}
+.pd-name{display:block;font-weight:700;font-size:18px;letter-spacing:-.022em;line-height:1.2;margin-bottom:8px;}
+.pd-desc{display:block;font-size:14px;line-height:1.55;color:var(--ink2);}
+.pd-watch{display:inline-block;margin-top:auto;padding-top:14px;align-self:start;font-size:13.5px;color:var(--brand);
+  border-bottom:1px solid transparent;transition:border-color .15s;}
+.pd-ep:hover .pd-watch,.pd-lead:hover .pd-watch{border-bottom-color:var(--brand);}
+
+@media (prefers-reduced-motion:reduce){
+  .dr-gal img{transition:none;}
+}
+@media (max-width:900px){
+  .dr-prose{grid-template-columns:1fr;gap:0;}
+  .dr-h{grid-column:1;padding-bottom:14px;}
+  .dr-copy{grid-column:1;border-top:0;padding-top:0;}
+  .dr-gal{grid-template-columns:repeat(2,1fr);}
+  .pd-lead{grid-template-columns:1fr;}
+  .pd-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+}
+@media (max-width:560px){
+  .pd-grid{grid-template-columns:1fr;}
+}
+
+
+/* ============================================================
+   CONTACT - FOUR TREATMENTS OF THE ORIGINAL ARTWORK
+   The illustration merges the Tel Aviv seafront, the Silicon
+   Valley hills and the Seoul skyline into one coastline. It is
+   a saturated dusk painting, so the question each option
+   answers is where a vivid image belongs on bone paper.
+   ============================================================ */
+.cx-head{margin-bottom:clamp(30px,3.6vw,48px);}
+.cx-mail{
+  display:inline-block;font-weight:700;
+  font-size:clamp(22px,2.7vw,34px);letter-spacing:-.03em;line-height:1.06;
+  border-bottom:2px solid var(--rule);padding-bottom:6px;transition:border-color .15s;
+}
+.cx-mail:hover{border-bottom-color:var(--brand);}
+.cx-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);
+  border:1px solid var(--rule);margin-top:clamp(30px,3.8vw,52px);}
+.cx-city{background:var(--bg);padding:22px 22px 26px;transition:background .15s;}
+.cx-city:hover{background:var(--band);}
+.cx-name{display:block;font-weight:700;font-size:19px;letter-spacing:-.018em;margin-bottom:9px;}
+.cx-city:hover .cx-name{color:var(--brand);}
+.cx-addr{display:block;font-size:14.5px;color:var(--ink2);line-height:1.6;}
+
+/* A - the plate, untouched. Full bleed under the address block. */
+.cx-plate{margin-inline:calc(var(--pad) * -1);margin-top:clamp(36px,4.6vw,66px);}
+.cx-plate img{width:100%;aspect-ratio:21/9;object-fit:cover;object-position:center 40%;display:block;}
+
+/* B - duotone. Greyscaled, then multiplied onto the house navy and
+   screened back, so the painting becomes a brand image: navy where it
+   was dark, bone where it was lit, brass nowhere. */
+.cx-duo{position:relative;margin-inline:calc(var(--pad) * -1);margin-top:clamp(36px,4.6vw,66px);
+  background:var(--brand);isolation:isolate;}
+.cx-duo img{width:100%;aspect-ratio:21/9;object-fit:cover;object-position:center 40%;display:block;
+  filter:grayscale(1) contrast(1.18) brightness(1.06);mix-blend-mode:screen;opacity:.86;}
+.cx-duo::after{content:"";position:absolute;inset:0;background:var(--brand);
+  mix-blend-mode:color;pointer-events:none;}
+
+/* C - its own room. The lower half of the page turns navy, and the
+   painting sits inside that dark band where its dusk palette belongs. */
+.cx-room{margin-inline:calc(var(--pad) * -1);margin-top:clamp(40px,5vw,72px);
+  background:var(--brand);color:var(--on-brand);padding:clamp(34px,4.4vw,62px) var(--pad);}
+.cx-room-h{font-weight:700;font-size:clamp(18px,1.9vw,23px);letter-spacing:-.022em;
+  margin:0 0 6px;color:var(--on-brand);}
+.cx-room p{font-size:15px;color:rgba(247,245,239,.72);margin:0 0 clamp(22px,2.6vw,32px);max-width:56ch;}
+.cx-room img{width:100%;aspect-ratio:21/9;object-fit:cover;object-position:center 40%;display:block;}
+
+/* D - letterhead. The painting is a tall panel beside the addresses,
+   so it is present at full strength without owning the page. */
+.cx-split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  gap:clamp(26px,3.6vw,56px);align-items:stretch;margin-top:clamp(30px,3.8vw,52px);}
+.cx-split-art{position:relative;min-height:420px;}
+.cx-split-art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% 40%;}
+.cx-split-body{display:flex;flex-direction:column;justify-content:center;}
+.cx-split .cx-strip{grid-template-columns:1fr;margin-top:clamp(24px,3vw,38px);}
+.cx-split .cx-city{padding:16px 20px 18px;}
+
+@media (max-width:820px){
+  .cx-strip{grid-template-columns:1fr;}
+  .cx-split{grid-template-columns:1fr;}
+  .cx-split-art{min-height:260px;}
+}
+
+/* ============================================================
+   CONTACT
+   The live page's structure - centred, the email as the whole
+   masthead, the three cities hairline-divided, the painting
+   rising out of the ground. Three flourishes from that page
+   are deliberately not carried over, because each is on the
+   diagnosis list: an uppercase letterspaced micro-label, a
+   gradient rule that fades out at both ends, and a repeated
+   corner arrow announcing that a link is a link.
+   ============================================================ */
+.cy-letter{max-width:900px;margin-inline:auto;text-align:center;
+  padding-block:clamp(34px,5vw,74px) clamp(34px,4.6vw,62px);}
+/* The address is the heading. Nothing introduces it, because on a
+   contact page nothing needs to. */
+.cy-mail{display:inline-block;font-weight:700;
+  font-size:clamp(26px,4.4vw,52px);letter-spacing:-.038em;line-height:1.06;
+  color:var(--ink);overflow-wrap:anywhere;
+  border-bottom:2px solid transparent;padding-bottom:5px;transition:border-color .18s;}
+.cy-mail:hover{border-bottom-color:var(--brand);}
+/* Sentence case at body scale: a small plain word, not a chip. */
+.cy-copy{display:inline-block;margin-top:clamp(14px,1.8vw,20px);padding:2px 0;
+  border:0;background:none;font:inherit;font-size:14px;color:var(--ink2);cursor:pointer;
+  border-bottom:1px solid var(--rule);transition:color .18s,border-color .18s;}
+.cy-copy:hover{color:var(--ink);border-bottom-color:var(--brand);}
+/* One structural hairline the full width of the column, in place of the
+   tapered brass gradient that used to sit centred under the address. */
+.cy-strip{display:grid;grid-template-columns:repeat(3,1fr);
+  margin-top:clamp(36px,4.6vw,64px);border-top:1px solid var(--rule);padding-top:clamp(24px,3vw,36px);}
+.cy-city{display:block;padding:0 clamp(12px,2vw,28px);}
+.cy-city + .cy-city{border-left:1px solid var(--rule);}
+.cy-city h2{font-weight:700;font-size:clamp(16px,1.7vw,19px);letter-spacing:-.018em;
+  margin:0 0 8px;color:var(--ink);
+  border-bottom:1px solid transparent;display:inline-block;padding-bottom:2px;
+  transition:color .18s,border-color .18s;}
+.cy-city:is(:hover,:focus-visible) h2{color:var(--brand);border-bottom-color:var(--brand);}
+.cy-city address{font-style:normal;font-size:13.5px;line-height:1.72;
+  letter-spacing:.01em;color:var(--ink2);margin:0;}
+/* The painting signs the page off instead of announcing it: opaque bone at
+   the top so it rises out of the ground, settling again at the foot so it
+   meets the footer rather than being cut. */
+/* The plate runs to the footer, so the page ends on the painting rather
+   than on a band of empty paper below it. */
+.pg--flush .pg-main,.pg-main.pg--flush{padding-bottom:0;}
+.cy-plate{position:relative;margin-inline:calc(var(--pad) * -1);
+  height:clamp(380px,52vw,700px);overflow:hidden;}
+.cy-plate img{position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center 34%;}
+.cy-plate::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(to bottom,var(--bg),
+    color-mix(in oklab,var(--bg) 16%,transparent) 20%,
+    transparent 42%,transparent 76%,
+    color-mix(in oklab,var(--bg) 34%,transparent));}
+@media (max-width:700px){
+  .cy-strip{grid-template-columns:1fr;gap:20px;}
+  .cy-city{padding:0;}
+  .cy-city + .cy-city{border-left:0;border-top:1px solid var(--rule);padding-top:20px;}
+}
+
+/* ============================================================
+   PRODUCTION ADDITIONS
+   Everything below exists only on the real site: the mockup was
+   one scrolling document with no navigation, so none of it was
+   needed there.
+   ============================================================ */
+
+/* ---- responsive navigation ---- */
+.s-menu-btn{display:none;border:1px solid var(--rule);background:none;color:inherit;
+  font:inherit;font-size:13.5px;padding:8px 13px;cursor:pointer;}
+.s-menu-btn:hover{border-color:var(--accent);}
+.s-mobile{display:none;flex-direction:column;padding:8px var(--pad) 20px;
+  border-bottom:1px solid var(--rule);background:var(--bg);}
+.d--a .s-mobile{background:var(--brand);border-bottom:0;}
+.s-mobile a{padding:11px 0;font-size:15px;border-bottom:1px solid rgba(247,245,239,.14);color:var(--on-brand);}
+.s-mobile a:last-child{border-bottom:0;}
+.s-mobile[hidden]{display:none !important;}
+@media (max-width:900px){
+  .s-links,.s-nav .s-contact{display:none;}
+  .s-menu-btn{display:block;}
+  .s-mobile:not([hidden]){display:flex;}
+}
+
+/* ---- the one portfolio entry drawn as a wordmark, not a logo ---- */
+.pc-wm{font-weight:700;font-size:19px;letter-spacing:-.02em;color:var(--ink);
+  opacity:.58;transition:opacity .3s;}
+.pc:is(:hover,:focus-visible) .pc-wm{opacity:1;}
+
+/* ---- team and partner links ---- */
+.m-li{display:inline-block;margin-top:10px;font-size:13px;color:var(--ink2);
+  border-bottom:1px solid var(--rule);padding-bottom:1px;transition:color .15s,border-color .15s;}
+.m-li:hover{color:var(--brand);border-bottom-color:var(--brand);}
+
+/* ---- homepage "latest" rail ---- */
+.n-item time{display:block;}
+
+/* ---- skip link ---- */
+.skip{position:absolute;left:-9999px;top:0;background:var(--brand);color:var(--on-brand);
+  padding:10px 16px;z-index:50;}
+.skip:focus{left:0;}
+
+/* ---- desert rose lightbox ---- */
+.dr-lightbox{position:fixed;inset:0;z-index:80;place-items:center;border:0;padding:clamp(16px,4vw,56px);
+  background:color-mix(in oklab,#000 84%,transparent);}
+.dr-lightbox[open]{display:grid;}
+.dr-lightbox::backdrop{background:color-mix(in oklab,#000 84%,transparent);}
+.dr-lightbox img{max-width:100%;max-height:88vh;width:auto;height:auto;object-fit:contain;}
+.dr-lightbox .close{position:absolute;top:16px;right:20px;width:40px;height:40px;
+  display:grid;place-items:center;border:1px solid rgba(255,255,255,.3);
+  background:rgba(255,255,255,.08);color:#fff;font-size:22px;line-height:1;cursor:pointer;}
+.dr-gal button{cursor:zoom-in;}

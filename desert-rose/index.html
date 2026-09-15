@@ -1,238 +1,104 @@
 <!doctype html>
-<html lang="en-US" data-theme="dark">
+<html lang="en-US">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
 <title>Desert Rose Workation | Rabbit Ventures</title>
-<meta name="description" content="Desert Rose Workation is Rabbit Ventures' two-week founder workation in the Arizona desert, built to give founders the isolation, time, and people they need to focus on what actually matters." />
-<meta name="theme-color" content="#0A0E27" />
+<meta name="description" content="A two-week founder workation in the desert, built to give founders the isolation, time and people to focus on what actually matters." />
+<meta name="theme-color" content="#1C222E" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Desert Rose Workation | Rabbit Ventures" />
+<meta property="og:description" content="A two-week founder workation in the desert, built to give founders the isolation, time and people to focus on what actually matters." />
+<meta property="og:url" content="https://rabbitvc.com/desert-rose/" />
+<meta property="og:site_name" content="Rabbit Ventures" />
+<meta property="og:image" content="https://rabbitvc.com/wp-content/uploads/2025/09/rabbit-ventures-og.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
 <link rel="canonical" href="https://rabbitvc.com/desert-rose/" />
 <link rel="icon" href="../wp-content/uploads/2023/08/cropped-rabbit-32x32.png" sizes="32x32" />
 <link rel="icon" href="../wp-content/uploads/2023/08/cropped-rabbit-192x192.png" sizes="192x192" />
 <link rel="apple-touch-icon" href="../wp-content/uploads/2023/08/cropped-rabbit-180x180.png" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="../styles.css?v=202609091320" />
-<style>
-  /* The banner runs under the fixed bar, so main carries no top padding here
-     and the banner's own padding clears the nav. */
-  body.dr-page main { padding-top: 0; }
-  .dr-hero { position: relative; min-height: clamp(420px, 58vh, 640px); display: flex; align-items: flex-end; overflow: hidden; isolation: isolate; }
-  .dr-hero > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
-  /* The scrim carries the type, so it stays navy in both themes: following
-     --bg would wash the photo to cream in light mode and take the white
-     headline with it. In dark it still lands on the page ground, so the
-     banner runs seamlessly into the page; in light it closes as a panel. */
-  .dr-hero::after { content: ""; position: absolute; inset: 0; z-index: -1;
-    background: linear-gradient(to top, #0A0E27 3%, rgba(10,14,39,.74) 46%, rgba(10,14,39,.26)); }
-  /* The same 760px column the prose uses, so the headline starts exactly
-     where the body copy below it starts instead of out at the page gutter. */
-  .dr-hero-inner { max-width: 760px; margin: 0 auto; width: 100%; padding: clamp(120px, 16vh, 200px) var(--pad) clamp(36px, 5vw, 64px); }
-  /* The accent blue the portfolio, news and podcast eyebrows take, pinned to
-     its dark-theme value rather than var(--primary): the scrim stays navy in
-     both themes, while --primary darkens for cream in light mode and drops to
-     3.2:1 here. Hardcoded, it matches those pages and holds 5.9:1. */
-  .dr-hero p.eyebrow { font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: #3B8EFF; font-weight: 600; margin: 0 0 12px; }
-  .dr-hero h1 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: clamp(24px, 3vw, 40px); letter-spacing: -.02em; line-height: 1.05; margin: 0 0 18px; color: #fff; text-wrap: balance; }
-  .dr-hero p.sub { font-size: clamp(16px, 1.4vw, 20px); color: rgba(255,255,255,.88); max-width: 640px; margin: 0; line-height: 1.5; }
-  .dr-prose { max-width: 760px; margin: 0 auto; padding: clamp(20px, 2.4vw, 36px) var(--pad) clamp(72px, 10vw, 140px); color: var(--fg-soft); }
-  /* the first heading would stack its own top margin on the padding above,
-     leaving the copy adrift under the photo */
-  .dr-prose > :first-child { margin-top: 0; }
-  .dr-prose h2 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: clamp(22px, 2.4vw, 30px); color: var(--fg); margin: clamp(32px, 4vw, 56px) 0 16px; letter-spacing: -.01em; }
-  .dr-prose p { font-size: clamp(16px, 1.25vw, 18px); line-height: 1.7; margin: 0 0 18px; }
-  .dr-prose blockquote { border-left: 3px solid var(--primary); padding: 4px 0 4px 20px; margin: 24px 0; font-style: italic; color: var(--fg); font-size: clamp(16px, 1.3vw, 19px); line-height: 1.55; }
-  .dr-prose blockquote cite { display: block; margin-top: 10px; font-style: normal; font-size: 14px; color: var(--fg-muted); }
-  .dr-news { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad) clamp(72px, 10vw, 140px); }
-  .dr-news h2 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: clamp(22px, 2.4vw, 30px); color: var(--fg); margin: 0 0 24px; letter-spacing: -.01em; }
-  /* Contact sheet: a four-across grid where a few frames take two columns and
-     the portrait shot takes two rows, so it reads as a spread, not a table. */
-  .dr-gallery { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad) clamp(56px, 7vw, 96px); }
-  .dr-gallery h2 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: clamp(22px, 2.4vw, 30px); color: var(--fg); margin: 0 0 24px; letter-spacing: -.01em; }
-  .dr-grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 1fr; gap: 10px; }
-  .dr-grid button { padding: 0; border: 0; background: var(--bg-soft); overflow: hidden; cursor: zoom-in; display: block; }
-  .dr-grid img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4/3; display: block;
-    opacity: .92; transition: transform .45s var(--ease), opacity .3s var(--ease); }
-  .dr-grid button:hover img, .dr-grid button:focus-visible img { transform: scale(1.04); opacity: 1; }
-  .dr-grid .wide { grid-column: span 2; }
-  .dr-grid .wide img { aspect-ratio: 8/3; }
-  .dr-grid .tall { grid-row: span 2; }
-  .dr-grid .tall img { aspect-ratio: 2/3; }
-  @media (max-width: 900px) { .dr-grid { grid-template-columns: repeat(2, 1fr); } }
-
-  /* A closed dialog is display:none by default; only style the open state,
-     or the frame renders inline on the page. */
-  .dr-lightbox { position: fixed; inset: 0; z-index: 80; place-items: center;
-    background: color-mix(in oklab, #000 82%, transparent); padding: clamp(16px, 4vw, 56px); border: 0; }
-  .dr-lightbox[open] { display: grid; }
-  .dr-lightbox::backdrop { background: color-mix(in oklab, #000 82%, transparent); }
-  .dr-lightbox img { max-width: 100%; max-height: 88vh; width: auto; height: auto; object-fit: contain; }
-  .dr-lightbox .close { position: absolute; top: 16px; right: 20px; width: 40px; height: 40px;
-    display: grid; place-items: center; border-radius: 999px; border: 1px solid rgba(255,255,255,.3);
-    background: rgba(255,255,255,.08); color: #fff; font-size: 20px; line-height: 1; cursor: pointer; }
-
-  /* Over the banner the bar is transparent and its type is white in both
-     themes: the photo below it is dark whatever the page ground is. Past
-     80px app.js adds .scrolled and the shared bar styling takes over. */
-  .dr-page .nav:not(.scrolled) { color: #fff; }
-  .dr-page .nav:not(.scrolled) .brand-mark { filter: none; }
-  .dr-page .nav .nav-links a[aria-current="page"] { opacity: 1; background: color-mix(in oklab, currentColor 14%, transparent); }
-  .dr-page .nav.scrolled .nav-links a[aria-current="page"] { background: var(--bg-card); }
-</style>
+<link rel="stylesheet" href="../rv.css?v=20260915" />
 </head>
-<body class="dr-page">
-
+<body>
 <a class="skip" href="#main">Skip to content</a>
-
-<header class="nav" id="nav">
-  <a class="brand" href="../" aria-label="Rabbit Ventures home">
-    <img class="brand-mark" src="../wp-content/uploads/2025/09/rabbit-mark-white.png" alt="" width="316" height="400" />
-    <span class="brand-name">Rabbit Ventures</span>
+<div class="site d--a d--a3">
+<header class="s-nav">
+  <a class="s-brand" href="../" aria-label="Rabbit Ventures home">
+    <img class="mark" src="../wp-content/uploads/2025/09/rabbit-mark-white.png" alt="" width="316" height="400" />
+    <span class="s-wordmark">Rabbit Ventures</span>
   </a>
-
-  <nav class="nav-links" aria-label="Primary">
-    <a href="../">Home</a>
-    <a href="../#team">Team</a>
-    <a href="../#advisors">Fund Partners</a>
-    <a href="../portfolio/">Portfolio</a>
-    <a href="../news/">News</a>
-    <a href="./" aria-current="page">Desert Rose</a>
-    <a href="../podcast/">Podcast</a>
-  </nav>
-
-  <div class="nav-actions">
-    <button id="theme-toggle" class="icon-btn" type="button" aria-label="Toggle color theme" title="Toggle theme">
-      <svg class="i-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-      <svg class="i-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
-    </button>
-    <a class="btn btn-ghost" href="../contact/">Contact Us</a>
-    <button class="icon-btn menu-btn" id="menu-btn" type="button" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
-      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-    </button>
-  </div>
+  <nav class="s-links" aria-label="Primary"><a href="../">Home</a><a href="../#team">Team</a><a href="../#advisors">Fund Partners</a><a href="../portfolio/">Portfolio</a><a href="../news/">News</a><a href="../desert-rose/" aria-current="page">Desert Rose</a><a href="../podcast/">Podcast</a></nav>
+  <a class="s-contact" href="../contact/">Contact Us</a>
+  <button class="s-menu-btn" id="menu-btn" type="button"
+          aria-controls="mobile-menu" aria-expanded="false">Menu</button>
 </header>
-
-<div class="mobile-menu" id="mobile-menu" hidden>
-  <a href="../">Home</a>
-  <a href="../#team">Team</a>
-  <a href="../#advisors">Fund Partners</a>
-  <a href="../portfolio/">Portfolio</a>
-  <a href="../news/">News</a>
-  <a href="./" aria-current="page">Desert Rose</a>
-  <a href="../podcast/">Podcast</a>
+<nav class="s-mobile" id="mobile-menu" aria-label="Primary" hidden><a href="../">Home</a><a href="../#team">Team</a><a href="../#advisors">Fund Partners</a><a href="../portfolio/">Portfolio</a><a href="../news/">News</a><a href="../desert-rose/">Desert Rose</a><a href="../podcast/">Podcast</a>
   <a href="../contact/">Contact Us</a>
-</div>
-
-<main id="main">
-
-  <section class="dr-hero">
+</nav>
+<main id="main" class="pg-main">
+  <header class="pg-head"><h1 class="pg-h1">Desert Rose Workation</h1><p class="pg-sub">A two-week workation in the Arizona desert where Rabbit Ventures founders, mentors, and investors step away from the noise and work on what actually matters.</p></header>
+  <figure class="dr-band">
     <img src="./photos/dr-zion-peaks.jpg" alt="Red rock canyon walls above the road into Zion, southern Utah" />
-    <div class="dr-hero-inner">
-      <p class="eyebrow">Founder Program</p>
-      <h1>Desert Rose Workation</h1>
-      <p class="sub">A two-week workation in the Arizona desert where Rabbit Ventures founders, mentors, and investors step away from the noise and work on what actually matters.</p>
-    </div>
-  </section>
-
-  <article class="dr-prose">
-
-    <h2>Why the desert</h2>
-    <p>Most founder support today is a stream of events, networking nights, and accelerator demo days. It is useful, but it is not where the hardest questions get answered. Founders rarely run out of meetings. They run out of attention. The work that decides a company’s trajectory keeps getting postponed.</p>
-    <p>Desert Rose Workation was Rabbit Ventures’ answer to that. We took our portfolio founders into the Arizona desert for two weeks. No fixed agenda. No demo day at the end. Just enough isolation that the surface noise falls away and the real problems become impossible to avoid.</p>
-
-    <blockquote>
-      “Our goal was to help founders focus on the essential problems and the vision, in an isolated environment.”
-      <cite>Aviram Jenik, General Partner, Rabbit Ventures</cite>
-    </blockquote>
-
-    <h2>One rule: there are no rules</h2>
-    <p>The program’s philosophy is simple. There is no formal schedule, no mandatory mentoring blocks, no compulsory sessions. Founders move through the two weeks on their own goals: seeking out the mentor they need that day, sitting down with an investor over coffee, working shoulder-to-shoulder with another founder on a hard problem.</p>
-    <p>The format is intentionally bare so that the unplanned moments can happen: the late-night kitchen conversation, the half-hour walk between cabins, the campfire question that nobody expected.</p>
-
-    <blockquote>
-      “Startups grow inside isolation and uncertainty. Desert Rose Workation gives founders a way to turn that isolation into creative inspiration.”
-      <cite>SK Lee, COO, Rabbit Ventures</cite>
-    </blockquote>
-
-    <h2>Who is in the room</h2>
-    <p>The first edition gathered roughly twenty people: the Rabbit Ventures team, founders from our portfolio, a marketing and storytelling coach, a cybersecurity specialist, and founder-turned-investors. Each cohort is intentionally small so that everyone is in the same room, eating the same meals, and arguing about the same problems.</p>
-
-    <h2>What founders take away</h2>
-    <p>Founders do not just work at Desert Rose. They find, sharpen, and start to execute their own story. Product decisions clarify. Positioning gets honest. Fundraising narratives get tested by people who have raised before. And investors stop looking like capital providers and start looking like partners on a long walk.</p>
-
-    <blockquote>
-      “The founders I met at Desert Rose were not just talking about the business. They were discovering their own story and starting to act on it.”
-      <cite>Jonghee Hong, Mentor &amp; Storytelling Coach (MyStoryDoer)</cite>
-    </blockquote>
-
-    <h2>How it helps Rabbit founders</h2>
-    <p>For us, Desert Rose is the highest-leverage two weeks of the year. A founder leaves with a clearer thesis, a sharper go-to-market motion, a peer group of other founders who will pick up the phone for years afterward, and direct access to the LPs and mentors who have already faced the problems they are about to face. That compounding is what we are investing in.</p>
-
-  </article>
-
-  <section class="dr-gallery" aria-label="Photo gallery">
-    <h2>Two weeks in pictures</h2>
-    <div class="dr-grid">
-        <button type="button" class="wide" data-full="./photos/dr-trail-vista.jpg" aria-label="On the trail above the valley"><img src="./photos/dr-trail-vista.jpg" alt="On the trail above the valley" loading="lazy" /></button>
-        <button type="button" class="tall" data-full="./photos/dr-zion-road.jpg" aria-label="The whole group, on the road below the Watchman"><img src="./photos/dr-zion-road.jpg" alt="The whole group, on the road below the Watchman" loading="lazy" /></button>
-        <button type="button" class="" data-full="./photos/dr-ledge-group.jpg" aria-label="A ledge, and somewhere to sit"><img src="./photos/dr-ledge-group.jpg" alt="A ledge, and somewhere to sit" loading="lazy" /></button>
-        <button type="button" class="" data-full="./photos/dr-dinner-table.jpg" aria-label="The whole house at one table"><img src="./photos/dr-dinner-table.jpg" alt="The whole house at one table" loading="lazy" /></button>
-        <button type="button" class="" data-full="./photos/dr-fire-pit.jpg" aria-label="The campfire question nobody expected"><img src="./photos/dr-fire-pit.jpg" alt="The campfire question nobody expected" loading="lazy" /></button>
-        <button type="button" class="" data-full="./photos/dr-mentor-conversation.jpg" aria-label="A founder and a mentor, working it out"><img src="./photos/dr-mentor-conversation.jpg" alt="A founder and a mentor, working it out" loading="lazy" /></button>
-        <button type="button" class="wide" data-full="./photos/dr-ping-pong.jpg" aria-label="The garage table, settling something"><img src="./photos/dr-ping-pong.jpg" alt="The garage table, settling something" loading="lazy" /></button>
-        <button type="button" class="" data-full="./photos/dr-canyon-sit.jpg" aria-label="Above the canyon"><img src="./photos/dr-canyon-sit.jpg" alt="Above the canyon" loading="lazy" /></button>
-        <button type="button" class="" data-full="./photos/dr-table-work.jpg" aria-label="Four laptops, one problem"><img src="./photos/dr-table-work.jpg" alt="Four laptops, one problem" loading="lazy" /></button>
-        <button type="button" class="" data-full="./photos/dr-making-dumplings.jpg" aria-label="Dinner takes a production line"><img src="./photos/dr-making-dumplings.jpg" alt="Dinner takes a production line" loading="lazy" /></button>
-        <button type="button" class="" data-full="./photos/dr-riverbank.jpg" aria-label="Down at the water"><img src="./photos/dr-riverbank.jpg" alt="Down at the water" loading="lazy" /></button>
-        <button type="button" class="wide" data-full="./photos/dr-kitchen-line.jpg" aria-label="Plating up for twenty"><img src="./photos/dr-kitchen-line.jpg" alt="Plating up for twenty" loading="lazy" /></button>
-        <button type="button" class="" data-full="./photos/dr-working-armchair.jpg" aria-label="Heads-down in the good chair"><img src="./photos/dr-working-armchair.jpg" alt="Heads-down in the good chair" loading="lazy" /></button>
-        <button type="button" class="" data-full="./photos/dr-hackathon-room.jpg" aria-label="Hackathon night"><img src="./photos/dr-hackathon-room.jpg" alt="Hackathon night" loading="lazy" /></button>
-        <button type="button" class="" data-full="./photos/dr-red-rock-perch.jpg" aria-label="Red rock, blue sky"><img src="./photos/dr-red-rock-perch.jpg" alt="Red rock, blue sky" loading="lazy" /></button>
-        <button type="button" class="" data-full="./photos/dr-heading-home.jpg" aria-label="Bags packed, two weeks later"><img src="./photos/dr-heading-home.jpg" alt="Bags packed, two weeks later" loading="lazy" /></button>
-    </div>
-  </section>
-
-  <section class="dr-news" aria-label="Desert Rose stories">
-    <h2>Stories from the desert</h2>
-    <div class="news-grid">
-      <a class="news-card reveal" href="https://www.linkedin.com/posts/aviramjenik_i-just-spent-2-weeks-with-several-of-our-activity-7421663546381369344-4EG3" target="_blank" rel="noopener"><div class="news-card-cover"><img src="../news-images/202602-desert-rose-2026-workation-recap-v2.jpg" alt="" loading="lazy"></div><div class="news-card-body"><div class="news-card-meta"><span class="news-date">February 2026</span><span class="news-type">Event</span></div><h3 class="news-card-title">Desert Rose 2026 Workation Recap</h3><p class="news-card-desc">Rabbit Ventures spent two weeks with portfolio companies in an isolated Southern Utah house, focused on founder-to-founder product feedback, onboarding, lead generation, marketing, fundraising, and peer learning.</p><span class="news-card-link">Read more</span></div></a>
-      <a class="news-card reveal" href="https://brunch.co.kr/@mystorydoer/94" target="_blank" rel="noopener"><div class="news-card-cover"><img src="../news-images/20260206-desert-rose-2026-scene-1-deja-vu-evolution.webp" alt="" loading="lazy"></div><div class="news-card-body"><div class="news-card-meta"><span class="news-date">Feb 6, 2026</span><span class="news-type">Press</span></div><h3 class="news-card-title">Desert Rose 2026 Scene #1: Déjà Vu &amp; Evolution</h3><p class="news-card-desc">A Brunch article documented the second Desert Rose Workation, describing how Rabbit Ventures refined the program from the previous year and positioned it as a denser execution-focused gathering for portfolio founders.</p><span class="news-card-link">Read more</span></div></a>
-      <a class="news-card reveal" href="https://brunch.co.kr/@mystorydoer/74" target="_blank" rel="noopener"><div class="news-card-cover"><img src="../news-images/20250207-desert-rose-workation-journal-1-why-founders-went.jpg" alt="" loading="lazy"></div><div class="news-card-body"><div class="news-card-meta"><span class="news-date">Feb 7, 2025</span><span class="news-type">Press</span></div><h3 class="news-card-title">Desert Rose Workation Journal #1: Why Founders Went to the Desert</h3><p class="news-card-desc">A Brunch article introduced Rabbit Ventures’ Desert Rose Workation, explaining the program’s goal of helping founders focus on essential problems and vision in an isolated environment.</p><span class="news-card-link">Read more</span></div></a>
-      <a class="news-card reveal" href="https://www.linkedin.com/posts/aviramjenik_rabbit-vc-desert-rose-workation-day-7-activity-7286087386210484225-L_kr" target="_blank" rel="noopener"><div class="news-card-cover"><img src="../news-images/202501-rabbit-vc-desert-rose-workation-day-7.jpg" alt="" loading="lazy"></div><div class="news-card-body"><div class="news-card-meta"><span class="news-date">January 2025</span><span class="news-type">Event</span></div><h3 class="news-card-title">Rabbit VC Desert Rose Workation Day 7</h3><p class="news-card-desc">Rabbit Ventures shared a day-seven update from the Desert Rose Workation, noting that the photos did not capture the five startup teams working almost nonstop on their laptops.</p><span class="news-card-link">Read more</span></div></a>
-      <a class="news-card reveal" href="https://www.linkedin.com/posts/aviramjenik_thank-you-sangwon-lim-for-your-kind-words-activity-7290563026125029377-lKCy" target="_blank" rel="noopener"><div class="news-card-cover"><img src="../news-images/202501-desert-rose-2025-workshop-reflection-by-phyxup-hea.jpg" alt="" loading="lazy"></div><div class="news-card-body"><div class="news-card-meta"><span class="news-date">January 2025</span><span class="news-type">Event</span></div><h3 class="news-card-title">Desert Rose 2025 Workshop Reflection by PhyxUp Health</h3><p class="news-card-desc">Rabbit Ventures reposted Sangwon Lim’s reflection on the Desert Rose 2025 workshop, describing it as a two-week workation bringing together LPs, mentors, and founders for growth strategy, connections, and founder development.</p><span class="news-card-link">Read more</span></div></a>
-    </div>
-  </section>
-
+  </figure>
+  <div class="dr-prose"><div class="dr-sec"><h2 class="dr-h">Why the desert</h2><div class="dr-copy"><p>Most founder support today is a stream of events, networking nights, and accelerator demo days. It is useful, but it is not where the hardest questions get answered. Founders rarely run out of meetings. They run out of attention. The work that decides a company’s trajectory keeps getting postponed.</p><p>Desert Rose Workation was Rabbit Ventures’ answer to that. We took our portfolio founders into the Arizona desert for two weeks. No fixed agenda. No demo day at the end. Just enough isolation that the surface noise falls away and the real problems become impossible to avoid.</p><blockquote class="dr-quote"><p>“Our goal was to help founders focus on the essential problems and the vision, in an isolated environment.”</p><footer>Aviram Jenik, General Partner, Rabbit Ventures</footer></blockquote></div></div><div class="dr-sec"><h2 class="dr-h">One rule: there are no rules</h2><div class="dr-copy"><p>The program’s philosophy is simple. There is no formal schedule, no mandatory mentoring blocks, no compulsory sessions. Founders move through the two weeks on their own goals: seeking out the mentor they need that day, sitting down with an investor over coffee, working shoulder-to-shoulder with another founder on a hard problem.</p><p>The format is intentionally bare so that the unplanned moments can happen: the late-night kitchen conversation, the half-hour walk between cabins, the campfire question that nobody expected.</p><blockquote class="dr-quote"><p>“Startups grow inside isolation and uncertainty. Desert Rose Workation gives founders a way to turn that isolation into creative inspiration.”</p><footer>SK Lee, COO, Rabbit Ventures</footer></blockquote></div></div><div class="dr-sec"><h2 class="dr-h">Who is in the room</h2><div class="dr-copy"><p>The first edition gathered roughly twenty people: the Rabbit Ventures team, founders from our portfolio, a marketing and storytelling coach, a cybersecurity specialist, and founder-turned-investors. Each cohort is intentionally small so that everyone is in the same room, eating the same meals, and arguing about the same problems.</p></div></div><div class="dr-sec"><h2 class="dr-h">What founders take away</h2><div class="dr-copy"><p>Founders do not just work at Desert Rose. They find, sharpen, and start to execute their own story. Product decisions clarify. Positioning gets honest. Fundraising narratives get tested by people who have raised before. And investors stop looking like capital providers and start looking like partners on a long walk.</p><blockquote class="dr-quote"><p>“The founders I met at Desert Rose were not just talking about the business. They were discovering their own story and starting to act on it.”</p><footer>Jonghee Hong, Mentor &amp; Storytelling Coach (MyStoryDoer)</footer></blockquote></div></div><div class="dr-sec"><h2 class="dr-h">How it helps Rabbit founders</h2><div class="dr-copy"><p>For us, Desert Rose is the highest-leverage two weeks of the year. A founder leaves with a clearer thesis, a sharper go-to-market motion, a peer group of other founders who will pick up the phone for years afterward, and direct access to the LPs and mentors who have already faced the problems they are about to face. That compounding is what we are investing in.</p></div></div></div>
+  <h2 class="dr-sub">Two weeks in pictures</h2>
+  <div class="dr-gal"><button type="button" class="wide" data-full="./photos/dr-trail-vista.jpg"><img src="./photos/dr-trail-vista.jpg" alt="On the trail above the valley" loading="lazy" /></button><button type="button" class="tall" data-full="./photos/dr-zion-road.jpg"><img src="./photos/dr-zion-road.jpg" alt="The whole group, on the road below the Watchman" loading="lazy" /></button><button type="button" class="" data-full="./photos/dr-ledge-group.jpg"><img src="./photos/dr-ledge-group.jpg" alt="A ledge, and somewhere to sit" loading="lazy" /></button><button type="button" class="" data-full="./photos/dr-dinner-table.jpg"><img src="./photos/dr-dinner-table.jpg" alt="The whole house at one table" loading="lazy" /></button><button type="button" class="" data-full="./photos/dr-fire-pit.jpg"><img src="./photos/dr-fire-pit.jpg" alt="The campfire question nobody expected" loading="lazy" /></button><button type="button" class="" data-full="./photos/dr-mentor-conversation.jpg"><img src="./photos/dr-mentor-conversation.jpg" alt="A founder and a mentor, working it out" loading="lazy" /></button><button type="button" class="wide" data-full="./photos/dr-ping-pong.jpg"><img src="./photos/dr-ping-pong.jpg" alt="The garage table, settling something" loading="lazy" /></button><button type="button" class="" data-full="./photos/dr-canyon-sit.jpg"><img src="./photos/dr-canyon-sit.jpg" alt="Above the canyon" loading="lazy" /></button><button type="button" class="" data-full="./photos/dr-table-work.jpg"><img src="./photos/dr-table-work.jpg" alt="Four laptops, one problem" loading="lazy" /></button><button type="button" class="" data-full="./photos/dr-making-dumplings.jpg"><img src="./photos/dr-making-dumplings.jpg" alt="Dinner takes a production line" loading="lazy" /></button><button type="button" class="" data-full="./photos/dr-riverbank.jpg"><img src="./photos/dr-riverbank.jpg" alt="Down at the water" loading="lazy" /></button><button type="button" class="wide" data-full="./photos/dr-kitchen-line.jpg"><img src="./photos/dr-kitchen-line.jpg" alt="Plating up for twenty" loading="lazy" /></button><button type="button" class="" data-full="./photos/dr-working-armchair.jpg"><img src="./photos/dr-working-armchair.jpg" alt="Heads-down in the good chair" loading="lazy" /></button><button type="button" class="" data-full="./photos/dr-hackathon-room.jpg"><img src="./photos/dr-hackathon-room.jpg" alt="Hackathon night" loading="lazy" /></button><button type="button" class="" data-full="./photos/dr-red-rock-perch.jpg"><img src="./photos/dr-red-rock-perch.jpg" alt="Red rock, blue sky" loading="lazy" /></button><button type="button" class="" data-full="./photos/dr-heading-home.jpg"><img src="./photos/dr-heading-home.jpg" alt="Bags packed, two weeks later" loading="lazy" /></button></div>
+  <h2 class="dr-sub">Stories from the desert</h2>
+  <div class="nw-list"><a class="nw" href="https://brunch.co.kr/@mystorydoer/94" target="_blank" rel="noopener"><span class="nw-when"><time>Feb 6, 2026</time><em>Press</em></span><span class="nw-cover"><img src="../news-images/20260206-desert-rose-2026-scene-1-deja-vu-evolution.webp" alt="" loading="lazy" /></span><span class="nw-body"><span class="nw-title">Desert Rose 2026 Scene #1: Déjà Vu &amp; Evolution</span><span class="nw-desc">A Brunch article documented the second Desert Rose Workation, describing how Rabbit Ventures refined the program from the previous year and positioned it as a denser execution-focused gathering for portfolio founders.</span></span></a><a class="nw" href="https://www.linkedin.com/posts/aviramjenik_i-just-spent-2-weeks-with-several-of-our-activity-7421663546381369344-4EG3" target="_blank" rel="noopener"><span class="nw-when"><time>Jan 26, 2026</time><em>Event</em></span><span class="nw-cover"><img src="../news-images/202602-desert-rose-2026-workation-recap-v2.jpg" alt="" loading="lazy" /></span><span class="nw-body"><span class="nw-title">Desert Rose 2026 Workation Recap</span><span class="nw-desc">Rabbit Ventures spent two weeks with portfolio companies in an isolated Southern Utah house, focused on founder-to-founder product feedback, onboarding, lead generation, marketing, fundraising, and peer learning.</span></span></a><a class="nw" href="https://brunch.co.kr/@mystorydoer/74" target="_blank" rel="noopener"><span class="nw-when"><time>Feb 7, 2025</time><em>Press</em></span><span class="nw-cover"><img src="../news-images/20250207-desert-rose-workation-journal-1-why-founders-went.jpg" alt="" loading="lazy" /></span><span class="nw-body"><span class="nw-title">Desert Rose Workation Journal #1: Why Founders Went to the Desert</span><span class="nw-desc">A Brunch article introduced Rabbit Ventures’ Desert Rose Workation, explaining the program’s goal of helping founders focus on essential problems and vision in an isolated environment.</span></span></a><a class="nw" href="https://www.linkedin.com/posts/aviramjenik_thank-you-sangwon-lim-for-your-kind-words-activity-7290563026125029377-lKCy" target="_blank" rel="noopener"><span class="nw-when"><time>Jan 30, 2025</time><em>Event</em></span><span class="nw-cover"><img src="../news-images/202501-desert-rose-2025-workshop-reflection-by-phyxup-hea.jpg" alt="" loading="lazy" /></span><span class="nw-body"><span class="nw-title">Desert Rose 2025 Workshop Reflection by PhyxUp Health</span><span class="nw-desc">Rabbit Ventures reposted Sangwon Lim’s reflection on the Desert Rose 2025 workshop, describing it as a two-week workation bringing together LPs, mentors, and founders for growth strategy, connections, and founder development.</span></span></a><a class="nw" href="https://www.linkedin.com/posts/aviramjenik_rabbit-vc-desert-rose-workation-day-7-activity-7286087386210484225-L_kr" target="_blank" rel="noopener"><span class="nw-when"><time>Jan 17, 2025</time><em>Event</em></span><span class="nw-cover"><img src="../news-images/202501-rabbit-vc-desert-rose-workation-day-7.jpg" alt="" loading="lazy" /></span><span class="nw-body"><span class="nw-title">Rabbit VC Desert Rose Workation Day 7</span><span class="nw-desc">Rabbit Ventures shared a day-seven update from the Desert Rose Workation, noting that the photos did not capture the five startup teams working almost nonstop on their laptops.</span></span></a></div>
 </main>
-
-<dialog class="dr-lightbox" id="dr-lightbox">
+<dialog class="dr-lightbox" id="lightbox">
   <button class="close" type="button" aria-label="Close">&times;</button>
-  <img alt="" />
 </dialog>
-
-<script>
-  (function () {
-    var dlg = document.getElementById('dr-lightbox');
-    if (!dlg || !dlg.showModal) return;                 /* no dialog support: frames stay inert */
-    var img = dlg.querySelector('img');
-    document.querySelectorAll('.dr-grid button').forEach(function (b) {
-      b.addEventListener('click', function () {
-        img.src = b.dataset.full;
-        img.alt = b.querySelector('img').alt;
-        dlg.showModal();
-      });
-    });
-    dlg.querySelector('.close').addEventListener('click', function () { dlg.close(); });
-    dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
-    dlg.addEventListener('close', function () { img.removeAttribute('src'); });
-  })();
-</script>
-
-<footer class="footer">
-  <p class="copy">Copyright &copy; Rabbit Ventures</p>
+<footer class="s-foot">
+  <span class="s-wordmark">Rabbit Ventures</span>
+  <span>Copyright &copy; Rabbit Ventures</span>
 </footer>
-
-<script src="../app.js?v=202609091320" defer></script>
+</div>
+<script>
+(function () {
+  var b = document.getElementById('menu-btn'), m = document.getElementById('mobile-menu');
+  if (!b || !m) return;
+  b.addEventListener('click', function () {
+    var open = m.hidden;
+    m.hidden = !open;
+    b.setAttribute('aria-expanded', String(open));
+  });
+})();
+// Contact: copy the address without leaving the page.
+(function () {
+  var b = document.getElementById('copy-addr');
+  if (!b || !navigator.clipboard) { if (b) b.hidden = true; return; }
+  b.addEventListener('click', function () {
+    navigator.clipboard.writeText('hello@rabbitvc.com').then(function () {
+      var t = b.textContent; b.textContent = 'Copied';
+      setTimeout(function () { b.textContent = t; }, 1600);
+    });
+  });
+})();
+// Desert Rose: open a frame full size.
+(function () {
+  var dlg = document.getElementById('lightbox');
+  if (!dlg) return;
+  var img = null;                            // created on first open, so the
+  function frame() {                         // page never holds a srcless <img>
+    if (!img) { img = document.createElement('img'); dlg.appendChild(img); }
+    return img;
+  }
+  document.querySelectorAll('.dr-gal button').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var el = frame();
+      el.src = b.dataset.full;
+      el.alt = b.querySelector('img').alt;
+      dlg.showModal();
+    });
+  });
+  dlg.querySelector('.close').addEventListener('click', function () { dlg.close(); });
+  dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
+  dlg.addEventListener('close', function () { if (img) img.remove(), img = null; });
+})();
+</script>
 </body>
 </html>
