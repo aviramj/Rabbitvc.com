@@ -929,6 +929,19 @@
 .ep-copy p{font-size:17px;line-height:1.62;color:var(--ink2);margin:0 0 16px;max-width:66ch;}
 .ep-copy p:last-child{margin-bottom:0;}
 
+/* Temporary, while the YouTube channel is off. With no player the page opens
+   on type, so the name is the heading and carries the role under it, and the
+   guest's note below says only what the heading does not. Restoring the video
+   version makes this block unused. */
+.ep-h1--lede{margin-bottom:9px;}
+.ep-role{font-size:clamp(16px,1.5vw,18px);font-weight:500;color:var(--ink);
+  line-height:1.45;margin:0 0 clamp(22px,2.8vw,34px);}
+.ep-guest-cap + .ep-guest-bio{margin-top:0;}
+.ep-guest-link{margin:15px 0 0;font-size:14px;}
+.ep-guest-link a{color:var(--ink2);border-bottom:1px solid var(--rule);padding-bottom:2px;
+  transition:color .15s,border-color .15s;}
+.ep-guest-link a:hover{color:var(--brand);border-bottom-color:var(--brand);}
+
 .ep-guest{border-top:1px solid var(--rule);margin-top:clamp(30px,3.8vw,48px);
   padding-top:clamp(22px,2.6vw,32px);}
 .ep-guest-cap{font-size:14px;color:var(--accent);margin:0 0 8px;}
