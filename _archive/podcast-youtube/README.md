@@ -21,15 +21,18 @@ The live `/podcast/` is a temporary, audio-only version of the same thing:
 - YouTube is gone from the "Listen on" rows on the index and the episode pages,
 - the "Watch" cues on the index read "Listen",
 - an episode page was laid out around the video, so with the video gone it was
-  rebuilt around type: the guest's name is the heading and is said once, with
-  the role under it, then the write-up, the "Listen on" row, and a short note
-  on the guest with a LinkedIn link at the foot. The archived pages carry the
-  old shape, where the name ran as both the heading and the guest's name, and
+  rebuilt around type. It opens on the guest — the name, the role, the note,
+  each a step quieter than the line above, with the name itself linking to
+  their LinkedIn — then the episode under its own rule, headed "In this
+  episode", then the "Listen on" row. The archived pages carry the old shape,
+  where the name ran as both the heading and the head of the guest block, and
   previous/next named some guests with their company and some without.
 
 The stylesheet carries a temporary block at the end of the episode-page
-section — `.ep-h1--lede`, `.ep-role`, `.ep-guest-link` and one margin reset —
-which the restored pages do not use. It can go when the video comes back.
+section — `.ep-h1--lede`, `.ep-role`, `.ep-bio`, `.ep-about` and `.ep-cap` —
+which the restored pages do not use. It can go when the video comes back. The
+`.ep-guest*` rules above it are the ones the archived pages need, so they stay
+where they are.
 
 Everything else — copy, artwork, guests, ordering, Spotify and Apple links — is
 untouched.
