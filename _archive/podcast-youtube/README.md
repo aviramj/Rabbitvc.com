@@ -13,7 +13,11 @@ underscore, so `_archive/` is in the repository but not on `rabbitvc.com`.
 
 The live `/podcast/` is a temporary, audio-only version of the same thing:
 
-- each episode plays from its Spotify embed instead of the YouTube iframe,
+- the YouTube iframe is gone from every episode page, and nothing plays in
+  its place: an episode is read on the page and heard on Spotify or Apple
+  Podcasts through the "Listen on" row. A Spotify embed stood there briefly;
+  it was taken out because its cover art is part of the iframe and cannot be
+  styled or hidden from our side,
 - YouTube is gone from the "Listen on" rows on the index and the episode pages,
 - the "Watch" cues on the index read "Listen".
 
@@ -30,8 +34,7 @@ From the repository root:
 
 That copies these files back over `/podcast/`. Review with `git diff`, then
 commit. The archived pages use the `.ep-video` rule in `rv.css`, which was left
-in place, so no stylesheet change is needed to restore; `.ep-audio` in `rv.css`
-becomes unused at that point and can be dropped.
+in place, so nothing in the stylesheet needs changing to restore.
 
 Same thing straight from git history, if you prefer:
 
