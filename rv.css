@@ -33,18 +33,20 @@
 .s-wordmark{font-family:var(--ff-d);font-size:19px;letter-spacing:.01em;font-weight:600;line-height:1;}
 
 /* The wordmark is the brand's own lettering, which is not a typeface we
-   hold, so it comes from the logo file. Drawn as a mask rather than an
-   <img>, it still takes the colour of whatever it sits in — cream in the
-   bar, muted cream in the footer — and the words stay in the markup for
-   anything that reads the page rather than looks at it. Height is the
-   ascender height the type it replaces had, so the scale is unchanged;
-   width follows the file's own proportion, 518:56. */
+   hold, so it comes from the logo file — the vector one, so it is sharp at
+   any size. Drawn as a mask rather than an <img>, it still takes the colour
+   of whatever it sits in, cream in the bar and muted cream in the footer,
+   and the words stay in the markup for anything that reads the page rather
+   than looks at it. Only the file's alpha is read, so either colourway
+   serves. The box carries the file's whole 566:92 frame, in which the
+   lettering is centred, and is sized so the lettering lands at the 13.4px
+   ascender height of the type it replaced. */
 @supports ((mask-image:url("")) or (-webkit-mask-image:url(""))) {
   .s-wordmark{
-    display:inline-block;width:124px;height:13.4px;
+    display:inline-block;width:139.5px;height:22.7px;
     background-color:currentColor;
-    -webkit-mask:url(wp-content/uploads/2025/09/rabbit-wordmark.png) no-repeat center/100% 100%;
-    mask:url(wp-content/uploads/2025/09/rabbit-wordmark.png) no-repeat center/100% 100%;
+    -webkit-mask:url(wp-content/uploads/2025/09/rabbit-ventures-text-white.svg) no-repeat center/contain;
+    mask:url(wp-content/uploads/2025/09/rabbit-ventures-text-white.svg) no-repeat center/contain;
     text-indent:-200vw;overflow:hidden;white-space:nowrap;
   }
 }
