@@ -31,6 +31,23 @@
    to sit up rather than hang. 4px above the shared midline. */
 .s-brand .mark{width:21px;height:27px;transform:translateY(-4px);}
 .s-wordmark{font-family:var(--ff-d);font-size:19px;letter-spacing:.01em;font-weight:600;line-height:1;}
+
+/* The wordmark is the brand's own lettering, which is not a typeface we
+   hold, so it comes from the logo file. Drawn as a mask rather than an
+   <img>, it still takes the colour of whatever it sits in — cream in the
+   bar, muted cream in the footer — and the words stay in the markup for
+   anything that reads the page rather than looks at it. Height is the
+   ascender height the type it replaces had, so the scale is unchanged;
+   width follows the file's own proportion, 518:56. */
+@supports ((mask-image:url("")) or (-webkit-mask-image:url(""))) {
+  .s-wordmark{
+    display:inline-block;width:124px;height:13.4px;
+    background-color:currentColor;
+    -webkit-mask:url(wp-content/uploads/2025/09/rabbit-wordmark.png) no-repeat center/100% 100%;
+    mask:url(wp-content/uploads/2025/09/rabbit-wordmark.png) no-repeat center/100% 100%;
+    text-indent:-200vw;overflow:hidden;white-space:nowrap;
+  }
+}
 .s-links{display:flex;gap:clamp(12px,1.7vw,26px);flex-wrap:wrap;}
 .s-links a{font-size:13.5px;font-weight:500;color:var(--ink2);padding-bottom:2px;border-bottom:1px solid transparent;transition:color .15s,border-color .15s;}
 .s-links a:hover{color:var(--ink);border-bottom-color:var(--accent);}
