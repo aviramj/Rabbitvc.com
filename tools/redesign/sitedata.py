@@ -242,7 +242,13 @@ PORTFOLIO = [{'desc': 'Hyperlocal hiring platform for local shops and SMBs',
   'name': 'bukio',
   'style': 'max-height:30px'}]
 
-NEWS = [{'date': 'Aug 5, 2026',
+NEWS = [{'date': 'Oct 6, 2026',
+  'desc': 'Rabbit Ventures held its Annual General Meeting in Seoul, hosted by JiranSoft, bringing together founders, LPs, and guests. Spotlite CEO Hannah Choi gave the line that stayed with the room: “AI shouldn’t be used to cause harm. It should be used to fight it.” Aviram Jenik and advisor Oded Hermoni discussed what Korea’s startup ecosystem shares with Israel’s, and General Partner MJ (Min Jung) Kang gave an update on the fund and the launch of Fund II.',
+  'href': 'https://www.linkedin.com/feed/update/urn:li:activity:7513231389283078144',
+  'img': 'news-images/20261006-rabbit-ventures-annual-general-meeting-2026-seoul.jpg',
+  'kind': 'Event',
+  'title': 'Rabbit Ventures Annual General Meeting 2026, Seoul'},
+ {'date': 'Aug 5, 2026',
   'desc': 'Rabbit Ventures invested in AlpacaX, which gives AI agents and teams safe, scoped access to '
           'production infrastructure. Its Alpacon platform provides command-level control, Slack-based '
           'approvals, and full audit trails, so agents can debug, deploy, and maintain within defined '
