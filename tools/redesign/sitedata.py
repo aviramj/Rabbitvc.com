@@ -52,6 +52,7 @@ TEAM = [{'bio': 'Aviram Jenik, an entrepreneur, investor, and advisor in the B2B
 PARTNERS = [('Ryan Sanghoon Lee', 'https://www.linkedin.com/in/ryanshlee/'),
  ('Sun Cho', 'https://www.linkedin.com/in/suncho/'),
  ('Woojin Kim', 'https://www.linkedin.com/in/woojin-kim-2952896/'),
+ ('Rufina Park', 'https://www.linkedin.com/in/rufinapark/'),
  ('Chris Chae', 'https://www.linkedin.com/in/chaec/'),
  ('Kyum Kim', 'https://www.linkedin.com/in/kyumkim/'),
  ('Chang Kim', 'https://www.linkedin.com/in/changkim/'),
