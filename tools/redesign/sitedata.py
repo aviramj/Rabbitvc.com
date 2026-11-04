@@ -241,7 +241,12 @@ PORTFOLIO = [{'desc': 'Hyperlocal hiring platform for local shops and SMBs',
   'href': 'https://buk.io',
   'img': 'logos/bukio.svg',
   'name': 'bukio',
-  'style': 'max-height:30px'}]
+  'style': 'max-height:30px'},
+ {'desc': 'Deep and dark web threat intelligence for investigation and monitoring',
+  'href': 'https://www.stealthmole.com',
+  'img': 'logos/stealthmole.png',
+  'name': 'StealthMole',
+  'style': 'max-height:34px'}]
 
 NEWS = [{'date': 'Oct 6, 2026',
   'desc': 'Rabbit Ventures held its Annual General Meeting in Seoul, hosted by JiranSoft, bringing together founders, LPs, and guests. Spotlite CEO Hannah Choi gave the line that stayed with the room: “AI shouldn’t be used to cause harm. It should be used to fight it.” Aviram Jenik and advisor Oded Hermoni discussed what Korea’s startup ecosystem shares with Israel’s, and General Partner MJ (Min Jung) Kang gave an update on the fund and the launch of Fund II.',
