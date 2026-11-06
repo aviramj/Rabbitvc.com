@@ -251,6 +251,11 @@ PORTFOLIO = [{'desc': 'Hyperlocal hiring platform for local shops and SMBs',
   'href': 'https://www.dodoisland.ai',
   'img': 'logos/dodoisland-ai.svg',
   'name': 'dodoisland AI',
+  'style': ''},
+ {'desc': 'Smart factory platform: IIoT and AI analytics for small and mid-sized manufacturers',
+  'href': 'https://www.ulalalab.com',
+  'img': 'logos/ulalalab.png',
+  'name': 'ulalaLAB',
   'style': ''}]
 
 NEWS = [{'date': 'Oct 6, 2026',
