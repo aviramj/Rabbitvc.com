@@ -264,9 +264,10 @@ PORTFOLIO = [{'desc': 'Hyperlocal hiring platform for local shops and SMBs',
   'style': 'max-height:30px'}]
 
 NEWS = [{'date': 'Nov 7, 2026',
-  'desc': 'Rabbit Ventures invested in dodoisland AI, whose dodo Sage works directly on the SAP system a '
-          'company already runs. It reads the tables it needs, writes the code, ships the app, and '
-          'forecasts what comes next, with no data pipeline or warehouse in between.',
+  'desc': 'Rabbit Ventures invested in dodoisland AI, whose dodo Sage gives every SAP customer a team of '
+          'AI consultants. It connects directly to the SAP system a company already runs, analyzes live '
+          'business data, builds and deploys working SAP applications, and forecasts what comes next, with '
+          'no separate data pipeline or warehouse required.',
   'href': 'https://lnkd.in/p/dXCVcux8',
   'img': 'news-images/20261107-new-in-the-portfolio-dodoisland-ai.jpg',
   'kind': 'Portfolio',
