@@ -256,7 +256,12 @@ PORTFOLIO = [{'desc': 'Hyperlocal hiring platform for local shops and SMBs',
   'href': 'https://www.ulalalab.com',
   'img': 'logos/ulalalab.png',
   'name': 'ulalaLAB',
-  'style': ''}]
+  'style': ''},
+ {'desc': 'Influencer marketing platform matching brands with the right influencers, validated by data',
+  'href': '',
+  'img': 'logos/persona.png',
+  'name': 'Persona',
+  'style': 'max-height:30px'}]
 
 NEWS = [{'date': 'Oct 6, 2026',
   'desc': 'Rabbit Ventures held its Annual General Meeting in Seoul, hosted by JiranSoft, bringing together founders, LPs, and guests. Spotlite CEO Hannah Choi gave the line that stayed with the room: “AI shouldn’t be used to cause harm. It should be used to fight it.” Aviram Jenik and advisor Oded Hermoni discussed what Korea’s startup ecosystem shares with Israel’s, and General Partner MJ (Min Jung) Kang gave an update on the fund and the launch of Fund II.',
