@@ -263,7 +263,15 @@ PORTFOLIO = [{'desc': 'Hyperlocal hiring platform for local shops and SMBs',
   'name': 'Persona',
   'style': 'max-height:30px'}]
 
-NEWS = [{'date': 'Oct 6, 2026',
+NEWS = [{'date': 'Nov 7, 2026',
+  'desc': 'Rabbit Ventures invested in dodoisland AI, whose dodo Sage works directly on the SAP system a '
+          'company already runs. It reads the tables it needs, writes the code, ships the app, and '
+          'forecasts what comes next, with no data pipeline or warehouse in between.',
+  'href': 'https://lnkd.in/p/dXCVcux8',
+  'img': 'news-images/20261107-new-in-the-portfolio-dodoisland-ai.jpg',
+  'kind': 'Portfolio',
+  'title': 'New in the Portfolio: dodoisland AI'},
+ {'date': 'Oct 6, 2026',
   'desc': 'Rabbit Ventures held its Annual General Meeting in Seoul, hosted by JiranSoft, bringing together founders, LPs, and guests. Spotlite CEO Hannah Choi gave the line that stayed with the room: “AI shouldn’t be used to cause harm. It should be used to fight it.” Aviram Jenik and advisor Oded Hermoni discussed what Korea’s startup ecosystem shares with Israel’s, and General Partner MJ (Min Jung) Kang gave an update on the fund and the launch of Fund II.',
   'href': 'https://www.linkedin.com/feed/update/urn:li:activity:7513231389283078144',
   'img': 'news-images/20261006-rabbit-ventures-agm-2026-seoul-photo.jpg',
